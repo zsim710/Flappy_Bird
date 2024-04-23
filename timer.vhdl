@@ -33,6 +33,14 @@ architecture Behavioral of timer is
     );
   end component;
 
+  component Clock_Divider is
+    port (
+      Clk_in : in STD_LOGIC;
+      divider : in integer;
+      clk_out : out STD_LOGIC
+    );
+  end component;
+
   signal onesCnt       : std_logic_vector(3 downto 0);
   signal tensCnt       : std_logic_vector(3 downto 0);
   signal minsCnt       : std_logic_vector(3 downto 0);
@@ -43,6 +51,7 @@ architecture Behavioral of timer is
   signal direction_hard       : STD_LOGIC             := '0'; -- Direction of the counter
   signal init_tenstimer : STD_LOGIC;
   signal Timer_Out_test : STD_LOGIC := '0'; -- Output of the timer
+  signal clk_1hz : STD_LOGIC; -- 1Hz clock signal
 
 begin
   -- Clock divider process
@@ -66,9 +75,17 @@ begin
   end if;
   end process;
 
+
+  divide_clock: Clock_Divider
+  port map (
+    Clk_in => clk,
+    divider => 50000000, -- 1Hz 
+    clk_out => clk_1hz
+  );
+
   BCD_CounterOnes: BCD_counter
   port map (
-    Clk_BCD       => clk, 
+    Clk_BCD       => clk_1hz, 
     init      => start, -- route the start signal to the init signal of the BCD counter, only need to initialise it once
     enable    => enableonestimer, -- route the enable signal to the enable signal of the BCD counter
     direction => direction_hard, -- route the direction signal to the direction signal of the BCD counter
@@ -77,7 +94,7 @@ begin
 
   BCD_CounterTens: BCD_counter
     port map (
-      Clk_BCD       => clk, -- Use the synchronized slow clock
+      Clk_BCD       => clk_1hz, -- Use the synchronized slow clock
       init      => init_tenstimer,
       enable    => enabletenstimer,
       direction => direction_hard,
@@ -86,7 +103,7 @@ begin
 
   BCD_Countermins: BCD_counter
     port map (
-      Clk_BCD       => clk,
+      Clk_BCD       => clk_1hz,
       init      => start,
       enable    => enableminstimer,
       direction => direction_hard,
