@@ -2,143 +2,199 @@ m255
 K3
 13
 cModel Technology
-Z0 d\\Mac\Home\Documents\305compsys\lab3-2
+d\\Mac\Home\Documents\305compsys\lab3-2
 Ebcd_counter
-Z1 w1713240228
-Z2 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
-Z3 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
-Z4 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
-Z5 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
-Z6 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
-Z7 d\\Mac\Home\Documents\305compsys\lab3-2
-Z8 8//Mac/Home/Documents/305compsys/lab3-2/BCD_counter.vhdl
-Z9 F//Mac/Home/Documents/305compsys/lab3-2/BCD_counter.vhdl
+Z0 w1713839852
+Z1 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+Z2 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
+Z3 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z4 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z5 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z6 dC:\Users\deven\Documents\305\305_proj
+Z7 8C:/Users/deven/Documents/305/305_proj/BCD_counter.vhdl
+Z8 FC:/Users/deven/Documents/305/305_proj/BCD_counter.vhdl
 l0
 L6
-VBY>TIj2`AGZD;P6In>__n0
-Z10 OV;C;10.1d;51
+V2HUBEZ6i7`1FI[2B5D2Ja1
+Z9 OV;C;10.1d;51
 32
-Z11 !s108 1713390229.806000
-Z12 !s90 -reportprogress|300|-work|work|//Mac/Home/Documents/305compsys/lab3-2/BCD_counter.vhdl|
-Z13 !s107 //Mac/Home/Documents/305compsys/lab3-2/BCD_counter.vhdl|
-Z14 o-work work -O0
-Z15 tExplicit 1
-!s100 IdMX^6`fdG4Lg`RYcU[df1
+Z10 !s108 1713839909.519000
+Z11 !s90 -reportprogress|300|-work|work|C:/Users/deven/Documents/305/305_proj/BCD_counter.vhdl|
+Z12 !s107 C:/Users/deven/Documents/305/305_proj/BCD_counter.vhdl|
+Z13 o-work work -O0
+Z14 tExplicit 1
+!s100 7Od4MT_R7bAo_PEmG0z8G0
 !i10b 1
 Abehavioral
+R1
 R2
 R3
 R4
 R5
-R6
-DEx4 work 11 bcd_counter 0 22 BY>TIj2`AGZD;P6In>__n0
+DEx4 work 11 bcd_counter 0 22 2HUBEZ6i7`1FI[2B5D2Ja1
 l18
 L16
-VHET3T2N2=TzhD@YYe[D[;2
-R10
+Vc;PPLXFeVSf`3So`^QK[B3
+R9
 32
+R10
 R11
 R12
 R13
 R14
-R15
-!s100 H6`zHL7_@CMnNKocJB53R0
+!s100 2RTaY7WPZ[zGc@jHWgS6d3
 !i10b 1
 Ebcd_to_sevseg
-Z16 w1713257969
+Z15 w1713839852
+R4
 R5
 R6
-R7
-Z17 8//Mac/Home/Documents/305compsys/lab3-2/BCD_to_SevSeg.vhdl
-Z18 F//Mac/Home/Documents/305compsys/lab3-2/BCD_to_SevSeg.vhdl
+Z16 8C:/Users/deven/Documents/305/305_proj/BCD_to_SevSeg.vhdl
+Z17 FC:/Users/deven/Documents/305/305_proj/BCD_to_SevSeg.vhdl
 l0
 L4
 V;@Y1O@@a1e3797CWAo>bI2
-R10
+R9
 32
-Z19 !s108 1713390229.980000
-Z20 !s90 -reportprogress|300|-work|work|//Mac/Home/Documents/305compsys/lab3-2/BCD_to_SevSeg.vhdl|
-Z21 !s107 //Mac/Home/Documents/305compsys/lab3-2/BCD_to_SevSeg.vhdl|
+Z18 !s108 1713839909.693000
+Z19 !s90 -reportprogress|300|-work|work|C:/Users/deven/Documents/305/305_proj/BCD_to_SevSeg.vhdl|
+Z20 !s107 C:/Users/deven/Documents/305/305_proj/BCD_to_SevSeg.vhdl|
+R13
 R14
-R15
 !s100 >5]DV9W=d_[AF^bU4NR<F0
 !i10b 1
 Aarc1
+R4
 R5
-R6
 DEx4 work 13 bcd_to_sevseg 0 22 ;@Y1O@@a1e3797CWAo>bI2
 l10
 L9
 VVP3JaPmIB0QWO;9R@]fIF2
-R10
+R9
 32
+R18
 R19
 R20
-R21
+R13
 R14
+!s100 =JOD_A>Z75Van3fD?il6[2
+!i10b 1
+Eclock_divider
 R15
-!s100 m@UM^7@RQZkL;JIBz[5W`0
+R3
+R4
+R5
+R6
+Z21 8C:/Users/deven/Documents/305/305_proj/Clock_Divider.vhdl
+Z22 FC:/Users/deven/Documents/305/305_proj/Clock_Divider.vhdl
+l0
+L5
+Vm=MK_M2E7JWQcOhnePE7=1
+R9
+32
+Z23 !s108 1713839909.788000
+Z24 !s90 -reportprogress|300|-work|work|C:/Users/deven/Documents/305/305_proj/Clock_Divider.vhdl|
+Z25 !s107 C:/Users/deven/Documents/305/305_proj/Clock_Divider.vhdl|
+R13
+R14
+!s100 ZDY[_5bZ[lA9[dHlh0kR71
+!i10b 1
+Aarch
+R3
+R4
+R5
+DEx4 work 13 clock_divider 0 22 m=MK_M2E7JWQcOhnePE7=1
+l17
+L14
+V1k4i42BhSf08X?6;GT;0k3
+R9
+32
+R23
+R24
+R25
+R13
+R14
+!s100 MDEYhUR]YLaSGjL;]kJiY0
 !i10b 1
 Etimer
-w1713390182
+Z26 w1713840197
+R1
 R2
 R3
 R4
 R5
 R6
-R7
-8//Mac/Home/Documents/305compsys/lab3-2/timer.vhdl
-F//Mac/Home/Documents/305compsys/lab3-2/timer.vhdl
+Z27 8C:/Users/deven/Documents/305/305_proj/timer.vhdl
+Z28 FC:/Users/deven/Documents/305/305_proj/timer.vhdl
 l0
 L6
 VbQ1Rbc5:Ge<;5o;ce94Sf1
 !s100 O:b]mUbjJmBeAHcomN[EB0
-R10
+R9
 32
 !i10b 1
-!s108 1713390528.305000
-!s90 -reportprogress|300|-work|work|//Mac/Home/Documents/305compsys/lab3-2/timer.vhdl|
-!s107 //Mac/Home/Documents/305compsys/lab3-2/timer.vhdl|
+Z29 !s108 1713840511.269000
+Z30 !s90 -reportprogress|300|-work|work|C:/Users/deven/Documents/305/305_proj/timer.vhdl|
+Z31 !s107 C:/Users/deven/Documents/305/305_proj/timer.vhdl|
+R13
 R14
-R15
+Abehavioral
+R1
+R2
+R3
+R4
+R5
+Z32 DEx4 work 5 timer 0 22 bQ1Rbc5:Ge<;5o;ce94Sf1
+l56
+L15
+Z33 V]bK]9d8H9OVAbjXE7Ef``0
+Z34 !s100 a6`johZ9<i3AAcBYOOJS>3
+R9
+32
+!i10b 1
+R29
+R30
+R31
+R13
+R14
 Etimer_tb
-Z22 w1713389244
+Z35 w1713840505
+R1
 R2
 R3
 R4
 R5
 R6
-R7
-Z23 8//Mac/Home/Documents/305compsys/lab3-2/test_timer.vhdl
-Z24 F//Mac/Home/Documents/305compsys/lab3-2/test_timer.vhdl
+Z36 8C:/Users/deven/Documents/305/305_proj/test_timer.vhdl
+Z37 FC:/Users/deven/Documents/305/305_proj/test_timer.vhdl
 l0
 L6
 VcHLKNiV97QCSYg5VoiI1>3
-R10
+R9
 32
-Z25 !s108 1713389279.863000
-Z26 !s90 -reportprogress|300|-work|work|//Mac/Home/Documents/305compsys/lab3-2/test_timer.vhdl|
-Z27 !s107 //Mac/Home/Documents/305compsys/lab3-2/test_timer.vhdl|
+Z38 !s108 1713840511.166000
+Z39 !s90 -reportprogress|300|-work|work|C:/Users/deven/Documents/305/305_proj/test_timer.vhdl|
+Z40 !s107 C:/Users/deven/Documents/305/305_proj/test_timer.vhdl|
+R13
 R14
-R15
 !s100 O=N;AAVOdkQ0=WcZoncN_2
 !i10b 1
 Abehavioral
+R1
 R2
 R3
 R4
 R5
-R6
 DEx4 work 8 timer_tb 0 22 cHLKNiV97QCSYg5VoiI1>3
 l28
 L9
-VFgbS2k^5=nZ;XZPOl5BCn0
-R10
+VfI=<JemAUaGalD[51BUU_1
+R9
 32
-R25
-R26
-R27
+R38
+R39
+R40
+R13
 R14
-R15
-!s100 ]njJ`XADV?YQ`3g:Dn9Wh2
+!s100 HfP5]mA@aUHY^AcBW1kRa3
 !i10b 1

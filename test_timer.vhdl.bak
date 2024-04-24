@@ -46,6 +46,17 @@ begin
         wait for clk_period;
     end process;
    
-    start <= '0', '1' after 30ns, '0' after 40ns;
+    stim_proc: process
+    begin
+        -- hold reset state for 100 ns.
+        wait for 100 ns;  
+        
+        start <= '1';  -- assert start
+        wait for clk_period * 10;
+        
+        start <= '0';  -- de-assert start
+        wait for clk_period * 100;
+        
+    end process;
 
 end Behavioral;
