@@ -6,8 +6,8 @@ use IEEE.std_logic_unsigned.all;
 entity timer is
   port
   (
-    Clk                                      : in std_logic;
-    Start                                    : in std_logic;
+    CLOCK2_50                                 : in std_logic;
+    Start                                    : in std_logic; --Start
     Data_In                                  : in std_logic_vector(9 downto 0);
     Timer_Out                                : out std_logic;
     DISPLAY_ones, DISPLAY_tens, DISPLAY_mins : out std_logic_vector(6 downto 0) --For testbench
@@ -67,7 +67,7 @@ begin
   divide_clock : Clock_Divider
   port map
   (
-    Clk_in  => Clk,
+    Clk_in  => CLOCK2_50,
     divider => 50000000, -- 1Hz 
     clk_out => clk_1hz
   );
@@ -75,7 +75,7 @@ begin
   BCD_CounterOnes : BCD_counter
   port
   map (
-  Clk_BCD   => Clk,
+  Clk_BCD   => clk_1hz,
   init      => Start, -- route the start signal to the init signal of the BCD counter, only need to initialise it once
   enable    => enableonestimer, -- route the enable signal to the enable signal of the BCD counter
   direction => direction_hard, -- route the direction signal to the direction signal of the BCD counter
@@ -88,7 +88,7 @@ begin
   BCD_CounterTens : BCD_counter
   port
   map (
-  Clk_BCD   => Clk, -- Use the synchronized slow clock
+  Clk_BCD   => clk_1hz, -- Use the synchronized slow clock
   init      => init_tenstimer,
   enable    => enabletenstimer,
   direction => direction_hard,
@@ -106,8 +106,8 @@ begin
   BCD_Countermins : BCD_counter
   port
   map (
-  Clk_BCD   => Clk,
-  init      => start,
+  Clk_BCD   => clk_1hz,
+  init      => Start,
   enable    => enableminstimer,
   direction => direction_hard,
   Q_Out     => minsCnt
