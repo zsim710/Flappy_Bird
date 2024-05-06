@@ -1,0 +1,53 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'vert_sync'
+Slack : -1.746
+TNS   : -20.370
+
+Type  : Slow 1100mV 85C Model Hold 'vert_sync'
+Slack : 0.502
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'vert_sync'
+Slack : -0.538
+TNS   : -12.328
+
+Type  : Slow 1100mV 0C Model Setup 'vert_sync'
+Slack : -1.871
+TNS   : -22.216
+
+Type  : Slow 1100mV 0C Model Hold 'vert_sync'
+Slack : 0.492
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'vert_sync'
+Slack : -0.538
+TNS   : -12.663
+
+Type  : Fast 1100mV 85C Model Setup 'vert_sync'
+Slack : -0.305
+TNS   : -1.530
+
+Type  : Fast 1100mV 85C Model Hold 'vert_sync'
+Slack : 0.199
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'vert_sync'
+Slack : -0.088
+TNS   : -1.383
+
+Type  : Fast 1100mV 0C Model Setup 'vert_sync'
+Slack : -0.240
+TNS   : -1.112
+
+Type  : Fast 1100mV 0C Model Hold 'vert_sync'
+Slack : 0.190
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'vert_sync'
+Slack : -0.092
+TNS   : -1.456
+
+------------------------------------------------------------

@@ -1,6 +1,6 @@
 Analysis & Synthesis report for timer
-Sun Apr 28 19:50:57 2024
-Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+Thu May 02 17:18:32 2024
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
 ---------------------
@@ -44,27 +44,27 @@ refer to the applicable agreement for further details.
 
 
 
-+-----------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                      ;
-+---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Apr 28 19:50:57 2024           ;
-; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
-; Revision Name                   ; timer                                           ;
-; Top-level Entity Name           ; timer                                           ;
-; Family                          ; Cyclone V                                       ;
-; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 46                                              ;
-; Total pins                      ; 34                                              ;
-; Total virtual pins              ; 0                                               ;
-; Total block memory bits         ; 0                                               ;
-; Total DSP Blocks                ; 0                                               ;
-; Total HSSI RX PCSs              ; 0                                               ;
-; Total HSSI PMA RX Deserializers ; 0                                               ;
-; Total HSSI TX PCSs              ; 0                                               ;
-; Total HSSI PMA TX Serializers   ; 0                                               ;
-; Total PLLs                      ; 0                                               ;
-; Total DLLs                      ; 0                                               ;
-+---------------------------------+-------------------------------------------------+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Thu May 02 17:18:32 2024       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; timer                                       ;
+; Top-level Entity Name           ; timer                                       ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 46                                          ;
+; Total pins                      ; 34                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -167,20 +167,21 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-16        ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                    ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                             ; Library ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------+---------+
-; ../../Clock_Divider.vhdl         ; yes             ; User VHDL File  ; C:/Users/deven/Documents/305/305_proj/Clock_Divider.vhdl ;         ;
-; ../../BCD_to_SevSeg.vhdl         ; yes             ; User VHDL File  ; C:/Users/deven/Documents/305/305_proj/BCD_to_SevSeg.vhdl ;         ;
-; ../../BCD_counter.vhdl           ; yes             ; User VHDL File  ; C:/Users/deven/Documents/305/305_proj/BCD_counter.vhdl   ;         ;
-; ../../timer.vhdl                 ; yes             ; User VHDL File  ; C:/Users/deven/Documents/305/305_proj/timer.vhdl         ;         ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                         ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                  ; Library ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------+---------+
+; ../../Clock_Divider.vhdl         ; yes             ; User VHDL File  ; C:/Users/deven/Documents/305/305_proj/LAB3/Clock_Divider.vhdl ;         ;
+; ../../BCD_to_SevSeg.vhdl         ; yes             ; User VHDL File  ; C:/Users/deven/Documents/305/305_proj/LAB3/BCD_to_SevSeg.vhdl ;         ;
+; ../../BCD_counter.vhdl           ; yes             ; User VHDL File  ; C:/Users/deven/Documents/305/305_proj/LAB3/BCD_counter.vhdl   ;         ;
+; ../../timer.vhdl                 ; yes             ; User VHDL File  ; C:/Users/deven/Documents/305/305_proj/LAB3/timer.vhdl         ;         ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------------+
@@ -343,29 +344,29 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Sun Apr 28 19:50:48 2024
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Thu May 02 17:18:21 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off timer -c timer
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
-Info (12021): Found 2 design units, including 1 entities, in source file /users/deven/documents/305/305_proj/clock_divider.vhdl
-    Info (12022): Found design unit 1: Clock_Divider-arch File: C:/Users/deven/Documents/305/305_proj/Clock_Divider.vhdl Line: 14
-    Info (12023): Found entity 1: Clock_Divider File: C:/Users/deven/Documents/305/305_proj/Clock_Divider.vhdl Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file /users/deven/documents/305/305_proj/bcd_to_sevseg.vhdl
-    Info (12022): Found design unit 1: BCD_to_SevSeg-arc1 File: C:/Users/deven/Documents/305/305_proj/BCD_to_SevSeg.vhdl Line: 9
-    Info (12023): Found entity 1: BCD_to_SevSeg File: C:/Users/deven/Documents/305/305_proj/BCD_to_SevSeg.vhdl Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /users/deven/documents/305/305_proj/bcd_counter.vhdl
-    Info (12022): Found design unit 1: BCD_counter-Behavioral File: C:/Users/deven/Documents/305/305_proj/BCD_counter.vhdl Line: 16
-    Info (12023): Found entity 1: BCD_counter File: C:/Users/deven/Documents/305/305_proj/BCD_counter.vhdl Line: 6
-Info (12021): Found 2 design units, including 1 entities, in source file /users/deven/documents/305/305_proj/timer.vhdl
-    Info (12022): Found design unit 1: timer-Behavioral File: C:/Users/deven/Documents/305/305_proj/timer.vhdl Line: 17
-    Info (12023): Found entity 1: timer File: C:/Users/deven/Documents/305/305_proj/timer.vhdl Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /users/deven/documents/305/305_proj/lab3/clock_divider.vhdl
+    Info (12022): Found design unit 1: Clock_Divider-arch File: C:/Users/deven/Documents/305/305_proj/LAB3/Clock_Divider.vhdl Line: 14
+    Info (12023): Found entity 1: Clock_Divider File: C:/Users/deven/Documents/305/305_proj/LAB3/Clock_Divider.vhdl Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/deven/documents/305/305_proj/lab3/bcd_to_sevseg.vhdl
+    Info (12022): Found design unit 1: BCD_to_SevSeg-arc1 File: C:/Users/deven/Documents/305/305_proj/LAB3/BCD_to_SevSeg.vhdl Line: 9
+    Info (12023): Found entity 1: BCD_to_SevSeg File: C:/Users/deven/Documents/305/305_proj/LAB3/BCD_to_SevSeg.vhdl Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /users/deven/documents/305/305_proj/lab3/bcd_counter.vhdl
+    Info (12022): Found design unit 1: BCD_counter-Behavioral File: C:/Users/deven/Documents/305/305_proj/LAB3/BCD_counter.vhdl Line: 16
+    Info (12023): Found entity 1: BCD_counter File: C:/Users/deven/Documents/305/305_proj/LAB3/BCD_counter.vhdl Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /users/deven/documents/305/305_proj/lab3/timer.vhdl
+    Info (12022): Found design unit 1: timer-Behavioral File: C:/Users/deven/Documents/305/305_proj/LAB3/timer.vhdl Line: 17
+    Info (12023): Found entity 1: timer File: C:/Users/deven/Documents/305/305_proj/LAB3/timer.vhdl Line: 6
 Info (12127): Elaborating entity "timer" for the top level hierarchy
-Warning (10540): VHDL Signal Declaration warning at timer.vhdl(54): used explicit default value for signal "enableonestimer" because signal was never assigned a value File: C:/Users/deven/Documents/305/305_proj/timer.vhdl Line: 54
-Warning (10540): VHDL Signal Declaration warning at timer.vhdl(57): used explicit default value for signal "direction_hard" because signal was never assigned a value File: C:/Users/deven/Documents/305/305_proj/timer.vhdl Line: 57
-Info (12128): Elaborating entity "Clock_Divider" for hierarchy "Clock_Divider:divide_clock" File: C:/Users/deven/Documents/305/305_proj/timer.vhdl Line: 67
-Info (12128): Elaborating entity "BCD_counter" for hierarchy "BCD_counter:BCD_CounterOnes" File: C:/Users/deven/Documents/305/305_proj/timer.vhdl Line: 75
-Info (12128): Elaborating entity "BCD_to_SevSeg" for hierarchy "BCD_to_SevSeg:BCD_to_SevenSegment_ones" File: C:/Users/deven/Documents/305/305_proj/timer.vhdl Line: 115
+Warning (10540): VHDL Signal Declaration warning at timer.vhdl(54): used explicit default value for signal "enableonestimer" because signal was never assigned a value File: C:/Users/deven/Documents/305/305_proj/LAB3/timer.vhdl Line: 54
+Warning (10540): VHDL Signal Declaration warning at timer.vhdl(57): used explicit default value for signal "direction_hard" because signal was never assigned a value File: C:/Users/deven/Documents/305/305_proj/LAB3/timer.vhdl Line: 57
+Info (12128): Elaborating entity "Clock_Divider" for hierarchy "Clock_Divider:divide_clock" File: C:/Users/deven/Documents/305/305_proj/LAB3/timer.vhdl Line: 67
+Info (12128): Elaborating entity "BCD_counter" for hierarchy "BCD_counter:BCD_CounterOnes" File: C:/Users/deven/Documents/305/305_proj/LAB3/timer.vhdl Line: 75
+Info (12128): Elaborating entity "BCD_to_SevSeg" for hierarchy "BCD_to_SevSeg:BCD_to_SevenSegment_ones" File: C:/Users/deven/Documents/305/305_proj/LAB3/timer.vhdl Line: 115
 Info (286030): Timing-Driven Synthesis is running
 Warning (20013): Ignored 24 assignments for entity "DE0_CV_Default" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity DE0_CV_Default -section_id Top was ignored
@@ -399,9 +400,9 @@ Info (21057): Implemented 139 device resources after synthesis - the final resou
     Info (21059): Implemented 22 output pins
     Info (21061): Implemented 105 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 28 warnings
-    Info: Peak virtual memory: 4915 megabytes
-    Info: Processing ended: Sun Apr 28 19:50:57 2024
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:07
+    Info: Peak virtual memory: 4916 megabytes
+    Info: Processing ended: Thu May 02 17:18:32 2024
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:05
 
 
