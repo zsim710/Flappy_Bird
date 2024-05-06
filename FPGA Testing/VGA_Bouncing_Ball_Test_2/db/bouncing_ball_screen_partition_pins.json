@@ -1,0 +1,37 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "vert_sync_out",
+					"strict" : false
+				},
+				{
+					"name" : "red_out",
+					"strict" : false
+				},
+				{
+					"name" : "green_out",
+					"strict" : false
+				},
+				{
+					"name" : "blue_out",
+					"strict" : false
+				},
+				{
+					"name" : "horiz_sync_out",
+					"strict" : false
+				},
+				{
+					"name" : "pb1",
+					"strict" : false
+				},
+				{
+					"name" : "pb2",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

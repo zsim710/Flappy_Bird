@@ -1,0 +1,6 @@
+
+
+C:/Users/deven/Documents/305/305_proj/FPGA Testing/VGA_Bouncing_Ball_Testing/pll.vhd
+
+May 05 03PM:22:56>: Megafunction PLL Intel FPGA IP v18.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
