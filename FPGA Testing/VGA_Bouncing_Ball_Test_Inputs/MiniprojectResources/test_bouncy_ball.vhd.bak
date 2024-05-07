@@ -1,0 +1,45 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.STD_LOGIC_ARITH.all;
+use IEEE.STD_LOGIC_UNSIGNED.all;
+
+entity test_bouncy_ball is
+end entity test_bouncy_ball;
+
+architecture testBench of test_bouncy_ball is
+  signal t_clk            : std_logic;
+  signal t_pb1            : std_logic;
+  signal t_pb2            : std_logic;
+  signal t_vert_sync_out  : std_logic;
+  signal t_red_out        : std_logic;
+  signal t_green_out      : std_logic;
+  signal t_blue_out       : std_logic;
+  signal t_horiz_sync_out : std_logic;
+
+  component high_lvl_entity is
+    port
+    (
+      clk            : in std_logic;
+      pb1            : in std_logic;
+      pb2            : in std_logic;
+      vert_sync_out  : out std_logic;
+      red_out        : out std_logic;
+      green_out      : out std_logic;
+      blue_out       : out std_logic;
+      horiz_sync_out : out std_logic
+    );
+  end component;
+
+begin
+  DUT : bouncy_ball port map
+    (t_clk, t_pb1, t_pb2, t_vert_sync_out, t_red_out, t_green_out, t_blue_out, t_horiz_sync_out);
+
+  clk_gen : process
+  begin
+    wait for 5 ns;
+    t_clk <= '1';
+    wait for 5 ns;
+    t_clk <= '0';
+  end process clk_gen;
+
+end architecture testBench;
