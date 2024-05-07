@@ -1,5 +1,5 @@
 Fitter report for bouncing_ball_screen
-Mon May 06 19:52:31 2024
+Tue May 07 12:59:51 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Fitter Summary                                                                ;
 +---------------------------------+---------------------------------------------+
-; Fitter Status                   ; Successful - Mon May 06 19:52:31 2024       ;
+; Fitter Status                   ; Successful - Tue May 07 12:59:51 2024       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; bouncing_ball_screen                        ;
 ; Top-level Entity Name           ; bouncing_ball_screen                        ;
@@ -1715,7 +1715,7 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:02
-Info (11888): Total time spent on timing analysis during the Fitter is 0.34 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.30 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -1724,10 +1724,10 @@ Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:02
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Info (144001): Generated suppressed messages file C:/Users/deven/Documents/305/305_proj/FPGA Testing/VGA_Bouncing_Ball_Test_2/output_files/bouncing_ball_screen.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 206 warnings
-    Info: Peak virtual memory: 7577 megabytes
-    Info: Processing ended: Mon May 06 19:52:31 2024
+    Info: Peak virtual memory: 7568 megabytes
+    Info: Processing ended: Tue May 07 12:59:52 2024
     Info: Elapsed time: 00:00:19
-    Info: Total CPU time (on all processors): 00:00:51
+    Info: Total CPU time (on all processors): 00:00:52
 
 
 +----------------------------+
