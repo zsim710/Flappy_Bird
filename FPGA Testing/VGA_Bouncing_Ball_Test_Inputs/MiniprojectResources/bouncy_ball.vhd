@@ -6,13 +6,11 @@ entity bouncy_ball is
   port
   (
     pb1, pb2, left_click, right_click, clk, vert_sync : in std_logic;
-    pixel_row, pixel_column              : in std_logic_vector(9 downto 0);
-    red, green, blue                     : out std_logic);
+    pixel_row, pixel_column                           : in std_logic_vector(9 downto 0);
+    red, green, blue                                  : out std_logic);
 end bouncy_ball;
 
 architecture behavior of bouncy_ball is
-
-
 
   component vga_sync is
     port
@@ -29,6 +27,7 @@ architecture behavior of bouncy_ball is
   signal ball_x_pos    : std_logic_vector(10 downto 0) := "00101000000";
   signal ball_y_motion : std_logic_vector(9 downto 0)  := "0000000010";
   signal ball_x_motion : std_logic_vector(10 downto 0) := "00000000010";
+  signal speed         : std_logic_vector(9 downto 0)  := "0000000101";
 begin
 
   size <= CONV_STD_LOGIC_VECTOR(8, 10);
@@ -42,34 +41,30 @@ begin
   Red   <= not ball_on;
   Green <= '1';
   Blue  <= not ball_on;
-  Move_Ball : process (vert_sync, left_click, right_click)
+  Move_Ball : process (vert_sync, left_click)
+    variable previousYBallMotion : std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(0, 10);
+    variable left_click_pressed  : std_logic                    := '0';
   begin
     -- Move ball once every vertical sync
     if (rising_edge(vert_sync)) then
-      -- Bounce off top or bottom of the screen
-      if (('0' & ball_y_pos >= CONV_STD_LOGIC_VECTOR(479, 10) - size)) then
-        ball_y_motion     <= - CONV_STD_LOGIC_VECTOR(2, 10);
-      elsif (ball_y_pos <= size) then
-        ball_y_motion     <= CONV_STD_LOGIC_VECTOR(2, 10);
-      end if;
-      -- Bounce off left or right of the screen
-      --if (('0' & ball_x_pos >= CONV_STD_LOGIC_VECTOR(639, 11) - size)) then
-        --ball_x_motion     <= - CONV_STD_LOGIC_VECTOR(2, 11);
-      --elsif (ball_x_pos <= size) then
-        --ball_x_motion     <= CONV_STD_LOGIC_VECTOR(2, 11);
-      --end if;
-      if (left_click = '1') then
-        --ball_x_motion <= CONV_STD_LOGIC_VECTOR(5, 11);
-        ball_y_motion <= - CONV_STD_LOGIC_VECTOR(4, 10);
-		  ball_y_pos <= ball_y_pos + 10;
-		--elsif (right_click = '1') then
-		  --ball_x_motion <= CONV_STD_LOGIC_VECTOR(5, 11);
-		  --ball_y_motion <= CONV_STD_LOGIC_VECTOR(4, 10);
-	   end if;
-		 -- Compute next ball Y position
-		 --ball_x_pos <= ball_x_pos + ball_x_motion;
-		 ball_y_pos <= ball_y_pos + ball_y_motion;
-	  end if;
-   end process Move_Ball;
+      -- Apply gravity effect
+      if (left_click_pressed = '0' and left_click = '1') then -- Adjust threshold as needed
+        ball_y_motion <= previousYBallMotion + CONV_STD_LOGIC_VECTOR(1, 10); -- Increase downward motion
 
- end behavior;
+        -- Check if left click is active (jump)
+      elsif (left_click = '0' and left_click_pressed = '0') then
+        -- Apply upward impulse for a short duration
+        ball_y_motion <= - CONV_STD_LOGIC_VECTOR(10, 10); -- Set initial upward motion
+
+      elsif (left_click = '1') then
+        left_click_pressed := '0';
+      end if;
+
+      -- Update ball position
+      ball_y_pos <= ball_y_pos + ball_y_motion;
+
+      -- Update previous motion for next iteration
+      previousYBallMotion := ball_y_motion;
+    end if;
+  end process Move_Ball;
+end behavior;

@@ -1,11 +1,11 @@
-Analysis & Synthesis Status : Successful - Tue May 07 17:58:43 2024
+Analysis & Synthesis Status : Successful - Tue May 07 22:39:11 2024
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : bouncing_ball_screen
 Top-level Entity Name : bouncing_ball_screen
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 177
-Total pins : 24
+Total registers : 198
+Total pins : 26
 Total virtual pins : 0
 Total block memory bits : 0
 Total DSP Blocks : 0

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for bouncing_ball_screen
-Tue May 07 17:58:43 2024
+Tue May 07 22:39:11 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -48,14 +48,14 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue May 07 17:58:43 2024       ;
+; Analysis & Synthesis Status     ; Successful - Tue May 07 22:39:11 2024       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; bouncing_ball_screen                        ;
 ; Top-level Entity Name           ; bouncing_ball_screen                        ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 177                                         ;
-; Total pins                      ; 24                                          ;
+; Total registers                 ; 198                                         ;
+; Total pins                      ; 26                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -194,18 +194,18 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+------------------------------+
 ; Resource                                    ; Usage                        ;
 +---------------------------------------------+------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 128                          ;
+; Estimate of Logic utilization (ALMs needed) ; 139                          ;
 ;                                             ;                              ;
-; Combinational ALUT usage for logic          ; 212                          ;
+; Combinational ALUT usage for logic          ; 233                          ;
 ;     -- 7 input functions                    ; 1                            ;
-;     -- 6 input functions                    ; 31                           ;
-;     -- 5 input functions                    ; 30                           ;
-;     -- 4 input functions                    ; 28                           ;
-;     -- <=3 input functions                  ; 122                          ;
+;     -- 6 input functions                    ; 28                           ;
+;     -- 5 input functions                    ; 29                           ;
+;     -- 4 input functions                    ; 31                           ;
+;     -- <=3 input functions                  ; 144                          ;
 ;                                             ;                              ;
-; Dedicated logic registers                   ; 177                          ;
+; Dedicated logic registers                   ; 198                          ;
 ;                                             ;                              ;
-; I/O pins                                    ; 24                           ;
+; I/O pins                                    ; 26                           ;
 ;                                             ;                              ;
 ; Total DSP Blocks                            ; 0                            ;
 ;                                             ;                              ;
@@ -213,9 +213,9 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 1                            ;
 ;                                             ;                              ;
 ; Maximum fan-out node                        ; MOUSE:inst4|MOUSE_CLK_FILTER ;
-; Maximum fan-out                             ; 91                           ;
-; Total fan-out                               ; 1348                         ;
-; Average fan-out                             ; 3.06                         ;
+; Maximum fan-out                             ; 93                           ;
+; Total fan-out                               ; 1424                         ;
+; Average fan-out                             ; 2.93                         ;
 +---------------------------------------------+------------------------------+
 
 
@@ -224,12 +224,12 @@ refer to the applicable agreement for further details.
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------+----------------------+--------------+
 ; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                       ; Entity Name          ; Library Name ;
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------+----------------------+--------------+
-; |bouncing_ball_screen              ; 212 (1)             ; 177 (0)                   ; 0                 ; 0          ; 24   ; 0            ; |bouncing_ball_screen                                                     ; bouncing_ball_screen ; work         ;
+; |bouncing_ball_screen              ; 233 (1)             ; 198 (0)                   ; 0                 ; 0          ; 26   ; 0            ; |bouncing_ball_screen                                                     ; bouncing_ball_screen ; work         ;
 ;    |BCD_to_SevenSeg:inst6|         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |bouncing_ball_screen|BCD_to_SevenSeg:inst6                               ; BCD_to_SevenSeg      ; work         ;
 ;    |BCD_to_SevenSeg:inst7|         ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |bouncing_ball_screen|BCD_to_SevenSeg:inst7                               ; BCD_to_SevenSeg      ; work         ;
-;    |MOUSE:inst4|                   ; 107 (107)           ; 118 (118)                 ; 0                 ; 0          ; 0    ; 0            ; |bouncing_ball_screen|MOUSE:inst4                                         ; MOUSE                ; work         ;
+;    |MOUSE:inst4|                   ; 108 (108)           ; 120 (120)                 ; 0                 ; 0          ; 0    ; 0            ; |bouncing_ball_screen|MOUSE:inst4                                         ; MOUSE                ; work         ;
 ;    |VGA_SYNC:inst|                 ; 39 (39)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |bouncing_ball_screen|VGA_SYNC:inst                                       ; VGA_SYNC             ; work         ;
-;    |bouncy_ball:inst8|             ; 50 (50)             ; 11 (11)                   ; 0                 ; 0          ; 0    ; 0            ; |bouncing_ball_screen|bouncy_ball:inst8                                   ; bouncy_ball          ; work         ;
+;    |bouncy_ball:inst8|             ; 70 (70)             ; 30 (30)                   ; 0                 ; 0          ; 0    ; 0            ; |bouncing_ball_screen|bouncy_ball:inst8                                   ; bouncy_ball          ; work         ;
 ;    |pll:inst2|                     ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |bouncing_ball_screen|pll:inst2                                           ; pll                  ; pll          ;
 ;       |pll_0002:pll_inst|          ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |bouncing_ball_screen|pll:inst2|pll_0002:pll_inst                         ; pll_0002             ; pll          ;
 ;          |altera_pll:altera_pll_i| ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |bouncing_ball_screen|pll:inst2|pll_0002:pll_inst|altera_pll:altera_pll_i ; altera_pll           ; work         ;
@@ -261,23 +261,21 @@ Encoding Type:  One-Hot
 +-------------------------------+---------------------------+--------------------------+-------------------------------+---------------------------+--------------------------+---------------------------+
 
 
-+-----------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                      ;
-+----------------------------------------+------------------------------------------------+
-; Register name                          ; Reason for Removal                             ;
-+----------------------------------------+------------------------------------------------+
-; MOUSE:inst4|CHAROUT[4..7]              ; Stuck at VCC due to stuck port data_in         ;
-; MOUSE:inst4|CHAROUT[3]                 ; Stuck at GND due to stuck port data_in         ;
-; MOUSE:inst4|CHAROUT[2]                 ; Stuck at VCC due to stuck port data_in         ;
-; MOUSE:inst4|CHAROUT[0,1]               ; Stuck at GND due to stuck port data_in         ;
-; MOUSE:inst4|SHIFTOUT[10]               ; Stuck at VCC due to stuck port data_in         ;
-; bouncy_ball:inst8|ball_y_motion[3..9]  ; Merged with bouncy_ball:inst8|ball_y_motion[2] ;
-; bouncy_ball:inst8|ball_y_motion[0]     ; Stuck at GND due to stuck port data_in         ;
-; bouncy_ball:inst8|ball_y_pos[0]        ; Stuck at GND due to stuck port data_in         ;
-; MOUSE:inst4|cursor_row[9]              ; Stuck at GND due to stuck port data_in         ;
-; VGA_SYNC:inst|pixel_row[9]             ; Stuck at GND due to stuck port data_in         ;
-; Total Number of Removed Registers = 20 ;                                                ;
-+----------------------------------------+------------------------------------------------+
++------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                       ;
++-------------------------------------------------+----------------------------------------+
+; Register name                                   ; Reason for Removal                     ;
++-------------------------------------------------+----------------------------------------+
+; MOUSE:inst4|CHAROUT[4..7]                       ; Stuck at VCC due to stuck port data_in ;
+; MOUSE:inst4|CHAROUT[3]                          ; Stuck at GND due to stuck port data_in ;
+; MOUSE:inst4|CHAROUT[2]                          ; Stuck at VCC due to stuck port data_in ;
+; MOUSE:inst4|CHAROUT[0,1]                        ; Stuck at GND due to stuck port data_in ;
+; MOUSE:inst4|SHIFTOUT[10]                        ; Stuck at VCC due to stuck port data_in ;
+; bouncy_ball:inst8|\Move_Ball:left_click_pressed ; Stuck at GND due to stuck port data_in ;
+; MOUSE:inst4|cursor_row[9]                       ; Stuck at GND due to stuck port data_in ;
+; VGA_SYNC:inst|pixel_row[9]                      ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 12          ;                                        ;
++-------------------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -285,12 +283,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 177   ;
+; Total registers                              ; 198   ;
 ; Number of registers using Synchronous Clear  ; 28    ;
 ; Number of registers using Synchronous Load   ; 20    ;
 ; Number of registers using Asynchronous Clear ; 16    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 129   ;
+; Number of registers using Clock Enable       ; 132   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -300,10 +298,10 @@ Encoding Type:  One-Hot
 +-----------------------------------------+---------+
 ; Inverted Register                       ; Fan out ;
 +-----------------------------------------+---------+
-; bouncy_ball:inst8|ball_y_pos[5]         ; 5       ;
-; bouncy_ball:inst8|ball_y_pos[4]         ; 5       ;
-; bouncy_ball:inst8|ball_y_pos[7]         ; 6       ;
-; bouncy_ball:inst8|ball_y_pos[6]         ; 6       ;
+; bouncy_ball:inst8|ball_y_pos[4]         ; 3       ;
+; bouncy_ball:inst8|ball_y_pos[7]         ; 4       ;
+; bouncy_ball:inst8|ball_y_pos[6]         ; 4       ;
+; bouncy_ball:inst8|ball_y_pos[5]         ; 4       ;
 ; bouncy_ball:inst8|ball_y_motion[1]      ; 2       ;
 ; MOUSE:inst4|send_char                   ; 3       ;
 ; MOUSE:inst4|SHIFTOUT[3]                 ; 1       ;
@@ -320,14 +318,14 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |bouncing_ball_screen|MOUSE:inst4|new_cursor_column[7]      ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |bouncing_ball_screen|MOUSE:inst4|new_cursor_column[9]      ;
 ; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |bouncing_ball_screen|VGA_SYNC:inst|v_count[1]              ;
 ; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |bouncing_ball_screen|MOUSE:inst4|cursor_row[8]             ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |bouncing_ball_screen|MOUSE:inst4|cursor_row[6]             ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |bouncing_ball_screen|MOUSE:inst4|cursor_column[7]          ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |bouncing_ball_screen|MOUSE:inst4|cursor_column[5]          ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |bouncing_ball_screen|MOUSE:inst4|cursor_column[6]          ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |bouncing_ball_screen|BCD_to_SevenSeg:inst6|SevenSeg_out[2] ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |bouncing_ball_screen|BCD_to_SevenSeg:inst7|SevenSeg_out[0] ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |bouncing_ball_screen|BCD_to_SevenSeg:inst6|SevenSeg_out[5] ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |bouncing_ball_screen|BCD_to_SevenSeg:inst7|SevenSeg_out[2] ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
 
 
@@ -583,38 +581,38 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 177                         ;
+; arriav_ff             ; 198                         ;
 ;     CLR               ; 1                           ;
-;     ENA               ; 76                          ;
+;     ENA               ; 79                          ;
 ;     ENA CLR           ; 15                          ;
 ;     ENA SCLR          ; 18                          ;
 ;     ENA SLD           ; 20                          ;
 ;     SCLR              ; 10                          ;
-;     plain             ; 37                          ;
+;     plain             ; 55                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 215                         ;
-;     arith             ; 63                          ;
+; arriav_lcell_comb     ; 236                         ;
+;     arith             ; 74                          ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 40                          ;
-;         2 data inputs ; 22                          ;
+;         1 data inputs ; 50                          ;
+;         2 data inputs ; 23                          ;
 ;     extend            ; 1                           ;
 ;         7 data inputs ; 1                           ;
-;     normal            ; 141                         ;
+;     normal            ; 151                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 12                          ;
-;         2 data inputs ; 12                          ;
-;         3 data inputs ; 27                          ;
-;         4 data inputs ; 28                          ;
-;         5 data inputs ; 30                          ;
-;         6 data inputs ; 31                          ;
+;         1 data inputs ; 15                          ;
+;         2 data inputs ; 23                          ;
+;         3 data inputs ; 24                          ;
+;         4 data inputs ; 31                          ;
+;         5 data inputs ; 29                          ;
+;         6 data inputs ; 28                          ;
 ;     shared            ; 10                          ;
 ;         1 data inputs ; 1                           ;
 ;         2 data inputs ; 9                           ;
-; boundary_port         ; 24                          ;
+; boundary_port         ; 26                          ;
 ; generic_pll           ; 1                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 4.30                        ;
-; Average LUT depth     ; 2.03                        ;
+; Average LUT depth     ; 2.07                        ;
 +-----------------------+-----------------------------+
 
 
@@ -633,7 +631,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Tue May 07 17:58:33 2024
+    Info: Processing started: Tue May 07 22:39:02 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off bouncing_ball_screen -c bouncing_ball_screen
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -725,7 +723,7 @@ Info (12133): Instantiated megafunction "pll:inst2|pll_0002:pll_inst|altera_pll:
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
 Info (12128): Elaborating entity "bouncy_ball" for hierarchy "bouncy_ball:inst8"
-Warning (10540): VHDL Signal Declaration warning at bouncy_ball.vhd(29): used explicit default value for signal "ball_x_pos" because signal was never assigned a value File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/VGA_Bouncing_Ball_Test_Inputs/MiniprojectResources/bouncy_ball.vhd Line: 29
+Warning (10540): VHDL Signal Declaration warning at bouncy_ball.vhd(27): used explicit default value for signal "ball_x_pos" because signal was never assigned a value File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/VGA_Bouncing_Ball_Test_Inputs/MiniprojectResources/bouncy_ball.vhd Line: 27
 Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:inst4"
 Warning (10036): Verilog HDL or VHDL warning at mouse.vhd(25): object "CHARIN" assigned a value but never read File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/VGA_Bouncing_Ball_Test_Inputs/MiniprojectResources/mouse.vhd Line: 25
 Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/VGA_Bouncing_Ball_Test_Inputs/MiniprojectResources/mouse.vhd Line: 151
@@ -974,16 +972,16 @@ Warning: RST port on the PLL is not properly connected on instance pll:inst2|pll
 Warning (21074): Design contains 2 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "pb1"
     Warning (15610): No output dependent on input pin "pb2"
-Info (21057): Implemented 306 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 339 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
-    Info (21059): Implemented 19 output pins
+    Info (21059): Implemented 21 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 281 logic cells
+    Info (21061): Implemented 312 logic cells
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 242 warnings
-    Info: Peak virtual memory: 4929 megabytes
-    Info: Processing ended: Tue May 07 17:58:43 2024
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:07
+    Info: Peak virtual memory: 4927 megabytes
+    Info: Processing ended: Tue May 07 22:39:11 2024
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:05
 
 

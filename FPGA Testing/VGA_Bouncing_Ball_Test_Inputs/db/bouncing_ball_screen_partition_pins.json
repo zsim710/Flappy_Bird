@@ -80,6 +80,14 @@
 					"strict" : false
 				},
 				{
+					"name" : "LEDR[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR[0]",
+					"strict" : false
+				},
+				{
 					"name" : "PS2_DAT",
 					"strict" : false
 				},

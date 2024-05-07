@@ -23,6 +23,8 @@ HEX1[3] <= BCD_to_SevenSeg:inst7.SevenSeg_out[3]
 HEX1[4] <= BCD_to_SevenSeg:inst7.SevenSeg_out[4]
 HEX1[5] <= BCD_to_SevenSeg:inst7.SevenSeg_out[5]
 HEX1[6] <= BCD_to_SevenSeg:inst7.SevenSeg_out[6]
+LEDR[0] <= MOUSE:inst4.left_button
+LEDR[1] <= MOUSE:inst4.right_button
 
 
 |bouncing_ball_screen|VGA_SYNC:inst
@@ -294,16 +296,9 @@ zdbfbclk <> <GND>
 |bouncing_ball_screen|bouncy_ball:inst8
 pb1 => ~NO_FANOUT~
 pb2 => ~NO_FANOUT~
-left_click => ball_y_motion.OUTPUTSELECT
-left_click => ball_y_motion.OUTPUTSELECT
-left_click => ball_y_motion.OUTPUTSELECT
-left_click => ball_y_motion.OUTPUTSELECT
-left_click => ball_y_motion.OUTPUTSELECT
-left_click => ball_y_motion.OUTPUTSELECT
-left_click => ball_y_motion.OUTPUTSELECT
-left_click => ball_y_motion.OUTPUTSELECT
-left_click => ball_y_motion.OUTPUTSELECT
-left_click => ball_y_motion.OUTPUTSELECT
+left_click => Move_Ball.IN1
+left_click => left_click_pressed.OUTPUTSELECT
+left_click => Move_Ball.IN1
 right_click => ~NO_FANOUT~
 clk => ~NO_FANOUT~
 vert_sync => ball_y_pos[0].CLK
@@ -326,6 +321,17 @@ vert_sync => ball_y_motion[6].CLK
 vert_sync => ball_y_motion[7].CLK
 vert_sync => ball_y_motion[8].CLK
 vert_sync => ball_y_motion[9].CLK
+vert_sync => \Move_Ball:previousYBallMotion[0].CLK
+vert_sync => \Move_Ball:previousYBallMotion[1].CLK
+vert_sync => \Move_Ball:previousYBallMotion[2].CLK
+vert_sync => \Move_Ball:previousYBallMotion[3].CLK
+vert_sync => \Move_Ball:previousYBallMotion[4].CLK
+vert_sync => \Move_Ball:previousYBallMotion[5].CLK
+vert_sync => \Move_Ball:previousYBallMotion[6].CLK
+vert_sync => \Move_Ball:previousYBallMotion[7].CLK
+vert_sync => \Move_Ball:previousYBallMotion[8].CLK
+vert_sync => \Move_Ball:previousYBallMotion[9].CLK
+vert_sync => \Move_Ball:left_click_pressed.CLK
 pixel_row[0] => Add2.IN20
 pixel_row[0] => LessThan3.IN22
 pixel_row[1] => Add2.IN19
