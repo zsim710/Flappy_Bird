@@ -1,5 +1,5 @@
-Analysis & Synthesis report for flappyBird
-Thu May 02 22:29:18 2024
+Analysis & Synthesis report for flappybird
+Thu May 09 00:12:43 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -10,7 +10,19 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis IP Cores Summary
+  9. State Machine - |flappybird|MOUSE:inst6|mouse_state
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: pll:inst|pll_0002:pll_inst|altera_pll:altera_pll_i
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
 
 
 
@@ -33,22 +45,27 @@ refer to the applicable agreement for further details.
 
 
 
-+---------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                              ;
-+-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Failed - Thu May 02 22:29:18 2024           ;
-; Quartus Prime Version       ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
-; Revision Name               ; flappyBird                                  ;
-; Top-level Entity Name       ; flappyBird                                  ;
-; Family                      ; Cyclone V                                   ;
-; Logic utilization (in ALMs) ; N/A until Partition Merge                   ;
-; Total registers             ; N/A until Partition Merge                   ;
-; Total pins                  ; N/A until Partition Merge                   ;
-; Total virtual pins          ; N/A until Partition Merge                   ;
-; Total block memory bits     ; N/A until Partition Merge                   ;
-; Total PLLs                  ; N/A until Partition Merge                   ;
-; Total DLLs                  ; N/A until Partition Merge                   ;
-+-----------------------------+---------------------------------------------+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Thu May 09 00:12:43 2024       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; flappybird                                  ;
+; Top-level Entity Name           ; flappybird                                  ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 144                                         ;
+; Total pins                      ; 10                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 1                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -57,7 +74,7 @@ refer to the applicable agreement for further details.
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CEBA4F23C7        ;                    ;
-; Top-level entity name                                                           ; flappyBird         ; flappyBird         ;
+; Top-level entity name                                                           ; flappybird         ; flappybird         ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
@@ -147,11 +164,454 @@ refer to the applicable agreement for further details.
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-16        ;   0.0%      ;
 +----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                      ;
++----------------------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path             ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                ; Library ;
++----------------------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------------------+---------+
+; ../VhdlFiles/display_priority_controller.vhd ; yes             ; User VHDL File                     ; C:/Users/deven/Documents/305/305_proj/MiniProject/VhdlFiles/display_priority_controller.vhd ;         ;
+; ../VhdlFiles/bird.vhd                        ; yes             ; User VHDL File                     ; C:/Users/deven/Documents/305/305_proj/MiniProject/VhdlFiles/bird.vhd                        ;         ;
+; ../MiniprojectResources/vga_sync.vhd         ; yes             ; User VHDL File                     ; C:/Users/deven/Documents/305/305_proj/MiniProject/MiniprojectResources/vga_sync.vhd         ;         ;
+; ../MiniprojectResources/mouse.vhd            ; yes             ; User VHDL File                     ; C:/Users/deven/Documents/305/305_proj/MiniProject/MiniprojectResources/mouse.vhd            ;         ;
+; pll.vhd                                      ; yes             ; User Wizard-Generated File         ; C:/Users/deven/Documents/305/305_proj/MiniProject/Quartus/pll.vhd                           ; pll     ;
+; pll/pll_0002.v                               ; yes             ; User Verilog HDL File              ; C:/Users/deven/Documents/305/305_proj/MiniProject/Quartus/pll/pll_0002.v                    ; pll     ;
+; flappybird.bdf                               ; yes             ; User Block Diagram/Schematic File  ; C:/Users/deven/Documents/305/305_proj/MiniProject/Quartus/flappybird.bdf                    ;         ;
+; altera_pll.v                                 ; yes             ; Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altera_pll.v                         ;         ;
++----------------------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                                     ;
++---------------------------------------------+-------------------------------------------------------------------+
+; Resource                                    ; Usage                                                             ;
++---------------------------------------------+-------------------------------------------------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 97                                                                ;
+;                                             ;                                                                   ;
+; Combinational ALUT usage for logic          ; 166                                                               ;
+;     -- 7 input functions                    ; 1                                                                 ;
+;     -- 6 input functions                    ; 12                                                                ;
+;     -- 5 input functions                    ; 38                                                                ;
+;     -- 4 input functions                    ; 21                                                                ;
+;     -- <=3 input functions                  ; 94                                                                ;
+;                                             ;                                                                   ;
+; Dedicated logic registers                   ; 144                                                               ;
+;                                             ;                                                                   ;
+; I/O pins                                    ; 10                                                                ;
+;                                             ;                                                                   ;
+; Total DSP Blocks                            ; 0                                                                 ;
+;                                             ;                                                                   ;
+; Total PLLs                                  ; 1                                                                 ;
+;     -- PLLs                                 ; 1                                                                 ;
+;                                             ;                                                                   ;
+; Maximum fan-out node                        ; pll:inst|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
+; Maximum fan-out                             ; 78                                                                ;
+; Total fan-out                               ; 971                                                               ;
+; Average fan-out                             ; 2.92                                                              ;
++---------------------------------------------+-------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                           ;
++----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------+-----------------------------+--------------+
+; Compilation Hierarchy Node             ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                            ; Entity Name                 ; Library Name ;
++----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------+-----------------------------+--------------+
+; |flappybird                            ; 166 (0)             ; 144 (0)                   ; 0                 ; 0          ; 10   ; 0            ; |flappybird                                                    ; flappybird                  ; work         ;
+;    |MOUSE:inst6|                       ; 49 (49)             ; 65 (65)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird|MOUSE:inst6                                        ; MOUSE                       ; work         ;
+;    |VGA_SYNC:inst2|                    ; 39 (39)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird|VGA_SYNC:inst2                                     ; VGA_SYNC                    ; work         ;
+;    |bird:inst3|                        ; 78 (78)             ; 30 (30)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird|bird:inst3                                         ; bird                        ; work         ;
+;    |display_priority_controller:inst7| ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|display_priority_controller:inst7                  ; display_priority_controller ; work         ;
+;    |pll:inst|                          ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pll:inst                                           ; pll                         ; pll          ;
+;       |pll_0002:pll_inst|              ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pll:inst|pll_0002:pll_inst                         ; pll_0002                    ; pll          ;
+;          |altera_pll:altera_pll_i|     ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pll:inst|pll_0002:pll_inst|altera_pll:altera_pll_i ; altera_pll                  ; work         ;
++----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------+-----------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                  ;
++--------+--------------+---------+--------------+--------------+----------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance      ; IP Include File ;
++--------+--------------+---------+--------------+--------------+----------------------+-----------------+
+; Altera ; altera_pll   ; 18.1    ; N/A          ; N/A          ; |flappybird|pll:inst ; pll.vhd         ;
++--------+--------------+---------+--------------+--------------+----------------------+-----------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |flappybird|MOUSE:inst6|mouse_state                                                                                                                                                     ;
++-------------------------------+---------------------------+--------------------------+-------------------------------+---------------------------+--------------------------+---------------------------+
+; Name                          ; mouse_state.INPUT_PACKETS ; mouse_state.WAIT_CMD_ACK ; mouse_state.WAIT_OUTPUT_READY ; mouse_state.LOAD_COMMAND2 ; mouse_state.LOAD_COMMAND ; mouse_state.INHIBIT_TRANS ;
++-------------------------------+---------------------------+--------------------------+-------------------------------+---------------------------+--------------------------+---------------------------+
+; mouse_state.INHIBIT_TRANS     ; 0                         ; 0                        ; 0                             ; 0                         ; 0                        ; 0                         ;
+; mouse_state.LOAD_COMMAND      ; 0                         ; 0                        ; 0                             ; 0                         ; 1                        ; 1                         ;
+; mouse_state.LOAD_COMMAND2     ; 0                         ; 0                        ; 0                             ; 1                         ; 0                        ; 1                         ;
+; mouse_state.WAIT_OUTPUT_READY ; 0                         ; 0                        ; 1                             ; 0                         ; 0                        ; 1                         ;
+; mouse_state.WAIT_CMD_ACK      ; 0                         ; 1                        ; 0                             ; 0                         ; 0                        ; 1                         ;
+; mouse_state.INPUT_PACKETS     ; 1                         ; 0                        ; 0                             ; 0                         ; 0                        ; 1                         ;
++-------------------------------+---------------------------+--------------------------+-------------------------------+---------------------------+--------------------------+---------------------------+
+
+
++-----------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                            ;
++------------------------------------------+----------------------------------------------------+
+; Register name                            ; Reason for Removal                                 ;
++------------------------------------------+----------------------------------------------------+
+; display_priority_controller:inst7|red    ; Stuck at VCC due to stuck port data_in             ;
+; MOUSE:inst6|CHAROUT[4..7]                ; Stuck at VCC due to stuck port data_in             ;
+; MOUSE:inst6|CHAROUT[3]                   ; Stuck at GND due to stuck port data_in             ;
+; MOUSE:inst6|CHAROUT[2]                   ; Stuck at VCC due to stuck port data_in             ;
+; MOUSE:inst6|CHAROUT[0,1]                 ; Stuck at GND due to stuck port data_in             ;
+; MOUSE:inst6|SHIFTOUT[10]                 ; Stuck at VCC due to stuck port data_in             ;
+; bird:inst3|\Move_Ball:left_click_pressed ; Stuck at GND due to stuck port data_in             ;
+; display_priority_controller:inst7|green  ; Merged with display_priority_controller:inst7|blue ;
+; VGA_SYNC:inst2|pixel_row[9]              ; Stuck at GND due to stuck port data_in             ;
+; Total Number of Removed Registers = 13   ;                                                    ;
++------------------------------------------+----------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 144   ;
+; Number of registers using Synchronous Clear  ; 20    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 16    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 75    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; bird:inst3|ball_y_pos[4]                ; 5       ;
+; bird:inst3|ball_y_pos[7]                ; 6       ;
+; bird:inst3|ball_y_pos[6]                ; 6       ;
+; bird:inst3|ball_y_pos[5]                ; 7       ;
+; MOUSE:inst6|send_char                   ; 3       ;
+; bird:inst3|ball_y_motion[1]             ; 3       ;
+; MOUSE:inst6|SHIFTOUT[3]                 ; 1       ;
+; MOUSE:inst6|SHIFTOUT[5]                 ; 1       ;
+; MOUSE:inst6|SHIFTOUT[6]                 ; 1       ;
+; MOUSE:inst6|SHIFTOUT[7]                 ; 1       ;
+; MOUSE:inst6|SHIFTOUT[8]                 ; 1       ;
+; Total number of inverted registers = 11 ;         ;
++-----------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappybird|VGA_SYNC:inst2|v_count[9]   ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 27 LEs               ; 0 LEs                  ; Yes        ; |flappybird|bird:inst3|ball_y_motion[6] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pll:inst|pll_0002:pll_inst|altera_pll:altera_pll_i ;
++--------------------------------------+------------------------+---------------------------------+
+; Parameter Name                       ; Value                  ; Type                            ;
++--------------------------------------+------------------------+---------------------------------+
+; reference_clock_frequency            ; 50.0 MHz               ; String                          ;
+; fractional_vco_multiplier            ; false                  ; String                          ;
+; pll_type                             ; General                ; String                          ;
+; pll_subtype                          ; General                ; String                          ;
+; number_of_clocks                     ; 1                      ; Signed Integer                  ;
+; operation_mode                       ; direct                 ; String                          ;
+; deserialization_factor               ; 4                      ; Signed Integer                  ;
+; data_rate                            ; 0                      ; Signed Integer                  ;
+; sim_additional_refclk_cycles_to_lock ; 0                      ; Signed Integer                  ;
+; output_clock_frequency0              ; 25.000000 MHz          ; String                          ;
+; phase_shift0                         ; 0 ps                   ; String                          ;
+; duty_cycle0                          ; 50                     ; Signed Integer                  ;
+; output_clock_frequency1              ; 0 MHz                  ; String                          ;
+; phase_shift1                         ; 0 ps                   ; String                          ;
+; duty_cycle1                          ; 50                     ; Signed Integer                  ;
+; output_clock_frequency2              ; 0 MHz                  ; String                          ;
+; phase_shift2                         ; 0 ps                   ; String                          ;
+; duty_cycle2                          ; 50                     ; Signed Integer                  ;
+; output_clock_frequency3              ; 0 MHz                  ; String                          ;
+; phase_shift3                         ; 0 ps                   ; String                          ;
+; duty_cycle3                          ; 50                     ; Signed Integer                  ;
+; output_clock_frequency4              ; 0 MHz                  ; String                          ;
+; phase_shift4                         ; 0 ps                   ; String                          ;
+; duty_cycle4                          ; 50                     ; Signed Integer                  ;
+; output_clock_frequency5              ; 0 MHz                  ; String                          ;
+; phase_shift5                         ; 0 ps                   ; String                          ;
+; duty_cycle5                          ; 50                     ; Signed Integer                  ;
+; output_clock_frequency6              ; 0 MHz                  ; String                          ;
+; phase_shift6                         ; 0 ps                   ; String                          ;
+; duty_cycle6                          ; 50                     ; Signed Integer                  ;
+; output_clock_frequency7              ; 0 MHz                  ; String                          ;
+; phase_shift7                         ; 0 ps                   ; String                          ;
+; duty_cycle7                          ; 50                     ; Signed Integer                  ;
+; output_clock_frequency8              ; 0 MHz                  ; String                          ;
+; phase_shift8                         ; 0 ps                   ; String                          ;
+; duty_cycle8                          ; 50                     ; Signed Integer                  ;
+; output_clock_frequency9              ; 0 MHz                  ; String                          ;
+; phase_shift9                         ; 0 ps                   ; String                          ;
+; duty_cycle9                          ; 50                     ; Signed Integer                  ;
+; output_clock_frequency10             ; 0 MHz                  ; String                          ;
+; phase_shift10                        ; 0 ps                   ; String                          ;
+; duty_cycle10                         ; 50                     ; Signed Integer                  ;
+; output_clock_frequency11             ; 0 MHz                  ; String                          ;
+; phase_shift11                        ; 0 ps                   ; String                          ;
+; duty_cycle11                         ; 50                     ; Signed Integer                  ;
+; output_clock_frequency12             ; 0 MHz                  ; String                          ;
+; phase_shift12                        ; 0 ps                   ; String                          ;
+; duty_cycle12                         ; 50                     ; Signed Integer                  ;
+; output_clock_frequency13             ; 0 MHz                  ; String                          ;
+; phase_shift13                        ; 0 ps                   ; String                          ;
+; duty_cycle13                         ; 50                     ; Signed Integer                  ;
+; output_clock_frequency14             ; 0 MHz                  ; String                          ;
+; phase_shift14                        ; 0 ps                   ; String                          ;
+; duty_cycle14                         ; 50                     ; Signed Integer                  ;
+; output_clock_frequency15             ; 0 MHz                  ; String                          ;
+; phase_shift15                        ; 0 ps                   ; String                          ;
+; duty_cycle15                         ; 50                     ; Signed Integer                  ;
+; output_clock_frequency16             ; 0 MHz                  ; String                          ;
+; phase_shift16                        ; 0 ps                   ; String                          ;
+; duty_cycle16                         ; 50                     ; Signed Integer                  ;
+; output_clock_frequency17             ; 0 MHz                  ; String                          ;
+; phase_shift17                        ; 0 ps                   ; String                          ;
+; duty_cycle17                         ; 50                     ; Signed Integer                  ;
+; clock_name_0                         ;                        ; String                          ;
+; clock_name_1                         ;                        ; String                          ;
+; clock_name_2                         ;                        ; String                          ;
+; clock_name_3                         ;                        ; String                          ;
+; clock_name_4                         ;                        ; String                          ;
+; clock_name_5                         ;                        ; String                          ;
+; clock_name_6                         ;                        ; String                          ;
+; clock_name_7                         ;                        ; String                          ;
+; clock_name_8                         ;                        ; String                          ;
+; clock_name_global_0                  ; false                  ; String                          ;
+; clock_name_global_1                  ; false                  ; String                          ;
+; clock_name_global_2                  ; false                  ; String                          ;
+; clock_name_global_3                  ; false                  ; String                          ;
+; clock_name_global_4                  ; false                  ; String                          ;
+; clock_name_global_5                  ; false                  ; String                          ;
+; clock_name_global_6                  ; false                  ; String                          ;
+; clock_name_global_7                  ; false                  ; String                          ;
+; clock_name_global_8                  ; false                  ; String                          ;
+; m_cnt_hi_div                         ; 1                      ; Signed Integer                  ;
+; m_cnt_lo_div                         ; 1                      ; Signed Integer                  ;
+; m_cnt_bypass_en                      ; false                  ; String                          ;
+; m_cnt_odd_div_duty_en                ; false                  ; String                          ;
+; n_cnt_hi_div                         ; 1                      ; Signed Integer                  ;
+; n_cnt_lo_div                         ; 1                      ; Signed Integer                  ;
+; n_cnt_bypass_en                      ; false                  ; String                          ;
+; n_cnt_odd_div_duty_en                ; false                  ; String                          ;
+; c_cnt_hi_div0                        ; 1                      ; Signed Integer                  ;
+; c_cnt_lo_div0                        ; 1                      ; Signed Integer                  ;
+; c_cnt_bypass_en0                     ; false                  ; String                          ;
+; c_cnt_in_src0                        ; ph_mux_clk             ; String                          ;
+; c_cnt_odd_div_duty_en0               ; false                  ; String                          ;
+; c_cnt_prst0                          ; 1                      ; Signed Integer                  ;
+; c_cnt_ph_mux_prst0                   ; 0                      ; Signed Integer                  ;
+; c_cnt_hi_div1                        ; 1                      ; Signed Integer                  ;
+; c_cnt_lo_div1                        ; 1                      ; Signed Integer                  ;
+; c_cnt_bypass_en1                     ; false                  ; String                          ;
+; c_cnt_in_src1                        ; ph_mux_clk             ; String                          ;
+; c_cnt_odd_div_duty_en1               ; false                  ; String                          ;
+; c_cnt_prst1                          ; 1                      ; Signed Integer                  ;
+; c_cnt_ph_mux_prst1                   ; 0                      ; Signed Integer                  ;
+; c_cnt_hi_div2                        ; 1                      ; Signed Integer                  ;
+; c_cnt_lo_div2                        ; 1                      ; Signed Integer                  ;
+; c_cnt_bypass_en2                     ; false                  ; String                          ;
+; c_cnt_in_src2                        ; ph_mux_clk             ; String                          ;
+; c_cnt_odd_div_duty_en2               ; false                  ; String                          ;
+; c_cnt_prst2                          ; 1                      ; Signed Integer                  ;
+; c_cnt_ph_mux_prst2                   ; 0                      ; Signed Integer                  ;
+; c_cnt_hi_div3                        ; 1                      ; Signed Integer                  ;
+; c_cnt_lo_div3                        ; 1                      ; Signed Integer                  ;
+; c_cnt_bypass_en3                     ; false                  ; String                          ;
+; c_cnt_in_src3                        ; ph_mux_clk             ; String                          ;
+; c_cnt_odd_div_duty_en3               ; false                  ; String                          ;
+; c_cnt_prst3                          ; 1                      ; Signed Integer                  ;
+; c_cnt_ph_mux_prst3                   ; 0                      ; Signed Integer                  ;
+; c_cnt_hi_div4                        ; 1                      ; Signed Integer                  ;
+; c_cnt_lo_div4                        ; 1                      ; Signed Integer                  ;
+; c_cnt_bypass_en4                     ; false                  ; String                          ;
+; c_cnt_in_src4                        ; ph_mux_clk             ; String                          ;
+; c_cnt_odd_div_duty_en4               ; false                  ; String                          ;
+; c_cnt_prst4                          ; 1                      ; Signed Integer                  ;
+; c_cnt_ph_mux_prst4                   ; 0                      ; Signed Integer                  ;
+; c_cnt_hi_div5                        ; 1                      ; Signed Integer                  ;
+; c_cnt_lo_div5                        ; 1                      ; Signed Integer                  ;
+; c_cnt_bypass_en5                     ; false                  ; String                          ;
+; c_cnt_in_src5                        ; ph_mux_clk             ; String                          ;
+; c_cnt_odd_div_duty_en5               ; false                  ; String                          ;
+; c_cnt_prst5                          ; 1                      ; Signed Integer                  ;
+; c_cnt_ph_mux_prst5                   ; 0                      ; Signed Integer                  ;
+; c_cnt_hi_div6                        ; 1                      ; Signed Integer                  ;
+; c_cnt_lo_div6                        ; 1                      ; Signed Integer                  ;
+; c_cnt_bypass_en6                     ; false                  ; String                          ;
+; c_cnt_in_src6                        ; ph_mux_clk             ; String                          ;
+; c_cnt_odd_div_duty_en6               ; false                  ; String                          ;
+; c_cnt_prst6                          ; 1                      ; Signed Integer                  ;
+; c_cnt_ph_mux_prst6                   ; 0                      ; Signed Integer                  ;
+; c_cnt_hi_div7                        ; 1                      ; Signed Integer                  ;
+; c_cnt_lo_div7                        ; 1                      ; Signed Integer                  ;
+; c_cnt_bypass_en7                     ; false                  ; String                          ;
+; c_cnt_in_src7                        ; ph_mux_clk             ; String                          ;
+; c_cnt_odd_div_duty_en7               ; false                  ; String                          ;
+; c_cnt_prst7                          ; 1                      ; Signed Integer                  ;
+; c_cnt_ph_mux_prst7                   ; 0                      ; Signed Integer                  ;
+; c_cnt_hi_div8                        ; 1                      ; Signed Integer                  ;
+; c_cnt_lo_div8                        ; 1                      ; Signed Integer                  ;
+; c_cnt_bypass_en8                     ; false                  ; String                          ;
+; c_cnt_in_src8                        ; ph_mux_clk             ; String                          ;
+; c_cnt_odd_div_duty_en8               ; false                  ; String                          ;
+; c_cnt_prst8                          ; 1                      ; Signed Integer                  ;
+; c_cnt_ph_mux_prst8                   ; 0                      ; Signed Integer                  ;
+; c_cnt_hi_div9                        ; 1                      ; Signed Integer                  ;
+; c_cnt_lo_div9                        ; 1                      ; Signed Integer                  ;
+; c_cnt_bypass_en9                     ; false                  ; String                          ;
+; c_cnt_in_src9                        ; ph_mux_clk             ; String                          ;
+; c_cnt_odd_div_duty_en9               ; false                  ; String                          ;
+; c_cnt_prst9                          ; 1                      ; Signed Integer                  ;
+; c_cnt_ph_mux_prst9                   ; 0                      ; Signed Integer                  ;
+; c_cnt_hi_div10                       ; 1                      ; Signed Integer                  ;
+; c_cnt_lo_div10                       ; 1                      ; Signed Integer                  ;
+; c_cnt_bypass_en10                    ; false                  ; String                          ;
+; c_cnt_in_src10                       ; ph_mux_clk             ; String                          ;
+; c_cnt_odd_div_duty_en10              ; false                  ; String                          ;
+; c_cnt_prst10                         ; 1                      ; Signed Integer                  ;
+; c_cnt_ph_mux_prst10                  ; 0                      ; Signed Integer                  ;
+; c_cnt_hi_div11                       ; 1                      ; Signed Integer                  ;
+; c_cnt_lo_div11                       ; 1                      ; Signed Integer                  ;
+; c_cnt_bypass_en11                    ; false                  ; String                          ;
+; c_cnt_in_src11                       ; ph_mux_clk             ; String                          ;
+; c_cnt_odd_div_duty_en11              ; false                  ; String                          ;
+; c_cnt_prst11                         ; 1                      ; Signed Integer                  ;
+; c_cnt_ph_mux_prst11                  ; 0                      ; Signed Integer                  ;
+; c_cnt_hi_div12                       ; 1                      ; Signed Integer                  ;
+; c_cnt_lo_div12                       ; 1                      ; Signed Integer                  ;
+; c_cnt_bypass_en12                    ; false                  ; String                          ;
+; c_cnt_in_src12                       ; ph_mux_clk             ; String                          ;
+; c_cnt_odd_div_duty_en12              ; false                  ; String                          ;
+; c_cnt_prst12                         ; 1                      ; Signed Integer                  ;
+; c_cnt_ph_mux_prst12                  ; 0                      ; Signed Integer                  ;
+; c_cnt_hi_div13                       ; 1                      ; Signed Integer                  ;
+; c_cnt_lo_div13                       ; 1                      ; Signed Integer                  ;
+; c_cnt_bypass_en13                    ; false                  ; String                          ;
+; c_cnt_in_src13                       ; ph_mux_clk             ; String                          ;
+; c_cnt_odd_div_duty_en13              ; false                  ; String                          ;
+; c_cnt_prst13                         ; 1                      ; Signed Integer                  ;
+; c_cnt_ph_mux_prst13                  ; 0                      ; Signed Integer                  ;
+; c_cnt_hi_div14                       ; 1                      ; Signed Integer                  ;
+; c_cnt_lo_div14                       ; 1                      ; Signed Integer                  ;
+; c_cnt_bypass_en14                    ; false                  ; String                          ;
+; c_cnt_in_src14                       ; ph_mux_clk             ; String                          ;
+; c_cnt_odd_div_duty_en14              ; false                  ; String                          ;
+; c_cnt_prst14                         ; 1                      ; Signed Integer                  ;
+; c_cnt_ph_mux_prst14                  ; 0                      ; Signed Integer                  ;
+; c_cnt_hi_div15                       ; 1                      ; Signed Integer                  ;
+; c_cnt_lo_div15                       ; 1                      ; Signed Integer                  ;
+; c_cnt_bypass_en15                    ; false                  ; String                          ;
+; c_cnt_in_src15                       ; ph_mux_clk             ; String                          ;
+; c_cnt_odd_div_duty_en15              ; false                  ; String                          ;
+; c_cnt_prst15                         ; 1                      ; Signed Integer                  ;
+; c_cnt_ph_mux_prst15                  ; 0                      ; Signed Integer                  ;
+; c_cnt_hi_div16                       ; 1                      ; Signed Integer                  ;
+; c_cnt_lo_div16                       ; 1                      ; Signed Integer                  ;
+; c_cnt_bypass_en16                    ; false                  ; String                          ;
+; c_cnt_in_src16                       ; ph_mux_clk             ; String                          ;
+; c_cnt_odd_div_duty_en16              ; false                  ; String                          ;
+; c_cnt_prst16                         ; 1                      ; Signed Integer                  ;
+; c_cnt_ph_mux_prst16                  ; 0                      ; Signed Integer                  ;
+; c_cnt_hi_div17                       ; 1                      ; Signed Integer                  ;
+; c_cnt_lo_div17                       ; 1                      ; Signed Integer                  ;
+; c_cnt_bypass_en17                    ; false                  ; String                          ;
+; c_cnt_in_src17                       ; ph_mux_clk             ; String                          ;
+; c_cnt_odd_div_duty_en17              ; false                  ; String                          ;
+; c_cnt_prst17                         ; 1                      ; Signed Integer                  ;
+; c_cnt_ph_mux_prst17                  ; 0                      ; Signed Integer                  ;
+; pll_vco_div                          ; 1                      ; Signed Integer                  ;
+; pll_slf_rst                          ; false                  ; String                          ;
+; pll_bw_sel                           ; low                    ; String                          ;
+; pll_output_clk_frequency             ; 0 MHz                  ; String                          ;
+; pll_cp_current                       ; 0                      ; Signed Integer                  ;
+; pll_bwctrl                           ; 0                      ; Signed Integer                  ;
+; pll_fractional_division              ; 1                      ; Signed Integer                  ;
+; pll_fractional_cout                  ; 24                     ; Signed Integer                  ;
+; pll_dsm_out_sel                      ; 1st_order              ; String                          ;
+; mimic_fbclk_type                     ; gclk                   ; String                          ;
+; pll_fbclk_mux_1                      ; glb                    ; String                          ;
+; pll_fbclk_mux_2                      ; fb_1                   ; String                          ;
+; pll_m_cnt_in_src                     ; ph_mux_clk             ; String                          ;
+; pll_vcoph_div                        ; 1                      ; Signed Integer                  ;
+; refclk1_frequency                    ; 0 MHz                  ; String                          ;
+; pll_clkin_0_src                      ; clk_0                  ; String                          ;
+; pll_clkin_1_src                      ; clk_0                  ; String                          ;
+; pll_clk_loss_sw_en                   ; false                  ; String                          ;
+; pll_auto_clk_sw_en                   ; false                  ; String                          ;
+; pll_manu_clk_sw_en                   ; false                  ; String                          ;
+; pll_clk_sw_dly                       ; 0                      ; Signed Integer                  ;
+; pll_extclk_0_cnt_src                 ; pll_extclk_cnt_src_vss ; String                          ;
+; pll_extclk_1_cnt_src                 ; pll_extclk_cnt_src_vss ; String                          ;
++--------------------------------------+------------------------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 144                         ;
+;     CLR               ; 1                           ;
+;     ENA               ; 50                          ;
+;     ENA CLR           ; 15                          ;
+;     ENA SCLR          ; 10                          ;
+;     SCLR              ; 10                          ;
+;     plain             ; 58                          ;
+; arriav_io_obuf        ; 2                           ;
+; arriav_lcell_comb     ; 166                         ;
+;     arith             ; 64                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 50                          ;
+;         2 data inputs ; 13                          ;
+;     extend            ; 1                           ;
+;         7 data inputs ; 1                           ;
+;     normal            ; 101                         ;
+;         1 data inputs ; 12                          ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 14                          ;
+;         4 data inputs ; 21                          ;
+;         5 data inputs ; 38                          ;
+;         6 data inputs ; 12                          ;
+; boundary_port         ; 10                          ;
+; generic_pll           ; 1                           ;
+;                       ;                             ;
+; Max LUT depth         ; 4.30                        ;
+; Average LUT depth     ; 2.17                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
 
 
 +-------------------------------+
@@ -160,30 +620,360 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Thu May 02 22:29:09 2024
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off flappyBird -c flappyBird
+    Info: Processing started: Thu May 09 00:12:34 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off flappybird -c flappybird
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file /users/deven/documents/305/305_proj/miniproject/vhdlfiles/pipe.vhd
+    Info (12022): Found design unit 1: pipe-behavior File: C:/Users/deven/Documents/305/305_proj/MiniProject/VhdlFiles/pipe.vhd Line: 14
+    Info (12023): Found entity 1: pipe File: C:/Users/deven/Documents/305/305_proj/MiniProject/VhdlFiles/pipe.vhd Line: 7
+Info (12021): Found 0 design units, including 0 entities, in source file /users/deven/documents/305/305_proj/miniproject/vhdlfiles/ground.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file /users/deven/documents/305/305_proj/miniproject/vhdlfiles/display_priority_controller.vhd
+    Info (12022): Found design unit 1: display_priority_controller-behaviour File: C:/Users/deven/Documents/305/305_proj/MiniProject/VhdlFiles/display_priority_controller.vhd Line: 17
+    Info (12023): Found entity 1: display_priority_controller File: C:/Users/deven/Documents/305/305_proj/MiniProject/VhdlFiles/display_priority_controller.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file /users/deven/documents/305/305_proj/miniproject/vhdlfiles/bird.vhd
+    Info (12022): Found design unit 1: bird-behaviour File: C:/Users/deven/Documents/305/305_proj/MiniProject/VhdlFiles/bird.vhd Line: 23
+    Info (12023): Found entity 1: bird File: C:/Users/deven/Documents/305/305_proj/MiniProject/VhdlFiles/bird.vhd Line: 10
+Info (12021): Found 0 design units, including 0 entities, in source file /users/deven/documents/305/305_proj/miniproject/vhdlfiles/background.vhd
 Info (12021): Found 2 design units, including 1 entities, in source file /users/deven/documents/305/305_proj/miniproject/miniprojectresources/vga_sync.vhd
     Info (12022): Found design unit 1: VGA_SYNC-a File: C:/Users/deven/Documents/305/305_proj/MiniProject/MiniprojectResources/vga_sync.vhd Line: 13
     Info (12023): Found entity 1: VGA_SYNC File: C:/Users/deven/Documents/305/305_proj/MiniProject/MiniprojectResources/vga_sync.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file /users/deven/documents/305/305_proj/miniproject/miniprojectresources/mouse.vhd
     Info (12022): Found design unit 1: MOUSE-behavior File: C:/Users/deven/Documents/305/305_proj/MiniProject/MiniprojectResources/mouse.vhd Line: 18
     Info (12023): Found entity 1: MOUSE File: C:/Users/deven/Documents/305/305_proj/MiniProject/MiniprojectResources/mouse.vhd Line: 9
-Info (12021): Found 2 design units, including 1 entities, in source file /users/deven/documents/305/305_proj/miniproject/miniprojectresources/char_rom.vhd
-    Info (12022): Found design unit 1: char_rom-SYN File: C:/Users/deven/Documents/305/305_proj/MiniProject/MiniprojectResources/char_rom.vhd Line: 20
-    Info (12023): Found entity 1: char_rom File: C:/Users/deven/Documents/305/305_proj/MiniProject/MiniprojectResources/char_rom.vhd Line: 9
-Info (12021): Found 2 design units, including 1 entities, in source file /users/deven/documents/305/305_proj/miniproject/miniprojectresources/bouncy_ball.vhd
-    Info (12022): Found design unit 1: bouncy_ball-behavior File: C:/Users/deven/Documents/305/305_proj/MiniProject/MiniprojectResources/bouncy_ball.vhd Line: 14
-    Info (12023): Found entity 1: bouncy_ball File: C:/Users/deven/Documents/305/305_proj/MiniProject/MiniprojectResources/bouncy_ball.vhd Line: 7
-Info (12021): Found 2 design units, including 1 entities, in source file /users/deven/documents/305/305_proj/miniproject/miniprojectresources/ball.vhd
-    Info (12022): Found design unit 1: ball-behavior File: C:/Users/deven/Documents/305/305_proj/MiniProject/MiniprojectResources/ball.vhd Line: 14
-    Info (12023): Found entity 1: ball File: C:/Users/deven/Documents/305/305_proj/MiniProject/MiniprojectResources/ball.vhd Line: 7
-Error (12007): Top-level design entity "flappyBird" is undefined
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 1 warning
-    Error: Peak virtual memory: 4839 megabytes
-    Error: Processing ended: Thu May 02 22:29:18 2024
-    Error: Elapsed time: 00:00:09
-    Error: Total CPU time (on all processors): 00:00:05
+Info (12021): Found 2 design units, including 1 entities, in source file pll.vhd
+    Info (12022): Found design unit 1: pll-rtl File: C:/Users/deven/Documents/305/305_proj/MiniProject/Quartus/pll.vhd Line: 20
+    Info (12023): Found entity 1: pll File: C:/Users/deven/Documents/305/305_proj/MiniProject/Quartus/pll.vhd Line: 11
+Info (12021): Found 1 design units, including 1 entities, in source file pll/pll_0002.v
+    Info (12023): Found entity 1: pll_0002 File: C:/Users/deven/Documents/305/305_proj/MiniProject/Quartus/pll/pll_0002.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file flappybird.bdf
+    Info (12023): Found entity 1: flappybird
+Info (12127): Elaborating entity "flappybird" for the top level hierarchy
+Warning (275012): Pin "LEDR[1]" overlaps another pin, block, or symbol
+Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:inst2"
+Info (12128): Elaborating entity "pll" for hierarchy "pll:inst"
+Info (12128): Elaborating entity "pll_0002" for hierarchy "pll:inst|pll_0002:pll_inst" File: C:/Users/deven/Documents/305/305_proj/MiniProject/Quartus/pll.vhd Line: 32
+Info (12128): Elaborating entity "altera_pll" for hierarchy "pll:inst|pll_0002:pll_inst|altera_pll:altera_pll_i" File: C:/Users/deven/Documents/305/305_proj/MiniProject/Quartus/pll/pll_0002.v Line: 85
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
+Info (12130): Elaborated megafunction instantiation "pll:inst|pll_0002:pll_inst|altera_pll:altera_pll_i" File: C:/Users/deven/Documents/305/305_proj/MiniProject/Quartus/pll/pll_0002.v Line: 85
+Info (12133): Instantiated megafunction "pll:inst|pll_0002:pll_inst|altera_pll:altera_pll_i" with the following parameter: File: C:/Users/deven/Documents/305/305_proj/MiniProject/Quartus/pll/pll_0002.v Line: 85
+    Info (12134): Parameter "fractional_vco_multiplier" = "false"
+    Info (12134): Parameter "reference_clock_frequency" = "50.0 MHz"
+    Info (12134): Parameter "operation_mode" = "direct"
+    Info (12134): Parameter "number_of_clocks" = "1"
+    Info (12134): Parameter "output_clock_frequency0" = "25.000000 MHz"
+    Info (12134): Parameter "phase_shift0" = "0 ps"
+    Info (12134): Parameter "duty_cycle0" = "50"
+    Info (12134): Parameter "output_clock_frequency1" = "0 MHz"
+    Info (12134): Parameter "phase_shift1" = "0 ps"
+    Info (12134): Parameter "duty_cycle1" = "50"
+    Info (12134): Parameter "output_clock_frequency2" = "0 MHz"
+    Info (12134): Parameter "phase_shift2" = "0 ps"
+    Info (12134): Parameter "duty_cycle2" = "50"
+    Info (12134): Parameter "output_clock_frequency3" = "0 MHz"
+    Info (12134): Parameter "phase_shift3" = "0 ps"
+    Info (12134): Parameter "duty_cycle3" = "50"
+    Info (12134): Parameter "output_clock_frequency4" = "0 MHz"
+    Info (12134): Parameter "phase_shift4" = "0 ps"
+    Info (12134): Parameter "duty_cycle4" = "50"
+    Info (12134): Parameter "output_clock_frequency5" = "0 MHz"
+    Info (12134): Parameter "phase_shift5" = "0 ps"
+    Info (12134): Parameter "duty_cycle5" = "50"
+    Info (12134): Parameter "output_clock_frequency6" = "0 MHz"
+    Info (12134): Parameter "phase_shift6" = "0 ps"
+    Info (12134): Parameter "duty_cycle6" = "50"
+    Info (12134): Parameter "output_clock_frequency7" = "0 MHz"
+    Info (12134): Parameter "phase_shift7" = "0 ps"
+    Info (12134): Parameter "duty_cycle7" = "50"
+    Info (12134): Parameter "output_clock_frequency8" = "0 MHz"
+    Info (12134): Parameter "phase_shift8" = "0 ps"
+    Info (12134): Parameter "duty_cycle8" = "50"
+    Info (12134): Parameter "output_clock_frequency9" = "0 MHz"
+    Info (12134): Parameter "phase_shift9" = "0 ps"
+    Info (12134): Parameter "duty_cycle9" = "50"
+    Info (12134): Parameter "output_clock_frequency10" = "0 MHz"
+    Info (12134): Parameter "phase_shift10" = "0 ps"
+    Info (12134): Parameter "duty_cycle10" = "50"
+    Info (12134): Parameter "output_clock_frequency11" = "0 MHz"
+    Info (12134): Parameter "phase_shift11" = "0 ps"
+    Info (12134): Parameter "duty_cycle11" = "50"
+    Info (12134): Parameter "output_clock_frequency12" = "0 MHz"
+    Info (12134): Parameter "phase_shift12" = "0 ps"
+    Info (12134): Parameter "duty_cycle12" = "50"
+    Info (12134): Parameter "output_clock_frequency13" = "0 MHz"
+    Info (12134): Parameter "phase_shift13" = "0 ps"
+    Info (12134): Parameter "duty_cycle13" = "50"
+    Info (12134): Parameter "output_clock_frequency14" = "0 MHz"
+    Info (12134): Parameter "phase_shift14" = "0 ps"
+    Info (12134): Parameter "duty_cycle14" = "50"
+    Info (12134): Parameter "output_clock_frequency15" = "0 MHz"
+    Info (12134): Parameter "phase_shift15" = "0 ps"
+    Info (12134): Parameter "duty_cycle15" = "50"
+    Info (12134): Parameter "output_clock_frequency16" = "0 MHz"
+    Info (12134): Parameter "phase_shift16" = "0 ps"
+    Info (12134): Parameter "duty_cycle16" = "50"
+    Info (12134): Parameter "output_clock_frequency17" = "0 MHz"
+    Info (12134): Parameter "phase_shift17" = "0 ps"
+    Info (12134): Parameter "duty_cycle17" = "50"
+    Info (12134): Parameter "pll_type" = "General"
+    Info (12134): Parameter "pll_subtype" = "General"
+Info (12128): Elaborating entity "display_priority_controller" for hierarchy "display_priority_controller:inst7"
+Info (12128): Elaborating entity "bird" for hierarchy "bird:inst3"
+Warning (10540): VHDL Signal Declaration warning at bird.vhd(27): used explicit default value for signal "ball_x_pos" because signal was never assigned a value File: C:/Users/deven/Documents/305/305_proj/MiniProject/VhdlFiles/bird.vhd Line: 27
+Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:inst6"
+Warning (10036): Verilog HDL or VHDL warning at mouse.vhd(25): object "CHARIN" assigned a value but never read File: C:/Users/deven/Documents/305/305_proj/MiniProject/MiniprojectResources/mouse.vhd Line: 25
+Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/MiniProject/MiniprojectResources/mouse.vhd Line: 151
+Warning (10492): VHDL Process Statement warning at mouse.vhd(155): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/MiniProject/MiniprojectResources/mouse.vhd Line: 155
+Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/MiniProject/MiniprojectResources/mouse.vhd Line: 156
+Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/MiniProject/MiniprojectResources/mouse.vhd Line: 157
+Info (13000): Registers with preset signals will power-up high File: C:/Users/deven/Documents/305/305_proj/MiniProject/MiniprojectResources/mouse.vhd Line: 146
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (286030): Timing-Driven Synthesis is running
+Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK2_50 -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK3_50 -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK4_50 -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK_50 -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[0] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[10] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[11] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[12] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[1] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[2] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[3] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[4] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[5] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[6] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[7] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[8] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[9] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_BA[0] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_BA[1] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_CAS_N -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_CKE -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_CLK -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_CS_N -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[0] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[10] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[11] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[12] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[13] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[14] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[15] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[1] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[2] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[3] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[4] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[5] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[6] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[7] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[8] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[9] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_LDQM -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_RAS_N -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_UDQM -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_WE_N -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[0] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[10] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[11] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[12] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[13] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[14] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[15] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[16] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[17] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[18] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[19] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[1] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[20] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[21] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[22] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[23] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[24] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[25] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[26] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[27] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[28] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[29] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[2] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[30] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[31] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[32] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[33] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[34] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[35] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[3] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[4] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[5] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[6] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[7] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[8] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[9] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[0] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[10] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[11] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[12] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[13] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[14] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[15] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[16] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[17] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[18] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[19] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[1] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[20] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[21] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[22] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[23] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[24] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[25] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[26] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[27] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[28] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[29] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[2] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[30] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[31] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[32] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[33] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[34] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[35] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[3] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[4] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[5] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[6] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[7] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[8] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[9] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[0] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[1] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[2] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[3] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[4] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[5] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[6] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[0] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[1] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[2] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[3] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[4] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[5] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[6] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[0] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[1] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[2] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[3] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[4] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[5] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[6] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[0] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[1] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[2] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[3] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[4] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[5] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[6] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[0] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[1] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[2] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[3] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[4] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[5] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[6] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[0] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[1] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[2] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[3] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[4] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[5] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[6] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[0] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[1] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[2] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[3] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[0] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[1] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[2] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[3] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[4] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[5] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[6] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[7] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[8] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[9] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PS2_CLK -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PS2_CLK2 -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PS2_DAT -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PS2_DAT2 -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to RESET_N -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SD_CLK -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SD_CMD -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SD_DATA[0] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SD_DATA[1] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SD_DATA[2] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SD_DATA[3] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[0] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[1] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[2] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[3] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[4] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[5] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[6] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[7] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[8] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[9] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[0] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[1] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[2] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[3] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[0] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[1] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[2] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[3] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_HS -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[0] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[1] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[2] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[3] -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_VS -entity DE0_CV_Default was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity DE0_CV_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity DE0_CV_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity DE0_CV_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_PRESERVE_HIGH_SPEED_TILES ON -entity DE0_CV_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IGNORE_SOURCE_FILE_CHANGES OFF -entity DE0_CV_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ALWAYS_USE_QXP_NETLIST OFF -entity DE0_CV_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity DE0_CV_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity DE0_CV_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity DE0_CV_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS UPDATE_CONFLICTING -entity DE0_CV_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity DE0_CV_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity DE0_CV_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity DE0_CV_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ALLOW_MULTIPLE_PERSONAS OFF -entity DE0_CV_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ASD_REGION_ID 1 -entity DE0_CV_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name CROSS_BOUNDARY_OPTIMIZATIONS OFF -entity DE0_CV_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_CONSTANTS_ON_INPUTS ON -entity DE0_CV_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_INVERSIONS_ON_INPUTS ON -entity DE0_CV_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name REMOVE_LOGIC_ON_UNCONNECTED_OUTPUTS ON -entity DE0_CV_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_INPUTS ON -entity DE0_CV_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_BIDIRS ON -entity DE0_CV_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS ON -entity DE0_CV_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity DE0_CV_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity DE0_CV_Default -section_id Top was ignored
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 3 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
+Warning: RST port on the PLL is not properly connected on instance pll:inst|pll_0002:pll_inst|altera_pll:altera_pll_i|general[0].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altera_pll.v Line: 748
+    Info: Must be connected
+Info (21057): Implemented 238 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 1 input pins
+    Info (21059): Implemented 7 output pins
+    Info (21060): Implemented 2 bidirectional pins
+    Info (21061): Implemented 227 logic cells
+    Info (21065): Implemented 1 PLLs
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 240 warnings
+    Info: Peak virtual memory: 4926 megabytes
+    Info: Processing ended: Thu May 09 00:12:43 2024
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:07
 
 

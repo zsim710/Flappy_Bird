@@ -260,8 +260,8 @@ ELSIF MOUSE_CLK_FILTER'event and MOUSE_CLK_FILTER='0' THEN
 								PACKET_CHAR3(7) & PACKET_CHAR3);
     				NEW_cursor_column <= cursor_column + (PACKET_CHAR2(7) & 
 								PACKET_CHAR2(7) & PACKET_CHAR2);
-    				LEFT_BUTTON <= PACKET_CHAR1(0);
-    				RIGHT_BUTTON <= PACKET_CHAR1(1);
+    				LEFT_BUTTON <= not PACKET_CHAR1(0);
+    				RIGHT_BUTTON <= not PACKET_CHAR1(1);
   				END IF;
 			END IF;
   		END IF;
