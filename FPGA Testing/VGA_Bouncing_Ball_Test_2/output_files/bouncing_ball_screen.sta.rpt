@@ -1,5 +1,5 @@
 Timing Analyzer report for bouncing_ball_screen
-Tue May 07 13:00:00 2024
+Wed May 08 17:49:21 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -99,19 +99,19 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
-; Average used               ; 1.28        ;
+; Average used               ; 1.23        ;
 ; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   2.5%      ;
-;     Processor 3            ;   2.5%      ;
-;     Processor 4            ;   2.5%      ;
-;     Processor 5            ;   2.4%      ;
-;     Processor 6            ;   2.4%      ;
-;     Processor 7            ;   2.4%      ;
-;     Processor 8            ;   2.4%      ;
-;     Processors 9-16        ;   1.3%      ;
+;     Processor 2            ;   2.2%      ;
+;     Processor 3            ;   2.2%      ;
+;     Processor 4            ;   2.1%      ;
+;     Processor 5            ;   2.1%      ;
+;     Processor 6            ;   2.1%      ;
+;     Processor 7            ;   2.1%      ;
+;     Processor 8            ;   2.0%      ;
+;     Processors 9-16        ;   1.0%      ;
 +----------------------------+-------------+
 
 
@@ -563,7 +563,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Tue May 07 12:59:56 2024
+    Info: Processing started: Wed May 08 17:49:17 2024
 Info: Command: quartus_sta bouncing_ball_screen -c bouncing_ball_screen
 Info: qsta_default_script.tcl version: #1
 Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity does not exist in design
@@ -927,8 +927,8 @@ Info (332146): Worst-case minimum pulse width slack is 0.150
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 237 warnings
-    Info: Peak virtual memory: 5227 megabytes
-    Info: Processing ended: Tue May 07 13:00:00 2024
+    Info: Peak virtual memory: 5234 megabytes
+    Info: Processing ended: Wed May 08 17:49:21 2024
     Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:03
 

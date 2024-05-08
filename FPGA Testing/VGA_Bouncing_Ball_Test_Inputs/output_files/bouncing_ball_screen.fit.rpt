@@ -1,5 +1,5 @@
 Fitter report for bouncing_ball_screen
-Tue May 07 22:39:35 2024
+Wed May 08 13:20:56 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -65,7 +65,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Fitter Summary                                                                ;
 +---------------------------------+---------------------------------------------+
-; Fitter Status                   ; Successful - Tue May 07 22:39:35 2024       ;
+; Fitter Status                   ; Successful - Wed May 08 13:20:56 2024       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; bouncing_ball_screen                        ;
 ; Top-level Entity Name           ; bouncing_ball_screen                        ;
@@ -155,21 +155,21 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
-; Average used               ; 1.09        ;
+; Average used               ; 1.10        ;
 ; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.9%      ;
 ;     Processor 3            ;   0.8%      ;
-;     Processor 4            ;   0.7%      ;
-;     Processor 5            ;   0.6%      ;
-;     Processor 6            ;   0.6%      ;
-;     Processor 7            ;   0.6%      ;
-;     Processor 8            ;   0.6%      ;
-;     Processor 9            ;   0.6%      ;
-;     Processor 10           ;   0.6%      ;
-;     Processor 11           ;   0.6%      ;
+;     Processor 4            ;   0.8%      ;
+;     Processor 5            ;   0.7%      ;
+;     Processor 6            ;   0.7%      ;
+;     Processor 7            ;   0.7%      ;
+;     Processor 8            ;   0.7%      ;
+;     Processor 9            ;   0.7%      ;
+;     Processor 10           ;   0.7%      ;
+;     Processor 11           ;   0.7%      ;
 ;     Processor 12           ;   0.6%      ;
 ;     Processor 13           ;   0.6%      ;
 ;     Processor 14           ;   0.6%      ;
@@ -1835,7 +1835,7 @@ Warning (15705): Ignored locations or region assignments to the following nodes
     Warning (15706): Node "VGA_R[0]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "VGA_R[1]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "VGA_R[2]" is assigned to location or region, but does not exist in design
-Info (11798): Fitter preparation operations ending: elapsed time is 00:00:03
+Info (11798): Fitter preparation operations ending: elapsed time is 00:00:04
 Info (170189): Fitter placement preparation operations beginning
 Info (14951): The Fitter is using Advanced Physical Optimization.
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:03
@@ -1848,19 +1848,19 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:04
-Info (11888): Total time spent on timing analysis during the Fitter is 0.65 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.69 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:02
+Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:03
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Info (144001): Generated suppressed messages file C:/Users/deven/Documents/305/305_proj/FPGA Testing/VGA_Bouncing_Ball_Test_Inputs/output_files/bouncing_ball_screen.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 188 warnings
-    Info: Peak virtual memory: 7580 megabytes
-    Info: Processing ended: Tue May 07 22:39:36 2024
-    Info: Elapsed time: 00:00:24
-    Info: Total CPU time (on all processors): 00:01:00
+    Info: Peak virtual memory: 7588 megabytes
+    Info: Processing ended: Wed May 08 13:20:57 2024
+    Info: Elapsed time: 00:00:28
+    Info: Total CPU time (on all processors): 00:00:59
 
 
 +----------------------------+

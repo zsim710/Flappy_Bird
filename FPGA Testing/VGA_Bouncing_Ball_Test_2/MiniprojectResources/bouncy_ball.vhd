@@ -26,6 +26,7 @@ architecture behavior of bouncy_ball is
   signal ball_y_pos    : std_logic_vector(9 downto 0)  := "0011110000";
   signal ball_x_pos    : std_logic_vector(10 downto 0) := "01001001110";
   signal ball_y_motion : std_logic_vector(9 downto 0)  := "0000000010";
+  signal ball_x_motion : std_logic_vector(10 downto 0)  := "00000000010";
 
 begin
 
@@ -51,8 +52,14 @@ begin
       elsif (ball_y_pos <= size) then
         ball_y_motion     <= CONV_STD_LOGIC_VECTOR(2, 10);
       end if;
+		if (('0' & ball_x_pos >= CONV_STD_LOGIC_VECTOR(639, 11) - size)) then
+        ball_x_motion     <= - CONV_STD_LOGIC_VECTOR(2, 11);
+      elsif (ball_x_pos <= size) then
+        ball_x_motion     <= CONV_STD_LOGIC_VECTOR(2, 11);
+      end if;
       -- Compute next ball Y position
       ball_y_pos <= ball_y_pos + ball_y_motion;
+		ball_x_pos <= ball_x_pos + ball_x_motion;
     end if;
   end process Move_Ball;
 
