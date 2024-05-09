@@ -26,25 +26,28 @@ BEGIN
   pipe_height   <= CONV_STD_LOGIC_VECTOR(300, 10); -- 300 in binary
 
   -- Initialize pipe starting position on the right side of the screen
-  pipe_x_pos    <= screen_width + pipe_width; -- Start from the far right
+  --pipe_x_pos    <= screen_width + pipe_width; -- Start from the far right
 
   -- Process to move the pipe
   pipe_movement : PROCESS(vert_sync)
   BEGIN
+
     IF rising_edge(vert_sync) THEN
       IF pipe_x_pos <= "0000000000" THEN
-        pipe_x_pos <= screen_width; -- Reset to the right side of the screen
+        pipe_x_pos <= screen_width + pipe_width; -- Reset to the right side of the screen
       ELSE
         pipe_x_pos <= pipe_x_pos - CONV_STD_LOGIC_VECTOR(2, 10); -- Move left by one pixel each clock cycle
       END IF;
     END IF;
+
   END PROCESS;
 
   -- Check if current pixel is within the bounds of the pipe
   pipe_on <= '1' WHEN ('0' & pixel_column <= '0' & pipe_x_pos AND
                         '0' & pixel_column >=  '0' & pipe_x_pos - pipe_width AND
-                        pixel_row >= screen_height - pipe_height AND
-                        pixel_row <= screen_height)
+                        (pixel_row >= screen_height - pipe_height AND
+                        pixel_row <= screen_height)or(pixel_row <= CONV_STD_LOGIC_VECTOR(0, 10) + pipe_height AND
+                        pixel_row >= CONV_STD_LOGIC_VECTOR(0, 10)))
                 ELSE '0';
 
   -- Set the output colors, pipe in red, background in black
