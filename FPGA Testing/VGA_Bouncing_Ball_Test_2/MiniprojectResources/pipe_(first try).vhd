@@ -17,13 +17,12 @@ ARCHITECTURE behavior OF pipe IS
   SIGNAL pipe_x_pos : std_logic_vector(10 DOWNTO 0);
   SIGNAL pipe_width, pipe_height : std_logic_vector(9 DOWNTO 0);
   SIGNAL screen_width, screen_height : std_logic_vector(9 DOWNTO 0);
-
 BEGIN
   -- Screen and pipe dimensions
   screen_width  <= CONV_STD_LOGIC_VECTOR(640, 11);-- 640 in binary
   screen_height <= CONV_STD_LOGIC_VECTOR(480, 11);  -- 480 in binary
-  pipe_width    <= CONV_STD_LOGIC_VECTOR(100, 10); -- 100 in binary
-  pipe_height   <= CONV_STD_LOGIC_VECTOR(300, 10); -- 300 in binary
+  pipe_width    <= CONV_STD_LOGIC_VECTOR(50, 10); -- 100 in binary
+  pipe_height   <= CONV_STD_LOGIC_VECTOR(150, 10); -- 300 in binary
 
   -- Initialize pipe starting position on the right side of the screen
   --pipe_x_pos    <= screen_width + pipe_width; -- Start from the far right
