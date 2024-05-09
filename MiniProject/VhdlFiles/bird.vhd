@@ -66,7 +66,7 @@ begin
       end if;
       -- Update ball position
 
-      if (('0' & ball_y_pos >= CONV_STD_LOGIC_VECTOR(479, 10) - size)) then
+      if (('0' & ball_y_pos >= CONV_STD_LOGIC_VECTOR(450, 10) - size)) then
         ball_y_motion     <= - CONV_STD_LOGIC_VECTOR(1, 10);
       elsif (ball_y_pos <= size) then
         ball_y_motion     <= CONV_STD_LOGIC_VECTOR(1, 10);
