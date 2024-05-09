@@ -1,5 +1,5 @@
 Fitter report for flappybird
-Thu May 09 00:13:05 2024
+Thu May 09 12:34:56 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -65,7 +65,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Fitter Summary                                                                ;
 +---------------------------------+---------------------------------------------+
-; Fitter Status                   ; Successful - Thu May 09 00:13:05 2024       ;
+; Fitter Status                   ; Successful - Thu May 09 12:34:56 2024       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; flappybird                                  ;
 ; Top-level Entity Name           ; flappybird                                  ;
@@ -1236,7 +1236,7 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;    |MOUSE:inst6|                       ; 25.5 (25.5)          ; 40.8 (40.8)                      ; 15.3 (15.3)                                       ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 50 (50)             ; 67 (67)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |flappybird|MOUSE:inst6                                        ; MOUSE                       ; work         ;
 ;    |VGA_SYNC:inst2|                    ; 26.3 (26.3)          ; 30.8 (30.8)                      ; 4.4 (4.4)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 39 (39)             ; 57 (57)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |flappybird|VGA_SYNC:inst2                                     ; VGA_SYNC                    ; work         ;
 ;    |bird:inst3|                        ; 38.3 (38.3)          ; 42.6 (42.6)                      ; 4.3 (4.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 78 (78)             ; 34 (34)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |flappybird|bird:inst3                                         ; bird                        ; work         ;
-;    |display_priority_controller:inst7| ; 0.3 (0.3)            ; 0.3 (0.3)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |flappybird|display_priority_controller:inst7                  ; display_priority_controller ; work         ;
+;    |display_priority_controller:inst8| ; 0.3 (0.3)            ; 0.3 (0.3)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |flappybird|display_priority_controller:inst8                  ; display_priority_controller ; work         ;
 ;    |pll:inst|                          ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |flappybird|pll:inst                                           ; pll                         ; pll          ;
 ;       |pll_0002:pll_inst|              ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |flappybird|pll:inst|pll_0002:pll_inst                         ; pll_0002                    ; pll          ;
 ;          |altera_pll:altera_pll_i|     ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |flappybird|pll:inst|pll_0002:pll_inst|altera_pll:altera_pll_i ; altera_pll                  ; work         ;
@@ -1474,31 +1474,31 @@ This will disable optimization of problematic paths and expose them for further 
 ; Source Register                              ; Destination Register                         ; Delay Added in ns ;
 +----------------------------------------------+----------------------------------------------+-------------------+
 ; MOUSE:inst6|MOUSE_CLK_FILTER                 ; MOUSE:inst6|MOUSE_CLK_FILTER                 ; 8.361             ;
-; bird:inst3|ball_y_pos[4]                     ; display_priority_controller:inst7|blue       ; 7.585             ;
-; bird:inst3|ball_y_pos[7]                     ; display_priority_controller:inst7|blue       ; 7.164             ;
-; bird:inst3|ball_y_pos[8]                     ; display_priority_controller:inst7|blue       ; 7.107             ;
-; bird:inst3|ball_y_pos[3]                     ; display_priority_controller:inst7|blue       ; 7.078             ;
-; bird:inst3|ball_y_pos[6]                     ; display_priority_controller:inst7|blue       ; 7.068             ;
-; bird:inst3|ball_y_pos[5]                     ; display_priority_controller:inst7|blue       ; 7.004             ;
-; bird:inst3|ball_y_pos[9]                     ; display_priority_controller:inst7|blue       ; 7.001             ;
+; bird:inst3|ball_y_pos[4]                     ; display_priority_controller:inst8|blue       ; 7.585             ;
+; bird:inst3|ball_y_pos[7]                     ; display_priority_controller:inst8|blue       ; 7.164             ;
+; bird:inst3|ball_y_pos[8]                     ; display_priority_controller:inst8|blue       ; 7.107             ;
+; bird:inst3|ball_y_pos[3]                     ; display_priority_controller:inst8|blue       ; 7.078             ;
+; bird:inst3|ball_y_pos[6]                     ; display_priority_controller:inst8|blue       ; 7.068             ;
+; bird:inst3|ball_y_pos[5]                     ; display_priority_controller:inst8|blue       ; 7.004             ;
+; bird:inst3|ball_y_pos[9]                     ; display_priority_controller:inst8|blue       ; 7.001             ;
 ; MOUSE:inst6|output_ready                     ; MOUSE:inst6|mouse_state.WAIT_CMD_ACK         ; 6.818             ;
-; bird:inst3|ball_y_pos[2]                     ; display_priority_controller:inst7|blue       ; 6.580             ;
+; bird:inst3|ball_y_pos[2]                     ; display_priority_controller:inst8|blue       ; 6.580             ;
 ; MOUSE:inst6|iready_set                       ; MOUSE:inst6|mouse_state.WAIT_CMD_ACK         ; 6.487             ;
-; bird:inst3|ball_y_pos[1]                     ; display_priority_controller:inst7|blue       ; 6.409             ;
-; bird:inst3|ball_y_pos[0]                     ; display_priority_controller:inst7|blue       ; 6.379             ;
-; VGA_SYNC:inst2|pixel_row[1]                  ; display_priority_controller:inst7|blue       ; 5.077             ;
-; VGA_SYNC:inst2|pixel_row[0]                  ; display_priority_controller:inst7|blue       ; 5.077             ;
-; VGA_SYNC:inst2|pixel_row[2]                  ; display_priority_controller:inst7|blue       ; 4.895             ;
-; VGA_SYNC:inst2|pixel_column[9]               ; display_priority_controller:inst7|blue       ; 4.395             ;
-; VGA_SYNC:inst2|pixel_column[8]               ; display_priority_controller:inst7|blue       ; 4.395             ;
-; VGA_SYNC:inst2|pixel_column[7]               ; display_priority_controller:inst7|blue       ; 4.395             ;
-; VGA_SYNC:inst2|pixel_column[6]               ; display_priority_controller:inst7|blue       ; 4.395             ;
-; VGA_SYNC:inst2|pixel_column[4]               ; display_priority_controller:inst7|blue       ; 4.395             ;
-; VGA_SYNC:inst2|pixel_row[7]                  ; display_priority_controller:inst7|blue       ; 4.205             ;
-; VGA_SYNC:inst2|pixel_row[6]                  ; display_priority_controller:inst7|blue       ; 4.205             ;
-; VGA_SYNC:inst2|pixel_row[5]                  ; display_priority_controller:inst7|blue       ; 4.205             ;
-; VGA_SYNC:inst2|pixel_row[3]                  ; display_priority_controller:inst7|blue       ; 4.205             ;
-; VGA_SYNC:inst2|pixel_row[4]                  ; display_priority_controller:inst7|blue       ; 4.205             ;
+; bird:inst3|ball_y_pos[1]                     ; display_priority_controller:inst8|blue       ; 6.409             ;
+; bird:inst3|ball_y_pos[0]                     ; display_priority_controller:inst8|blue       ; 6.379             ;
+; VGA_SYNC:inst2|pixel_row[1]                  ; display_priority_controller:inst8|blue       ; 5.077             ;
+; VGA_SYNC:inst2|pixel_row[0]                  ; display_priority_controller:inst8|blue       ; 5.077             ;
+; VGA_SYNC:inst2|pixel_row[2]                  ; display_priority_controller:inst8|blue       ; 4.895             ;
+; VGA_SYNC:inst2|pixel_column[9]               ; display_priority_controller:inst8|blue       ; 4.395             ;
+; VGA_SYNC:inst2|pixel_column[8]               ; display_priority_controller:inst8|blue       ; 4.395             ;
+; VGA_SYNC:inst2|pixel_column[7]               ; display_priority_controller:inst8|blue       ; 4.395             ;
+; VGA_SYNC:inst2|pixel_column[6]               ; display_priority_controller:inst8|blue       ; 4.395             ;
+; VGA_SYNC:inst2|pixel_column[4]               ; display_priority_controller:inst8|blue       ; 4.395             ;
+; VGA_SYNC:inst2|pixel_row[7]                  ; display_priority_controller:inst8|blue       ; 4.205             ;
+; VGA_SYNC:inst2|pixel_row[6]                  ; display_priority_controller:inst8|blue       ; 4.205             ;
+; VGA_SYNC:inst2|pixel_row[5]                  ; display_priority_controller:inst8|blue       ; 4.205             ;
+; VGA_SYNC:inst2|pixel_row[3]                  ; display_priority_controller:inst8|blue       ; 4.205             ;
+; VGA_SYNC:inst2|pixel_row[4]                  ; display_priority_controller:inst8|blue       ; 4.205             ;
 ; MOUSE:inst6|filter[5]                        ; MOUSE:inst6|MOUSE_CLK_FILTER                 ; 4.181             ;
 ; MOUSE:inst6|filter[6]                        ; MOUSE:inst6|MOUSE_CLK_FILTER                 ; 4.181             ;
 ; MOUSE:inst6|filter[7]                        ; MOUSE:inst6|MOUSE_CLK_FILTER                 ; 4.181             ;
@@ -1507,12 +1507,12 @@ This will disable optimization of problematic paths and expose them for further 
 ; MOUSE:inst6|filter[2]                        ; MOUSE:inst6|MOUSE_CLK_FILTER                 ; 4.181             ;
 ; MOUSE:inst6|filter[3]                        ; MOUSE:inst6|MOUSE_CLK_FILTER                 ; 4.181             ;
 ; MOUSE:inst6|filter[4]                        ; MOUSE:inst6|MOUSE_CLK_FILTER                 ; 4.181             ;
-; VGA_SYNC:inst2|pixel_row[8]                  ; display_priority_controller:inst7|blue       ; 4.063             ;
-; VGA_SYNC:inst2|pixel_column[2]               ; display_priority_controller:inst7|blue       ; 3.259             ;
-; VGA_SYNC:inst2|pixel_column[0]               ; display_priority_controller:inst7|blue       ; 3.259             ;
-; VGA_SYNC:inst2|pixel_column[1]               ; display_priority_controller:inst7|blue       ; 3.259             ;
-; VGA_SYNC:inst2|pixel_column[5]               ; display_priority_controller:inst7|blue       ; 3.259             ;
-; VGA_SYNC:inst2|pixel_column[3]               ; display_priority_controller:inst7|blue       ; 3.259             ;
+; VGA_SYNC:inst2|pixel_row[8]                  ; display_priority_controller:inst8|blue       ; 4.063             ;
+; VGA_SYNC:inst2|pixel_column[2]               ; display_priority_controller:inst8|blue       ; 3.259             ;
+; VGA_SYNC:inst2|pixel_column[0]               ; display_priority_controller:inst8|blue       ; 3.259             ;
+; VGA_SYNC:inst2|pixel_column[1]               ; display_priority_controller:inst8|blue       ; 3.259             ;
+; VGA_SYNC:inst2|pixel_column[5]               ; display_priority_controller:inst8|blue       ; 3.259             ;
+; VGA_SYNC:inst2|pixel_column[3]               ; display_priority_controller:inst8|blue       ; 3.259             ;
 ; MOUSE:inst6|mouse_state.LOAD_COMMAND2        ; MOUSE:inst6|mouse_state.WAIT_OUTPUT_READY    ; 3.007             ;
 ; MOUSE:inst6|mouse_state.WAIT_OUTPUT_READY    ; MOUSE:inst6|mouse_state.WAIT_OUTPUT_READY    ; 3.007             ;
 ; bird:inst3|ball_y_motion[1]                  ; bird:inst3|\Move_Ball:previousYBallMotion[1] ; 1.614             ;
@@ -1824,7 +1824,7 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:03
-Info (11888): Total time spent on timing analysis during the Fitter is 0.51 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.54 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -1833,10 +1833,10 @@ Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:02
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Info (144001): Generated suppressed messages file C:/Users/deven/Documents/305/305_proj/MiniProject/Quartus/output_files/flappybird.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 210 warnings
-    Info: Peak virtual memory: 7581 megabytes
-    Info: Processing ended: Thu May 09 00:13:05 2024
+    Info: Peak virtual memory: 7587 megabytes
+    Info: Processing ended: Thu May 09 12:34:56 2024
     Info: Elapsed time: 00:00:21
-    Info: Total CPU time (on all processors): 00:00:56
+    Info: Total CPU time (on all processors): 00:00:54
 
 
 +----------------------------+

@@ -25,6 +25,10 @@ begin
         red   <= '1';
         green <= '0';
         blue  <= '0';
+		if (pipe_on = '1') then
+        red   <= '0';
+        green <= '1';
+        blue  <= '0'; 
       else --background;
         red   <= '1';
         green <= '1';

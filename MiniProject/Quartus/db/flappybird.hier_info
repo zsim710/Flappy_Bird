@@ -277,12 +277,12 @@ cascade_out[0] <= <GND>
 zdbfbclk <> <GND>
 
 
-|flappybird|display_priority_controller:inst7
+|flappybird|display_priority_controller:inst8
 ball_on => green~reg0.DATAIN
 ball_on => blue~reg0.DATAIN
-vert_sync => blue~reg0.CLK
-vert_sync => green~reg0.CLK
-vert_sync => red~reg0.CLK
+clk => blue~reg0.CLK
+clk => green~reg0.CLK
+clk => red~reg0.CLK
 pixel_row[0] => ~NO_FANOUT~
 pixel_row[1] => ~NO_FANOUT~
 pixel_row[2] => ~NO_FANOUT~
