@@ -18,14 +18,14 @@ architecture behavior of pipe is
   signal screen_width, screen_height : std_logic_vector(10 downto 0);
   signal pipe_top, pipe_bot          : std_logic;
   signal pipe2_top, pipe2_bot        : std_logic;
-  constant gap_half_width : integer := 25;
+  constant gap_half_width : integer := 50;
   signal gap_pos_cent1, gap_pos_cent2 : integer range 200 to 300;
   signal random_number            : std_logic_vector(7 downto 0);
 
   component GaloisLFSR8 is
     port (
       clk, reset : in  std_logic;
-      data_out   : out std_logic_vector(15 downto 0)
+      lfsr_out   : out std_logic_vector(7 downto 0)
     );
   end component;
   
@@ -41,7 +41,7 @@ begin
   LFSR1: GaloisLFSR8 port map(
     clk      => clk,
     reset    => '0',
-    data_out => random_number
+    lfsr_out => random_number
   );
 
   -- Initialize pipe starting position on the right side of the screen
