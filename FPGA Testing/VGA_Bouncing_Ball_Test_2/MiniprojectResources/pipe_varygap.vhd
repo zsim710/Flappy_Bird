@@ -12,8 +12,8 @@ entity pipe is
 end entity;
 
 architecture behavior of pipe is
-  signal pipe_x_pos             : std_logic_vector(10 downto 0) :=  screen_width + pipe_width;
-  signal pipe2_x_pos    : std_logic_vector(10 downto 0) := screen_width + pipe_width + conv_std_logic_vector(300, 11);
+  signal pipe_x_pos             : std_logic_vector(10 downto 0) :=  conv_std_logic_vector(689, 11);
+  signal pipe2_x_pos    : std_logic_vector(10 downto 0) := conv_std_logic_vector(989, 11);
   signal pipe_width, pipe_height     : std_logic_vector(10 downto 0);
   signal screen_width, screen_height : std_logic_vector(10 downto 0);
   signal pipe_top, pipe_bot          : std_logic;
@@ -66,7 +66,7 @@ begin
   pipe2_top <= '1' when('0' & pixel_column <= '0' & pipe2_x_pos and '0' & pixel_column >= '0' & pipe2_x_pos - pipe_width and pixel_row <= (gap_pos_cent + gap_half_width) and pixel_row > CONV_STD_LOGIC_VECTOR(0, 11)) else
               '0';    
 
-  pipe_on <= pipe_top and pipe_bot and pipe2_top and pipe2_bot; 
+  pipe_on <= (pipe_top and pipe_bot) or (pipe2_top and pipe2_bot); 
 
   -- Set the output colors, pipe in red, background in black
 end architecture;
