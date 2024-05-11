@@ -72,17 +72,17 @@ begin
   end process;
   -- 
   -- Check if current pixel is within bounds of the top pipe
-  pipe_top <= '1' when ('0' & pixel_column <= pipe_x_pos and '0' & pixel_column >= pipe_x_pos - pipe_width and pixel_row <= conv_std_logic_vector(conv_integer(gap_pos_cent1) - gap_half_width) and '0' & pixel_row > CONV_STD_LOGIC_VECTOR(0, 11)) else
+  pipe_top <= '1' when ('0' & pixel_column <= pipe_x_pos and '0' & pixel_column >= pipe_x_pos - pipe_width and pixel_row <= conv_std_logic_vector((conv_integer(gap_pos_cent1) - gap_half_width),11) and '0' & pixel_row > CONV_STD_LOGIC_VECTOR(0, 11)) else
               '0';
 
 -- check if current pixel is in the bounds of the bottom pipe
-  pipe_bot <= '1' when ('0' & pixel_column <= pipe_x_pos and '0' & pixel_column >= pipe_x_pos - pipe_width and pixel_row >= conv_std_logic_vector(conv_integer(gap_pos_cent1) + gap_half_width) and '0' & pixel_row < screen_height) else
+  pipe_bot <= '1' when ('0' & pixel_column <= pipe_x_pos and '0' & pixel_column >= pipe_x_pos - pipe_width and pixel_row >= conv_std_logic_vector((conv_integer(gap_pos_cent1) + gap_half_width),11) and '0' & pixel_row < screen_height) else
               '0';
 
     -- same thing but for the second pipe
-  pipe2_bot <= '1' when('0' & pixel_column <= pipe2_x_pos and '0' & pixel_column >= pipe2_x_pos - pipe_width and pixel_row >= conv_std_logic_vector(conv_integer(gap_pos_cent2) + gap_half_width) and '0' & pixel_row < screen_height) else
+  pipe2_bot <= '1' when('0' & pixel_column <= pipe2_x_pos and '0' & pixel_column >= pipe2_x_pos - pipe_width and pixel_row >= conv_std_logic_vector((conv_integer(gap_pos_cent2) + gap_half_width),11) and '0' & pixel_row < screen_height) else
               '0';
-  pipe2_top <= '1' when('0' & pixel_column <= pipe2_x_pos and '0' & pixel_column >= pipe2_x_pos - pipe_width and pixel_row <= conv_std_logic_vector(conv_integer(gap_pos_cent2) - gap_half_width) and '0' & pixel_row > CONV_STD_LOGIC_VECTOR(0, 11)) else
+  pipe2_top <= '1' when('0' & pixel_column <= pipe2_x_pos and '0' & pixel_column >= pipe2_x_pos - pipe_width and pixel_row <= conv_std_logic_vector((conv_integer(gap_pos_cent2) - gap_half_width),11) and '0' & pixel_row > CONV_STD_LOGIC_VECTOR(0, 11)) else
               '0';    
 
   pipe_on <= (pipe_top or pipe_bot) or (pipe2_top or pipe2_bot); 
