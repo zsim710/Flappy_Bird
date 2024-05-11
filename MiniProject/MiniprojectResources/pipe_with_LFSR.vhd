@@ -22,7 +22,7 @@ architecture behavior of pipe is
   signal gap_pos_cent1, gap_pos_cent2 : integer range 200 to 300;
   signal random_number            : std_logic_vector(7 downto 0);
 
-  component LFSR is
+  component GaloisLFSR8 is
     port (
       clk, reset : in  std_logic;
       data_out   : out std_logic_vector(15 downto 0)
@@ -38,7 +38,7 @@ begin
   pipe_width    <= CONV_STD_LOGIC_VECTOR(50, 11);  -- 100 in binary
   pipe_height   <= CONV_STD_LOGIC_VECTOR(150, 11); -- 300 in binary
 
-  LFSR1: LFSR port map(
+  LFSR1: GaloisLFSR8 port map(
     clk      => clk,
     reset    => '0',
     data_out => random_number
