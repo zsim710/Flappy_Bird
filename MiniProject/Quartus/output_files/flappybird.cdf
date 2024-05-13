@@ -4,10 +4,10 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(5CEBA4F23) Path("C:/Users/deven/Documents/305/305_proj/MiniProject/Quartus/output_files/") File("flappybird.sof") MfrSpec(OpMask(1));
+		Device PartName(EPCS64) Path("C:/Users/deven/Documents/305/305_proj/MiniProject/Quartus/output_files/") File("flappybird.pof") MfrSpec(OpMask(3) Child_OpMask(1 3));
 
 ChainEnd;
 
 AlteraBegin;
-	ChainType(JTAG);
+	ChainType(asc);
 AlteraEnd;
