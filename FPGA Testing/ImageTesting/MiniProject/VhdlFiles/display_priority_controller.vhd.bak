@@ -1,0 +1,31 @@
+--creating the priority for colours here just before VGA
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.STD_LOGIC_ARITH.all;
+use IEEE.STD_LOGIC_UNSIGNED.all;
+
+entity display_priority_controller is
+  port
+  (
+    clk, ball_on     : in std_logic;
+    red, green, blue : out std_logic;
+  );
+end entity display_priority_controller;
+
+architecture behaviour of display_priority_controller is
+
+begin
+
+  process (clk)
+  begin
+    if (ball_on = '1') then
+      red   <= '1';
+      green <= '0';
+      blue  <= '0';
+    else --background;
+      null;
+    end if;
+  end process;
+
+end architecture behaviour;
