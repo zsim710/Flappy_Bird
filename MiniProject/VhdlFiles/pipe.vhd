@@ -14,6 +14,7 @@ end entity;
 architecture behavior of pipe is
   signal pipe_x_pos             : std_logic_vector(10 downto 0) :=  CONV_STD_LOGIC_VECTOR(689, 11);
   signal pipe2_x_pos    : std_logic_vector(10 downto 0) := conv_std_logic_vector(989, 11);
+  signal pipe_y_pos, pipe2_y_pos    : std_logic_vector(10 downto 0);
   signal pipe_width, pipe_height     : std_logic_vector(10 downto 0);
   signal screen_width, screen_height : std_logic_vector(10 downto 0);
   signal pipe_top, pipe_bot          : std_logic;
