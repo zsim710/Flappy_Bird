@@ -5,8 +5,10 @@ use  IEEE.STD_LOGIC_ARITH.all;
 use  IEEE.STD_LOGIC_UNSIGNED.all;
 
 ENTITY VGA_SYNC IS
-	PORT(	clock_25Mhz, red, green, blue		: IN	STD_LOGIC;
-			red_out, green_out, blue_out, horiz_sync_out, vert_sync_out	: OUT	STD_LOGIC;
+	PORT(	clock_25Mhz		: IN	STD_LOGIC;
+			red, green, blue : IN STD_LOGIC_VECTOR(3 downto 0);
+			horiz_sync_out, vert_sync_out	: OUT	STD_LOGIC;
+			red_out, green_out, blue_out : OUT STD_LOGIC_VECTOR(3 downto 0);
 			pixel_row, pixel_column: OUT STD_LOGIC_VECTOR(9 DOWNTO 0));
 END VGA_SYNC;
 
@@ -14,6 +16,7 @@ ARCHITECTURE a OF VGA_SYNC IS
 	SIGNAL horiz_sync, vert_sync : STD_LOGIC;
 	SIGNAL video_on, video_on_v, video_on_h : STD_LOGIC;
 	SIGNAL h_count, v_count :STD_LOGIC_VECTOR(9 DOWNTO 0);
+	SIGNAL video_on_four: STD_LOGIC_VECTOR(3 downto 0);
 
 BEGIN
 
@@ -77,11 +80,19 @@ BEGIN
 	ELSE
    		video_on_v <= '0';
 	END IF;
+	
+	if (video_on = '1') then
+		video_on_four <= "1111";
+	else 
+		video_on_four <= "0000";
+	end if;
+
 
 -- Put all video signals through DFFs to elminate any delays that cause a blurry image
-		red_out <= red AND video_on;
-		green_out <= green AND video_on;
-		blue_out <= blue AND video_on;
+		-- Put all video signals through DFFs to eliminate any delays that cause a blurry image
+		red_out <= red AND video_on_four;
+		green_out <= green AND video_on_four;
+		blue_out <= blue AND video_on_four;
 		horiz_sync_out <= horiz_sync;
 		vert_sync_out <= vert_sync;
 

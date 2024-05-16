@@ -59,7 +59,7 @@ begin
         -- Check if left click is active (jump)
       elsif (left_click = '0' and left_click_pressed = '0') then
         -- Apply upward impulse for a short duration
-        ball_y_motion <= - CONV_STD_LOGIC_VECTOR(10, 10); -- Set initial upward motion
+        ball_y_motion <= - CONV_STD_LOGIC_VECTOR(7, 10); -- Set initial upward motion
 
       elsif (left_click = '1') then
         left_click_pressed := '0';
@@ -68,7 +68,7 @@ begin
 
       if (('0' & ball_y_pos >= CONV_STD_LOGIC_VECTOR(450, 10) - size)) then
         ball_y_motion     <= - CONV_STD_LOGIC_VECTOR(1, 10);
-      elsif (ball_y_pos <= size) then
+      elsif ('0' & ball_y_pos <= size + 8) then
         ball_y_motion     <= CONV_STD_LOGIC_VECTOR(1, 10);
       end if;
 
