@@ -140,7 +140,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "pb[0]",
+					"name" : "pb[3]",
+					"strict" : false
+				},
+				{
+					"name" : "SW8",
+					"strict" : false
+				},
+				{
+					"name" : "SW0",
+					"strict" : false
+				},
+				{
+					"name" : "SW1",
 					"strict" : false
 				}
 			]

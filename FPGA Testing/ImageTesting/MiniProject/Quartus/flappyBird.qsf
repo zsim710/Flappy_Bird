@@ -436,8 +436,6 @@ set_location_assignment PIN_K9 -to SD_DATA[0]
 set_location_assignment PIN_D12 -to SD_DATA[1]
 set_location_assignment PIN_E12 -to SD_DATA[2]
 set_location_assignment PIN_C11 -to SD_DATA[3]
-set_location_assignment PIN_U13 -to SW[0]
-set_location_assignment PIN_V13 -to SW[1]
 set_location_assignment PIN_T13 -to SW[2]
 set_location_assignment PIN_T12 -to SW[3]
 set_location_assignment PIN_AA15 -to SW[4]
@@ -445,7 +443,6 @@ set_location_assignment PIN_AB15 -to SW[5]
 set_location_assignment PIN_AA14 -to SW[6]
 set_location_assignment PIN_AA13 -to SW[7]
 set_location_assignment PIN_AB13 -to SW[8]
-set_location_assignment PIN_AB12 -to SW[9]
 set_location_assignment PIN_B6 -to VGA_B[0]
 set_location_assignment PIN_B7 -to VGA_B[1]
 set_location_assignment PIN_A8 -to VGA_B[2]
@@ -499,6 +496,9 @@ set_location_assignment PIN_M6 -to pb[3]
 set_location_assignment PIN_Y3 -to LEDR3
 set_location_assignment PIN_AA2 -to LEDR0
 set_location_assignment PIN_AA1 -to LEDR1
+set_global_assignment -name VHDL_FILE ../VhdlFiles/fsm.vhd
+set_global_assignment -name VHDL_FILE ../MiniprojectResources/im_rom.vhd
+set_global_assignment -name VHDL_FILE ../VhdlFiles/Double_Digit_Counter.vhd
 set_global_assignment -name VHDL_FILE ../VhdlFiles/Collision.vhd
 set_global_assignment -name VHDL_FILE ../VhdlFiles/testImage.vhd
 set_global_assignment -name VHDL_FILE ../VhdlFiles/lsfr.vhd
@@ -516,4 +516,7 @@ set_global_assignment -name QIP_FILE pll.qip
 set_global_assignment -name SIP_FILE pll.sip
 set_global_assignment -name BDF_FILE flappybird.bdf
 set_global_assignment -name BDF_FILE extracomponents.bdf
+set_location_assignment PIN_U13 -to SW0
+set_location_assignment PIN_V13 -to SW1
+set_location_assignment PIN_AB12 -to SW9
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
