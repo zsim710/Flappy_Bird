@@ -24,6 +24,30 @@
 					"strict" : false
 				},
 				{
+					"name" : "LEDR9",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR8",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR7",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR6",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR5",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR4",
+					"strict" : false
+				},
+				{
 					"name" : "blue_out[3]",
 					"strict" : false
 				},
@@ -136,15 +160,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "pb[1]",
+					"name" : "SW9",
 					"strict" : false
 				},
 				{
 					"name" : "pb[3]",
-					"strict" : false
-				},
-				{
-					"name" : "SW8",
 					"strict" : false
 				},
 				{
@@ -153,6 +173,18 @@
 				},
 				{
 					"name" : "SW1",
+					"strict" : false
+				},
+				{
+					"name" : "SW2",
+					"strict" : false
+				},
+				{
+					"name" : "pb[0]",
+					"strict" : false
+				},
+				{
+					"name" : "pb[1]",
 					"strict" : false
 				}
 			]

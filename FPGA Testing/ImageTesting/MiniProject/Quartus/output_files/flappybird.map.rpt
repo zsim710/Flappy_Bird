@@ -1,5 +1,5 @@
 Analysis & Synthesis report for flappybird
-Sat May 18 16:31:54 2024
+Sat May 18 21:08:41 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -21,12 +21,12 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  13. General Register Statistics
  14. Inverted Register Statistics
  15. Multiplexer Restructuring Statistics (Restructuring Performed)
- 16. Source assignments for lives_text:inst8|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_vtf1:auto_generated
+ 16. Source assignments for lives_text:inst15|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_vtf1:auto_generated
  17. Parameter Settings for User Entity Instance: pll:inst|pll_0002:pll_inst|altera_pll:altera_pll_i
- 18. Parameter Settings for User Entity Instance: lives_text:inst8|char_rom:char_rom_inst|altsyncram:altsyncram_component
- 19. Parameter Settings for Inferred Entity Instance: pipe_hard:inst14|lpm_divide:Mod0
+ 18. Parameter Settings for User Entity Instance: lives_text:inst15|char_rom:char_rom_inst|altsyncram:altsyncram_component
+ 19. Parameter Settings for Inferred Entity Instance: pipe_hard:inst29|lpm_divide:Mod0
  20. altsyncram Parameter Settings by Entity Instance
- 21. Port Connectivity Checks: "pipe_hard:inst14|GaloisLFSR8:LFSR1"
+ 21. Port Connectivity Checks: "pipe_hard:inst29|GaloisLFSR8:LFSR1"
  22. Post-Synthesis Netlist Statistics for Top Partition
  23. Elapsed Time Per Partition
  24. Analysis & Synthesis Messages
@@ -55,14 +55,14 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat May 18 16:31:54 2024       ;
+; Analysis & Synthesis Status     ; Successful - Sat May 18 21:08:41 2024       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; flappybird                                  ;
 ; Top-level Entity Name           ; flappybird                                  ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 287                                         ;
-; Total pins                      ; 42                                          ;
+; Total registers                 ; 290                                         ;
+; Total pins                      ; 48                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 4,096                                       ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -226,18 +226,18 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                             ;
 +---------------------------------------------+-------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 402                                                               ;
+; Estimate of Logic utilization (ALMs needed) ; 391                                                               ;
 ;                                             ;                                                                   ;
-; Combinational ALUT usage for logic          ; 665                                                               ;
-;     -- 7 input functions                    ; 6                                                                 ;
+; Combinational ALUT usage for logic          ; 645                                                               ;
+;     -- 7 input functions                    ; 5                                                                 ;
 ;     -- 6 input functions                    ; 121                                                               ;
-;     -- 5 input functions                    ; 124                                                               ;
-;     -- 4 input functions                    ; 72                                                                ;
-;     -- <=3 input functions                  ; 342                                                               ;
+;     -- 5 input functions                    ; 117                                                               ;
+;     -- 4 input functions                    ; 61                                                                ;
+;     -- <=3 input functions                  ; 341                                                               ;
 ;                                             ;                                                                   ;
-; Dedicated logic registers                   ; 287                                                               ;
+; Dedicated logic registers                   ; 290                                                               ;
 ;                                             ;                                                                   ;
-; I/O pins                                    ; 42                                                                ;
+; I/O pins                                    ; 48                                                                ;
 ; Total MLAB memory bits                      ; 0                                                                 ;
 ; Total block memory bits                     ; 4096                                                              ;
 ;                                             ;                                                                   ;
@@ -248,8 +248,8 @@ refer to the applicable agreement for further details.
 ;                                             ;                                                                   ;
 ; Maximum fan-out node                        ; pll:inst|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
 ; Maximum fan-out                             ; 114                                                               ;
-; Total fan-out                               ; 3432                                                              ;
-; Average fan-out                             ; 3.28                                                              ;
+; Total fan-out                               ; 3360                                                              ;
+; Average fan-out                             ; 3.22                                                              ;
 +---------------------------------------------+-------------------------------------------------------------------+
 
 
@@ -258,27 +258,27 @@ refer to the applicable agreement for further details.
 +----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
 ; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                       ; Entity Name                 ; Library Name ;
 +----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
-; |flappybird                                  ; 665 (1)             ; 287 (0)                   ; 4096              ; 0          ; 42   ; 0            ; |flappybird                                                                                                               ; flappybird                  ; work         ;
+; |flappybird                                  ; 645 (1)             ; 290 (0)                   ; 4096              ; 0          ; 48   ; 0            ; |flappybird                                                                                                               ; flappybird                  ; work         ;
 ;    |BCD_to_SevenSeg:inst10|                  ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|BCD_to_SevenSeg:inst10                                                                                        ; BCD_to_SevenSeg             ; work         ;
 ;    |BCD_to_SevenSeg:inst9|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|BCD_to_SevenSeg:inst9                                                                                         ; BCD_to_SevenSeg             ; work         ;
 ;    |MOUSE:inst6|                             ; 108 (108)           ; 120 (120)                 ; 0                 ; 0          ; 0    ; 0            ; |flappybird|MOUSE:inst6                                                                                                   ; MOUSE                       ; work         ;
 ;    |VGA_SYNC:inst2|                          ; 48 (48)             ; 58 (58)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird|VGA_SYNC:inst2                                                                                                ; VGA_SYNC                    ; work         ;
-;    |bird:inst18|                             ; 73 (73)             ; 30 (30)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird|bird:inst18                                                                                                   ; bird                        ; work         ;
-;    |collision_module:inst17|                 ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|collision_module:inst17                                                                                       ; collision_module            ; work         ;
-;    |display_priority_controller:inst23|      ; 13 (13)             ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird|display_priority_controller:inst23                                                                            ; display_priority_controller ; work         ;
-;    |fsm:inst22|                              ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|fsm:inst22                                                                                                    ; fsm                         ; work         ;
+;    |bird:inst18|                             ; 80 (80)             ; 30 (30)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird|bird:inst18                                                                                                   ; bird                        ; work         ;
+;    |collision_module:inst8|                  ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|collision_module:inst8                                                                                        ; collision_module            ; work         ;
+;    |display_priority_controller:inst23|      ; 9 (9)               ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird|display_priority_controller:inst23                                                                            ; display_priority_controller ; work         ;
+;    |fsm:inst26|                              ; 15 (15)             ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|fsm:inst26                                                                                                    ; fsm                         ; work         ;
 ;    |ground:inst7|                            ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|ground:inst7                                                                                                  ; ground                      ; work         ;
-;    |lives_text:inst8|                        ; 83 (81)             ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappybird|lives_text:inst8                                                                                              ; lives_text                  ; work         ;
-;       |char_rom:char_rom_inst|               ; 2 (2)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappybird|lives_text:inst8|char_rom:char_rom_inst                                                                       ; char_rom                    ; work         ;
-;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappybird|lives_text:inst8|char_rom:char_rom_inst|altsyncram:altsyncram_component                                       ; altsyncram                  ; work         ;
-;             |altsyncram_vtf1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappybird|lives_text:inst8|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_vtf1:auto_generated        ; altsyncram_vtf1             ; work         ;
-;    |pipe_hard:inst14|                        ; 311 (256)           ; 68 (60)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pipe_hard:inst14                                                                                              ; pipe_hard                   ; work         ;
-;       |GaloisLFSR8:LFSR1|                    ; 2 (2)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pipe_hard:inst14|GaloisLFSR8:LFSR1                                                                            ; GaloisLFSR8                 ; work         ;
-;       |lpm_divide:Mod0|                      ; 53 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pipe_hard:inst14|lpm_divide:Mod0                                                                              ; lpm_divide                  ; work         ;
-;          |lpm_divide_4go:auto_generated|     ; 53 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pipe_hard:inst14|lpm_divide:Mod0|lpm_divide_4go:auto_generated                                                ; lpm_divide_4go              ; work         ;
-;             |abs_divider_aag:divider|        ; 53 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pipe_hard:inst14|lpm_divide:Mod0|lpm_divide_4go:auto_generated|abs_divider_aag:divider                        ; abs_divider_aag             ; work         ;
-;                |alt_u_div_4te:divider|       ; 29 (29)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pipe_hard:inst14|lpm_divide:Mod0|lpm_divide_4go:auto_generated|abs_divider_aag:divider|alt_u_div_4te:divider  ; alt_u_div_4te               ; work         ;
-;                |lpm_abs_nn9:my_abs_num|      ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pipe_hard:inst14|lpm_divide:Mod0|lpm_divide_4go:auto_generated|abs_divider_aag:divider|lpm_abs_nn9:my_abs_num ; lpm_abs_nn9                 ; work         ;
+;    |lives_text:inst15|                       ; 81 (79)             ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappybird|lives_text:inst15                                                                                             ; lives_text                  ; work         ;
+;       |char_rom:char_rom_inst|               ; 2 (2)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappybird|lives_text:inst15|char_rom:char_rom_inst                                                                      ; char_rom                    ; work         ;
+;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappybird|lives_text:inst15|char_rom:char_rom_inst|altsyncram:altsyncram_component                                      ; altsyncram                  ; work         ;
+;             |altsyncram_vtf1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappybird|lives_text:inst15|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_vtf1:auto_generated       ; altsyncram_vtf1             ; work         ;
+;    |pipe_hard:inst29|                        ; 284 (229)           ; 68 (60)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pipe_hard:inst29                                                                                              ; pipe_hard                   ; work         ;
+;       |GaloisLFSR8:LFSR1|                    ; 2 (2)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pipe_hard:inst29|GaloisLFSR8:LFSR1                                                                            ; GaloisLFSR8                 ; work         ;
+;       |lpm_divide:Mod0|                      ; 53 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pipe_hard:inst29|lpm_divide:Mod0                                                                              ; lpm_divide                  ; work         ;
+;          |lpm_divide_4go:auto_generated|     ; 53 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pipe_hard:inst29|lpm_divide:Mod0|lpm_divide_4go:auto_generated                                                ; lpm_divide_4go              ; work         ;
+;             |abs_divider_aag:divider|        ; 53 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pipe_hard:inst29|lpm_divide:Mod0|lpm_divide_4go:auto_generated|abs_divider_aag:divider                        ; abs_divider_aag             ; work         ;
+;                |alt_u_div_4te:divider|       ; 29 (29)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pipe_hard:inst29|lpm_divide:Mod0|lpm_divide_4go:auto_generated|abs_divider_aag:divider|alt_u_div_4te:divider  ; alt_u_div_4te               ; work         ;
+;                |lpm_abs_nn9:my_abs_num|      ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pipe_hard:inst29|lpm_divide:Mod0|lpm_divide_4go:auto_generated|abs_divider_aag:divider|lpm_abs_nn9:my_abs_num ; lpm_abs_nn9                 ; work         ;
 ;    |pll:inst|                                ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pll:inst                                                                                                      ; pll                         ; pll          ;
 ;       |pll_0002:pll_inst|                    ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pll:inst|pll_0002:pll_inst                                                                                    ; pll_0002                    ; pll          ;
 ;          |altera_pll:altera_pll_i|           ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pll:inst|pll_0002:pll_inst|altera_pll:altera_pll_i                                                            ; altera_pll                  ; work         ;
@@ -286,13 +286,13 @@ refer to the applicable agreement for further details.
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                                              ;
-+-------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+----------+
-; Name                                                                                                              ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF      ;
-+-------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+----------+
-; lives_text:inst8|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_vtf1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 512          ; 8            ; --           ; --           ; 4096 ; char.mif ;
-+-------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+----------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                               ;
++--------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+----------+
+; Name                                                                                                               ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF      ;
++--------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+----------+
+; lives_text:inst15|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_vtf1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 512          ; 8            ; --           ; --           ; 4096 ; char.mif ;
++--------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+----------+
 
 
 +--------------------------------------------------------------------------------------------------------+
@@ -319,28 +319,28 @@ Encoding Type:  One-Hot
 +-------------------------------+---------------------------+--------------------------+-------------------------------+---------------------------+--------------------------+---------------------------+
 
 
-+------------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                  ;
-+-----------------------------------------------------+-----------------------+------------------------+
-; Latch Name                                          ; Latch Enable Signal   ; Free of Timing Hazards ;
-+-----------------------------------------------------+-----------------------+------------------------+
-; fsm:inst22|state[1]                                 ; fsm:inst22|Mux3       ; yes                    ;
-; fsm:inst22|state[2]                                 ; fsm:inst22|Mux3       ; yes                    ;
-; fsm:inst22|state[0]                                 ; fsm:inst22|Mux3       ; yes                    ;
-; lives_text:inst8|u_f_col[2]                         ; lives_text:inst8|Mux1 ; yes                    ;
-; lives_text:inst8|u_f_col[1]                         ; lives_text:inst8|Mux1 ; yes                    ;
-; lives_text:inst8|u_f_row[0]                         ; lives_text:inst8|Mux1 ; yes                    ;
-; lives_text:inst8|u_f_row[1]                         ; lives_text:inst8|Mux1 ; yes                    ;
-; lives_text:inst8|u_f_row[2]                         ; lives_text:inst8|Mux1 ; yes                    ;
-; lives_text:inst8|u_char_address[0]                  ; lives_text:inst8|Mux3 ; yes                    ;
-; lives_text:inst8|u_char_address[1]                  ; lives_text:inst8|Mux3 ; yes                    ;
-; lives_text:inst8|u_char_address[2]                  ; lives_text:inst8|Mux3 ; yes                    ;
-; lives_text:inst8|u_char_address[3]                  ; lives_text:inst8|Mux3 ; yes                    ;
-; lives_text:inst8|u_char_address[4]                  ; lives_text:inst8|Mux3 ; yes                    ;
-; lives_text:inst8|u_char_address[5]                  ; lives_text:inst8|Mux3 ; yes                    ;
-; lives_text:inst8|u_f_col[0]                         ; lives_text:inst8|Mux1 ; yes                    ;
-; Number of user-specified and inferred latches = 15  ;                       ;                        ;
-+-----------------------------------------------------+-----------------------+------------------------+
++--------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                ;
++-----------------------------------------------------+-------------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal                 ; Free of Timing Hazards ;
++-----------------------------------------------------+-------------------------------------+------------------------+
+; fsm:inst26|next_state[1]                            ; fsm:inst26|Mux9                     ; yes                    ;
+; fsm:inst26|next_state[0]                            ; fsm:inst26|Mux9                     ; yes                    ;
+; fsm:inst26|next_state[2]                            ; fsm:inst26|Mux9                     ; yes                    ;
+; lives_text:inst15|u_f_col[2]                        ; lives_text:inst15|u_f_col[0]        ; yes                    ;
+; lives_text:inst15|u_f_col[1]                        ; lives_text:inst15|u_f_col[0]        ; yes                    ;
+; lives_text:inst15|u_f_row[0]                        ; lives_text:inst15|u_f_col[0]        ; yes                    ;
+; lives_text:inst15|u_f_row[1]                        ; lives_text:inst15|u_f_col[0]        ; yes                    ;
+; lives_text:inst15|u_f_row[2]                        ; lives_text:inst15|u_f_col[0]        ; yes                    ;
+; lives_text:inst15|u_char_address[0]                 ; lives_text:inst15|u_char_address[1] ; yes                    ;
+; lives_text:inst15|u_char_address[1]                 ; lives_text:inst15|u_char_address[1] ; yes                    ;
+; lives_text:inst15|u_char_address[2]                 ; lives_text:inst15|u_char_address[1] ; yes                    ;
+; lives_text:inst15|u_char_address[3]                 ; lives_text:inst15|u_char_address[1] ; yes                    ;
+; lives_text:inst15|u_char_address[4]                 ; lives_text:inst15|u_char_address[1] ; yes                    ;
+; lives_text:inst15|u_char_address[5]                 ; lives_text:inst15|u_char_address[1] ; yes                    ;
+; lives_text:inst15|u_f_col[0]                        ; lives_text:inst15|u_f_col[0]        ; yes                    ;
+; Number of user-specified and inferred latches = 15  ;                                     ;                        ;
++-----------------------------------------------------+-------------------------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
@@ -349,6 +349,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+--------------------------------------------------------+
 ; Register name                                ; Reason for Removal                                     ;
 +----------------------------------------------+--------------------------------------------------------+
+; fsm:inst26|state[3]                          ; Stuck at GND due to stuck port data_in                 ;
 ; MOUSE:inst6|CHAROUT[4..7]                    ; Stuck at VCC due to stuck port data_in                 ;
 ; MOUSE:inst6|CHAROUT[3]                       ; Stuck at GND due to stuck port data_in                 ;
 ; MOUSE:inst6|CHAROUT[2]                       ; Stuck at VCC due to stuck port data_in                 ;
@@ -359,7 +360,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; display_priority_controller:inst23|blue[2,3] ; Merged with display_priority_controller:inst23|blue[1] ;
 ; MOUSE:inst6|cursor_row[9]                    ; Stuck at GND due to stuck port data_in                 ;
 ; VGA_SYNC:inst2|pixel_row[9]                  ; Stuck at GND due to stuck port data_in                 ;
-; Total Number of Removed Registers = 17       ;                                                        ;
+; Total Number of Removed Registers = 18       ;                                                        ;
 +----------------------------------------------+--------------------------------------------------------+
 
 
@@ -368,12 +369,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 287   ;
+; Total registers                              ; 290   ;
 ; Number of registers using Synchronous Clear  ; 28    ;
 ; Number of registers using Synchronous Load   ; 20    ;
-; Number of registers using Asynchronous Clear ; 16    ;
+; Number of registers using Asynchronous Clear ; 19    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 169   ;
+; Number of registers using Clock Enable       ; 159   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -383,40 +384,40 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------------------------------+---------+
 ; Inverted Register                          ; Fan out ;
 +--------------------------------------------+---------+
+; pipe_hard:inst29|pipe_x_pos[1]             ; 5       ;
+; pipe_hard:inst29|pipe_x_pos[7]             ; 4       ;
+; pipe_hard:inst29|pipe_x_pos[6]             ; 4       ;
+; pipe_hard:inst29|pipe_x_pos[5]             ; 15      ;
+; pipe_hard:inst29|pipe_x_pos[2]             ; 4       ;
+; pipe_hard:inst29|gap_pos_cent1[7]          ; 2       ;
+; pipe_hard:inst29|gap_pos_cent1[4]          ; 4       ;
+; pipe_hard:inst29|gap_pos_cent1[2]          ; 2       ;
+; pipe_hard:inst29|gap_pos_cent1[1]          ; 2       ;
+; pipe_hard:inst29|pipe2_x_pos[8]            ; 4       ;
+; pipe_hard:inst29|pipe2_x_pos[7]            ; 4       ;
+; pipe_hard:inst29|pipe2_x_pos[6]            ; 4       ;
+; pipe_hard:inst29|pipe2_x_pos[3]            ; 4       ;
+; pipe_hard:inst29|pipe2_x_pos[2]            ; 4       ;
+; pipe_hard:inst29|gap_pos_cent2[7]          ; 2       ;
+; pipe_hard:inst29|gap_pos_cent2[4]          ; 4       ;
+; pipe_hard:inst29|gap_pos_cent2[2]          ; 2       ;
+; pipe_hard:inst29|gap_pos_cent2[1]          ; 2       ;
+; pipe_hard:inst29|pipe3_x_pos[1]            ; 5       ;
+; pipe_hard:inst29|pipe3_x_pos[9]            ; 4       ;
+; pipe_hard:inst29|pipe3_x_pos[7]            ; 4       ;
+; pipe_hard:inst29|pipe3_x_pos[5]            ; 5       ;
+; pipe_hard:inst29|pipe3_x_pos[4]            ; 14      ;
+; pipe_hard:inst29|gap_pos_cent3[7]          ; 2       ;
+; pipe_hard:inst29|gap_pos_cent3[4]          ; 4       ;
+; pipe_hard:inst29|gap_pos_cent3[2]          ; 2       ;
+; pipe_hard:inst29|gap_pos_cent3[1]          ; 2       ;
 ; bird:inst18|bird_y_pos[7]                  ; 5       ;
 ; bird:inst18|bird_y_pos[6]                  ; 5       ;
-; bird:inst18|bird_y_pos[5]                  ; 5       ;
+; bird:inst18|bird_y_pos[5]                  ; 6       ;
 ; bird:inst18|bird_y_pos[4]                  ; 5       ;
-; pipe_hard:inst14|gap_pos_cent3[7]          ; 4       ;
-; pipe_hard:inst14|gap_pos_cent3[4]          ; 6       ;
-; pipe_hard:inst14|pipe3_x_pos[1]            ; 6       ;
-; pipe_hard:inst14|pipe3_x_pos[9]            ; 4       ;
-; pipe_hard:inst14|pipe3_x_pos[7]            ; 4       ;
-; pipe_hard:inst14|pipe3_x_pos[5]            ; 5       ;
-; pipe_hard:inst14|pipe3_x_pos[4]            ; 14      ;
-; pipe_hard:inst14|gap_pos_cent3[2]          ; 2       ;
-; pipe_hard:inst14|gap_pos_cent3[1]          ; 2       ;
-; pipe_hard:inst14|gap_pos_cent1[7]          ; 4       ;
-; pipe_hard:inst14|gap_pos_cent1[4]          ; 6       ;
-; pipe_hard:inst14|pipe_x_pos[1]             ; 6       ;
-; pipe_hard:inst14|pipe_x_pos[7]             ; 4       ;
-; pipe_hard:inst14|pipe_x_pos[6]             ; 4       ;
-; pipe_hard:inst14|pipe_x_pos[5]             ; 15      ;
-; pipe_hard:inst14|pipe_x_pos[2]             ; 4       ;
-; pipe_hard:inst14|gap_pos_cent1[2]          ; 2       ;
-; pipe_hard:inst14|gap_pos_cent1[1]          ; 2       ;
-; pipe_hard:inst14|gap_pos_cent2[7]          ; 4       ;
-; pipe_hard:inst14|gap_pos_cent2[4]          ; 6       ;
-; pipe_hard:inst14|pipe2_x_pos[8]            ; 4       ;
-; pipe_hard:inst14|pipe2_x_pos[7]            ; 4       ;
-; pipe_hard:inst14|pipe2_x_pos[6]            ; 4       ;
-; pipe_hard:inst14|pipe2_x_pos[3]            ; 4       ;
-; pipe_hard:inst14|pipe2_x_pos[2]            ; 4       ;
-; pipe_hard:inst14|gap_pos_cent2[2]          ; 2       ;
-; pipe_hard:inst14|gap_pos_cent2[1]          ; 2       ;
 ; MOUSE:inst6|send_char                      ; 3       ;
+; pipe_hard:inst29|GaloisLFSR8:LFSR1|lfsr[0] ; 3       ;
 ; bird:inst18|bird_y_motion[1]               ; 3       ;
-; pipe_hard:inst14|GaloisLFSR8:LFSR1|lfsr[0] ; 3       ;
 ; MOUSE:inst6|SHIFTOUT[3]                    ; 1       ;
 ; MOUSE:inst6|SHIFTOUT[5]                    ; 1       ;
 ; MOUSE:inst6|SHIFTOUT[6]                    ; 1       ;
@@ -426,32 +427,33 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------------------------------+---------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |flappybird|MOUSE:inst6|new_cursor_row[3]             ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappybird|VGA_SYNC:inst2|v_count[7]                 ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |flappybird|MOUSE:inst6|cursor_row[9]                 ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |flappybird|MOUSE:inst6|cursor_row[6]                 ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |flappybird|MOUSE:inst6|cursor_column[7]              ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |flappybird|MOUSE:inst6|cursor_column[8]              ;
-; 5:1                ; 9 bits    ; 27 LEs        ; 27 LEs               ; 0 LEs                  ; Yes        ; |flappybird|bird:inst18|bird_y_motion[9]              ;
-; 6:1                ; 5 bits    ; 20 LEs        ; 15 LEs               ; 5 LEs                  ; Yes        ; |flappybird|display_priority_controller:inst23|red[3] ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |flappybird|display_priority_controller:inst23|red[0] ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird|BCD_to_SevenSeg:inst9|SevenSeg_out[5]     ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird|BCD_to_SevenSeg:inst10|SevenSeg_out[2]    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |flappybird|MOUSE:inst6|new_cursor_column[5]            ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |flappybird|display_priority_controller:inst23|green[0] ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappybird|VGA_SYNC:inst2|v_count[6]                   ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappybird|display_priority_controller:inst23|red[0]   ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |flappybird|MOUSE:inst6|cursor_row[8]                   ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |flappybird|MOUSE:inst6|cursor_row[7]                   ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |flappybird|MOUSE:inst6|cursor_column[9]                ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |flappybird|MOUSE:inst6|cursor_column[6]                ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 27 LEs               ; 0 LEs                  ; Yes        ; |flappybird|bird:inst18|bird_y_motion[9]                ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird|lives_text:inst15|u_f_col[2]                ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird|BCD_to_SevenSeg:inst9|SevenSeg_out[3]       ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird|BCD_to_SevenSeg:inst10|SevenSeg_out[3]      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------+
-; Source assignments for lives_text:inst8|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_vtf1:auto_generated ;
-+---------------------------------+--------------------+------+-----------------------------------------------------------------+
-; Assignment                      ; Value              ; From ; To                                                              ;
-+---------------------------------+--------------------+------+-----------------------------------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                               ;
-+---------------------------------+--------------------+------+-----------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for lives_text:inst15|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_vtf1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                               ;
++---------------------------------+--------------------+------+------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                ;
++---------------------------------+--------------------+------+------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------+
@@ -701,69 +703,69 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: lives_text:inst8|char_rom:char_rom_inst|altsyncram:altsyncram_component ;
-+------------------------------------+----------------------+----------------------------------------------------------+
-; Parameter Name                     ; Value                ; Type                                                     ;
-+------------------------------------+----------------------+----------------------------------------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                  ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                               ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                             ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                             ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                           ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                  ;
-; OPERATION_MODE                     ; ROM                  ; Untyped                                                  ;
-; WIDTH_A                            ; 8                    ; Signed Integer                                           ;
-; WIDTHAD_A                          ; 9                    ; Signed Integer                                           ;
-; NUMWORDS_A                         ; 512                  ; Signed Integer                                           ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                  ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                  ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                  ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                  ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                  ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                  ;
-; WIDTH_B                            ; 1                    ; Untyped                                                  ;
-; WIDTHAD_B                          ; 1                    ; Untyped                                                  ;
-; NUMWORDS_B                         ; 1                    ; Untyped                                                  ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                  ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                  ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                  ;
-; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                                  ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                  ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                  ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                  ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                  ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                  ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                  ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                  ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                  ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                           ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                  ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                  ;
-; BYTE_SIZE                          ; 8                    ; Untyped                                                  ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                  ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                  ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                  ;
-; INIT_FILE                          ; char.mif             ; Untyped                                                  ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                  ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                  ;
-; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                  ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                  ;
-; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                                  ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                  ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                  ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                  ;
-; ENABLE_ECC                         ; FALSE                ; Untyped                                                  ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                  ;
-; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                  ;
-; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                                  ;
-; CBXI_PARAMETER                     ; altsyncram_vtf1      ; Untyped                                                  ;
-+------------------------------------+----------------------+----------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: lives_text:inst15|char_rom:char_rom_inst|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-----------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                      ;
++------------------------------------+----------------------+-----------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                   ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                              ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                              ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                            ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                   ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                                                   ;
+; WIDTH_A                            ; 8                    ; Signed Integer                                            ;
+; WIDTHAD_A                          ; 9                    ; Signed Integer                                            ;
+; NUMWORDS_A                         ; 512                  ; Signed Integer                                            ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                   ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                   ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                   ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                   ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                   ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                   ;
+; WIDTH_B                            ; 1                    ; Untyped                                                   ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                                   ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                                   ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                   ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                   ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                   ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                                   ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                   ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                   ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                   ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                   ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                   ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                   ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                   ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                   ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                            ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                   ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                   ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                   ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                   ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                   ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                   ;
+; INIT_FILE                          ; char.mif             ; Untyped                                                   ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                   ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                   ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                   ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                   ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                                   ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                   ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                   ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                   ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                   ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                   ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                   ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                                   ;
+; CBXI_PARAMETER                     ; altsyncram_vtf1      ; Untyped                                                   ;
++------------------------------------+----------------------+-----------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-----------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: pipe_hard:inst14|lpm_divide:Mod0 ;
+; Parameter Settings for Inferred Entity Instance: pipe_hard:inst29|lpm_divide:Mod0 ;
 +------------------------+----------------+-----------------------------------------+
 ; Parameter Name         ; Value          ; Type                                    ;
 +------------------------+----------------+-----------------------------------------+
@@ -785,28 +787,28 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------------------------------------------+
-; altsyncram Parameter Settings by Entity Instance                                                                    ;
-+-------------------------------------------+-------------------------------------------------------------------------+
-; Name                                      ; Value                                                                   ;
-+-------------------------------------------+-------------------------------------------------------------------------+
-; Number of entity instances                ; 1                                                                       ;
-; Entity Instance                           ; lives_text:inst8|char_rom:char_rom_inst|altsyncram:altsyncram_component ;
-;     -- OPERATION_MODE                     ; ROM                                                                     ;
-;     -- WIDTH_A                            ; 8                                                                       ;
-;     -- NUMWORDS_A                         ; 512                                                                     ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                            ;
-;     -- WIDTH_B                            ; 1                                                                       ;
-;     -- NUMWORDS_B                         ; 1                                                                       ;
-;     -- ADDRESS_REG_B                      ; CLOCK1                                                                  ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                            ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                    ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                               ;
-+-------------------------------------------+-------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                     ;
++-------------------------------------------+--------------------------------------------------------------------------+
+; Name                                      ; Value                                                                    ;
++-------------------------------------------+--------------------------------------------------------------------------+
+; Number of entity instances                ; 1                                                                        ;
+; Entity Instance                           ; lives_text:inst15|char_rom:char_rom_inst|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; ROM                                                                      ;
+;     -- WIDTH_A                            ; 8                                                                        ;
+;     -- NUMWORDS_A                         ; 512                                                                      ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                             ;
+;     -- WIDTH_B                            ; 1                                                                        ;
+;     -- NUMWORDS_B                         ; 1                                                                        ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                   ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                             ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                     ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                ;
++-------------------------------------------+--------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------+
-; Port Connectivity Checks: "pipe_hard:inst14|GaloisLFSR8:LFSR1" ;
+; Port Connectivity Checks: "pipe_hard:inst29|GaloisLFSR8:LFSR1" ;
 +-------+-------+----------+-------------------------------------+
 ; Port  ; Type  ; Severity ; Details                             ;
 +-------+-------+----------+-------------------------------------+
@@ -819,41 +821,41 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 287                         ;
-;     CLR               ; 1                           ;
-;     ENA               ; 116                         ;
+; arriav_ff             ; 290                         ;
+;     CLR               ; 4                           ;
+;     ENA               ; 106                         ;
 ;     ENA CLR           ; 15                          ;
 ;     ENA SCLR          ; 18                          ;
 ;     ENA SLD           ; 20                          ;
 ;     SCLR              ; 10                          ;
-;     plain             ; 107                         ;
+;     plain             ; 117                         ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 668                         ;
+; arriav_lcell_comb     ; 648                         ;
 ;     arith             ; 187                         ;
 ;         0 data inputs ; 5                           ;
 ;         1 data inputs ; 134                         ;
 ;         2 data inputs ; 37                          ;
 ;         3 data inputs ; 7                           ;
 ;         4 data inputs ; 4                           ;
-;     extend            ; 6                           ;
-;         7 data inputs ; 6                           ;
-;     normal            ; 465                         ;
+;     extend            ; 5                           ;
+;         7 data inputs ; 5                           ;
+;     normal            ; 446                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 16                          ;
-;         2 data inputs ; 67                          ;
-;         3 data inputs ; 68                          ;
-;         4 data inputs ; 68                          ;
-;         5 data inputs ; 124                         ;
+;         2 data inputs ; 61                          ;
+;         3 data inputs ; 73                          ;
+;         4 data inputs ; 57                          ;
+;         5 data inputs ; 117                         ;
 ;         6 data inputs ; 121                         ;
 ;     shared            ; 10                          ;
 ;         1 data inputs ; 1                           ;
 ;         2 data inputs ; 9                           ;
-; boundary_port         ; 42                          ;
+; boundary_port         ; 48                          ;
 ; generic_pll           ; 1                           ;
 ; stratixv_ram_block    ; 8                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 11.90                       ;
-; Average LUT depth     ; 4.42                        ;
+; Average LUT depth     ; 4.27                        ;
 +-----------------------+-----------------------------+
 
 
@@ -872,16 +874,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sat May 18 16:31:43 2024
+    Info: Processing started: Sat May 18 21:08:31 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off flappyBird -c flappybird
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file /users/deven/documents/305/305_proj/fpga testing/imagetesting/miniproject/vhdlfiles/fsm.vhd
-    Info (12022): Found design unit 1: fsm-Behavioral File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 26
+    Info (12022): Found design unit 1: fsm-Behavioral File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 30
     Info (12023): Found entity 1: fsm File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 6
-Info (12021): Found 2 design units, including 1 entities, in source file /users/deven/documents/305/305_proj/fpga testing/imagetesting/miniproject/miniprojectresources/im_rom.vhd
-    Info (12022): Found design unit 1: image_rom-Behavioral File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/im_rom.vhd Line: 16
-    Info (12023): Found entity 1: image_rom File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/im_rom.vhd Line: 5
+Warning (12019): Can't analyze file -- file ../MiniprojectResources/im_rom.vhd is missing
 Warning (12019): Can't analyze file -- file ../VhdlFiles/Double_Digit_Counter.vhd is missing
 Info (12021): Found 2 design units, including 1 entities, in source file /users/deven/documents/305/305_proj/fpga testing/imagetesting/miniproject/vhdlfiles/collision.vhd
     Info (12022): Found design unit 1: collision_module-Behavioral File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/Collision.vhd Line: 16
@@ -897,7 +897,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file /users/
     Info (12022): Found design unit 1: BCD_to_SevenSeg-arc1 File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/BCD_to_7Seg.vhd Line: 12
     Info (12023): Found entity 1: BCD_to_SevenSeg File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/BCD_to_7Seg.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file /users/deven/documents/305/305_proj/fpga testing/imagetesting/miniproject/vhdlfiles/lives_text.vhd
-    Info (12022): Found design unit 1: lives_text-behaviour File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 18
+    Info (12022): Found design unit 1: lives_text-behaviour File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 23
     Info (12023): Found entity 1: lives_text File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file /users/deven/documents/305/305_proj/fpga testing/imagetesting/miniproject/vhdlfiles/pipe.vhd
     Info (12022): Found design unit 1: pipe_hard-behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/pipe.vhd Line: 14
@@ -929,13 +929,14 @@ Info (12021): Found 1 design units, including 1 entities, in source file extraco
     Info (12023): Found entity 1: extracomponents
 Info (12127): Elaborating entity "flappybird" for the top level hierarchy
 Warning (275011): Block or symbol "pll" of instance "inst" overlaps another block or symbol
-Warning (275011): Block or symbol "GND" of instance "inst16" overlaps another block or symbol
+Warning (275011): Block or symbol "GND" of instance "inst21" overlaps another block or symbol
+Warning (275011): Block or symbol "GND" of instance "inst22" overlaps another block or symbol
 Warning (275089): Not all bits in bus "SW[9..0]" are used
 Warning (275080): Converted elements in bus name "SW" using legacy naming rules. Make any assignments on the new names, not on the original names.
     Warning (275081): Converted element name(s) from "SW[0]" to "SW0"
     Warning (275081): Converted element name(s) from "SW[1]" to "SW1"
     Warning (275081): Converted element name(s) from "SW[9]" to "SW9"
-    Warning (275081): Converted element name(s) from "SW[8]" to "SW8"
+    Warning (275081): Converted element name(s) from "SW[2]" to "SW2"
 Warning (275008): Primitive "GND" of instance "inst12" not used
 Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:inst2"
 Info (12128): Elaborating entity "pll" for hierarchy "pll:inst"
@@ -1014,30 +1015,38 @@ Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHARO
 Warning (10492): VHDL Process Statement warning at mouse.vhd(155): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/mouse.vhd Line: 155
 Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/mouse.vhd Line: 156
 Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/mouse.vhd Line: 157
-Info (12128): Elaborating entity "pipe_hard" for hierarchy "pipe_hard:inst14"
-Info (12128): Elaborating entity "GaloisLFSR8" for hierarchy "pipe_hard:inst14|GaloisLFSR8:LFSR1" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/pipe.vhd Line: 42
+Info (12128): Elaborating entity "pipe_hard" for hierarchy "pipe_hard:inst29"
+Info (12128): Elaborating entity "GaloisLFSR8" for hierarchy "pipe_hard:inst29|GaloisLFSR8:LFSR1" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/pipe.vhd Line: 42
+Info (12128): Elaborating entity "fsm" for hierarchy "fsm:inst26"
+Warning (10492): VHDL Process Statement warning at fsm.vhd(37): signal "reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 37
+Warning (10492): VHDL Process Statement warning at fsm.vhd(55): signal "witch2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 55
+Warning (10631): VHDL Process Statement warning at fsm.vhd(44): inferring latch(es) for signal or variable "next_state", which holds its previous value in one or more paths through the process File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 44
+Info (10041): Inferred latch for "next_state[0]" at fsm.vhd(44) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 44
+Info (10041): Inferred latch for "next_state[1]" at fsm.vhd(44) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 44
+Info (10041): Inferred latch for "next_state[2]" at fsm.vhd(44) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 44
+Info (10041): Inferred latch for "next_state[3]" at fsm.vhd(44) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 44
 Info (12128): Elaborating entity "ground" for hierarchy "ground:inst7"
-Info (12128): Elaborating entity "lives_text" for hierarchy "lives_text:inst8"
-Warning (10492): VHDL Process Statement warning at lives_text.vhd(50): signal "collisions_input" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 50
-Warning (10631): VHDL Process Statement warning at lives_text.vhd(48): inferring latch(es) for signal or variable "u_f_row", which holds its previous value in one or more paths through the process File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 48
-Warning (10631): VHDL Process Statement warning at lives_text.vhd(48): inferring latch(es) for signal or variable "u_f_col", which holds its previous value in one or more paths through the process File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 48
-Warning (10631): VHDL Process Statement warning at lives_text.vhd(48): inferring latch(es) for signal or variable "u_char_address", which holds its previous value in one or more paths through the process File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 48
-Info (10041): Inferred latch for "u_char_address[0]" at lives_text.vhd(48) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 48
-Info (10041): Inferred latch for "u_char_address[1]" at lives_text.vhd(48) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 48
-Info (10041): Inferred latch for "u_char_address[2]" at lives_text.vhd(48) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 48
-Info (10041): Inferred latch for "u_char_address[3]" at lives_text.vhd(48) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 48
-Info (10041): Inferred latch for "u_char_address[4]" at lives_text.vhd(48) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 48
-Info (10041): Inferred latch for "u_char_address[5]" at lives_text.vhd(48) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 48
-Info (10041): Inferred latch for "u_f_col[0]" at lives_text.vhd(48) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 48
-Info (10041): Inferred latch for "u_f_col[1]" at lives_text.vhd(48) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 48
-Info (10041): Inferred latch for "u_f_col[2]" at lives_text.vhd(48) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 48
-Info (10041): Inferred latch for "u_f_row[0]" at lives_text.vhd(48) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 48
-Info (10041): Inferred latch for "u_f_row[1]" at lives_text.vhd(48) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 48
-Info (10041): Inferred latch for "u_f_row[2]" at lives_text.vhd(48) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 48
-Info (12128): Elaborating entity "char_rom" for hierarchy "lives_text:inst8|char_rom:char_rom_inst" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 38
-Info (12128): Elaborating entity "altsyncram" for hierarchy "lives_text:inst8|char_rom:char_rom_inst|altsyncram:altsyncram_component" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/char_rom.vhd Line: 51
-Info (12130): Elaborated megafunction instantiation "lives_text:inst8|char_rom:char_rom_inst|altsyncram:altsyncram_component" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/char_rom.vhd Line: 51
-Info (12133): Instantiated megafunction "lives_text:inst8|char_rom:char_rom_inst|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/char_rom.vhd Line: 51
+Info (12128): Elaborating entity "lives_text" for hierarchy "lives_text:inst15"
+Warning (10492): VHDL Process Statement warning at lives_text.vhd(55): signal "collisions_input" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 55
+Warning (10631): VHDL Process Statement warning at lives_text.vhd(53): inferring latch(es) for signal or variable "u_f_row", which holds its previous value in one or more paths through the process File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+Warning (10631): VHDL Process Statement warning at lives_text.vhd(53): inferring latch(es) for signal or variable "u_f_col", which holds its previous value in one or more paths through the process File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+Warning (10631): VHDL Process Statement warning at lives_text.vhd(53): inferring latch(es) for signal or variable "u_char_address", which holds its previous value in one or more paths through the process File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+Info (10041): Inferred latch for "u_char_address[0]" at lives_text.vhd(53) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+Info (10041): Inferred latch for "u_char_address[1]" at lives_text.vhd(53) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+Info (10041): Inferred latch for "u_char_address[2]" at lives_text.vhd(53) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+Info (10041): Inferred latch for "u_char_address[3]" at lives_text.vhd(53) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+Info (10041): Inferred latch for "u_char_address[4]" at lives_text.vhd(53) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+Info (10041): Inferred latch for "u_char_address[5]" at lives_text.vhd(53) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+Info (10041): Inferred latch for "u_f_col[0]" at lives_text.vhd(53) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+Info (10041): Inferred latch for "u_f_col[1]" at lives_text.vhd(53) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+Info (10041): Inferred latch for "u_f_col[2]" at lives_text.vhd(53) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+Info (10041): Inferred latch for "u_f_row[0]" at lives_text.vhd(53) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+Info (10041): Inferred latch for "u_f_row[1]" at lives_text.vhd(53) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+Info (10041): Inferred latch for "u_f_row[2]" at lives_text.vhd(53) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+Info (12128): Elaborating entity "char_rom" for hierarchy "lives_text:inst15|char_rom:char_rom_inst" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 43
+Info (12128): Elaborating entity "altsyncram" for hierarchy "lives_text:inst15|char_rom:char_rom_inst|altsyncram:altsyncram_component" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/char_rom.vhd Line: 51
+Info (12130): Elaborated megafunction instantiation "lives_text:inst15|char_rom:char_rom_inst|altsyncram:altsyncram_component" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/char_rom.vhd Line: 51
+Info (12133): Instantiated megafunction "lives_text:inst15|char_rom:char_rom_inst|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/char_rom.vhd Line: 51
     Info (12134): Parameter "address_aclr_a" = "NONE"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
@@ -1054,22 +1063,15 @@ Info (12133): Instantiated megafunction "lives_text:inst8|char_rom:char_rom_inst
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_vtf1.tdf
     Info (12023): Found entity 1: altsyncram_vtf1 File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/db/altsyncram_vtf1.tdf Line: 27
-Info (12128): Elaborating entity "altsyncram_vtf1" for hierarchy "lives_text:inst8|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_vtf1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "collision_module" for hierarchy "collision_module:inst17"
+Info (12128): Elaborating entity "altsyncram_vtf1" for hierarchy "lives_text:inst15|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_vtf1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "collision_module" for hierarchy "collision_module:inst8"
 Warning (10492): VHDL Process Statement warning at Collision.vhd(36): signal "current_col" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/Collision.vhd Line: 36
 Warning (10492): VHDL Process Statement warning at Collision.vhd(37): signal "current_col" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/Collision.vhd Line: 37
-Info (12128): Elaborating entity "fsm" for hierarchy "fsm:inst22"
-Warning (10631): VHDL Process Statement warning at fsm.vhd(41): inferring latch(es) for signal or variable "state", which holds its previous value in one or more paths through the process File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 41
-Info (10041): Inferred latch for "state[0]" at fsm.vhd(41) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 41
-Info (10041): Inferred latch for "state[1]" at fsm.vhd(41) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 41
-Info (10041): Inferred latch for "state[2]" at fsm.vhd(41) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 41
-Info (10041): Inferred latch for "state[3]" at fsm.vhd(41) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 41
 Info (12128): Elaborating entity "BCD_to_SevenSeg" for hierarchy "BCD_to_SevenSeg:inst9"
-Warning (12001): Port "collisions_input" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst8".
 Info (278001): Inferred 1 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipe_hard:inst14|Mod0" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/pipe.vhd Line: 67
-Info (12130): Elaborated megafunction instantiation "pipe_hard:inst14|lpm_divide:Mod0" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/pipe.vhd Line: 67
-Info (12133): Instantiated megafunction "pipe_hard:inst14|lpm_divide:Mod0" with the following parameter: File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/pipe.vhd Line: 67
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipe_hard:inst29|Mod0" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/pipe.vhd Line: 67
+Info (12130): Elaborated megafunction instantiation "pipe_hard:inst29|lpm_divide:Mod0" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/pipe.vhd Line: 67
+Info (12133): Instantiated megafunction "pipe_hard:inst29|lpm_divide:Mod0" with the following parameter: File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/pipe.vhd Line: 67
     Info (12134): Parameter "LPM_WIDTHN" = "8"
     Info (12134): Parameter "LPM_WIDTHD" = "8"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
@@ -1083,24 +1085,36 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alt_
     Info (12023): Found entity 1: alt_u_div_4te File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/db/alt_u_div_4te.tdf Line: 22
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_nn9.tdf
     Info (12023): Found entity 1: lpm_abs_nn9 File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/db/lpm_abs_nn9.tdf Line: 22
-Warning (13012): Latch fsm:inst22|state[1] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 41
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst22|state[2] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 41
-Warning (13012): Latch fsm:inst22|state[2] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 41
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst22|state[2] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 41
-Warning (13012): Latch fsm:inst22|state[0] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 41
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst22|state[2] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 41
-Warning (13012): Latch lives_text:inst8|u_char_address[0] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 48
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst22|state[1] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 41
-Warning (13012): Latch lives_text:inst8|u_char_address[1] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 48
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst22|state[1] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 41
-Warning (13012): Latch lives_text:inst8|u_char_address[2] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 48
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst22|state[1] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 41
-Warning (13012): Latch lives_text:inst8|u_char_address[3] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 48
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst22|state[1] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 41
-Warning (13012): Latch lives_text:inst8|u_char_address[4] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 48
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst22|state[1] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 41
-Warning (13012): Latch lives_text:inst8|u_char_address[5] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 48
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst22|state[1] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 41
+Warning (13012): Latch fsm:inst26|next_state[1] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst26|state[1] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 37
+Warning (13012): Latch fsm:inst26|next_state[0] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst26|state[2] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 37
+Warning (13012): Latch fsm:inst26|next_state[2] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst26|state[0] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 37
+Warning (13012): Latch lives_text:inst15|u_f_col[2] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst26|state[2] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 37
+Warning (13012): Latch lives_text:inst15|u_f_col[1] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst26|state[2] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 37
+Warning (13012): Latch lives_text:inst15|u_f_row[0] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA_SYNC:inst2|pixel_row[1] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/vga_sync.vhd Line: 99
+Warning (13012): Latch lives_text:inst15|u_f_row[1] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA_SYNC:inst2|pixel_row[2] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/vga_sync.vhd Line: 99
+Warning (13012): Latch lives_text:inst15|u_f_row[2] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA_SYNC:inst2|pixel_row[3] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/vga_sync.vhd Line: 99
+Warning (13012): Latch lives_text:inst15|u_char_address[0] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst26|state[2] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 37
+Warning (13012): Latch lives_text:inst15|u_char_address[1] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst26|state[2] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 37
+Warning (13012): Latch lives_text:inst15|u_char_address[2] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst26|state[2] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 37
+Warning (13012): Latch lives_text:inst15|u_char_address[3] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst26|state[2] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 37
+Warning (13012): Latch lives_text:inst15|u_char_address[4] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst26|state[2] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 37
+Warning (13012): Latch lives_text:inst15|u_char_address[5] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst26|state[2] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 37
+Warning (13012): Latch lives_text:inst15|u_f_col[0] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst26|state[2] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 37
 Info (13000): Registers with preset signals will power-up high File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/mouse.vhd Line: 146
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
@@ -1339,21 +1353,19 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 3 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning: RST port on the PLL is not properly connected on instance pll:inst|pll_0002:pll_inst|altera_pll:altera_pll_i|general[0].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altera_pll.v Line: 748
     Info: Must be connected
-Warning (21074): Design contains 3 input pin(s) that do not drive logic
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "pb[2]"
-    Warning (15610): No output dependent on input pin "pb[0]"
-    Warning (15610): No output dependent on input pin "SW9"
-Info (21057): Implemented 829 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 819 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 9 input pins
-    Info (21059): Implemented 31 output pins
+    Info (21059): Implemented 37 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 778 logic cells
+    Info (21061): Implemented 762 logic cells
     Info (21064): Implemented 8 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 280 warnings
-    Info: Peak virtual memory: 4937 megabytes
-    Info: Processing ended: Sat May 18 16:31:54 2024
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:08
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 293 warnings
+    Info: Peak virtual memory: 4940 megabytes
+    Info: Processing ended: Sat May 18 21:08:41 2024
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:09
 
 

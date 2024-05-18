@@ -24,7 +24,7 @@ architecture Behavioral of image_rom is
       address_aclr_a         : string  := "NONE";
       clock_enable_input_a   : string  := "BYPASS";
       clock_enable_output_a  : string  := "BYPASS";
-      init_file              : string  := "image.bin"; -- Use the binary file directly
+      init_file              : string  := "og_flappy_bird.bin"; -- Use the binary file directly
       intended_device_family : string  := "Cyclone III";
       lpm_hint               : string  := "ENABLE_RUNTIME_MOD=NO";
       lpm_type               : string  := "altsyncram";

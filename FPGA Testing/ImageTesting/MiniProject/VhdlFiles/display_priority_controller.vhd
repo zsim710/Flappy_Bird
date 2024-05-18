@@ -23,7 +23,6 @@ begin
   process (clk)
   begin
     if (rising_edge(clk)) then
-      if (state /= "0100") then
         if (text_on = '1' and pb1 = '1') then --white
           red   <= "1111";
           green <= "0001";
@@ -57,14 +56,7 @@ begin
           green <= "1011";
           blue  <= "1111";
         end if;
-      else
-        if (pipe_on = '1') then
-          red   <= "0000";
-          green <= "0000";
-          blue  <= "0000";
-        end if;
       end if;
-		end if;
     end process;
 
   end architecture behaviour;

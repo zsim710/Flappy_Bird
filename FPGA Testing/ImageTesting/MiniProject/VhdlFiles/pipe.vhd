@@ -5,7 +5,7 @@ library IEEE;
 
 entity pipe_hard is
   port (
-    clk, reset, vert_sync   : in  std_logic;
+    normal_mode, training_mode, clk, reset, vert_sync   : in  std_logic;
     pixel_row, pixel_column : in  std_logic_vector(9 downto 0);
     pipe_on                 : out std_logic
   );
@@ -99,7 +99,12 @@ begin
   pipe3_top <= '1' when ('0' & pixel_column <= pipe3_x_pos and '0' & pixel_column >= pipe3_x_pos - pipe_width and pixel_row <= conv_std_logic_vector((conv_integer(gap_pos_cent3) - gap_half_width), 11) and '0' & pixel_row > CONV_STD_LOGIC_VECTOR(0, 11)) else
                '0';
 
-  pipe_on <= (pipe_top or pipe_bot) or (pipe2_top or pipe2_bot) or (pipe3_bot or pipe3_top);
+pipe_on <= '1' when (((pipe_top = '1') or (pipe_bot = '1') or (pipe2_top = '1') or (pipe2_bot = '1') or (pipe3_top = '1') or (pipe3_bot = '1')) and (normal_mode = '1')) else
+          '1' when (((pipe_top = '1') or (pipe_bot = '1') or (pipe2_top = '1') or (pipe2_bot = '1') or (pipe3_top = '1') or (pipe3_bot = '1')) and (training_mode = '1')) else
+          '0';
+
+
+
 
   -- Set the output colors, pipe in red, background in black
 end architecture;
