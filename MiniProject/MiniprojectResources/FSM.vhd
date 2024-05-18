@@ -58,7 +58,7 @@ case (state) is
     when "0001" => -- state 1 -> 0001
     if(collison_counter >= 3) then
         state <= "0110"; -- s0
-    elsif(right_click) then
+    elsif(right_click = '1') then
         state <= "0100"; -- s4
     else
         state <= "0001"; -- s1
@@ -69,7 +69,7 @@ case (state) is
     when "0010" => -- state 2 --> 0010
     if(collison_counter >= 3) then
         state <= "0110"; -- s0
-    elsif(right_click) then
+    elsif(right_click = '1') then
         state <= "0101"; -- s4
     else
         state <= "0010"; -- s1  
@@ -78,16 +78,16 @@ case (state) is
 
     -- state 3 -- // settings mode state
     when "0011" => -- state 3 --> 0011
-    if(left_click = '0') then
+    if(left_click = '1') then
         state <= "0000"; -- s0 --> return to menu
     end if;
 
 
     -- state 4 --// pause training mode state
     when "0100" => -- state 4 --> 0100
-        if(right_click = '0') then
+        if(right_click = '1') then
             state <= "0001"; -- return back to playing training mode
-        elsif(back) then
+        elsif(back = '1') then
             state <= "0000"; -- s0 --> return to menu
         else
             state <= "0100"; -- s4 --> stay in pause training mode
@@ -99,7 +99,7 @@ case (state) is
     when "0101" => -- state 5 --> 0101
     if(right_click = '0') then
         state <= "0010"; -- s5 --> return back to playing normal mode
-    elsif(back) then
+    elsif(back = '1') then
         state <= "0000"; -- s0 --> return to menu
     else
         state <= "0101"; -- s4 --> stay in pause normal mode
