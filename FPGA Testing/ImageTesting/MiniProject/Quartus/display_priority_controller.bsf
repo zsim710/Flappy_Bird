@@ -20,9 +20,9 @@ refer to the applicable agreement for further details.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 232 224)
+	(rect 16 16 232 192)
 	(text "display_priority_controller" (rect 5 0 106 12)(font "Arial" ))
-	(text "inst" (rect 8 192 20 204)(font "Arial" ))
+	(text "inst" (rect 8 160 20 172)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -61,37 +61,23 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 0 112)
 		(input)
-		(text "pb1" (rect 0 0 12 12)(font "Arial" ))
-		(text "pb1" (rect 21 107 33 119)(font "Arial" ))
+		(text "pb2" (rect 0 0 14 12)(font "Arial" ))
+		(text "pb2" (rect 21 107 35 119)(font "Arial" ))
 		(line (pt 0 112)(pt 16 112)(line_width 1))
 	)
 	(port
 		(pt 0 128)
 		(input)
-		(text "pb2" (rect 0 0 14 12)(font "Arial" ))
-		(text "pb2" (rect 21 123 35 135)(font "Arial" ))
-		(line (pt 0 128)(pt 16 128)(line_width 1))
+		(text "pixel_row[9..0]" (rect 0 0 56 12)(font "Arial" ))
+		(text "pixel_row[9..0]" (rect 21 123 77 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 3))
 	)
 	(port
 		(pt 0 144)
 		(input)
-		(text "state[3..0]" (rect 0 0 38 12)(font "Arial" ))
-		(text "state[3..0]" (rect 21 139 59 151)(font "Arial" ))
-		(line (pt 0 144)(pt 16 144)(line_width 3))
-	)
-	(port
-		(pt 0 160)
-		(input)
-		(text "pixel_row[9..0]" (rect 0 0 56 12)(font "Arial" ))
-		(text "pixel_row[9..0]" (rect 21 155 77 167)(font "Arial" ))
-		(line (pt 0 160)(pt 16 160)(line_width 3))
-	)
-	(port
-		(pt 0 176)
-		(input)
 		(text "pixel_column[9..0]" (rect 0 0 70 12)(font "Arial" ))
-		(text "pixel_column[9..0]" (rect 21 171 91 183)(font "Arial" ))
-		(line (pt 0 176)(pt 16 176)(line_width 3))
+		(text "pixel_column[9..0]" (rect 21 139 91 151)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144)(line_width 3))
 	)
 	(port
 		(pt 216 32)
@@ -122,6 +108,6 @@ refer to the applicable agreement for further details.
 		(line (pt 216 80)(pt 200 80)(line_width 1))
 	)
 	(drawing
-		(rectangle (rect 16 16 200 192)(line_width 1))
+		(rectangle (rect 16 16 200 160)(line_width 1))
 	)
 )

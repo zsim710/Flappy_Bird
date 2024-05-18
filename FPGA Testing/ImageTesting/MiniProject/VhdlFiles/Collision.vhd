@@ -9,8 +9,8 @@ entity collision_module is
     clk              : in std_logic;
     ball_on, pipe_on : in std_logic;
     output_collision : out std_logic
-	 
-	 );
+
+  );
 end collision_module;
 
 architecture Behavioral of collision_module is
@@ -24,10 +24,10 @@ begin
       -- if pipe and ball is on, and no previous collision then collision is one
       if ball_on = '1' and pipe_on = '1' and pre_col = '0' then
         current_col <= '1';
-        --if ball is in pipe, hold the collision for now
-        --TODO : Change to a pulse, aka. current_col <= '0', for an incremental counter
+        --now the collision is set to 1, so it will be 0 in next occurence
+        --this means it should be a pulse
       elsif ball_on = '1' and pipe_on = '1' and pre_col = '1' then
-        current_col <= '1';
+        current_col <= '0';
       else
         current_col <= '0';
       end if;

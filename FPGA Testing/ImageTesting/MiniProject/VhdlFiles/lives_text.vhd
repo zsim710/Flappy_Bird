@@ -14,7 +14,7 @@ entity lives_text is
     pause_training_mode     : in std_logic;
     pause_normal_mode       : in std_logic;
     clk, pb2                : in std_logic;
-    collisions_input        : in integer;
+    collisions_input        : in std_logic;
     pixel_row, pixel_column : in std_logic_vector(9 downto 0);
     text_out                : out std_logic
   );
@@ -37,7 +37,7 @@ architecture behaviour of lives_text is
   signal u_f_row, u_f_col  : std_logic_vector(2 downto 0);
   signal u_rom_mux_out     : std_logic;
   signal state_x           : std_logic_vector(3 downto 0);
-  signal collision_counter : integer := 0;
+  signal collision_counter : std_logic_vector(1 downto 0) := "00";
 
 begin
   char_rom_inst : char_rom
@@ -52,7 +52,7 @@ begin
 
   state_chooser : process (menu_mode, training_mode, normal_mode, settings_mode, pause_training_mode, pause_normal_mode, pixel_row, pixel_column, collision_counter)
   begin
-    collision_counter <= collision_counter + collisions_input;
+    collision_counter <= collision_counter + collisions_input; -- increment collision counter when triggered
     if (menu_mode = '1') then -- Menu Text - State 0
       if (pixel_row >= 159 and pixel_row          <= 190) then
         u_f_row                                     <= pixel_row(4 downto 2);
@@ -166,7 +166,7 @@ begin
     elsif (training_mode = '1') then -- Training Mode
       u_f_row <= pixel_row(3 downto 1);
       u_f_col <= pixel_column(3 downto 1);
-      if collision_counter = 0 then
+      if collision_counter = 0 then -- show three lives
         if (pixel_row >= 31 and pixel_row           <= 46) then
           if (pixel_column >= 527 and pixel_column    <= 542) then
             u_char_address                              <= "000000"; -- 0
@@ -182,7 +182,9 @@ begin
             u_char_address <= "100000"; -- Space
           end if;
         end if;
-      elsif collision_counter = 1 then
+      elsif collision_counter = 1 then -- show two lives
+        u_f_row                                     <= pixel_row(3 downto 1);
+        u_f_col                                     <= pixel_column(3 downto 1);
         if (pixel_row >= 31 and pixel_row           <= 46) then
           if (pixel_column >= 527 and pixel_column    <= 542) then
             u_char_address                              <= "000000"; -- 0
@@ -194,7 +196,9 @@ begin
             u_char_address <= "100000"; -- Space
           end if;
         end if;
-      elsif collision_counter = 2 then
+      elsif collision_counter = 2 then -- show one life
+        u_f_row                                  <= pixel_row(3 downto 1);
+        u_f_col                                  <= pixel_column(3 downto 1);
         if (pixel_row >= 31 and pixel_row        <= 46) then
           if (pixel_column >= 527 and pixel_column <= 542) then
             u_char_address                           <= "000000"; -- 0
@@ -203,7 +207,9 @@ begin
           end if;
         end if;
       end if;
-    elsif (normal_mode = '1') then
+    elsif (normal_mode = '1') then --show one life only
+      u_f_row                                  <= pixel_row(3 downto 1);
+      u_f_col                                  <= pixel_column(3 downto 1);
       if (pixel_row >= 31 and pixel_row        <= 46) then
         if (pixel_column >= 527 and pixel_column <= 542) then
           u_char_address                           <= "000000"; -- 0
