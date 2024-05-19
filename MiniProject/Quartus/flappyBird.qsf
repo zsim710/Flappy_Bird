@@ -485,6 +485,21 @@ set_location_assignment PIN_A9 -to red_out[0]
 set_location_assignment PIN_B10 -to red_out[1]
 set_location_assignment PIN_C9 -to red_out[2]
 set_location_assignment PIN_A5 -to red_out[3]
+set_global_assignment -name ENABLE_OCT_DONE OFF
+set_global_assignment -name STRATIXV_CONFIGURATION_SCHEME "PASSIVE SERIAL"
+set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
+set_global_assignment -name CRC_ERROR_OPEN_DRAIN ON
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+set_global_assignment -name ACTIVE_SERIAL_CLOCK FREQ_50MHZ
+set_global_assignment -name STRATIXII_CONFIGURATION_DEVICE AUTO
+set_location_assignment PIN_U7 -to pb[0]
+set_location_assignment PIN_W9 -to pb[1]
+set_location_assignment PIN_M7 -to pb[2]
+set_location_assignment PIN_M6 -to pb[3]
+set_global_assignment -name VHDL_FILE ../VhdlFiles/testImage.vhd
 set_global_assignment -name VHDL_FILE ../VhdlFiles/lsfr.vhd
 set_global_assignment -name VHDL_FILE ../MiniprojectResources/char_rom.vhd
 set_global_assignment -name VHDL_FILE ../MiniprojectResources/BCD_to_7Seg.vhd
@@ -500,18 +515,4 @@ set_global_assignment -name QIP_FILE pll.qip
 set_global_assignment -name SIP_FILE pll.sip
 set_global_assignment -name BDF_FILE flappybird.bdf
 set_global_assignment -name BDF_FILE extracomponents.bdf
-set_global_assignment -name ENABLE_OCT_DONE OFF
-set_global_assignment -name STRATIXV_CONFIGURATION_SCHEME "ACTIVE SERIAL X1"
-set_global_assignment -name USE_CONFIGURATION_DEVICE ON
-set_global_assignment -name CRC_ERROR_OPEN_DRAIN ON
-set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
-set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
-set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
-set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
-set_global_assignment -name ACTIVE_SERIAL_CLOCK FREQ_50MHZ
-set_global_assignment -name STRATIXII_CONFIGURATION_DEVICE EPCS64
-set_location_assignment PIN_U7 -to pb[0]
-set_location_assignment PIN_W9 -to pb[1]
-set_location_assignment PIN_M7 -to pb[2]
-set_location_assignment PIN_M6 -to pb[3]
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

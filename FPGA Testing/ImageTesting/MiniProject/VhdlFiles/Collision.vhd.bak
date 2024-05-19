@@ -1,0 +1,32 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.STD_LOGIC_ARITH.all;
+use IEEE.STD_LOGIC_UNSIGNED.all;
+
+entity collision_holder is
+  port
+  (
+    clk              : in std_logic;
+    ball_on, pipe_on : in std_logic;
+    output_collision : out std_logic);
+end collision_holder;
+
+architecture Behavioral of collision_holder is
+  signal pre_col    : std_logic;
+  signal curent_col : std_logic;
+
+begin
+  process (clk)
+  begin
+    if rising_edge(clk) then
+      if ball_on = '1' and pipe_on = '1' and pre_col = '0' then
+        curent_col <= '1';
+      else
+        curent_col <= '0';
+      end if;
+      pre_col <= curent_col;
+    end if;
+    output_collision <= curent_col;
+  end process;
+
+end Behavioral;

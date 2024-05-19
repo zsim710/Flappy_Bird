@@ -1,0 +1,1 @@
+--A graphical way of checking score using 7 segment display
