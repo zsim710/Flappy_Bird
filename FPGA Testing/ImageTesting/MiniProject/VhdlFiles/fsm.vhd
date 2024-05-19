@@ -48,11 +48,11 @@ begin
 
         -- state 0 --
       when "0000" => -- menu state -> default state 
-        if (witch0 = '0' and left_click = '0') then -- sw = 1 = down = training
+        if (witch0 = '0' and left_click = '0' and witch1 = '1' and witch2 = '1') then -- sw = 1 = down = training
           next_state <= "0001"; --state 1 training mode
-        elsif (witch1 = '0' and left_click = '0') then -- sw = 0 = up = normal
+        elsif (witch1 = '0' and left_click = '0' and witch1 = '1' and witch2 = '1') then -- sw = 0 = up = normal
           next_state <= "0010"; -- state 2 normal mode
-        elsif (witch2 = '0' and left_click = '0') then
+        elsif (witch2 = '0' and left_click = '0' and witch0 = '1' and witch1 = '1') then
           next_state <= "0011"; -- s3
         else
           next_state <= "0000"; -- s0
@@ -102,10 +102,12 @@ begin
         end if;
         -- state 6 -- // end game state
       when "0110" => -- state 6 --> 0110
-        if (right_click = '0') then
+        if (right_click = '0') then -- go back to menu 
           next_state <= "0000"; -- return to menu to start a new game 
-        else
-          next_state <= "0110"; -- s6 --> stay in end game state
+        elsif(witch1 = '0' and left_click = '0' and witch0 = '1') then -- play again to whatever mode they were in 
+          next_state <= "0010"; -- s2 --> go back to normal mode state
+        elsif(witch0 = '0' and left_click = '0' and witch1 = '1') then 
+          next_state <= "0001"; -- s1 --> go to back training mode 
         end if;
       when others =>
         next_state <= "0000";

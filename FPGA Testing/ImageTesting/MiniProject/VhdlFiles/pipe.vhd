@@ -20,6 +20,7 @@ architecture behavior of pipe_hard is
   signal pipe_top, pipe_bot          : std_logic;
   signal pipe2_top, pipe2_bot        : std_logic;
   signal pipe3_top, pipe3_bot        : std_logic;
+  signal gap_on                      : std_logic;
   constant gap_half_width : integer := 40;
   signal gap_pos_cent1, gap_pos_cent2, gap_pos_cent3 : integer range 150 to 350;
   signal random_number                               : std_logic_vector(7 downto 0);
@@ -101,6 +102,11 @@ begin
 
 pipe_on <= '1' when (((pipe_top = '1') or (pipe_bot = '1') or (pipe2_top = '1') or (pipe2_bot = '1') or (pipe3_top = '1') or (pipe3_bot = '1')) and (normal_mode = '1')) else
           '1' when (((pipe_top = '1') or (pipe_bot = '1') or (pipe2_top = '1') or (pipe2_bot = '1') or (pipe3_top = '1') or (pipe3_bot = '1')) and (training_mode = '1')) else
+          '0';
+
+gap_on <= '1' when ('0' & pixel_column = pipe_x_pos and pixel_row >= conv_std_logic_vector((conv_integer(gap_pos_cent1) - gap_half_width), 11) and pixel_row <= conv_std_logic_vector((conv_integer(gap_pos_cent1) + gap_half_width), 11)) else
+          '1' when ('0' & pixel_column = pipe2_x_pos and pixel_row >= conv_std_logic_vector((conv_integer(gap_pos_cent2) - gap_half_width), 11) and pixel_row <= conv_std_logic_vector((conv_integer(gap_pos_cent2) + gap_half_width), 11)) else
+          '1' when ('0' & pixel_column = pipe3_x_pos and pixel_row >= conv_std_logic_vector((conv_integer(gap_pos_cent3) - gap_half_width), 11) and pixel_row <= conv_std_logic_vector((conv_integer(gap_pos_cent3) + gap_half_width), 11)) else
           '0';
 
 
