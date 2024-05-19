@@ -217,7 +217,7 @@ begin
           u_char_address <= "100000"; -- Space    
         end if;
       end if;
-    elsif (pause_training_mode) then
+    elsif (pause_training_mode = '1' or pause_normal_mode = '1') then
       u_f_row <= pixel_row(3 downto 1);
       u_f_col <= pixel_column(3 downto 1);
       if (pixel_row >= 128 and pixel_row <= 143) then
@@ -285,6 +285,32 @@ begin
       else
         u_char_address <= "100000";
       end if;
+    elsif (settings_mode = '1') then
+      u_f_row <= pixel_row(3 downto 1);
+      u_f_col <= pixel_column(3 downto 1);
+      if (pixel_row >= 64 and pixel_row <= 79) then
+        if (pixel_column >= 288 and pixel_column <= 303) then
+          u_char_address                              <= "010011"; -- S
+        elsif (pixel_column >= 304 and pixel_column <= 319) then
+          u_char_address                              <= "010001"; -- E
+        elsif (pixel_column >= 320 and pixel_column <= 335) then
+          u_char_address                              <= "010100"; -- T
+        elsif (pixel_column >= 336 and pixel_column <= 351) then
+          u_char_address                              <= "010100"; -- T
+        elsif (pixel_column >= 352 and pixel_column <= 367) then
+          u_char_address                              <= "001001"; -- I
+        elsif (pixel_column >= 368 and pixel_column <= 383) then
+          u_char_address                              <= "001110"; -- N
+        elsif (pixel_column >= 384 and pixel_column <= 399) then
+          u_char_address                              <= "000111"; -- G
+        elsif (pixel_column >= 400 and pixel_column <= 415) then
+          u_char_address                              <= "010011"; -- S
+        else
+          u_char_address <= "100000"; -- Space
+        end if;
+      end if;
+    else
+      u_char_address <= "100000";
     end if;
   end process;
 
