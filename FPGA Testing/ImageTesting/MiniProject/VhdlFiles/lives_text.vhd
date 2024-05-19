@@ -141,21 +141,65 @@ begin
           u_char_address                              <= "000101"; -- E
         elsif (pixel_column >= 328 and pixel_column <= 335) then
           u_char_address                              <= "100000"; -- Space
-        elsif (pixel_column >= 336 and pixel_column <= 343) then
-          u_char_address                              <= "010011"; -- S
-        elsif (pixel_column >= 344 and pixel_column <= 351) then
-          u_char_address                              <= "010111"; -- W
         elsif (pixel_column >= 352 and pixel_column <= 359) then
-          u_char_address                              <= "110000"; -- 0
+          u_char_address                              <= "010011"; -- S
         elsif (pixel_column >= 360 and pixel_column <= 367) then
-          u_char_address                              <= "100000"; -- Space
-        elsif (pixel_column >= 368 and pixel_column <= 375) then
-          u_char_address                              <= "000100"; -- D
-        elsif (pixel_column >= 376 and pixel_column <= 383) then
-          u_char_address                              <= "001111"; -- O
-        elsif (pixel_column >= 384 and pixel_column <= 391) then
           u_char_address                              <= "010111"; -- W
+        elsif (pixel_column >= 368 and pixel_column <= 375) then
+          u_char_address                              <= "110000"; -- 0
+        elsif (pixel_column >= 376 and pixel_column <= 383) then
+          u_char_address                              <= "100000"; -- Space
+        elsif (pixel_column >= 384 and pixel_column <= 391) then
+          u_char_address                              <= "000100"; -- D
         elsif (pixel_column >= 392 and pixel_column <= 399) then
+          u_char_address                              <= "001111"; -- O
+        elsif (pixel_column >= 400 and pixel_column <= 407) then
+          u_char_address                              <= "010111"; -- W
+        elsif (pixel_column >= 408 and pixel_column <= 415) then
+          u_char_address                              <= "001110"; -- N
+        else
+          u_char_address <= "100000";
+        end if;
+      elsif (pixel_row >= 232 and pixel_row       <= 239) then -- NORMAL MODE - SW0 UP
+        u_f_row                                     <= pixel_row(2 downto 0);
+        u_f_col                                     <= pixel_column(2 downto 0);
+        if (pixel_column >= 224 and pixel_column    <= 231) then
+          u_char_address                              <= "001110"; -- N
+        elsif (pixel_column >= 232 and pixel_column <= 239) then
+          u_char_address                              <= "001111"; -- O
+        elsif (pixel_column >= 240 and pixel_column <= 247) then
+          u_char_address                              <= "010010"; -- R
+        elsif (pixel_column >= 248 and pixel_column <= 255) then
+          u_char_address                              <= "001101"; -- M
+        elsif (pixel_column >= 256 and pixel_column <= 263) then
+          u_char_address                              <= "000001"; -- A
+        elsif (pixel_column >= 264 and pixel_column <= 271) then
+          u_char_address                              <= "001100"; -- L
+        elsif (pixel_column >= 272 and pixel_column <= 279) then
+          u_char_address                              <= "100000"; -- Space
+        elsif (pixel_column >= 280 and pixel_column <= 287) then
+          u_char_address                              <= "001101"; -- M
+        elsif (pixel_column >= 288 and pixel_column <= 295) then
+          u_char_address                              <= "001111"; -- O
+        elsif (pixel_column >= 296 and pixel_column <= 303) then
+          u_char_address                              <= "000100"; -- D
+        elsif (pixel_column >= 304 and pixel_column <= 311) then
+          u_char_address                              <= "000101"; -- E
+        elsif (pixel_column >= 352 and pixel_column <= 359) then
+          u_char_address                              <= "010011"; -- S
+        elsif (pixel_column >= 360 and pixel_column <= 367) then
+          u_char_address                              <= "010111"; -- W
+        elsif (pixel_column >= 368 and pixel_column <= 375) then
+          u_char_address                              <= "110001"; -- 1
+        elsif (pixel_column >= 376 and pixel_column <= 383) then
+          u_char_address                              <= "100000"; -- Space
+        elsif (pixel_column >= 384 and pixel_column <= 391) then
+          u_char_address                              <= "000100"; -- D
+        elsif (pixel_column >= 392 and pixel_column <= 399) then
+          u_char_address                              <= "001111"; -- O
+        elsif (pixel_column >= 400 and pixel_column <= 407) then
+          u_char_address                              <= "010111"; -- W
+        elsif (pixel_column >= 408 and pixel_column <= 415) then
           u_char_address                              <= "001110"; -- N
         else
           u_char_address <= "100000";
