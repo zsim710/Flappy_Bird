@@ -7,7 +7,7 @@ entity pipe_hard is
   port (
     normal_mode, training_mode, clk, reset, vert_sync   : in  std_logic;
     pixel_row, pixel_column : in  std_logic_vector(9 downto 0);
-    pipe_on                 : out std_logic
+    pipe_on, piped_pass                : out std_logic
   );
 end entity;
 
@@ -103,14 +103,11 @@ begin
 pipe_on <= '1' when (((pipe_top = '1') or (pipe_bot = '1') or (pipe2_top = '1') or (pipe2_bot = '1') or (pipe3_top = '1') or (pipe3_bot = '1')) and (normal_mode = '1')) else
           '1' when (((pipe_top = '1') or (pipe_bot = '1') or (pipe2_top = '1') or (pipe2_bot = '1') or (pipe3_top = '1') or (pipe3_bot = '1')) and (training_mode = '1')) else
           '0';
-
-gap_on <= '1' when ('0' & pixel_column = pipe_x_pos and pixel_row >= conv_std_logic_vector((conv_integer(gap_pos_cent1) - gap_half_width), 11) and pixel_row <= conv_std_logic_vector((conv_integer(gap_pos_cent1) + gap_half_width), 11)) else
-          '1' when ('0' & pixel_column = pipe2_x_pos and pixel_row >= conv_std_logic_vector((conv_integer(gap_pos_cent2) - gap_half_width), 11) and pixel_row <= conv_std_logic_vector((conv_integer(gap_pos_cent2) + gap_half_width), 11)) else
-          '1' when ('0' & pixel_column = pipe3_x_pos and pixel_row >= conv_std_logic_vector((conv_integer(gap_pos_cent3) - gap_half_width), 11) and pixel_row <= conv_std_logic_vector((conv_integer(gap_pos_cent3) + gap_half_width), 11)) else
-          '0';
-
-
-
+          
+piped_pass <= '1' when (conv_std_logic_vector(32,11) > pipe_x_pos) else
+              '1' when (conv_std_logic_vector(32,11) > pipe2_x_pos) else
+              '1' when (conv_std_logic_vector(32,11) > pipe3_x_pos) else
+              '0';
 
   -- Set the output colors, pipe in red, background in black
 end architecture;
