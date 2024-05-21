@@ -1,22 +1,21 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
-use IEEE.STD_LOGIC_ARITH.all;
-use IEEE.STD_LOGIC_SIGNED.all;
+use IEEE.numeric_std.all;
 
 entity pipe_test is
   port
   (
     normal_mode, training_mode, clk, reset, vert_sync                  : in std_logic;
-    easy_mode_out, medium_mode_out, hard_mode_out, impossible_mode_out : in std_logic;
+    medium_mode_out, hard_mode_out, impossible_mode_out : in std_logic;
     pixel_row, pixel_column                                            : in std_logic_vector(9 downto 0);
     pipe_on, piped_pass                                                : out std_logic
   );
 end entity;
 
 architecture behavior of pipe_test is
-  signal pipe_x_pos                                  : std_logic_vector(10 downto 0) := conv_signed(690, 11);
-  signal pipe2_x_pos                                 : std_logic_vector(10 downto 0) := conv_signed(-1013, 11);
-  signal pipe3_x_pos                                 : std_logic_vector(10 downto 0) := conv_signed(-898, 11);
+  signal pipe_x_pos                                  : std_logic_vector(10 downto 0) := to_signed(690, 11);
+  signal pipe2_x_pos                                 : std_logic_vector(10 downto 0) := to_signed(-1013, 11);
+  signal pipe3_x_pos                                 : std_logic_vector(10 downto 0) := to_signed(-898, 11);
   signal pipe_width                                  : std_logic_vector(10 downto 0);
   signal screen_width, screen_height                 : std_logic_vector(10 downto 0);
   signal pipe_top, pipe_bot                          : std_logic;
@@ -26,7 +25,7 @@ architecture behavior of pipe_test is
   signal gap_half_width                              : integer := 60;
   signal gap_pos_cent1, gap_pos_cent2, gap_pos_cent3 : integer range 150 to 350;
   signal random_number                               : std_logic_vector(7 downto 0);
-  signal speed                                       : integer := 5;
+  signal speed                                       : integer := 3;
 
   component GaloisLFSR8 is
     port
@@ -54,14 +53,12 @@ begin
   --pipe_x_pos    <= screen_width + pipe_width; -- Start from the far right
 
   -- Process to set the difficulty level
-  difficulty : process (easy_mode_out, medium_mode_out, hard_mode_out, impossible_mode_out)
+  difficulty : process (medium_mode_out, hard_mode_out, impossible_mode_out)
   begin
-    if (easy_mode_out = '1') then
-      speed <= 2;
-    elsif (medium_mode_out = '1') then
-      speed <= 3;
+   if (medium_mode_out = '1') then
+      speed <= 4;
     elsif (hard_mode_out = '1') then
-      speed          <= 4;
+      speed          <= 5;
       gap_half_width <= 40;
     elsif (impossible_mode_out = '1') then
       speed          <= 6;
