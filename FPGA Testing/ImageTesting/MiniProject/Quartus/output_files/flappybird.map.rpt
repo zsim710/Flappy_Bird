@@ -1,5 +1,5 @@
 Analysis & Synthesis report for flappybird
-Sun May 19 10:33:02 2024
+Tue May 21 12:55:10 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -17,19 +17,28 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   9. Analysis & Synthesis IP Cores Summary
  10. State Machine - |flappybird|MOUSE:inst6|mouse_state
  11. User-Specified and Inferred Latches
- 12. Registers Removed During Synthesis
- 13. General Register Statistics
- 14. Inverted Register Statistics
- 15. Multiplexer Restructuring Statistics (Restructuring Performed)
- 16. Source assignments for lives_text:inst15|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_vtf1:auto_generated
- 17. Parameter Settings for User Entity Instance: pll:inst|pll_0002:pll_inst|altera_pll:altera_pll_i
- 18. Parameter Settings for User Entity Instance: lives_text:inst15|char_rom:char_rom_inst|altsyncram:altsyncram_component
- 19. Parameter Settings for Inferred Entity Instance: pipe_hard:inst29|lpm_divide:Mod0
- 20. altsyncram Parameter Settings by Entity Instance
- 21. Port Connectivity Checks: "pipe_hard:inst29|GaloisLFSR8:LFSR1"
- 22. Post-Synthesis Netlist Statistics for Top Partition
- 23. Elapsed Time Per Partition
- 24. Analysis & Synthesis Messages
+ 12. Logic Cells Representing Combinational Loops
+ 13. Registers Removed During Synthesis
+ 14. General Register Statistics
+ 15. Inverted Register Statistics
+ 16. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 17. Source assignments for lives_text:inst1|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_vtf1:auto_generated
+ 18. Source assignments for score_display:inst5|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_vtf1:auto_generated
+ 19. Parameter Settings for User Entity Instance: pll:inst|pll_0002:pll_inst|altera_pll:altera_pll_i
+ 20. Parameter Settings for User Entity Instance: lives_text:inst1|char_rom:char_rom_inst|altsyncram:altsyncram_component
+ 21. Parameter Settings for User Entity Instance: score_display:inst5|char_rom:char_rom_inst|altsyncram:altsyncram_component
+ 22. Parameter Settings for Inferred Entity Instance: pipe_hard:inst19|lpm_divide:Mod0
+ 23. Parameter Settings for Inferred Entity Instance: score_display:inst5|lpm_divide:Div1
+ 24. Parameter Settings for Inferred Entity Instance: score_display:inst5|lpm_divide:Mod2
+ 25. Parameter Settings for Inferred Entity Instance: score_display:inst5|lpm_divide:Mod0
+ 26. Parameter Settings for Inferred Entity Instance: score_display:inst5|lpm_divide:Div0
+ 27. Parameter Settings for Inferred Entity Instance: score_display:inst5|lpm_divide:Mod1
+ 28. altsyncram Parameter Settings by Entity Instance
+ 29. Port Connectivity Checks: "score_display:inst5|char_rom:char_rom_inst"
+ 30. Port Connectivity Checks: "pipe_hard:inst19|GaloisLFSR8:LFSR1"
+ 31. Post-Synthesis Netlist Statistics for Top Partition
+ 32. Elapsed Time Per Partition
+ 33. Analysis & Synthesis Messages
 
 
 
@@ -55,16 +64,16 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun May 19 10:33:02 2024       ;
+; Analysis & Synthesis Status     ; Successful - Tue May 21 12:55:10 2024       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; flappybird                                  ;
 ; Top-level Entity Name           ; flappybird                                  ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 289                                         ;
+; Total registers                 ; 305                                         ;
 ; Total pins                      ; 48                                          ;
 ; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 4,096                                       ;
+; Total block memory bits         ; 6,144                                       ;
 ; Total DSP Blocks                ; 0                                           ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
@@ -175,7 +184,14 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-16        ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
+;     Processors 9-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -184,6 +200,8 @@ refer to the applicable agreement for further details.
 +----------------------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path             ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                                          ; Library ;
 +----------------------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------------------------------------------+---------+
+; ../VhdlFiles/score.vhd                       ; yes             ; User VHDL File                     ; C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score.vhd                       ;         ;
+; ../VhdlFiles/score_display.vhd               ; yes             ; User VHDL File                     ; C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd               ;         ;
 ; ../VhdlFiles/fsm.vhd                         ; yes             ; User VHDL File                     ; C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd                         ;         ;
 ; ../VhdlFiles/Collision.vhd                   ; yes             ; User VHDL File                     ; C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/Collision.vhd                   ;         ;
 ; ../VhdlFiles/lsfr.vhd                        ; yes             ; User VHDL File                     ; C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lsfr.vhd                        ;         ;
@@ -217,6 +235,15 @@ refer to the applicable agreement for further details.
 ; db/abs_divider_aag.tdf                       ; yes             ; Auto-Generated Megafunction        ; C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/db/abs_divider_aag.tdf            ;         ;
 ; db/alt_u_div_4te.tdf                         ; yes             ; Auto-Generated Megafunction        ; C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/db/alt_u_div_4te.tdf              ;         ;
 ; db/lpm_abs_nn9.tdf                           ; yes             ; Auto-Generated Megafunction        ; C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/db/lpm_abs_nn9.tdf                ;         ;
+; db/lpm_divide_lbm.tdf                        ; yes             ; Auto-Generated Megafunction        ; C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/db/lpm_divide_lbm.tdf             ;         ;
+; db/sign_div_unsign_rlh.tdf                   ; yes             ; Auto-Generated Megafunction        ; C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/db/sign_div_unsign_rlh.tdf        ;         ;
+; db/alt_u_div_sve.tdf                         ; yes             ; Auto-Generated Megafunction        ; C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/db/alt_u_div_sve.tdf              ;         ;
+; db/lpm_divide_65m.tdf                        ; yes             ; Auto-Generated Megafunction        ; C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/db/lpm_divide_65m.tdf             ;         ;
+; db/sign_div_unsign_9nh.tdf                   ; yes             ; Auto-Generated Megafunction        ; C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/db/sign_div_unsign_9nh.tdf        ;         ;
+; db/alt_u_div_o2f.tdf                         ; yes             ; Auto-Generated Megafunction        ; C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/db/alt_u_div_o2f.tdf              ;         ;
+; db/lpm_divide_ibm.tdf                        ; yes             ; Auto-Generated Megafunction        ; C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/db/lpm_divide_ibm.tdf             ;         ;
+; db/sign_div_unsign_olh.tdf                   ; yes             ; Auto-Generated Megafunction        ; C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/db/sign_div_unsign_olh.tdf        ;         ;
+; db/alt_u_div_mve.tdf                         ; yes             ; Auto-Generated Megafunction        ; C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/db/alt_u_div_mve.tdf              ;         ;
 +----------------------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------------------------------------------+---------+
 
 
@@ -225,20 +252,20 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                             ;
 +---------------------------------------------+-------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 392                                                               ;
+; Estimate of Logic utilization (ALMs needed) ; 953                                                               ;
 ;                                             ;                                                                   ;
-; Combinational ALUT usage for logic          ; 644                                                               ;
-;     -- 7 input functions                    ; 5                                                                 ;
-;     -- 6 input functions                    ; 122                                                               ;
-;     -- 5 input functions                    ; 118                                                               ;
-;     -- 4 input functions                    ; 62                                                                ;
-;     -- <=3 input functions                  ; 337                                                               ;
+; Combinational ALUT usage for logic          ; 1677                                                              ;
+;     -- 7 input functions                    ; 14                                                                ;
+;     -- 6 input functions                    ; 203                                                               ;
+;     -- 5 input functions                    ; 158                                                               ;
+;     -- 4 input functions                    ; 247                                                               ;
+;     -- <=3 input functions                  ; 1055                                                              ;
 ;                                             ;                                                                   ;
-; Dedicated logic registers                   ; 289                                                               ;
+; Dedicated logic registers                   ; 305                                                               ;
 ;                                             ;                                                                   ;
 ; I/O pins                                    ; 48                                                                ;
 ; Total MLAB memory bits                      ; 0                                                                 ;
-; Total block memory bits                     ; 4096                                                              ;
+; Total block memory bits                     ; 6144                                                              ;
 ;                                             ;                                                                   ;
 ; Total DSP Blocks                            ; 0                                                                 ;
 ;                                             ;                                                                   ;
@@ -246,52 +273,78 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 1                                                                 ;
 ;                                             ;                                                                   ;
 ; Maximum fan-out node                        ; pll:inst|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
-; Maximum fan-out                             ; 113                                                               ;
-; Total fan-out                               ; 3363                                                              ;
-; Average fan-out                             ; 3.23                                                              ;
+; Maximum fan-out                             ; 114                                                               ;
+; Total fan-out                               ; 6888                                                              ;
+; Average fan-out                             ; 3.28                                                              ;
 +---------------------------------------------+-------------------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                            ;
-+----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
-; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                       ; Entity Name                 ; Library Name ;
-+----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
-; |flappybird                                  ; 644 (1)             ; 289 (0)                   ; 4096              ; 0          ; 48   ; 0            ; |flappybird                                                                                                               ; flappybird                  ; work         ;
-;    |BCD_to_SevenSeg:inst10|                  ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|BCD_to_SevenSeg:inst10                                                                                        ; BCD_to_SevenSeg             ; work         ;
-;    |BCD_to_SevenSeg:inst9|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|BCD_to_SevenSeg:inst9                                                                                         ; BCD_to_SevenSeg             ; work         ;
-;    |MOUSE:inst6|                             ; 108 (108)           ; 120 (120)                 ; 0                 ; 0          ; 0    ; 0            ; |flappybird|MOUSE:inst6                                                                                                   ; MOUSE                       ; work         ;
-;    |VGA_SYNC:inst2|                          ; 47 (47)             ; 58 (58)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird|VGA_SYNC:inst2                                                                                                ; VGA_SYNC                    ; work         ;
-;    |bird:inst18|                             ; 79 (79)             ; 30 (30)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird|bird:inst18                                                                                                   ; bird                        ; work         ;
-;    |collision_module:inst8|                  ; 2 (2)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|collision_module:inst8                                                                                        ; collision_module            ; work         ;
-;    |display_priority_controller:inst3|       ; 9 (9)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|display_priority_controller:inst3                                                                             ; display_priority_controller ; work         ;
-;    |fsm:inst26|                              ; 15 (15)             ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|fsm:inst26                                                                                                    ; fsm                         ; work         ;
-;    |ground:inst7|                            ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|ground:inst7                                                                                                  ; ground                      ; work         ;
-;    |lives_text:inst15|                       ; 81 (79)             ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappybird|lives_text:inst15                                                                                             ; lives_text                  ; work         ;
-;       |char_rom:char_rom_inst|               ; 2 (2)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappybird|lives_text:inst15|char_rom:char_rom_inst                                                                      ; char_rom                    ; work         ;
-;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappybird|lives_text:inst15|char_rom:char_rom_inst|altsyncram:altsyncram_component                                      ; altsyncram                  ; work         ;
-;             |altsyncram_vtf1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappybird|lives_text:inst15|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_vtf1:auto_generated       ; altsyncram_vtf1             ; work         ;
-;    |pipe_hard:inst29|                        ; 285 (230)           ; 68 (60)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pipe_hard:inst29                                                                                              ; pipe_hard                   ; work         ;
-;       |GaloisLFSR8:LFSR1|                    ; 2 (2)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pipe_hard:inst29|GaloisLFSR8:LFSR1                                                                            ; GaloisLFSR8                 ; work         ;
-;       |lpm_divide:Mod0|                      ; 53 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pipe_hard:inst29|lpm_divide:Mod0                                                                              ; lpm_divide                  ; work         ;
-;          |lpm_divide_4go:auto_generated|     ; 53 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pipe_hard:inst29|lpm_divide:Mod0|lpm_divide_4go:auto_generated                                                ; lpm_divide_4go              ; work         ;
-;             |abs_divider_aag:divider|        ; 53 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pipe_hard:inst29|lpm_divide:Mod0|lpm_divide_4go:auto_generated|abs_divider_aag:divider                        ; abs_divider_aag             ; work         ;
-;                |alt_u_div_4te:divider|       ; 29 (29)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pipe_hard:inst29|lpm_divide:Mod0|lpm_divide_4go:auto_generated|abs_divider_aag:divider|alt_u_div_4te:divider  ; alt_u_div_4te               ; work         ;
-;                |lpm_abs_nn9:my_abs_num|      ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pipe_hard:inst29|lpm_divide:Mod0|lpm_divide_4go:auto_generated|abs_divider_aag:divider|lpm_abs_nn9:my_abs_num ; lpm_abs_nn9                 ; work         ;
-;    |pll:inst|                                ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pll:inst                                                                                                      ; pll                         ; pll          ;
-;       |pll_0002:pll_inst|                    ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pll:inst|pll_0002:pll_inst                                                                                    ; pll_0002                    ; pll          ;
-;          |altera_pll:altera_pll_i|           ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pll:inst|pll_0002:pll_inst|altera_pll:altera_pll_i                                                            ; altera_pll                  ; work         ;
-+----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                  ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                             ; Entity Name                 ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
+; |flappybird                                  ; 1677 (1)            ; 305 (0)                   ; 6144              ; 0          ; 48   ; 0            ; |flappybird                                                                                                                     ; flappybird                  ; work         ;
+;    |BCD_to_SevenSeg:inst10|                  ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|BCD_to_SevenSeg:inst10                                                                                              ; BCD_to_SevenSeg             ; work         ;
+;    |BCD_to_SevenSeg:inst9|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|BCD_to_SevenSeg:inst9                                                                                               ; BCD_to_SevenSeg             ; work         ;
+;    |MOUSE:inst6|                             ; 108 (108)           ; 120 (120)                 ; 0                 ; 0          ; 0    ; 0            ; |flappybird|MOUSE:inst6                                                                                                         ; MOUSE                       ; work         ;
+;    |VGA_SYNC:inst2|                          ; 49 (49)             ; 58 (58)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird|VGA_SYNC:inst2                                                                                                      ; VGA_SYNC                    ; work         ;
+;    |bird:inst18|                             ; 81 (81)             ; 30 (30)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird|bird:inst18                                                                                                         ; bird                        ; work         ;
+;    |collision_module:inst8|                  ; 2 (2)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|collision_module:inst8                                                                                              ; collision_module            ; work         ;
+;    |display_priority_controller:inst13|      ; 13 (13)             ; 11 (11)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird|display_priority_controller:inst13                                                                                  ; display_priority_controller ; work         ;
+;    |fsm:inst26|                              ; 18 (18)             ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|fsm:inst26                                                                                                          ; fsm                         ; work         ;
+;    |ground:inst7|                            ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|ground:inst7                                                                                                        ; ground                      ; work         ;
+;    |lives_text:inst1|                        ; 214 (212)           ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappybird|lives_text:inst1                                                                                                    ; lives_text                  ; work         ;
+;       |char_rom:char_rom_inst|               ; 2 (2)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappybird|lives_text:inst1|char_rom:char_rom_inst                                                                             ; char_rom                    ; work         ;
+;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappybird|lives_text:inst1|char_rom:char_rom_inst|altsyncram:altsyncram_component                                             ; altsyncram                  ; work         ;
+;             |altsyncram_vtf1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappybird|lives_text:inst1|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_vtf1:auto_generated              ; altsyncram_vtf1             ; work         ;
+;    |pipe_hard:inst19|                        ; 283 (228)           ; 68 (60)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pipe_hard:inst19                                                                                                    ; pipe_hard                   ; work         ;
+;       |GaloisLFSR8:LFSR1|                    ; 2 (2)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pipe_hard:inst19|GaloisLFSR8:LFSR1                                                                                  ; GaloisLFSR8                 ; work         ;
+;       |lpm_divide:Mod0|                      ; 53 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pipe_hard:inst19|lpm_divide:Mod0                                                                                    ; lpm_divide                  ; work         ;
+;          |lpm_divide_4go:auto_generated|     ; 53 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pipe_hard:inst19|lpm_divide:Mod0|lpm_divide_4go:auto_generated                                                      ; lpm_divide_4go              ; work         ;
+;             |abs_divider_aag:divider|        ; 53 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pipe_hard:inst19|lpm_divide:Mod0|lpm_divide_4go:auto_generated|abs_divider_aag:divider                              ; abs_divider_aag             ; work         ;
+;                |alt_u_div_4te:divider|       ; 29 (29)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pipe_hard:inst19|lpm_divide:Mod0|lpm_divide_4go:auto_generated|abs_divider_aag:divider|alt_u_div_4te:divider        ; alt_u_div_4te               ; work         ;
+;                |lpm_abs_nn9:my_abs_num|      ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pipe_hard:inst19|lpm_divide:Mod0|lpm_divide_4go:auto_generated|abs_divider_aag:divider|lpm_abs_nn9:my_abs_num       ; lpm_abs_nn9                 ; work         ;
+;    |pll:inst|                                ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pll:inst                                                                                                            ; pll                         ; pll          ;
+;       |pll_0002:pll_inst|                    ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pll:inst|pll_0002:pll_inst                                                                                          ; pll_0002                    ; pll          ;
+;          |altera_pll:altera_pll_i|           ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|pll:inst|pll_0002:pll_inst|altera_pll:altera_pll_i                                                                  ; altera_pll                  ; work         ;
+;    |score:inst17|                            ; 14 (14)             ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird|score:inst17                                                                                                        ; score                       ; work         ;
+;    |score_display:inst5|                     ; 877 (32)            ; 0 (0)                     ; 2048              ; 0          ; 0    ; 0            ; |flappybird|score_display:inst5                                                                                                 ; score_display               ; work         ;
+;       |char_rom:char_rom_inst|               ; 2 (2)               ; 0 (0)                     ; 2048              ; 0          ; 0    ; 0            ; |flappybird|score_display:inst5|char_rom:char_rom_inst                                                                          ; char_rom                    ; work         ;
+;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 2048              ; 0          ; 0    ; 0            ; |flappybird|score_display:inst5|char_rom:char_rom_inst|altsyncram:altsyncram_component                                          ; altsyncram                  ; work         ;
+;             |altsyncram_vtf1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 2048              ; 0          ; 0    ; 0            ; |flappybird|score_display:inst5|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_vtf1:auto_generated           ; altsyncram_vtf1             ; work         ;
+;       |lpm_divide:Div0|                      ; 115 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|score_display:inst5|lpm_divide:Div0                                                                                 ; lpm_divide                  ; work         ;
+;          |lpm_divide_ibm:auto_generated|     ; 115 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|score_display:inst5|lpm_divide:Div0|lpm_divide_ibm:auto_generated                                                   ; lpm_divide_ibm              ; work         ;
+;             |sign_div_unsign_olh:divider|    ; 115 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|score_display:inst5|lpm_divide:Div0|lpm_divide_ibm:auto_generated|sign_div_unsign_olh:divider                       ; sign_div_unsign_olh         ; work         ;
+;                |alt_u_div_mve:divider|       ; 115 (115)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|score_display:inst5|lpm_divide:Div0|lpm_divide_ibm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_mve:divider ; alt_u_div_mve               ; work         ;
+;       |lpm_divide:Div1|                      ; 136 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|score_display:inst5|lpm_divide:Div1                                                                                 ; lpm_divide                  ; work         ;
+;          |lpm_divide_lbm:auto_generated|     ; 136 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|score_display:inst5|lpm_divide:Div1|lpm_divide_lbm:auto_generated                                                   ; lpm_divide_lbm              ; work         ;
+;             |sign_div_unsign_rlh:divider|    ; 136 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|score_display:inst5|lpm_divide:Div1|lpm_divide_lbm:auto_generated|sign_div_unsign_rlh:divider                       ; sign_div_unsign_rlh         ; work         ;
+;                |alt_u_div_sve:divider|       ; 136 (136)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|score_display:inst5|lpm_divide:Div1|lpm_divide_lbm:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_sve:divider ; alt_u_div_sve               ; work         ;
+;       |lpm_divide:Mod0|                      ; 232 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|score_display:inst5|lpm_divide:Mod0                                                                                 ; lpm_divide                  ; work         ;
+;          |lpm_divide_65m:auto_generated|     ; 232 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|score_display:inst5|lpm_divide:Mod0|lpm_divide_65m:auto_generated                                                   ; lpm_divide_65m              ; work         ;
+;             |sign_div_unsign_9nh:divider|    ; 232 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|score_display:inst5|lpm_divide:Mod0|lpm_divide_65m:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh         ; work         ;
+;                |alt_u_div_o2f:divider|       ; 232 (232)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|score_display:inst5|lpm_divide:Mod0|lpm_divide_65m:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_o2f:divider ; alt_u_div_o2f               ; work         ;
+;       |lpm_divide:Mod1|                      ; 213 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|score_display:inst5|lpm_divide:Mod1                                                                                 ; lpm_divide                  ; work         ;
+;          |lpm_divide_65m:auto_generated|     ; 213 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|score_display:inst5|lpm_divide:Mod1|lpm_divide_65m:auto_generated                                                   ; lpm_divide_65m              ; work         ;
+;             |sign_div_unsign_9nh:divider|    ; 213 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|score_display:inst5|lpm_divide:Mod1|lpm_divide_65m:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh         ; work         ;
+;                |alt_u_div_o2f:divider|       ; 213 (213)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|score_display:inst5|lpm_divide:Mod1|lpm_divide_65m:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_o2f:divider ; alt_u_div_o2f               ; work         ;
+;       |lpm_divide:Mod2|                      ; 147 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|score_display:inst5|lpm_divide:Mod2                                                                                 ; lpm_divide                  ; work         ;
+;          |lpm_divide_65m:auto_generated|     ; 147 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|score_display:inst5|lpm_divide:Mod2|lpm_divide_65m:auto_generated                                                   ; lpm_divide_65m              ; work         ;
+;             |sign_div_unsign_9nh:divider|    ; 147 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|score_display:inst5|lpm_divide:Mod2|lpm_divide_65m:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh         ; work         ;
+;                |alt_u_div_o2f:divider|       ; 147 (147)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird|score_display:inst5|lpm_divide:Mod2|lpm_divide_65m:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_o2f:divider ; alt_u_div_o2f               ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                                               ;
-+--------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+----------+
-; Name                                                                                                               ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF      ;
-+--------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+----------+
-; lives_text:inst15|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_vtf1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 512          ; 8            ; --           ; --           ; 4096 ; char.mif ;
-+--------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+----------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                 ;
++----------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+----------+
+; Name                                                                                                                 ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF      ;
++----------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+----------+
+; lives_text:inst1|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_vtf1:auto_generated|ALTSYNCRAM    ; AUTO ; ROM  ; 512          ; 8            ; --           ; --           ; 4096 ; char.mif ;
+; score_display:inst5|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_vtf1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 512          ; 8            ; --           ; --           ; 4096 ; char.mif ;
++----------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+----------+
 
 
 +--------------------------------------------------------------------------------------------------------+
@@ -318,50 +371,91 @@ Encoding Type:  One-Hot
 +-------------------------------+---------------------------+--------------------------+-------------------------------+---------------------------+--------------------------+---------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                                ;
-+-----------------------------------------------------+-------------------------------------+------------------------+
-; Latch Name                                          ; Latch Enable Signal                 ; Free of Timing Hazards ;
-+-----------------------------------------------------+-------------------------------------+------------------------+
-; fsm:inst26|next_state[1]                            ; fsm:inst26|Mux9                     ; yes                    ;
-; fsm:inst26|next_state[0]                            ; fsm:inst26|Mux9                     ; yes                    ;
-; fsm:inst26|next_state[2]                            ; fsm:inst26|Mux9                     ; yes                    ;
-; lives_text:inst15|u_f_col[2]                        ; lives_text:inst15|u_f_col[0]        ; yes                    ;
-; lives_text:inst15|u_f_col[1]                        ; lives_text:inst15|u_f_col[0]        ; yes                    ;
-; lives_text:inst15|u_f_row[0]                        ; lives_text:inst15|u_f_col[0]        ; yes                    ;
-; lives_text:inst15|u_f_row[1]                        ; lives_text:inst15|u_f_col[0]        ; yes                    ;
-; lives_text:inst15|u_f_row[2]                        ; lives_text:inst15|u_f_col[0]        ; yes                    ;
-; lives_text:inst15|u_char_address[0]                 ; lives_text:inst15|u_char_address[1] ; yes                    ;
-; lives_text:inst15|u_char_address[1]                 ; lives_text:inst15|u_char_address[1] ; yes                    ;
-; lives_text:inst15|u_char_address[2]                 ; lives_text:inst15|u_char_address[1] ; yes                    ;
-; lives_text:inst15|u_char_address[3]                 ; lives_text:inst15|u_char_address[1] ; yes                    ;
-; lives_text:inst15|u_char_address[4]                 ; lives_text:inst15|u_char_address[1] ; yes                    ;
-; lives_text:inst15|u_char_address[5]                 ; lives_text:inst15|u_char_address[1] ; yes                    ;
-; lives_text:inst15|u_f_col[0]                        ; lives_text:inst15|u_f_col[0]        ; yes                    ;
-; Number of user-specified and inferred latches = 15  ;                                     ;                        ;
-+-----------------------------------------------------+-------------------------------------+------------------------+
++-------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                               ;
++-----------------------------------------------------+------------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal                ; Free of Timing Hazards ;
++-----------------------------------------------------+------------------------------------+------------------------+
+; fsm:inst26|next_state[1]                            ; fsm:inst26|Mux9                    ; yes                    ;
+; fsm:inst26|next_state[0]                            ; fsm:inst26|Mux9                    ; yes                    ;
+; fsm:inst26|next_state[2]                            ; fsm:inst26|Mux9                    ; yes                    ;
+; score_display:inst5|u_font_col[2]                   ; pipe_hard:inst19|pipe_on           ; yes                    ;
+; score_display:inst5|u_font_col[1]                   ; pipe_hard:inst19|pipe_on           ; yes                    ;
+; lives_text:inst1|u_f_col[2]                         ; lives_text:inst1|u_f_col[0]        ; yes                    ;
+; lives_text:inst1|u_f_col[1]                         ; lives_text:inst1|u_f_col[0]        ; yes                    ;
+; score_display:inst5|u_font_row[0]                   ; pipe_hard:inst19|pipe_on           ; yes                    ;
+; score_display:inst5|u_font_row[1]                   ; pipe_hard:inst19|pipe_on           ; yes                    ;
+; score_display:inst5|u_font_row[2]                   ; pipe_hard:inst19|pipe_on           ; yes                    ;
+; score_display:inst5|u_char_address[0]               ; pipe_hard:inst19|pipe_on           ; yes                    ;
+; score_display:inst5|u_char_address[1]               ; pipe_hard:inst19|pipe_on           ; yes                    ;
+; score_display:inst5|u_char_address[2]               ; pipe_hard:inst19|pipe_on           ; yes                    ;
+; score_display:inst5|u_char_address[3]               ; pipe_hard:inst19|pipe_on           ; yes                    ;
+; score_display:inst5|u_char_address[4]               ; pipe_hard:inst19|pipe_on           ; yes                    ;
+; score_display:inst5|u_font_col[0]                   ; pipe_hard:inst19|pipe_on           ; yes                    ;
+; lives_text:inst1|u_f_row[0]                         ; lives_text:inst1|u_f_col[0]        ; yes                    ;
+; lives_text:inst1|u_f_row[1]                         ; lives_text:inst1|u_f_col[0]        ; yes                    ;
+; lives_text:inst1|u_f_row[2]                         ; lives_text:inst1|u_f_col[0]        ; yes                    ;
+; lives_text:inst1|u_char_address[0]                  ; lives_text:inst1|u_char_address[1] ; yes                    ;
+; lives_text:inst1|u_char_address[1]                  ; lives_text:inst1|u_char_address[1] ; yes                    ;
+; lives_text:inst1|u_char_address[2]                  ; lives_text:inst1|u_char_address[1] ; yes                    ;
+; lives_text:inst1|u_char_address[3]                  ; lives_text:inst1|u_char_address[1] ; yes                    ;
+; lives_text:inst1|u_char_address[4]                  ; lives_text:inst1|u_char_address[1] ; yes                    ;
+; lives_text:inst1|u_char_address[5]                  ; lives_text:inst1|u_char_address[1] ; yes                    ;
+; lives_text:inst1|u_f_col[0]                         ; lives_text:inst1|u_f_col[0]        ; yes                    ;
+; score_display:inst5|score_hundreds[0]               ; pipe_hard:inst19|pipe_on           ; yes                    ;
+; score_display:inst5|score_ones[0]                   ; pipe_hard:inst19|pipe_on           ; yes                    ;
+; score_display:inst5|score_tens[0]                   ; pipe_hard:inst19|pipe_on           ; yes                    ;
+; score_display:inst5|score_hundreds[1]               ; pipe_hard:inst19|pipe_on           ; yes                    ;
+; score_display:inst5|score_ones[1]                   ; pipe_hard:inst19|pipe_on           ; yes                    ;
+; score_display:inst5|score_tens[1]                   ; pipe_hard:inst19|pipe_on           ; yes                    ;
+; score_display:inst5|score_hundreds[2]               ; pipe_hard:inst19|pipe_on           ; yes                    ;
+; score_display:inst5|score_ones[2]                   ; pipe_hard:inst19|pipe_on           ; yes                    ;
+; score_display:inst5|score_tens[2]                   ; pipe_hard:inst19|pipe_on           ; yes                    ;
+; score_display:inst5|score_hundreds[3]               ; pipe_hard:inst19|pipe_on           ; yes                    ;
+; score_display:inst5|score_ones[3]                   ; pipe_hard:inst19|pipe_on           ; yes                    ;
+; score_display:inst5|score_tens[3]                   ; pipe_hard:inst19|pipe_on           ; yes                    ;
+; Number of user-specified and inferred latches = 38  ;                                    ;                        ;
++-----------------------------------------------------+------------------------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------------+
+; Logic Cells Representing Combinational Loops               ;
++--------------------------------------------------------+---+
+; Logic Cell Name                                        ;   ;
++--------------------------------------------------------+---+
+; lives_text:inst1|Add0~0                                ;   ;
+; lives_text:inst1|Add0~1                                ;   ;
+; lives_text:inst1|collision_counter[7]~0                ;   ;
+; lives_text:inst1|collision_counter[2]~1                ;   ;
+; lives_text:inst1|collision_counter[1]~2                ;   ;
+; lives_text:inst1|collision_counter[0]~3                ;   ;
+; lives_text:inst1|collision_counter[5]~4                ;   ;
+; lives_text:inst1|collision_counter[4]~5                ;   ;
+; lives_text:inst1|collision_counter[3]~6                ;   ;
+; Number of logic cells representing combinational loops ; 9 ;
++--------------------------------------------------------+---+
+Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +-----------------------------------------------------------------------------------------------------+
 ; Registers Removed During Synthesis                                                                  ;
-+---------------------------------------------+-------------------------------------------------------+
-; Register name                               ; Reason for Removal                                    ;
-+---------------------------------------------+-------------------------------------------------------+
-; fsm:inst26|state[3]                         ; Stuck at GND due to stuck port data_in                ;
-; display_priority_controller:inst3|red[1]    ; Stuck at VCC due to stuck port data_in                ;
-; MOUSE:inst6|CHAROUT[4..7]                   ; Stuck at VCC due to stuck port data_in                ;
-; MOUSE:inst6|CHAROUT[3]                      ; Stuck at GND due to stuck port data_in                ;
-; MOUSE:inst6|CHAROUT[2]                      ; Stuck at VCC due to stuck port data_in                ;
-; MOUSE:inst6|CHAROUT[0,1]                    ; Stuck at GND due to stuck port data_in                ;
-; MOUSE:inst6|SHIFTOUT[10]                    ; Stuck at VCC due to stuck port data_in                ;
-; bird:inst18|\Move_bird:left_click_pressed   ; Stuck at GND due to stuck port data_in                ;
-; VGA_SYNC:inst2|video_on_four[1..3]          ; Merged with VGA_SYNC:inst2|video_on_four[0]           ;
-; display_priority_controller:inst3|blue[2,3] ; Merged with display_priority_controller:inst3|blue[1] ;
-; MOUSE:inst6|cursor_row[9]                   ; Stuck at GND due to stuck port data_in                ;
-; VGA_SYNC:inst2|pixel_row[9]                 ; Stuck at GND due to stuck port data_in                ;
-; Total Number of Removed Registers = 19      ;                                                       ;
-+---------------------------------------------+-------------------------------------------------------+
++--------------------------------------------+--------------------------------------------------------+
+; Register name                              ; Reason for Removal                                     ;
++--------------------------------------------+--------------------------------------------------------+
+; fsm:inst26|state[3]                        ; Stuck at GND due to stuck port data_in                 ;
+; MOUSE:inst6|CHAROUT[4..7]                  ; Stuck at VCC due to stuck port data_in                 ;
+; MOUSE:inst6|CHAROUT[3]                     ; Stuck at GND due to stuck port data_in                 ;
+; MOUSE:inst6|CHAROUT[2]                     ; Stuck at VCC due to stuck port data_in                 ;
+; MOUSE:inst6|CHAROUT[0,1]                   ; Stuck at GND due to stuck port data_in                 ;
+; MOUSE:inst6|SHIFTOUT[10]                   ; Stuck at VCC due to stuck port data_in                 ;
+; bird:inst18|\Move_bird:left_click_pressed  ; Stuck at GND due to stuck port data_in                 ;
+; VGA_SYNC:inst2|video_on_four[1..3]         ; Merged with VGA_SYNC:inst2|video_on_four[0]            ;
+; display_priority_controller:inst13|blue[3] ; Merged with display_priority_controller:inst13|blue[1] ;
+; MOUSE:inst6|cursor_row[9]                  ; Stuck at GND due to stuck port data_in                 ;
+; VGA_SYNC:inst2|pixel_row[9]                ; Stuck at GND due to stuck port data_in                 ;
+; Total Number of Removed Registers = 17     ;                                                        ;
++--------------------------------------------+--------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -369,12 +463,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 289   ;
+; Total registers                              ; 305   ;
 ; Number of registers using Synchronous Clear  ; 28    ;
 ; Number of registers using Synchronous Load   ; 20    ;
 ; Number of registers using Asynchronous Clear ; 19    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 159   ;
+; Number of registers using Clock Enable       ; 173   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -384,39 +478,39 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------------------------------+---------+
 ; Inverted Register                          ; Fan out ;
 +--------------------------------------------+---------+
-; pipe_hard:inst29|pipe_x_pos[1]             ; 5       ;
-; pipe_hard:inst29|pipe_x_pos[7]             ; 4       ;
-; pipe_hard:inst29|pipe_x_pos[6]             ; 4       ;
-; pipe_hard:inst29|pipe_x_pos[5]             ; 15      ;
-; pipe_hard:inst29|pipe_x_pos[2]             ; 4       ;
-; pipe_hard:inst29|gap_pos_cent1[7]          ; 2       ;
-; pipe_hard:inst29|gap_pos_cent1[4]          ; 4       ;
-; pipe_hard:inst29|gap_pos_cent1[2]          ; 2       ;
-; pipe_hard:inst29|gap_pos_cent1[1]          ; 2       ;
-; pipe_hard:inst29|pipe2_x_pos[8]            ; 4       ;
-; pipe_hard:inst29|pipe2_x_pos[7]            ; 4       ;
-; pipe_hard:inst29|pipe2_x_pos[6]            ; 4       ;
-; pipe_hard:inst29|pipe2_x_pos[3]            ; 4       ;
-; pipe_hard:inst29|pipe2_x_pos[2]            ; 4       ;
-; pipe_hard:inst29|gap_pos_cent2[7]          ; 2       ;
-; pipe_hard:inst29|gap_pos_cent2[4]          ; 4       ;
-; pipe_hard:inst29|gap_pos_cent2[2]          ; 2       ;
-; pipe_hard:inst29|gap_pos_cent2[1]          ; 2       ;
-; pipe_hard:inst29|pipe3_x_pos[1]            ; 5       ;
-; pipe_hard:inst29|pipe3_x_pos[9]            ; 4       ;
-; pipe_hard:inst29|pipe3_x_pos[7]            ; 4       ;
-; pipe_hard:inst29|pipe3_x_pos[5]            ; 5       ;
-; pipe_hard:inst29|pipe3_x_pos[4]            ; 14      ;
-; pipe_hard:inst29|gap_pos_cent3[7]          ; 2       ;
-; pipe_hard:inst29|gap_pos_cent3[4]          ; 4       ;
-; pipe_hard:inst29|gap_pos_cent3[2]          ; 2       ;
-; pipe_hard:inst29|gap_pos_cent3[1]          ; 2       ;
+; pipe_hard:inst19|pipe3_x_pos[1]            ; 5       ;
+; pipe_hard:inst19|pipe3_x_pos[9]            ; 4       ;
+; pipe_hard:inst19|pipe3_x_pos[7]            ; 4       ;
+; pipe_hard:inst19|pipe3_x_pos[5]            ; 5       ;
+; pipe_hard:inst19|pipe3_x_pos[4]            ; 4       ;
+; pipe_hard:inst19|gap_pos_cent3[7]          ; 2       ;
+; pipe_hard:inst19|gap_pos_cent3[4]          ; 6       ;
+; pipe_hard:inst19|gap_pos_cent3[2]          ; 2       ;
+; pipe_hard:inst19|gap_pos_cent3[1]          ; 2       ;
+; pipe_hard:inst19|pipe_x_pos[1]             ; 5       ;
+; pipe_hard:inst19|pipe_x_pos[7]             ; 4       ;
+; pipe_hard:inst19|pipe_x_pos[6]             ; 4       ;
+; pipe_hard:inst19|pipe_x_pos[5]             ; 5       ;
+; pipe_hard:inst19|pipe_x_pos[2]             ; 4       ;
+; pipe_hard:inst19|gap_pos_cent1[7]          ; 2       ;
+; pipe_hard:inst19|gap_pos_cent1[4]          ; 4       ;
+; pipe_hard:inst19|gap_pos_cent1[2]          ; 2       ;
+; pipe_hard:inst19|gap_pos_cent1[1]          ; 2       ;
+; pipe_hard:inst19|pipe2_x_pos[8]            ; 4       ;
+; pipe_hard:inst19|pipe2_x_pos[7]            ; 4       ;
+; pipe_hard:inst19|pipe2_x_pos[6]            ; 4       ;
+; pipe_hard:inst19|pipe2_x_pos[3]            ; 4       ;
+; pipe_hard:inst19|pipe2_x_pos[2]            ; 4       ;
+; pipe_hard:inst19|gap_pos_cent2[7]          ; 2       ;
+; pipe_hard:inst19|gap_pos_cent2[4]          ; 4       ;
+; pipe_hard:inst19|gap_pos_cent2[2]          ; 2       ;
+; pipe_hard:inst19|gap_pos_cent2[1]          ; 2       ;
 ; bird:inst18|bird_y_pos[7]                  ; 5       ;
 ; bird:inst18|bird_y_pos[6]                  ; 5       ;
 ; bird:inst18|bird_y_pos[5]                  ; 6       ;
 ; bird:inst18|bird_y_pos[4]                  ; 5       ;
 ; MOUSE:inst6|send_char                      ; 3       ;
-; pipe_hard:inst29|GaloisLFSR8:LFSR1|lfsr[0] ; 3       ;
+; pipe_hard:inst19|GaloisLFSR8:LFSR1|lfsr[0] ; 3       ;
 ; bird:inst18|bird_y_motion[1]               ; 3       ;
 ; MOUSE:inst6|SHIFTOUT[3]                    ; 1       ;
 ; MOUSE:inst6|SHIFTOUT[5]                    ; 1       ;
@@ -427,33 +521,43 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------------------------------+---------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                       ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |flappybird|MOUSE:inst6|new_cursor_column[7]           ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |flappybird|display_priority_controller:inst3|green[0] ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappybird|display_priority_controller:inst3|blue[1]  ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappybird|VGA_SYNC:inst2|v_count[5]                  ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |flappybird|MOUSE:inst6|cursor_row[9]                  ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |flappybird|MOUSE:inst6|cursor_row[7]                  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |flappybird|MOUSE:inst6|cursor_column[7]               ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |flappybird|MOUSE:inst6|cursor_column[8]               ;
-; 5:1                ; 9 bits    ; 27 LEs        ; 27 LEs               ; 0 LEs                  ; Yes        ; |flappybird|bird:inst18|bird_y_motion[3]               ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird|lives_text:inst15|u_f_row[0]               ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird|BCD_to_SevenSeg:inst9|SevenSeg_out[0]      ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird|BCD_to_SevenSeg:inst10|SevenSeg_out[0]     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |flappybird|MOUSE:inst6|new_cursor_row[1]               ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappybird|VGA_SYNC:inst2|v_count[1]                   ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |flappybird|display_priority_controller:inst13|red[0]   ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |flappybird|MOUSE:inst6|cursor_row[2]                   ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |flappybird|MOUSE:inst6|cursor_row[6]                   ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |flappybird|MOUSE:inst6|cursor_column[7]                ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |flappybird|MOUSE:inst6|cursor_column[6]                ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |flappybird|display_priority_controller:inst13|green[0] ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 27 LEs               ; 0 LEs                  ; Yes        ; |flappybird|bird:inst18|bird_y_motion[6]                ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird|lives_text:inst1|u_f_col[2]                 ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird|BCD_to_SevenSeg:inst9|SevenSeg_out[0]       ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird|BCD_to_SevenSeg:inst10|SevenSeg_out[5]      ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird|score_display:inst5|u_char_address          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------+
-; Source assignments for lives_text:inst15|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_vtf1:auto_generated ;
-+---------------------------------+--------------------+------+------------------------------------------------------------------+
-; Assignment                      ; Value              ; From ; To                                                               ;
-+---------------------------------+--------------------+------+------------------------------------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                ;
-+---------------------------------+--------------------+------+------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for lives_text:inst1|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_vtf1:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                              ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                               ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for score_display:inst5|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_vtf1:auto_generated ;
++---------------------------------+--------------------+------+--------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                 ;
++---------------------------------+--------------------+------+--------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                  ;
++---------------------------------+--------------------+------+--------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------+
@@ -703,69 +807,130 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: lives_text:inst15|char_rom:char_rom_inst|altsyncram:altsyncram_component ;
-+------------------------------------+----------------------+-----------------------------------------------------------+
-; Parameter Name                     ; Value                ; Type                                                      ;
-+------------------------------------+----------------------+-----------------------------------------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                   ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                              ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                              ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                            ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                   ;
-; OPERATION_MODE                     ; ROM                  ; Untyped                                                   ;
-; WIDTH_A                            ; 8                    ; Signed Integer                                            ;
-; WIDTHAD_A                          ; 9                    ; Signed Integer                                            ;
-; NUMWORDS_A                         ; 512                  ; Signed Integer                                            ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                   ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                   ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                   ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                   ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                   ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                   ;
-; WIDTH_B                            ; 1                    ; Untyped                                                   ;
-; WIDTHAD_B                          ; 1                    ; Untyped                                                   ;
-; NUMWORDS_B                         ; 1                    ; Untyped                                                   ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                   ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                   ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                   ;
-; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                                   ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                   ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                   ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                   ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                   ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                   ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                   ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                   ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                   ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                            ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                   ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                   ;
-; BYTE_SIZE                          ; 8                    ; Untyped                                                   ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                   ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                   ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                   ;
-; INIT_FILE                          ; char.mif             ; Untyped                                                   ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                   ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                   ;
-; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                   ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                   ;
-; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                                   ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                   ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                   ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                   ;
-; ENABLE_ECC                         ; FALSE                ; Untyped                                                   ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                   ;
-; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                   ;
-; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                                   ;
-; CBXI_PARAMETER                     ; altsyncram_vtf1      ; Untyped                                                   ;
-+------------------------------------+----------------------+-----------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: lives_text:inst1|char_rom:char_rom_inst|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+----------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                     ;
++------------------------------------+----------------------+----------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                  ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                               ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                             ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                             ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                           ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                  ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                                                  ;
+; WIDTH_A                            ; 8                    ; Signed Integer                                           ;
+; WIDTHAD_A                          ; 9                    ; Signed Integer                                           ;
+; NUMWORDS_A                         ; 512                  ; Signed Integer                                           ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                  ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                  ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                  ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                  ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                  ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                  ;
+; WIDTH_B                            ; 1                    ; Untyped                                                  ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                                  ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                                  ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                  ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                  ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                  ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                                  ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                  ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                  ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                  ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                  ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                  ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                  ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                  ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                  ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                           ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                  ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                  ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                  ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                  ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                  ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                  ;
+; INIT_FILE                          ; char.mif             ; Untyped                                                  ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                  ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                  ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                  ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                  ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                                  ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                  ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                  ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                  ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                  ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                  ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                  ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                                  ;
+; CBXI_PARAMETER                     ; altsyncram_vtf1      ; Untyped                                                  ;
++------------------------------------+----------------------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: score_display:inst5|char_rom:char_rom_inst|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                        ;
++------------------------------------+----------------------+-------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                     ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                  ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                                ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                                ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                              ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                     ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                                                     ;
+; WIDTH_A                            ; 8                    ; Signed Integer                                              ;
+; WIDTHAD_A                          ; 9                    ; Signed Integer                                              ;
+; NUMWORDS_A                         ; 512                  ; Signed Integer                                              ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                     ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                     ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                     ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                     ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                     ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                     ;
+; WIDTH_B                            ; 1                    ; Untyped                                                     ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                                     ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                                     ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                     ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                     ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                     ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                                     ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                     ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                     ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                     ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                     ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                     ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                     ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                     ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                     ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                              ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                     ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                     ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                     ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                     ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                     ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                     ;
+; INIT_FILE                          ; char.mif             ; Untyped                                                     ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                     ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                     ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                     ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                     ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                                     ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                     ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                     ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                     ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                     ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                     ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                     ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                                     ;
+; CBXI_PARAMETER                     ; altsyncram_vtf1      ; Untyped                                                     ;
++------------------------------------+----------------------+-------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-----------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: pipe_hard:inst29|lpm_divide:Mod0 ;
+; Parameter Settings for Inferred Entity Instance: pipe_hard:inst19|lpm_divide:Mod0 ;
 +------------------------+----------------+-----------------------------------------+
 ; Parameter Name         ; Value          ; Type                                    ;
 +------------------------+----------------+-----------------------------------------+
@@ -787,28 +952,163 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------------------------------------------------------+
-; altsyncram Parameter Settings by Entity Instance                                                                     ;
-+-------------------------------------------+--------------------------------------------------------------------------+
-; Name                                      ; Value                                                                    ;
-+-------------------------------------------+--------------------------------------------------------------------------+
-; Number of entity instances                ; 1                                                                        ;
-; Entity Instance                           ; lives_text:inst15|char_rom:char_rom_inst|altsyncram:altsyncram_component ;
-;     -- OPERATION_MODE                     ; ROM                                                                      ;
-;     -- WIDTH_A                            ; 8                                                                        ;
-;     -- NUMWORDS_A                         ; 512                                                                      ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                             ;
-;     -- WIDTH_B                            ; 1                                                                        ;
-;     -- NUMWORDS_B                         ; 1                                                                        ;
-;     -- ADDRESS_REG_B                      ; CLOCK1                                                                   ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                             ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                     ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                ;
-+-------------------------------------------+--------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: score_display:inst5|lpm_divide:Div1 ;
++------------------------+----------------+--------------------------------------------+
+; Parameter Name         ; Value          ; Type                                       ;
++------------------------+----------------+--------------------------------------------+
+; LPM_WIDTHN             ; 14             ; Untyped                                    ;
+; LPM_WIDTHD             ; 7              ; Untyped                                    ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
+; LPM_PIPELINE           ; 0              ; Untyped                                    ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                    ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                    ;
+; CBXI_PARAMETER         ; lpm_divide_lbm ; Untyped                                    ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                    ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                    ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                 ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                               ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                               ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                             ;
++------------------------+----------------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: score_display:inst5|lpm_divide:Mod2 ;
++------------------------+----------------+--------------------------------------------+
+; Parameter Name         ; Value          ; Type                                       ;
++------------------------+----------------+--------------------------------------------+
+; LPM_WIDTHN             ; 14             ; Untyped                                    ;
+; LPM_WIDTHD             ; 14             ; Untyped                                    ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
+; LPM_PIPELINE           ; 0              ; Untyped                                    ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                    ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                    ;
+; CBXI_PARAMETER         ; lpm_divide_65m ; Untyped                                    ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                    ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                    ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                 ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                               ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                               ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                             ;
++------------------------+----------------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: score_display:inst5|lpm_divide:Mod0 ;
++------------------------+----------------+--------------------------------------------+
+; Parameter Name         ; Value          ; Type                                       ;
++------------------------+----------------+--------------------------------------------+
+; LPM_WIDTHN             ; 14             ; Untyped                                    ;
+; LPM_WIDTHD             ; 14             ; Untyped                                    ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
+; LPM_PIPELINE           ; 0              ; Untyped                                    ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                    ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                    ;
+; CBXI_PARAMETER         ; lpm_divide_65m ; Untyped                                    ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                    ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                    ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                 ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                               ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                               ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                             ;
++------------------------+----------------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: score_display:inst5|lpm_divide:Div0 ;
++------------------------+----------------+--------------------------------------------+
+; Parameter Name         ; Value          ; Type                                       ;
++------------------------+----------------+--------------------------------------------+
+; LPM_WIDTHN             ; 14             ; Untyped                                    ;
+; LPM_WIDTHD             ; 4              ; Untyped                                    ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
+; LPM_PIPELINE           ; 0              ; Untyped                                    ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                    ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                    ;
+; CBXI_PARAMETER         ; lpm_divide_ibm ; Untyped                                    ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                    ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                    ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                 ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                               ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                               ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                             ;
++------------------------+----------------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: score_display:inst5|lpm_divide:Mod1 ;
++------------------------+----------------+--------------------------------------------+
+; Parameter Name         ; Value          ; Type                                       ;
++------------------------+----------------+--------------------------------------------+
+; LPM_WIDTHN             ; 14             ; Untyped                                    ;
+; LPM_WIDTHD             ; 14             ; Untyped                                    ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
+; LPM_PIPELINE           ; 0              ; Untyped                                    ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                    ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                    ;
+; CBXI_PARAMETER         ; lpm_divide_65m ; Untyped                                    ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                    ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                    ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                 ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                               ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                               ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                             ;
++------------------------+----------------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                       ;
++-------------------------------------------+----------------------------------------------------------------------------+
+; Name                                      ; Value                                                                      ;
++-------------------------------------------+----------------------------------------------------------------------------+
+; Number of entity instances                ; 2                                                                          ;
+; Entity Instance                           ; lives_text:inst1|char_rom:char_rom_inst|altsyncram:altsyncram_component    ;
+;     -- OPERATION_MODE                     ; ROM                                                                        ;
+;     -- WIDTH_A                            ; 8                                                                          ;
+;     -- NUMWORDS_A                         ; 512                                                                        ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                               ;
+;     -- WIDTH_B                            ; 1                                                                          ;
+;     -- NUMWORDS_B                         ; 1                                                                          ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                     ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                               ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                       ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                  ;
+; Entity Instance                           ; score_display:inst5|char_rom:char_rom_inst|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; ROM                                                                        ;
+;     -- WIDTH_A                            ; 8                                                                          ;
+;     -- NUMWORDS_A                         ; 512                                                                        ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                               ;
+;     -- WIDTH_B                            ; 1                                                                          ;
+;     -- NUMWORDS_B                         ; 1                                                                          ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                     ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                               ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                       ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                  ;
++-------------------------------------------+----------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------+
+; Port Connectivity Checks: "score_display:inst5|char_rom:char_rom_inst" ;
++----------------------+-------+----------+------------------------------+
+; Port                 ; Type  ; Severity ; Details                      ;
++----------------------+-------+----------+------------------------------+
+; character_address[5] ; Input ; Info     ; Stuck at VCC                 ;
++----------------------+-------+----------+------------------------------+
 
 
 +----------------------------------------------------------------+
-; Port Connectivity Checks: "pipe_hard:inst29|GaloisLFSR8:LFSR1" ;
+; Port Connectivity Checks: "pipe_hard:inst19|GaloisLFSR8:LFSR1" ;
 +-------+-------+----------+-------------------------------------+
 ; Port  ; Type  ; Severity ; Details                             ;
 +-------+-------+----------+-------------------------------------+
@@ -821,41 +1121,42 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 289                         ;
+; arriav_ff             ; 305                         ;
 ;     CLR               ; 4                           ;
-;     ENA               ; 106                         ;
+;     ENA               ; 120                         ;
 ;     ENA CLR           ; 15                          ;
 ;     ENA SCLR          ; 18                          ;
 ;     ENA SLD           ; 20                          ;
 ;     SCLR              ; 10                          ;
-;     plain             ; 116                         ;
+;     plain             ; 118                         ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 647                         ;
-;     arith             ; 187                         ;
-;         0 data inputs ; 5                           ;
-;         1 data inputs ; 134                         ;
-;         2 data inputs ; 37                          ;
-;         3 data inputs ; 7                           ;
-;         4 data inputs ; 4                           ;
-;     extend            ; 5                           ;
-;         7 data inputs ; 5                           ;
-;     normal            ; 445                         ;
+; arriav_lcell_comb     ; 1680                        ;
+;     arith             ; 650                         ;
+;         0 data inputs ; 92                          ;
+;         1 data inputs ; 191                         ;
+;         2 data inputs ; 60                          ;
+;         3 data inputs ; 186                         ;
+;         4 data inputs ; 121                         ;
+;     extend            ; 14                          ;
+;         7 data inputs ; 14                          ;
+;     normal            ; 976                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 16                          ;
-;         2 data inputs ; 59                          ;
-;         3 data inputs ; 71                          ;
-;         4 data inputs ; 58                          ;
-;         5 data inputs ; 118                         ;
-;         6 data inputs ; 122                         ;
-;     shared            ; 10                          ;
-;         1 data inputs ; 1                           ;
+;         1 data inputs ; 17                          ;
+;         2 data inputs ; 268                         ;
+;         3 data inputs ; 203                         ;
+;         4 data inputs ; 126                         ;
+;         5 data inputs ; 158                         ;
+;         6 data inputs ; 203                         ;
+;     shared            ; 40                          ;
+;         0 data inputs ; 11                          ;
+;         1 data inputs ; 20                          ;
 ;         2 data inputs ; 9                           ;
 ; boundary_port         ; 48                          ;
 ; generic_pll           ; 1                           ;
-; stratixv_ram_block    ; 8                           ;
+; stratixv_ram_block    ; 16                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 11.90                       ;
-; Average LUT depth     ; 4.28                        ;
+; Max LUT depth         ; 24.30                       ;
+; Average LUT depth     ; 12.21                       ;
 +-----------------------+-----------------------------+
 
 
@@ -864,7 +1165,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:04     ;
 +----------------+--------------+
 
 
@@ -874,10 +1175,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sun May 19 10:32:45 2024
+    Info: Processing started: Tue May 21 12:54:57 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off flappyBird -c flappybird
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file /users/deven/documents/305/305_proj/fpga testing/imagetesting/miniproject/vhdlfiles/score.vhd
+    Info (12022): Found design unit 1: score-rtl File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score.vhd Line: 14
+    Info (12023): Found entity 1: score File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /users/deven/documents/305/305_proj/fpga testing/imagetesting/miniproject/vhdlfiles/score_display.vhd
+    Info (12022): Found design unit 1: score_display-behaviour File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 19
+    Info (12023): Found entity 1: score_display File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file /users/deven/documents/305/305_proj/fpga testing/imagetesting/miniproject/vhdlfiles/fsm.vhd
     Info (12022): Found design unit 1: fsm-Behavioral File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 30
     Info (12023): Found entity 1: fsm File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 6
@@ -928,7 +1235,6 @@ Info (12021): Found 1 design units, including 1 entities, in source file flappyb
 Info (12021): Found 1 design units, including 1 entities, in source file extracomponents.bdf
     Info (12023): Found entity 1: extracomponents
 Info (12127): Elaborating entity "flappybird" for the top level hierarchy
-Warning (275011): Block or symbol "pll" of instance "inst" overlaps another block or symbol
 Warning (275011): Block or symbol "GND" of instance "inst21" overlaps another block or symbol
 Warning (275089): Not all bits in bus "SW[9..0]" are used
 Warning (275080): Converted elements in bus name "SW" using legacy naming rules. Make any assignments on the new names, not on the original names.
@@ -1004,7 +1310,7 @@ Info (12133): Instantiated megafunction "pll:inst|pll_0002:pll_inst|altera_pll:a
     Info (12134): Parameter "duty_cycle17" = "50"
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
-Info (12128): Elaborating entity "display_priority_controller" for hierarchy "display_priority_controller:inst3"
+Info (12128): Elaborating entity "display_priority_controller" for hierarchy "display_priority_controller:inst13"
 Warning (10541): VHDL Signal Declaration warning at display_priority_controller.vhd(14): used implicit default value for signal "led_out" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/display_priority_controller.vhd Line: 14
 Info (12128): Elaborating entity "bird" for hierarchy "bird:inst18"
 Warning (10540): VHDL Signal Declaration warning at bird.vhd(27): used explicit default value for signal "bird_x_pos" because signal was never assigned a value File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/bird.vhd Line: 27
@@ -1014,10 +1320,12 @@ Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHARO
 Warning (10492): VHDL Process Statement warning at mouse.vhd(155): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/mouse.vhd Line: 155
 Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/mouse.vhd Line: 156
 Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/mouse.vhd Line: 157
-Info (12128): Elaborating entity "pipe_hard" for hierarchy "pipe_hard:inst29"
-Info (12128): Elaborating entity "GaloisLFSR8" for hierarchy "pipe_hard:inst29|GaloisLFSR8:LFSR1" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/pipe.vhd Line: 42
+Info (12128): Elaborating entity "pipe_hard" for hierarchy "pipe_hard:inst19"
+Info (12128): Elaborating entity "GaloisLFSR8" for hierarchy "pipe_hard:inst19|GaloisLFSR8:LFSR1" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/pipe.vhd Line: 43
 Info (12128): Elaborating entity "fsm" for hierarchy "fsm:inst26"
 Warning (10492): VHDL Process Statement warning at fsm.vhd(37): signal "reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 37
+Warning (10492): VHDL Process Statement warning at fsm.vhd(51): signal "witch2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 51
+Warning (10492): VHDL Process Statement warning at fsm.vhd(53): signal "witch2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 53
 Warning (10492): VHDL Process Statement warning at fsm.vhd(55): signal "witch2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 55
 Warning (10631): VHDL Process Statement warning at fsm.vhd(44): inferring latch(es) for signal or variable "next_state", which holds its previous value in one or more paths through the process File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 44
 Info (10041): Inferred latch for "next_state[0]" at fsm.vhd(44) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 44
@@ -1025,27 +1333,28 @@ Info (10041): Inferred latch for "next_state[1]" at fsm.vhd(44) File: C:/Users/d
 Info (10041): Inferred latch for "next_state[2]" at fsm.vhd(44) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 44
 Info (10041): Inferred latch for "next_state[3]" at fsm.vhd(44) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 44
 Info (12128): Elaborating entity "ground" for hierarchy "ground:inst7"
-Info (12128): Elaborating entity "lives_text" for hierarchy "lives_text:inst15"
-Warning (10492): VHDL Process Statement warning at lives_text.vhd(55): signal "collisions_input" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 55
-Warning (10631): VHDL Process Statement warning at lives_text.vhd(53): inferring latch(es) for signal or variable "u_f_row", which holds its previous value in one or more paths through the process File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
-Warning (10631): VHDL Process Statement warning at lives_text.vhd(53): inferring latch(es) for signal or variable "u_f_col", which holds its previous value in one or more paths through the process File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
-Warning (10631): VHDL Process Statement warning at lives_text.vhd(53): inferring latch(es) for signal or variable "u_char_address", which holds its previous value in one or more paths through the process File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
-Info (10041): Inferred latch for "u_char_address[0]" at lives_text.vhd(53) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
-Info (10041): Inferred latch for "u_char_address[1]" at lives_text.vhd(53) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
-Info (10041): Inferred latch for "u_char_address[2]" at lives_text.vhd(53) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
-Info (10041): Inferred latch for "u_char_address[3]" at lives_text.vhd(53) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
-Info (10041): Inferred latch for "u_char_address[4]" at lives_text.vhd(53) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
-Info (10041): Inferred latch for "u_char_address[5]" at lives_text.vhd(53) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
-Info (10041): Inferred latch for "u_f_col[0]" at lives_text.vhd(53) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
-Info (10041): Inferred latch for "u_f_col[1]" at lives_text.vhd(53) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
-Info (10041): Inferred latch for "u_f_col[2]" at lives_text.vhd(53) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
-Info (10041): Inferred latch for "u_f_row[0]" at lives_text.vhd(53) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
-Info (10041): Inferred latch for "u_f_row[1]" at lives_text.vhd(53) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
-Info (10041): Inferred latch for "u_f_row[2]" at lives_text.vhd(53) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
-Info (12128): Elaborating entity "char_rom" for hierarchy "lives_text:inst15|char_rom:char_rom_inst" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 43
-Info (12128): Elaborating entity "altsyncram" for hierarchy "lives_text:inst15|char_rom:char_rom_inst|altsyncram:altsyncram_component" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/char_rom.vhd Line: 51
-Info (12130): Elaborated megafunction instantiation "lives_text:inst15|char_rom:char_rom_inst|altsyncram:altsyncram_component" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/char_rom.vhd Line: 51
-Info (12133): Instantiated megafunction "lives_text:inst15|char_rom:char_rom_inst|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/char_rom.vhd Line: 51
+Info (12128): Elaborating entity "lives_text" for hierarchy "lives_text:inst1"
+Warning (10492): VHDL Process Statement warning at lives_text.vhd(55): signal "collision_counter" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 55
+Warning (10492): VHDL Process Statement warning at lives_text.vhd(56): signal "collision_counter" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 56
+Warning (10631): VHDL Process Statement warning at lives_text.vhd(61): inferring latch(es) for signal or variable "u_f_row", which holds its previous value in one or more paths through the process File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 61
+Warning (10631): VHDL Process Statement warning at lives_text.vhd(61): inferring latch(es) for signal or variable "u_f_col", which holds its previous value in one or more paths through the process File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 61
+Warning (10631): VHDL Process Statement warning at lives_text.vhd(61): inferring latch(es) for signal or variable "u_char_address", which holds its previous value in one or more paths through the process File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 61
+Info (10041): Inferred latch for "u_char_address[0]" at lives_text.vhd(61) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 61
+Info (10041): Inferred latch for "u_char_address[1]" at lives_text.vhd(61) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 61
+Info (10041): Inferred latch for "u_char_address[2]" at lives_text.vhd(61) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 61
+Info (10041): Inferred latch for "u_char_address[3]" at lives_text.vhd(61) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 61
+Info (10041): Inferred latch for "u_char_address[4]" at lives_text.vhd(61) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 61
+Info (10041): Inferred latch for "u_char_address[5]" at lives_text.vhd(61) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 61
+Info (10041): Inferred latch for "u_f_col[0]" at lives_text.vhd(61) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 61
+Info (10041): Inferred latch for "u_f_col[1]" at lives_text.vhd(61) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 61
+Info (10041): Inferred latch for "u_f_col[2]" at lives_text.vhd(61) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 61
+Info (10041): Inferred latch for "u_f_row[0]" at lives_text.vhd(61) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 61
+Info (10041): Inferred latch for "u_f_row[1]" at lives_text.vhd(61) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 61
+Info (10041): Inferred latch for "u_f_row[2]" at lives_text.vhd(61) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 61
+Info (12128): Elaborating entity "char_rom" for hierarchy "lives_text:inst1|char_rom:char_rom_inst" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 43
+Info (12128): Elaborating entity "altsyncram" for hierarchy "lives_text:inst1|char_rom:char_rom_inst|altsyncram:altsyncram_component" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/char_rom.vhd Line: 51
+Info (12130): Elaborated megafunction instantiation "lives_text:inst1|char_rom:char_rom_inst|altsyncram:altsyncram_component" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/char_rom.vhd Line: 51
+Info (12133): Instantiated megafunction "lives_text:inst1|char_rom:char_rom_inst|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/char_rom.vhd Line: 51
     Info (12134): Parameter "address_aclr_a" = "NONE"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
@@ -1062,47 +1371,57 @@ Info (12133): Instantiated megafunction "lives_text:inst15|char_rom:char_rom_ins
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_vtf1.tdf
     Info (12023): Found entity 1: altsyncram_vtf1 File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/db/altsyncram_vtf1.tdf Line: 27
-Info (12128): Elaborating entity "altsyncram_vtf1" for hierarchy "lives_text:inst15|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_vtf1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "altsyncram_vtf1" for hierarchy "lives_text:inst1|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_vtf1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12128): Elaborating entity "collision_module" for hierarchy "collision_module:inst8"
 Warning (10492): VHDL Process Statement warning at Collision.vhd(36): signal "current_col" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/Collision.vhd Line: 36
 Warning (10492): VHDL Process Statement warning at Collision.vhd(37): signal "current_col" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/Collision.vhd Line: 37
+Info (12128): Elaborating entity "score_display" for hierarchy "score_display:inst5"
+Warning (10492): VHDL Process Statement warning at score_display.vhd(59): signal "score_hundreds" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 59
+Warning (10492): VHDL Process Statement warning at score_display.vhd(73): signal "score_tens" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 73
+Warning (10492): VHDL Process Statement warning at score_display.vhd(87): signal "score_ones" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 87
+Warning (10631): VHDL Process Statement warning at score_display.vhd(49): inferring latch(es) for signal or variable "u_font_row", which holds its previous value in one or more paths through the process File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Warning (10631): VHDL Process Statement warning at score_display.vhd(49): inferring latch(es) for signal or variable "u_font_col", which holds its previous value in one or more paths through the process File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Warning (10631): VHDL Process Statement warning at score_display.vhd(49): inferring latch(es) for signal or variable "score_ones", which holds its previous value in one or more paths through the process File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Warning (10631): VHDL Process Statement warning at score_display.vhd(49): inferring latch(es) for signal or variable "score_tens", which holds its previous value in one or more paths through the process File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Warning (10631): VHDL Process Statement warning at score_display.vhd(49): inferring latch(es) for signal or variable "score_hundreds", which holds its previous value in one or more paths through the process File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Warning (10631): VHDL Process Statement warning at score_display.vhd(49): inferring latch(es) for signal or variable "u_char_address", which holds its previous value in one or more paths through the process File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Info (10041): Inferred latch for "u_char_address[0]" at score_display.vhd(49) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Info (10041): Inferred latch for "u_char_address[1]" at score_display.vhd(49) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Info (10041): Inferred latch for "u_char_address[2]" at score_display.vhd(49) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Info (10041): Inferred latch for "u_char_address[3]" at score_display.vhd(49) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Info (10041): Inferred latch for "u_char_address[4]" at score_display.vhd(49) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Info (10041): Inferred latch for "u_char_address[5]" at score_display.vhd(49) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Info (10041): Inferred latch for "score_hundreds[0]" at score_display.vhd(49) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Info (10041): Inferred latch for "score_hundreds[1]" at score_display.vhd(49) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Info (10041): Inferred latch for "score_hundreds[2]" at score_display.vhd(49) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Info (10041): Inferred latch for "score_hundreds[3]" at score_display.vhd(49) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Info (10041): Inferred latch for "score_tens[0]" at score_display.vhd(49) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Info (10041): Inferred latch for "score_tens[1]" at score_display.vhd(49) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Info (10041): Inferred latch for "score_tens[2]" at score_display.vhd(49) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Info (10041): Inferred latch for "score_tens[3]" at score_display.vhd(49) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Info (10041): Inferred latch for "score_ones[0]" at score_display.vhd(49) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Info (10041): Inferred latch for "score_ones[1]" at score_display.vhd(49) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Info (10041): Inferred latch for "score_ones[2]" at score_display.vhd(49) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Info (10041): Inferred latch for "score_ones[3]" at score_display.vhd(49) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Info (10041): Inferred latch for "u_font_col[0]" at score_display.vhd(49) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Info (10041): Inferred latch for "u_font_col[1]" at score_display.vhd(49) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Info (10041): Inferred latch for "u_font_col[2]" at score_display.vhd(49) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Info (10041): Inferred latch for "u_font_row[0]" at score_display.vhd(49) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Info (10041): Inferred latch for "u_font_row[1]" at score_display.vhd(49) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Info (10041): Inferred latch for "u_font_row[2]" at score_display.vhd(49) File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 49
+Info (12128): Elaborating entity "score" for hierarchy "score:inst17"
+Warning (10492): VHDL Process Statement warning at score.vhd(21): signal "pipe_passed" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score.vhd Line: 21
+Warning (10492): VHDL Process Statement warning at score.vhd(21): signal "output_collision" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score.vhd Line: 21
 Info (12128): Elaborating entity "BCD_to_SevenSeg" for hierarchy "BCD_to_SevenSeg:inst9"
-Warning (12001): Port "collisions_input[0]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[10]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[11]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[12]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[13]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[14]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[15]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[16]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[17]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[18]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[19]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[1]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[20]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[21]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[22]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[23]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[24]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[25]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[26]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[27]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[28]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[29]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[2]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[30]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[31]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[3]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[4]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[5]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[6]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[7]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[8]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Warning (12001): Port "collisions_input[9]" does not exist in entity definition of "lives_text".  The port's range differs between the entity definition and its actual instantiation, "lives_text:inst15".
-Info (278001): Inferred 1 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipe_hard:inst29|Mod0" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/pipe.vhd Line: 67
-Info (12130): Elaborated megafunction instantiation "pipe_hard:inst29|lpm_divide:Mod0" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/pipe.vhd Line: 67
-Info (12133): Instantiated megafunction "pipe_hard:inst29|lpm_divide:Mod0" with the following parameter: File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/pipe.vhd Line: 67
+Info (278001): Inferred 6 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipe_hard:inst19|Mod0" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/pipe.vhd Line: 68
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "score_display:inst5|Div1" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 56
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "score_display:inst5|Mod2" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 56
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "score_display:inst5|Mod0" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 54
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "score_display:inst5|Div0" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 55
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "score_display:inst5|Mod1" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 55
+Info (12130): Elaborated megafunction instantiation "pipe_hard:inst19|lpm_divide:Mod0" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/pipe.vhd Line: 68
+Info (12133): Instantiated megafunction "pipe_hard:inst19|lpm_divide:Mod0" with the following parameter: File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/pipe.vhd Line: 68
     Info (12134): Parameter "LPM_WIDTHN" = "8"
     Info (12134): Parameter "LPM_WIDTHD" = "8"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
@@ -1116,39 +1435,76 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alt_
     Info (12023): Found entity 1: alt_u_div_4te File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/db/alt_u_div_4te.tdf Line: 22
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_nn9.tdf
     Info (12023): Found entity 1: lpm_abs_nn9 File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/db/lpm_abs_nn9.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "score_display:inst5|lpm_divide:Div1" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 56
+Info (12133): Instantiated megafunction "score_display:inst5|lpm_divide:Div1" with the following parameter: File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 56
+    Info (12134): Parameter "LPM_WIDTHN" = "14"
+    Info (12134): Parameter "LPM_WIDTHD" = "7"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_lbm.tdf
+    Info (12023): Found entity 1: lpm_divide_lbm File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/db/lpm_divide_lbm.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_rlh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_rlh File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/db/sign_div_unsign_rlh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_sve.tdf
+    Info (12023): Found entity 1: alt_u_div_sve File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/db/alt_u_div_sve.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "score_display:inst5|lpm_divide:Mod2" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 56
+Info (12133): Instantiated megafunction "score_display:inst5|lpm_divide:Mod2" with the following parameter: File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 56
+    Info (12134): Parameter "LPM_WIDTHN" = "14"
+    Info (12134): Parameter "LPM_WIDTHD" = "14"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_65m.tdf
+    Info (12023): Found entity 1: lpm_divide_65m File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/db/lpm_divide_65m.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9nh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_9nh File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/db/sign_div_unsign_9nh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_o2f.tdf
+    Info (12023): Found entity 1: alt_u_div_o2f File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/db/alt_u_div_o2f.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "score_display:inst5|lpm_divide:Div0" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 55
+Info (12133): Instantiated megafunction "score_display:inst5|lpm_divide:Div0" with the following parameter: File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/score_display.vhd Line: 55
+    Info (12134): Parameter "LPM_WIDTHN" = "14"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ibm.tdf
+    Info (12023): Found entity 1: lpm_divide_ibm File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/db/lpm_divide_ibm.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_olh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_olh File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/db/sign_div_unsign_olh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_mve.tdf
+    Info (12023): Found entity 1: alt_u_div_mve File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/db/alt_u_div_mve.tdf Line: 22
 Warning (13012): Latch fsm:inst26|next_state[1] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst26|state[1] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal SW0
 Warning (13012): Latch fsm:inst26|next_state[0] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst26|state[2] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst26|state[1] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 37
 Warning (13012): Latch fsm:inst26|next_state[2] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 44
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst26|state[0] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 37
-Warning (13012): Latch lives_text:inst15|u_f_col[2] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
     Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst26|state[2] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 37
-Warning (13012): Latch lives_text:inst15|u_f_col[1] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst26|state[2] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 37
-Warning (13012): Latch lives_text:inst15|u_f_row[0] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+Warning (13012): Latch lives_text:inst1|u_f_col[2] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 61
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA_SYNC:inst2|pixel_row[6] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/vga_sync.vhd Line: 99
+Warning (13012): Latch lives_text:inst1|u_f_col[1] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 61
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA_SYNC:inst2|pixel_row[6] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/vga_sync.vhd Line: 99
+Warning (13012): Latch lives_text:inst1|u_f_row[0] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 61
     Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA_SYNC:inst2|pixel_row[1] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/vga_sync.vhd Line: 99
-Warning (13012): Latch lives_text:inst15|u_f_row[1] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+Warning (13012): Latch lives_text:inst1|u_f_row[1] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 61
     Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA_SYNC:inst2|pixel_row[2] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/vga_sync.vhd Line: 99
-Warning (13012): Latch lives_text:inst15|u_f_row[2] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+Warning (13012): Latch lives_text:inst1|u_f_row[2] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 61
     Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA_SYNC:inst2|pixel_row[3] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/vga_sync.vhd Line: 99
-Warning (13012): Latch lives_text:inst15|u_char_address[0] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+Warning (13012): Latch lives_text:inst1|u_char_address[0] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 61
     Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst26|state[2] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 37
-Warning (13012): Latch lives_text:inst15|u_char_address[1] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+Warning (13012): Latch lives_text:inst1|u_char_address[1] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 61
     Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst26|state[2] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 37
-Warning (13012): Latch lives_text:inst15|u_char_address[2] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+Warning (13012): Latch lives_text:inst1|u_char_address[2] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 61
     Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst26|state[2] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 37
-Warning (13012): Latch lives_text:inst15|u_char_address[3] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+Warning (13012): Latch lives_text:inst1|u_char_address[3] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 61
     Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst26|state[2] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 37
-Warning (13012): Latch lives_text:inst15|u_char_address[4] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+Warning (13012): Latch lives_text:inst1|u_char_address[4] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 61
     Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst26|state[2] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 37
-Warning (13012): Latch lives_text:inst15|u_char_address[5] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
+Warning (13012): Latch lives_text:inst1|u_char_address[5] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 61
     Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst26|state[2] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 37
-Warning (13012): Latch lives_text:inst15|u_f_col[0] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 53
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal fsm:inst26|state[2] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/fsm.vhd Line: 37
+Warning (13012): Latch lives_text:inst1|u_f_col[0] has unsafe behavior File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/VhdlFiles/lives_text.vhd Line: 61
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal VGA_SYNC:inst2|pixel_row[6] File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/vga_sync.vhd Line: 99
 Info (13000): Registers with preset signals will power-up high File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/MiniprojectResources/mouse.vhd Line: 146
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
+Info (17036): Removed 1 MSB VCC or GND address nodes from RAM block "score_display:inst5|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_vtf1:auto_generated|ALTSYNCRAM" File: C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/db/altsyncram_vtf1.tdf Line: 31
 Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK2_50 -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK3_50 -entity DE0_CV_Default was ignored
@@ -1386,17 +1742,17 @@ Warning: RST port on the PLL is not properly connected on instance pll:inst|pll_
     Info: Must be connected
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "pb[2]"
-Info (21057): Implemented 818 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1857 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 9 input pins
     Info (21059): Implemented 37 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 761 logic cells
-    Info (21064): Implemented 8 RAM segments
+    Info (21061): Implemented 1792 logic cells
+    Info (21064): Implemented 16 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 324 warnings
-    Info: Peak virtual memory: 4935 megabytes
-    Info: Processing ended: Sun May 19 10:33:02 2024
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:08
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 305 warnings
+    Info: Peak virtual memory: 4959 megabytes
+    Info: Processing ended: Tue May 21 12:55:10 2024
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:13
 
 

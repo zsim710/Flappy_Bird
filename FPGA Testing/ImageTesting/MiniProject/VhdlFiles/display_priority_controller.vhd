@@ -8,10 +8,10 @@ use IEEE.STD_LOGIC_UNSIGNED.all;
 entity display_priority_controller is
   port
   (
-    ball_on, pipe_on, ground_on, text_on, clk, pb2 : in std_logic;
-    pixel_row, pixel_column                        : in std_logic_vector(9 downto 0);
-    red, green, blue                               : out std_logic_vector(3 downto 0);
-    led_out                                        : out std_logic
+    ball_on, pipe_on, ground_on, text_on, score_text_on, clk, pb2 : in std_logic;
+    pixel_row, pixel_column                                       : in std_logic_vector(9 downto 0);
+    red, green, blue                                              : out std_logic_vector(3 downto 0);
+    led_out                                                       : out std_logic
   );
 end entity display_priority_controller;
 
@@ -22,7 +22,11 @@ begin
   process (clk)
   begin
     if (rising_edge(clk)) then
-      if (text_on = '1') then --red
+      if (score_text_on = '1') then --white
+        red   <= "1111";
+        green <= "1111";
+        blue  <= "1111";
+      elsif (text_on = '1') then --red
         red   <= "1111";
         green <= "0001";
         blue  <= "0001";
@@ -36,10 +40,10 @@ begin
         red   <= "1111";
         green <= "0001";
         blue  <= "0001";
-      elsif (ground_on = '1') then
-        red   <= "0111";
-        green <= "0100";
-        blue  <= "0000";
+      elsif (ground_on = '1') then -- sea blue
+        red   <= "0000";
+        green <= "0110";
+        blue  <= "1011";
       elsif (pipe_on = '1') then
         red   <= "0110";
         green <= "1100";

@@ -515,7 +515,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : V20       :        :                   :      
 HEX0[1]                      : V21       : output : 2.5 V             :         : 4A        : Y              
 GND                          : V22       : gnd    :                   :         :           :                
 VREFB2AN0                    : W1        : power  :                   :         : 2A        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : W2        :        :                   :         : 2A        :                
+LEDR2                        : W2        : output : 2.5 V             :         : 2A        : Y              
 GND                          : W3        : gnd    :                   :         :           :                
 GND                          : W4        : gnd    :                   :         :           :                
 TDI                          : W5        : input  :                   :         : 3A        :                
@@ -538,7 +538,7 @@ HEX0[3]                      : W21       : output : 2.5 V             :         
 HEX0[2]                      : W22       : output : 2.5 V             :         : 4A        : Y              
 GND                          : Y1        : gnd    :                   :         :           :                
 GND                          : Y2        : gnd    :                   :         :           :                
-LEDR3                        : Y3        : output : 2.5 V             :         : 2A        : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : Y3        :        :                   :         : 2A        :                
 VCCIO2A                      : Y4        : power  :                   : 2.5V    : 2A        :                
 GND                          : Y5        : gnd    :                   :         :           :                
 NC                           : Y6        :        :                   :         :           :                

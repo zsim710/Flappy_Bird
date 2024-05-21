@@ -20,10 +20,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "LEDR3",
-					"strict" : false
-				},
-				{
 					"name" : "LEDR9",
 					"strict" : false
 				},
@@ -45,6 +41,10 @@
 				},
 				{
 					"name" : "LEDR4",
+					"strict" : false
+				},
+				{
+					"name" : "LEDR2",
 					"strict" : false
 				},
 				{
@@ -164,7 +164,15 @@
 					"strict" : false
 				},
 				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
 					"name" : "pb[3]",
+					"strict" : false
+				},
+				{
+					"name" : "pb[0]",
 					"strict" : false
 				},
 				{
@@ -177,10 +185,6 @@
 				},
 				{
 					"name" : "SW2",
-					"strict" : false
-				},
-				{
-					"name" : "pb[0]",
 					"strict" : false
 				},
 				{
