@@ -24,7 +24,7 @@ architecture behaviour of bird is
 
   signal size          : std_logic_vector(9 downto 0)  := "0000001000";
   signal bird_y_pos    : std_logic_vector(9 downto 0)  := "0011110000";
-  signal bird_x_pos    : std_logic_vector(10 downto 0) := "00101000000";
+  signal bird_x_pos    : std_logic_vector(10 downto 0) := conv_std_logic_vector(150, 11);
   signal bird_y_motion : std_logic_vector(9 downto 0)  := "0000000010";
   signal bird_x_motion : std_logic_vector(10 downto 0) := "00000000010";
   signal speed         : std_logic_vector(9 downto 0)  := "0000000101";

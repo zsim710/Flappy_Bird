@@ -14,9 +14,9 @@ entity pipe_test is
 end entity;
 
 architecture behavior of pipe_test is
-  signal pipe_x_pos                                  : std_logic_vector(10 downto 0) := CONV_STD_LOGIC_VECTOR(690, 11);
-  signal pipe2_x_pos                                 : std_logic_vector(10 downto 0) := conv_std_logic_vector(1035, 11);
-  signal pipe3_x_pos                                 : std_logic_vector(10 downto 0) := conv_std_logic_vector(-898, 11);
+  signal pipe_x_pos                                  : std_logic_vector(10 downto 0) := conv_signed(690, 11);
+  signal pipe2_x_pos                                 : std_logic_vector(10 downto 0) := conv_signed(-1013, 11);
+  signal pipe3_x_pos                                 : std_logic_vector(10 downto 0) := conv_signed(-898, 11);
   signal pipe_width                                  : std_logic_vector(10 downto 0);
   signal screen_width, screen_height                 : std_logic_vector(10 downto 0);
   signal pipe_top, pipe_bot                          : std_logic;
@@ -123,9 +123,9 @@ begin
     '1' when (((pipe_top = '1') or (pipe_bot = '1') or (pipe2_top = '1') or (pipe2_bot = '1') or (pipe3_top = '1') or (pipe3_bot = '1')) and (training_mode = '1')) else
     '0';
 
-  piped_pass <= '1' when (conv_std_logic_vector(32, 11) > pipe_x_pos) else -- bird x_position 
-    '1' when (conv_std_logic_vector(32, 11) > pipe2_x_pos) else
-    '1' when (conv_std_logic_vector(32, 11) > pipe3_x_pos) else
+  piped_pass <= '1' when (conv_std_logic_vector(150, 11) > pipe_x_pos) else -- bird x_position 
+    '1' when (conv_std_logic_vector(150, 11) > pipe2_x_pos) else
+    '1' when (conv_std_logic_vector(150, 11) > pipe3_x_pos and impossible_mode_out = '1') else
     '0';
 
 end architecture;
