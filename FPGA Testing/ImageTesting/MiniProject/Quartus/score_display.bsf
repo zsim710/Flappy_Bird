@@ -68,8 +68,8 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 0 128)
 		(input)
-		(text "score[13..0]" (rect 0 0 46 12)(font "Arial" ))
-		(text "score[13..0]" (rect 21 123 67 135)(font "Arial" ))
+		(text "score[8..0]" (rect 0 0 42 12)(font "Arial" ))
+		(text "score[8..0]" (rect 21 123 63 135)(font "Arial" ))
 		(line (pt 0 128)(pt 16 128)(line_width 3))
 	)
 	(port

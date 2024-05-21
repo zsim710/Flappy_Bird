@@ -8,7 +8,7 @@ entity score is
   (
     menu_state, clk, reset, vert_sync                        : in std_logic;
     pipe_passed, ball_on, collison_counter, output_collision : in std_logic;
-    score                                                    : integer std_logic
+    score                                                    : out integer range 0 to 500
   );
 end entity;
 
@@ -16,12 +16,13 @@ architecture rtl of score is
 
 begin
 
-  process (clk)
-    variable score_V : integer range 0 to 9999;
+  process (clk, menu_state, pipe_passed, output_collision)
+    variable score_V : integer range 0 to 500;
   begin
     if (rising_edge(pipe_passed) and output_collision = '0') then
       score_V := score_V + 1;
-    elsif (menu_state = '1') then
+    end if;
+    if (menu_state = '1') then
       score_V := 0;
     end if;
     score <= score_V;

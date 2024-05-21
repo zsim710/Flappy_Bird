@@ -6,20 +6,20 @@ use IEEE.STD_LOGIC_UNSIGNED.all;
 entity level_fsm is
   port
   (
-    clk, reset, right_click: in std_logic;
-    score                        : in integer range 0 to 3;                 
-    easy_mode_out                     : out std_logic;
-    medium_mode_out                       : out std_logic;
-    hard_mode_out                              : out std_logic;
-    impossible_mode_out                       : out std_logic
-    );
+    clk, reset, right_click : in std_logic;
+    score                   : in integer range 0 to 500;
+    easy_mode_out           : out std_logic;
+    medium_mode_out         : out std_logic;
+    hard_mode_out           : out std_logic;
+    impossible_mode_out     : out std_logic
+  );
 end level_fsm;
 
 -- states: 
 -- s0: easy mode
 -- s1: medium mode
 -- s2: hard mode
-architecture Behavioral of fsm is
+architecture Behavioral of level_fsm is
   type state_type is (easy, medium, hard, impossible);
   signal state      : state_type;
   signal next_state : state_type;
@@ -34,13 +34,13 @@ begin
     end if;
   end process;
 
-  NextState : process (state, collison_counter, score)
+  NextState : process (state, score)
   begin
 
     case (state) is
 
         -- state 0 --
-      when  easy => -- menu state -> default state 
+      when easy => -- menu state -> default state 
         if (score >= 5) then -- sw = 1 = down = training -- 30 is the score to go to medium mode
           next_state <= medium; --state 1 training mode
         else
@@ -49,21 +49,21 @@ begin
 
         -- state 1 -- // training mode playing state
       when medium => -- state 1 -> 0001
-        if (score >=10) then -- sw = 0 = up = normal -- 60 is the score to go to hard mode
-        next_state <= hard; -- state 2 normal mode
+        if (score >= 10) then -- sw = 0 = up = normal -- 60 is the score to go to hard mode
+          next_state <= hard; -- state 2 normal mode
         else
           next_state <= medium; -- s1
         end if;
         -- state 2 --// normal mode playing state
       when hard => -- state 2 --> 0010
-        if(score >=15) then -- 120 is the score to go to impossible mode
+        if (score >= 15) then -- 120 is the score to go to impossible mode
           next_state <= impossible; -- state 3 settings mode
         else
           next_state <= hard; -- s2
         end if;
         -- state 3 -- // settings mode state
       when impossible => -- state 3 --> 0011
-          next_state <= impossible; -- s0 --> return to menu
+        next_state <= impossible; -- s0 --> return to menu
 
     end case;
 
@@ -73,11 +73,10 @@ begin
   begin
 
     easy_mode_out       <= '0'; -- settings mode
-    medium_mode_out <= '0'; -- pause training mode
-    hard_mode_out   <= '0'; -- pause normal mode
-    impossible_mode_out            <= '0'; -- end game
+    medium_mode_out     <= '0'; -- pause training mode
+    hard_mode_out       <= '0'; -- pause normal mode
+    impossible_mode_out <= '0'; -- end game
 
-    menu_state <= '0'; -- menu state
     case (state) is
       when easy => -- menu state
         easy_mode_out <= '1';
@@ -85,7 +84,7 @@ begin
         medium_mode_out <= '1';
       when hard => -- normal mode playing state
         hard_mode_out <= '1';
-      when impossible=> -- settings mode state
+      when impossible => -- settings mode state
         impossible_mode_out <= '1';
       when others =>
         easy_mode_out <= '1';

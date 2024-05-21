@@ -11,7 +11,7 @@ entity score_display is
     training_mode           : in std_logic;
     normal_mode             : in std_logic;
     pixel_row, pixel_column : in std_logic_vector(9 downto 0);
-    score                   : in integer range 0 to 9999;
+    score                   : in integer range 0 to 500;
     score_text_out          : out std_logic
   );
 end score_display;

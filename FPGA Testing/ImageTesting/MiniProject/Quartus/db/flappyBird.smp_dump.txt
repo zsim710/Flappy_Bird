@@ -1,4 +1,11 @@
 
+State Machine - |flappybird|level_fsm:inst20|state
+Name state.impossible state.hard state.medium state.easy 
+state.easy 0 0 0 0 
+state.medium 0 0 1 1 
+state.hard 0 1 0 1 
+state.impossible 1 0 0 1 
+
 State Machine - |flappybird|MOUSE:inst6|mouse_state
 Name mouse_state.INPUT_PACKETS mouse_state.WAIT_CMD_ACK mouse_state.WAIT_OUTPUT_READY mouse_state.LOAD_COMMAND2 mouse_state.LOAD_COMMAND mouse_state.INHIBIT_TRANS 
 mouse_state.INHIBIT_TRANS 0 0 0 0 0 0 

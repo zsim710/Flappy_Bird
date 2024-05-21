@@ -53,7 +53,7 @@ begin
   collisions_to_lives : process (collisions_input)
   begin
     collision_counter <= collision_counter + collisions_input; -- increment collision counter when triggered
-    if collision_counter > 151 then
+    if collision_counter > 49 then
       collision_counter <= "00000000";
     end if;
   end process;
@@ -305,7 +305,7 @@ begin
             u_char_address <= "100000"; -- Space
           end if;
         end if;
-      elsif (collision_counter >= 50 and collision_counter < 99) then -- show two lives
+      elsif (collision_counter >= 16 and collision_counter < 31) then -- show two lives
         u_f_row                                     <= pixel_row(3 downto 1);
         u_f_col                                     <= pixel_column(3 downto 1);
         if (pixel_row >= 31 and pixel_row           <= 46) then
@@ -319,7 +319,7 @@ begin
             u_char_address <= "100000"; -- Space
           end if;
         end if;
-      elsif (collision_counter >= 100 and collision_counter < 150) then -- show one life
+      elsif (collision_counter >= 32 and collision_counter < 48) then -- show one life
         u_f_row                                  <= pixel_row(3 downto 1);
         u_f_col                                  <= pixel_column(3 downto 1);
         if (pixel_row >= 31 and pixel_row        <= 46) then
@@ -437,7 +437,7 @@ begin
     else
       u_char_address <= "100000";
     end if;
-end process;
+  end process;
 
-text_lives_out <= u_rom_mux_out;
+  text_lives_out <= u_rom_mux_out;
 end behaviour;
