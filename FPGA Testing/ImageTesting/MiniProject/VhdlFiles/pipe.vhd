@@ -6,22 +6,23 @@ library IEEE;
 entity pipe_hard is
   port (
     normal_mode, training_mode, clk, reset, vert_sync   : in  std_logic;
+    easy_mode_out, medium_mode_out, hard_mode_out, impossible_mode_out   : out std_logic;
     pixel_row, pixel_column : in  std_logic_vector(9 downto 0);
     pipe_on, piped_pass                : out std_logic
   );
 end entity;
 
 architecture behavior of pipe_hard is
-  signal pipe_x_pos                  : std_logic_vector(10 downto 0) := CONV_STD_LOGIC_VECTOR(230, 11);
-  signal pipe2_x_pos                 : std_logic_vector(10 downto 0) := conv_std_logic_vector(460, 11);
-  signal pipe3_x_pos                 : std_logic_vector(10 downto 0) := conv_std_logic_vector(690, 11);
+  signal pipe_x_pos                  : std_logic_vector(10 downto 0) := CONV_STD_LOGIC_VECTOR(690, 11);
+  signal pipe2_x_pos                 : std_logic_vector(10 downto 0) := conv_std_logic_vector(1035, 11);
+  signal pipe3_x_pos                 : std_logic_vector(10 downto 0) := conv_std_logic_vector(-898, 11);
   signal pipe_width    : std_logic_vector(10 downto 0);
   signal screen_width, screen_height : std_logic_vector(10 downto 0);
   signal pipe_top, pipe_bot          : std_logic;
   signal pipe2_top, pipe2_bot        : std_logic;
   signal pipe3_top, pipe3_bot        : std_logic;
   signal gap_on                      : std_logic;
-  constant gap_half_width : integer := 40;
+  constant gap_half_width : integer := 60;
   signal gap_pos_cent1, gap_pos_cent2, gap_pos_cent3 : integer range 150 to 350;
   signal random_number                               : std_logic_vector(7 downto 0);
   constant speed : integer := 5;
@@ -50,6 +51,22 @@ begin
   -- Initialize pipe starting position on the right side of the screen
   --pipe_x_pos    <= screen_width + pipe_width; -- Start from the far right
   -- Process to move the pipe
+
+  difficulty : process(easy_mode_out, medium_mode_out, hard_mode_out, impossible_mode_out) is  -- Difficulty level
+  begin
+    if (easy_mode_out = '1') then
+      speed <= 2;
+    elsif (medium_mode_out = '1') then
+      speed <= 3;
+    elsif (hard_mode_out = '1') then
+      speed <= 4;
+      gap_half_width <= 40;
+    elsif (impossible_mode_out = '1') then
+      speed <= 6;
+      gap_half_width <= 35;
+      pipe2_x_pos <= conv_std_logic_vector(920, 11);
+    end if;
+  end process;
 
   pipe_movement: process (vert_sync)
   begin
@@ -100,11 +117,11 @@ begin
   pipe3_top <= '1' when ('0' & pixel_column <= pipe3_x_pos and '0' & pixel_column >= pipe3_x_pos - pipe_width and pixel_row <= conv_std_logic_vector((conv_integer(gap_pos_cent3) - gap_half_width), 11) and '0' & pixel_row > CONV_STD_LOGIC_VECTOR(0, 11)) else
                '0';
 
-pipe_on <= '1' when (((pipe_top = '1') or (pipe_bot = '1') or (pipe2_top = '1') or (pipe2_bot = '1') or (pipe3_top = '1') or (pipe3_bot = '1')) and (normal_mode = '1')) else
+pipe_on <= '1' when (((pipe_top = '1') or (pipe_bot = '1') or (pipe2_top = '1') or (pipe2_bot = '1') or (pipe3_top = '1' and impossible_mode_out = '1') or (pipe3_bot = '1' and impossible_mode_out = '1')) and (normal_mode = '1')) else
           '1' when (((pipe_top = '1') or (pipe_bot = '1') or (pipe2_top = '1') or (pipe2_bot = '1') or (pipe3_top = '1') or (pipe3_bot = '1')) and (training_mode = '1')) else
           '0';
           
-piped_pass <= '1' when (conv_std_logic_vector(32,11) > pipe_x_pos) else
+piped_pass <= '1' when (conv_std_logic_vector(32,11) > pipe_x_pos) else -- bird x_position 
               '1' when (conv_std_logic_vector(32,11) > pipe2_x_pos) else
               '1' when (conv_std_logic_vector(32,11) > pipe3_x_pos) else
               '0';

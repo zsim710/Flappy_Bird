@@ -41,7 +41,7 @@ begin
 
         -- state 0 --
       when  easy => -- menu state -> default state 
-        if (score >= 30) then -- sw = 1 = down = training
+        if (score >= 5) then -- sw = 1 = down = training -- 30 is the score to go to medium mode
           next_state <= medium; --state 1 training mode
         else
           next_state <= easy; -- s0
@@ -49,14 +49,14 @@ begin
 
         -- state 1 -- // training mode playing state
       when medium => -- state 1 -> 0001
-        if (score >=60) then -- sw = 0 = up = normal
+        if (score >=10) then -- sw = 0 = up = normal -- 60 is the score to go to hard mode
         next_state <= hard; -- state 2 normal mode
         else
           next_state <= medium; -- s1
         end if;
         -- state 2 --// normal mode playing state
       when hard => -- state 2 --> 0010
-        if(score >=120) then 
+        if(score >=15) then -- 120 is the score to go to impossible mode
           next_state <= impossible; -- state 3 settings mode
         else
           next_state <= hard; -- s2
