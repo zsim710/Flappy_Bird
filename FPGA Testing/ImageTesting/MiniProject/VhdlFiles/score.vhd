@@ -5,7 +5,7 @@ library IEEE;
 
 entity score is
   port (
-    clk, reset, vert_sync   : in  std_logic;
+    menu_state, clk, reset, vert_sync   : in  std_logic;
     pipe_passed, ball_on, collison_counter, output_collision : in  std_logic;
     score                 : integer std_logic
   );
@@ -22,6 +22,8 @@ architecture rtl of score is
         begin
             if(rising_edge(pipe_passed) and output_collision = '0' ) then
                     score_V := score_V + 1;
+            elsif(menu_state = '1') then
+                    score_V := 0;
             end if;
             score <= score_S;
             end process;
