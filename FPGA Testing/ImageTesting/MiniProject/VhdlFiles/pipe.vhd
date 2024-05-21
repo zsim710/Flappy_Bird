@@ -14,9 +14,9 @@ entity pipe_test is
 end entity;
 
 architecture behavior of pipe_test is
-  signal pipe_x_pos                                  : std_logic_vector(10 downto 0) := conv_signed(690, 11);
-  signal pipe2_x_pos                                 : std_logic_vector(10 downto 0) := conv_signed(-1013, 11);
-  signal pipe3_x_pos                                 : std_logic_vector(10 downto 0) := conv_signed(-898, 11);
+  signal pipe_x_pos                                  : std_logic_vector(10 downto 0) := conv_std_logic_vector(690, 11);
+  signal pipe2_x_pos                                 : std_logic_vector(10 downto 0) := conv_std_logic_vector(-1013, 11);
+  signal pipe3_x_pos                                 : std_logic_vector(10 downto 0) := conv_std_logic_vector(-898, 11);
   signal pipe_width                                  : std_logic_vector(10 downto 0);
   signal screen_width, screen_height                 : std_logic_vector(10 downto 0);
   signal pipe_top, pipe_bot                          : std_logic;

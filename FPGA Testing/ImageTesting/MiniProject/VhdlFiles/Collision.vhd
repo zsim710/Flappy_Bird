@@ -27,7 +27,7 @@ begin
         --now the collision is set to 1, so it will be 0 in next occurence
         --this means it should be a pulse
       elsif ball_on = '1' and pipe_on = '1' and pre_col = '1' then
-        current_col <= '0';
+        current_col <= '1';
       else
         current_col <= '0';
       end if;
