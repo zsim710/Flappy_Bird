@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
-use IEEE.STD_LOGIC_ARITH.all;
-use IEEE.std_logic_signed.all;
+use numeric_std.all;
+
 
 entity pipe_test is
   port
@@ -14,7 +14,7 @@ entity pipe_test is
 end entity;
 
 architecture behavior of pipe_test is
-  signal pipe_x_pos                                  : signed(10 downto 0) := conv_signed(690, 11);
+  signal pipe_x_pos                                  : signed(10 downto 0) := (690, 11);
   signal pipe2_x_pos                                 : signed(10 downto 0) := conv_signed(-1013, 11);
   signal pipe3_x_pos                                 : signed(10 downto 0) := conv_signed(-898, 11);
   signal pipe_width                                  : std_logic_vector(10 downto 0);
@@ -38,9 +38,9 @@ architecture behavior of pipe_test is
 
 begin
   -- Screen and pipe dimensions
-  screen_width  <= CONV_STD_LOGIC_VECTOR(639, 11); -- 640 in binary
-  screen_height <= CONV_STD_LOGIC_VECTOR(479, 11); -- 480 in binary
-  pipe_width    <= CONV_STD_LOGIC_VECTOR(50, 11); -- 100 in binary
+  screen_width  <= to_signed(639, 11); -- 640 in binary
+  screen_height <= to_signed(479, 11); -- 480 in binary
+  pipe_width    <= to_signed(50, 11); -- 100 in binary
 
   LFSR1 : GaloisLFSR8
   port map
@@ -54,76 +54,64 @@ begin
   --pipe_x_pos    <= screen_width + pipe_width; -- Start from the far right
 
   -- Process to set the difficulty level
-  difficulty : process (medium_mode_out, hard_mode_out, impossible_mode_out)
-  begin
-   if (medium_mode_out = '1') then
-      speed <= 4;
-    elsif (hard_mode_out = '1') then
-      speed          <= 5;
-      gap_half_width <= 40;
-    elsif (impossible_mode_out = '1') then
-      speed          <= 6;
-      gap_half_width <= 35;
-    end if;
-  end process;
 
   -- Process to move the pipes
   pipe_movement : process (vert_sync, impossible_mode_out)
   begin
     if rising_edge(vert_sync) then
-      if pipe_x_pos <= CONV_STD_LOGIC_VECTOR(0, 11) then
+      if pipe_x_pos <= to_signed(0, 11) then
         pipe_x_pos    <= screen_width + pipe_width; -- Reset to the right side of the screen
-        gap_pos_cent1 <= conv_integer(random_number(7 downto 0)) mod 101 + 200;
+        gap_pos_cent1 <= to_integer(to_unsigned(random_number(7 downto 0))) mod 101 + 200;
       else
-        pipe_x_pos <= pipe_x_pos - CONV_STD_LOGIC_VECTOR(speed, 11); -- movement of pipe 1 
+        pipe_x_pos <= pipe_x_pos - to_signed(speed, 11); -- movement of pipe 1 
       end if;
 
       if (impossible_mode_out = '1') then
-        pipe2_x_pos <= conv_std_logic_vector(920, 11);
+        pipe2_x_pos <= to_signed(920, 11);
       end if;
 
-      if pipe2_x_pos <= CONV_STD_LOGIC_VECTOR(0, 11) then
+      if pipe2_x_pos <= to_signed(0, 11) then
         pipe2_x_pos    <= screen_width + pipe_width; -- Reset to the right side of the screen
-        gap_pos_cent2  <= conv_integer(random_number(7 downto 0)) mod 101 + 200;
+        gap_pos_cent2  <= to_integer(to_unsigned(random_number(7 downto 0))) mod 101 + 200;
       else
-        pipe2_x_pos <= pipe2_x_pos - CONV_STD_LOGIC_VECTOR(speed, 11); -- Movement of pipe 2
+        pipe2_x_pos <= pipe2_x_pos - to_signed(speed, 11); -- Movement of pipe 2
       end if;
 
-      if pipe3_x_pos <= CONV_STD_LOGIC_VECTOR(0, 11) then
+      if pipe3_x_pos <= to_signed(0, 11) then
         pipe3_x_pos    <= screen_width + pipe_width; -- Reset to the right side of the screen
-        gap_pos_cent3  <= conv_integer(random_number(7 downto 0)) mod 101 + 200;
+        gap_pos_cent3  <= to_integer(to_unsigned(random_number(7 downto 0))) mod 101 + 200;
       else
-        pipe3_x_pos <= pipe3_x_pos - CONV_STD_LOGIC_VECTOR(speed, 11); -- Movement of pipe 3
+        pipe3_x_pos <= pipe3_x_pos - to_signed(speed, 11); -- Movement of pipe 3
       end if;
     end if;
   end process;
 
   -- Check if current pixel is in the bounds of the bottom pipe
-  pipe_bot <= '1' when ('0' & pixel_column <= pipe_x_pos and '0' & pixel_column >= pipe_x_pos - pipe_width and pixel_row >= conv_std_logic_vector((conv_integer(gap_pos_cent1) + gap_half_width), 11) and '0' & pixel_row < screen_height) else
+  pipe_bot <= '1' when (to_signed('0' & pixel_column) <= pipe_x_pos and to_signed('0' & pixel_column) >= pipe_x_pos - pipe_width and to_signed('0' & pixel_row) >= to_signed((gap_pos_cent1 + gap_half_width), 11) and '0' & pixel_row < to_std_logic_vector(screen_height)) else
     '0';
   -- Check if current pixel is within bounds of the top pipe
-  pipe_top <= '1' when ('0' & pixel_column <= pipe_x_pos and '0' & pixel_column >= pipe_x_pos - pipe_width and pixel_row <= conv_std_logic_vector((conv_integer(gap_pos_cent1) - gap_half_width), 11) and '0' & pixel_row > CONV_STD_LOGIC_VECTOR(0, 11)) else
+  pipe_top <= '1' when (to_signed('0' & pixel_column) <= pipe_x_pos and to_signed('0' & pixel_column) >= pipe_x_pos - pipe_width and to_signed('0' & pixel_row) <= to_signed((gap_pos_cent1 - gap_half_width), 11) and '0' & pixel_row> to_std_logic_vector(0, 11)) else
     '0';
 
   -- Same thing but for the second pipe
-  pipe2_bot <= '1' when ('0' & pixel_column <= pipe2_x_pos and '0' & pixel_column >= pipe2_x_pos - pipe_width and pixel_row >= conv_std_logic_vector((conv_integer(gap_pos_cent2) + gap_half_width), 11) and '0' & pixel_row < screen_height) else
+  pipe2_bot <= '1' when (to_signed('0' & pixel_column) <= pipe2_x_pos and to_signed('0' & pixel_column) >= pipe2_x_pos - pipe_width and to_signed('0' & pixel_row) >= to_signed((gap_pos_cent2 + gap_half_width), 11) and '0' & pixel_row< to_std_logic_vector(screen_height)) else
     '0';
-  pipe2_top <= '1' when ('0' & pixel_column <= pipe2_x_pos and '0' & pixel_column >= pipe2_x_pos - pipe_width and pixel_row <= conv_std_logic_vector((conv_integer(gap_pos_cent2) - gap_half_width), 11) and '0' & pixel_row > CONV_STD_LOGIC_VECTOR(0, 11)) else
+  pipe2_top <= '1' when (to_signed('0' & pixel_column) <= pipe2_x_pos and to_signed('0' & pixel_column) >= pipe2_x_pos - pipe_width and to_signed('0' & pixel_row) <= to_signed((gap_pos_cent2 - gap_half_width), 11) and '0' & pixel_row > to_std_logic_vector(0, 11)) else
     '0';
 
   -- Same for the third pipe  
-  pipe3_bot <= '1' when ('0' & pixel_column <= pipe3_x_pos and '0' & pixel_column >= pipe3_x_pos - pipe_width and pixel_row >= conv_std_logic_vector((conv_integer(gap_pos_cent3) + gap_half_width), 11) and '0' & pixel_row < screen_height) else
+  pipe3_bot <= '1' when (to_signed('0' & pixel_column) <= pipe3_x_pos and to_signed('0' & pixel_column) >= pipe3_x_pos - pipe_width and to_signed('0' & pixel_row) >= to_signed((gap_pos_cent3 + gap_half_width), 11) and '0' & pixel_row < screen_height) else
     '0';
-  pipe3_top <= '1' when ('0' & pixel_column <= pipe3_x_pos and '0' & pixel_column >= pipe3_x_pos - pipe_width and pixel_row <= conv_std_logic_vector((conv_integer(gap_pos_cent3) - gap_half_width), 11) and '0' & pixel_row > CONV_STD_LOGIC_VECTOR(0, 11)) else
+  pipe3_top <= '1' when (to_signed('0' & pixel_column) <= pipe3_x_pos and to_signed('0' & pixel_column) >= pipe3_x_pos - pipe_width and to_signed('0' & pixel_row) <= to_signed((gap_pos_cent3 - gap_half_width), 11) and '0' & pixel_row > to_std_logic_vector(0, 11)) else
     '0';
 
   pipe_on <= '1' when (((pipe_top = '1') or (pipe_bot = '1') or (pipe2_top = '1') or (pipe2_bot = '1') or (pipe3_top = '1' and impossible_mode_out = '1') or (pipe3_bot = '1' and impossible_mode_out = '1')) and (normal_mode = '1')) else
     '1' when (((pipe_top = '1') or (pipe_bot = '1') or (pipe2_top = '1') or (pipe2_bot = '1') or (pipe3_top = '1') or (pipe3_bot = '1')) and (training_mode = '1')) else
     '0';
 
-  piped_pass <= '1' when (conv_std_logic_vector(150, 11) > pipe_x_pos) else -- bird x_position 
-    '1' when (conv_std_logic_vector(150, 11) > pipe2_x_pos) else
-    '1' when (conv_std_logic_vector(150, 11) > pipe3_x_pos and impossible_mode_out = '1') else
+  piped_pass <= '1' when (to_signed(150, 11) > pipe_x_pos) else -- bird x_position 
+    '1' when (to_signed(150, 11) > pipe2_x_pos) else
+    '1' when (to_signed(150, 11) > pipe3_x_pos and impossible_mode_out = '1') else
     '0';
 
 end architecture;
