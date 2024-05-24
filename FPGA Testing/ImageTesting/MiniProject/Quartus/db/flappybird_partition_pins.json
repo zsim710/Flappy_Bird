@@ -164,10 +164,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "clk",
-					"strict" : false
-				},
-				{
 					"name" : "pb[0]",
 					"strict" : false
 				},
