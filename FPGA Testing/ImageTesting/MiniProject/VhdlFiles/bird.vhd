@@ -45,10 +45,10 @@ begin
     variable previousYbirdMotion : std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(0, 10);
     variable left_click_pressed  : std_logic                    := '0';
   begin
-    -- Move bird once every vertical sync
+    -- Move bird once every vert_sync
     if (rising_edge(vert_sync)) then
       -- Apply gravity effect
-      if (left_click_pressed = '0' and left_click = '1') then -- Adjust threshold as needed
+      if (left_click_pressed = '0' and left_click = '1') then -- Check if left click is pressed
         bird_y_motion <= previousYbirdMotion + CONV_STD_LOGIC_VECTOR(1, 10); -- Increase downward motion
         if (bird_y_motion = CONV_STD_LOGIC_VECTOR(20, 10)) then
           bird_y_motion <= CONV_STD_LOGIC_VECTOR(20, 10);
