@@ -33,23 +33,16 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 0 48)
 		(input)
-		(text "reset" (rect 0 0 20 12)(font "Arial" ))
-		(text "reset" (rect 21 43 41 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48)(line_width 1))
+		(text "score[8..0]" (rect 0 0 42 12)(font "Arial" ))
+		(text "score[8..0]" (rect 21 43 63 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
 	)
 	(port
 		(pt 0 64)
 		(input)
-		(text "right_click" (rect 0 0 38 12)(font "Arial" ))
-		(text "right_click" (rect 21 59 59 71)(font "Arial" ))
+		(text "reset" (rect 0 0 20 12)(font "Arial" ))
+		(text "reset" (rect 21 59 41 71)(font "Arial" ))
 		(line (pt 0 64)(pt 16 64)(line_width 1))
-	)
-	(port
-		(pt 0 80)
-		(input)
-		(text "score[8..0]" (rect 0 0 42 12)(font "Arial" ))
-		(text "score[8..0]" (rect 21 75 63 87)(font "Arial" ))
-		(line (pt 0 80)(pt 16 80)(line_width 3))
 	)
 	(port
 		(pt 232 32)
