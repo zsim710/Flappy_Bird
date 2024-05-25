@@ -7,7 +7,7 @@ entity fsm is
   port
   (
     pb2, clk, reset, right_click, back, pb0, pb3 : in std_logic;
-    collison_counter                             : in integer range 0 to 3;
+    collisions_input                             : in std_logic;
     witch0, witch1, witch2                       : in std_logic;
     left_click                                   : in std_logic;
     menu_state                                   : out std_logic;
@@ -30,6 +30,7 @@ end fsm;
 architecture Behavioral of fsm is
   signal state      : std_logic_vector(3 downto 0); -- s0
   signal next_state : std_logic_vector(3 downto 0); -- s0
+  signal collision_counter : unsigned(7 downto 0) := "00000000";
 
 begin
   sync : process (clk)
@@ -41,8 +42,9 @@ begin
     end if;
   end process;
 
-  NextState : process (state, witch0, witch1, left_click, right_click, back, collison_counter, pb0, pb3)
+  NextState : process (state, witch0, witch1, left_click, right_click, back, collisions_input, pb0, pb3)
   begin
+	collision_counter <= ('0' & collisions_input) + collision_counter;
 
     case (state) is
 
@@ -60,7 +62,7 @@ begin
 
         -- state 1 -- // training mode playing state
       when "0001" => -- state 1 -> 0001
-        if (collison_counter >= 3) then
+        if (collision_counter >= 500) then
           next_state <= "0110"; -- s6
         elsif (right_click = '0') then
           next_state <= "0100"; -- s4
@@ -69,7 +71,7 @@ begin
         end if;
         -- state 2 --// normal mode playing state
       when "0010" => -- state 2 --> 0010
-        if (collison_counter >= 1) then
+        if (collision_counter >= 100) then
           next_state <= "0110"; -- s6
         elsif (right_click = '0') then
           next_state <= "0101"; -- s5
@@ -107,7 +109,7 @@ begin
         elsif (witch1 = '0' and left_click = '0' and witch0 = '1') then -- play again to whatever mode they were in 
           next_state <= "0010"; -- s2 --> go back to normal mode state
         elsif (witch0 = '0' and left_click = '0' and witch1 = '1') then
-          next_state <= "0001"; -- s1 --> go to back training mode 
+          next_state <= "0001"; -- s1 --> go to back training mode
         end if;
       when others =>
         next_state <= "0000";

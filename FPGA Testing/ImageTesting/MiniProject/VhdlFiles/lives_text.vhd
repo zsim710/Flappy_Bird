@@ -345,7 +345,7 @@ begin
     elsif (pause_training_mode = '1' or pause_normal_mode = '1') then
       u_f_row                                     <= pixel_row(3 downto 1);
       u_f_col                                     <= pixel_column(3 downto 1);
-      if (pixel_row >= 128 and pixel_row          <= 143) then
+      if (pixel_row >= 127 and pixel_row          <= 142) then
         if (pixel_column >= 288 and pixel_column    <= 303) then
           u_char_address                              <= "010000"; -- P
         elsif (pixel_column >= 304 and pixel_column <= 319) then
@@ -355,15 +355,15 @@ begin
         elsif (pixel_column >= 336 and pixel_column <= 351) then
           u_char_address                              <= "010011"; -- S
         elsif (pixel_column >= 352 and pixel_column <= 367) then
-          u_char_address                              <= "010001"; -- E
+          u_char_address                              <= "000101"; -- E
         else
           u_char_address <= "100000"; -- Space
         end if;
-      elsif (pixel_row >= 160 and pixel_row       <= 167) then
+      elsif (pixel_row >= 159 and pixel_row       <= 174) then
         if (pixel_column >= 272 and pixel_column    <= 279) then
           u_char_address                              <= "010010"; -- R
         elsif (pixel_column >= 280 and pixel_column <= 287) then
-          u_char_address                              <= "010001"; -- E
+          u_char_address                              <= "000101"; -- E
         elsif (pixel_column >= 288 and pixel_column <= 295) then
           u_char_address                              <= "010011"; -- S
         elsif (pixel_column >= 296 and pixel_column <= 303) then
@@ -385,7 +385,7 @@ begin
         else
           u_char_address <= "100000"; -- Space
         end if;
-      elsif (pixel_row >= 176 and pixel_row       <= 183) then
+      elsif (pixel_row >= 175 and pixel_row       <= 189) then
         if (pixel_column >= 272 and pixel_column    <= 279) then
           u_char_address                              <= "001101"; -- M
         elsif (pixel_column >= 280 and pixel_column <= 287) then
@@ -413,7 +413,7 @@ begin
     elsif (settings_mode = '1') then
       u_f_row                                     <= pixel_row(3 downto 1);
       u_f_col                                     <= pixel_column(3 downto 1);
-      if (pixel_row >= 64 and pixel_row           <= 79) then
+      if (pixel_row >= 63 and pixel_row           <= 78) then
         if (pixel_column >= 288 and pixel_column    <= 303) then
           u_char_address                              <= "010011"; -- S
         elsif (pixel_column >= 304 and pixel_column <= 319) then

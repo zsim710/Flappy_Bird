@@ -22,7 +22,7 @@ begin
   begin
     if rising_edge(clk) then
       -- if pipe and ball is on, and no previous collision then collision is one
-      if ball_on = '1' and pipe_on = '1' and pre_col = '0' then
+      if (ball_on = '1' and pipe_on = '1' and pre_col = '0' then
         current_col <= '1';
         --now the collision is set to 1, so it will be 0 in next occurence
         --this means it should be a pulse

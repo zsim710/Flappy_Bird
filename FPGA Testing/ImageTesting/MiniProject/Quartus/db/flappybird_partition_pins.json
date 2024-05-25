@@ -164,15 +164,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "clk",
+					"name" : "pb[0]",
 					"strict" : false
 				},
 				{
 					"name" : "pb[3]",
-					"strict" : false
-				},
-				{
-					"name" : "pb[0]",
 					"strict" : false
 				},
 				{
