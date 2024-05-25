@@ -6,7 +6,7 @@ use IEEE.STD_LOGIC_UNSIGNED.all;
 entity level_fsm is
   port
   (
-    clk, reset, right_click : in std_logic;
+    clk, reset : in std_logic;
     score                   : in integer range 0 to 500;
     easy_mode_out           : out std_logic;
     medium_mode_out         : out std_logic;

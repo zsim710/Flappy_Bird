@@ -17,8 +17,8 @@ architecture behavior of pipe_pipe_pipe is
   constant pipe_width_int                            : integer               := 50; -- 100 in binary
   constant pipe_spacing                              : integer               := 345;
   constant pipe_spacing_hard                         : integer               := 230;
-  signal pipe_x_pos                                  : unsigned(10 downto 0) := to_unsigned(689, 11);
-  signal pipe2_x_pos                                 : unsigned(10 downto 0) := to_unsigned(689 + pipe_width_int + pipe_spacing, 11);
+  signal pipe_x_pos                                  : unsigned(10 downto 0) := to_unsigned(639 + pipe_width_int, 11);
+  signal pipe2_x_pos                                 : unsigned(10 downto 0) := to_unsigned(639 + pipe_width_int + pipe_spacing, 11);
   signal pipe3_x_pos                                 : unsigned(10 downto 0) := to_unsigned(689 + pipe_width_int + pipe_spacing_hard + pipe_spacing_hard, 11);
   signal pipe_width                                  : unsigned(10 downto 0);
   signal pipe_top, pipe_bot                          : std_logic;
