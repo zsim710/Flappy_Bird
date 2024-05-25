@@ -6,13 +6,13 @@ use IEEE.STD_LOGIC_UNSIGNED.all;
 entity level_fsm is
   port
   (
-    clk : in std_logic;
-    score                   : in integer range 0 to 500;
-	 reset : in std_logic;
-    easy_mode_out           : out std_logic;
-    medium_mode_out         : out std_logic;
-    hard_mode_out           : out std_logic;
-    impossible_mode_out     : out std_logic
+    clk                 : in std_logic;
+    score               : in integer range 0 to 500;
+    reset               : in std_logic;
+    easy_mode_out       : out std_logic;
+    medium_mode_out     : out std_logic;
+    hard_mode_out       : out std_logic;
+    impossible_mode_out : out std_logic
   );
 end level_fsm;
 
@@ -28,9 +28,9 @@ architecture Behavioral of level_fsm is
 begin
   sync : process (clk)
   begin
-    if (reset = '0') then -- reset is SW[9]
+    if (reset = '0') then -- reset is SW[9] --TODO : Add menu state
       state <= easy; -- s0
-    elsif (rising_edge(clk)) then
+      elsif (rising_edge(clk)) then
       state <= next_state;
     end if;
   end process;
@@ -64,7 +64,11 @@ begin
         end if;
         -- state 3 -- // settings mode state
       when impossible => -- state 3 --> 0011
-        next_state <= impossible; -- s0 --> return to menu
+        if score = 1 then
+          next_state <= easy;
+        else
+          next_state <= impossible; -- s0 --> return to menu
+        end if;
 
     end case;
 

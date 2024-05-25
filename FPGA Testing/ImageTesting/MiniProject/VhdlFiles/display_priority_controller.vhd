@@ -20,30 +20,40 @@ architecture behaviour of display_priority_controller is
   component image_rom is
     port
     (
-      pixel_row  : in std_logic_vector(3 downto 0); -- 4-bit for 16 rows
-      pixel_col  : in std_logic_vector(3 downto 0); -- 4-bit for 16 columns
-      clock      : in std_logic;
-      rom_output : out std_logic_vector(11 downto 0) -- 12-bit pixel value
+      character_address  : in std_logic_vector (7 downto 0);
+    font_row, font_col : in std_logic_vector (3 downto 0);
+    clock              : in std_logic;
+    rom_output         : out std_logic -- 12-bit pixel value
     );
   end component;
 
+  signal u_char_address   : std_logic_vector(7 downto 0);
+  signal u_f_row, u_f_col : std_logic_vector(3 downto 0);
+  signal u_rom_mux_out    : std_logic;
+  
 begin
 
---  rom_inst : image_rom
---  port map
---  (
---    pixel_row  => pixel_row(3 downto 0), -- Extract 4 LSBs
---    pixel_col  => pixel_column(3 downto 0), -- Extract 4 LSBs
---    clock      => clk,
---    rom_output => image_data
---  );
+  rom_inst : image_rom
+  port map
+  (
+    character_address => u_char_address,
+    font_row => u_f_row,
+	 font_col => u_f_col,
+    clock => clk,
+    rom_output => u_rom_mux_out
+  );
 
   process (clk)
   begin
     if rising_edge(clk) then
       -- Your display controller logic here, using image_data as input for generating VGA signals
       -- Example:
-      if (score_text_on = '1' or static_text_on = '1') then -- white
+		if (image_on = '1') then
+        -- Assuming image_data is in RGB444 format (4 bits Red, 4 bits Green, 4 bits Blue)
+        red   <= image_data(11 downto 8);
+        green <= image_data(7 downto 4);
+        blue  <= image_data(3 downto 0);
+      elsif (score_text_on = '1' or static_text_on = '1') then -- white
         red   <= "1111";
         green <= "1111";
         blue  <= "1111";
@@ -51,11 +61,6 @@ begin
         red   <= "1111";
         green <= "0001";
         blue  <= "0001";
-      elsif (image_on = '1') then
-        -- Assuming image_data is in RGB444 format (4 bits Red, 4 bits Green, 4 bits Blue)
-        red   <= image_data(11 downto 8);
-        green <= image_data(7 downto 4);
-        blue  <= image_data(3 downto 0);
 		elsif (powerups_on = '1') then
         red   <= "1111";
         green <= "1111";

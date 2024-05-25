@@ -28,7 +28,7 @@ begin
     -- Move bird once every vert_sync
     if (pause_training_state = '1' or pause_normal_state = '1') then
       bird_y_motion <= "0000000000";
-    else
+      else
       if (bird_y_motion = "0000000000" and previousYbirdMotion /= "0000000000") then
         previousYbirdMotion := previousYbirdMotion; --remember motion if paused
       end if;
@@ -41,18 +41,18 @@ begin
           end if;
 
           -- Check if left click is active (jump)
-        elsif (left_click = '0' and left_click_pressed = '0') then
+          elsif (left_click = '0' and left_click_pressed = '0') then
           -- Apply upward impulse for a short duration
           bird_y_motion <= - CONV_STD_LOGIC_VECTOR(7, 10); -- Set initial upward motion
 
-        elsif (left_click = '1') then
+          elsif (left_click = '1') then
           left_click_pressed := '0';
         end if;
 
         --Condition if ball hits ground
         if (('0' & bird_y_pos >= CONV_STD_LOGIC_VECTOR(450, 10) - size)) then
           bird_y_motion           <= - CONV_STD_LOGIC_VECTOR(1, 10);
-        elsif ('0' & bird_y_pos <= size + 8) then
+          elsif ('0' & bird_y_pos <= size + 8) then
           bird_y_motion           <= CONV_STD_LOGIC_VECTOR(1, 10);
         end if;
 
@@ -68,6 +68,6 @@ begin
 
   -- displaying the position of bird for priority_controller to draw
   bird_on <= '1' when (('0' & bird_x_pos <= '0' & pixel_column + size) and ('0' & pixel_column <= '0' & bird_x_pos + size) -- x_pos - size <= pixel_column <= x_pos + size
-    and ('0' & bird_y_pos <= pixel_row + size) and ('0' & pixel_row <= bird_y_pos + size)) else -- y_pos - size <= pixel_row <= y_pos + size
-    '0';
+  and ('0' & bird_y_pos <= pixel_row + size) and ('0' & pixel_row <= bird_y_pos + size)) else -- y_pos - size <= pixel_row <= y_pos + size
+  '0';
 end behaviour;

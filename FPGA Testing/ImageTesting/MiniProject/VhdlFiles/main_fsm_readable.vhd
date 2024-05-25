@@ -9,7 +9,7 @@ entity new_fsm is
     clk, reset, right_click, pb0, pb1, pb2, pb3                                                                        : in std_logic;
     witch0, witch1, witch2                                                                                             : in std_logic;
     left_click                                                                                                         : in std_logic;
-    collision_counter                                                                                                  : in std_logic_vector(1 downto 0);
+    output_collision                                                                                                  : in std_logic;
     menu_state, training_state, normal_state, settings_state, pause_training_state, pause_normal_state, end_game_state : out std_logic
   );
 end new_fsm;
@@ -36,7 +36,7 @@ begin
       state <= next_state;
     end if;
   end process;
-  NextState : process (state, witch0, witch1, left_click, right_click, collision_counter, pb0, pb1, pb2, pb3)
+  NextState : process (state, witch0, witch1, left_click, right_click, output_collision, pb0, pb1, pb2, pb3)
   begin
 
     case (state) is
@@ -62,7 +62,7 @@ begin
         end if;
         -- state 2 --// normal mode playing state
       when Normal => -- state 2 --> 0010
-        if (collision_counter >= "10") then
+        if (output_collision = '1') then
           next_state <= dead; -- s6
         elsif (right_click = '0') then
           next_state <= pause_game; -- s4
