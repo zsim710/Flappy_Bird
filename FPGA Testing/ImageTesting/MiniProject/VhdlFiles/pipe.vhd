@@ -119,8 +119,8 @@ begin
   pipe3_top <= '1' when (unsigned('0' & pixel_column) <= pipe3_x_pos and unsigned('0' & pixel_column) >= pipe3_x_pos - pipe_width and unsigned('0' & pixel_row) <= to_unsigned((gap_pos_cent3 - gap_half_width), 11) and '0' & pixel_row > std_logic_vector(to_unsigned(0, 11))) else
     '0';
 
-  pipe_on <= '1' when (((pipe_top = '1') or (pipe_bot = '1') or (pipe2_top = '1') or (pipe2_bot = '1') or (pipe3_top = '1' and impossible_mode_out = '1') or (pipe3_bot = '1' and impossible_mode_out = '1')) and (normal_mode = '1')) else
-    '1' when (((pipe_top = '1') or (pipe_bot = '1') or (pipe2_top = '1') or (pipe2_bot = '1') or (pipe3_top = '1') or (pipe3_bot = '1')) and (training_mode = '1')) else
+  pipe_on <= '1' when (((pipe_top = '1') or (pipe_bot = '1') or (pipe2_top = '1') or (pipe2_bot = '1') or (pipe3_top = '1') or (pipe3_bot = '1')) and (normal_mode = '1')) else
+    '1' when (((pipe_top = '1') or (pipe_bot = '1') or (pipe2_top = '1') or (pipe2_bot = '1') or (pipe3_top = '1') or (pipe3_bot = '1'))) else
     '0';
 
   piped_pass <= '1' when (to_unsigned(150, 11) > pipe_x_pos) else -- bird x_position 
