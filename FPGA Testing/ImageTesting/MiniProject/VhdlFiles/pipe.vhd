@@ -26,7 +26,7 @@ architecture behavior of pipe_pipe_pipe is
   signal pipe3_top, pipe3_bot                        : std_logic;
   signal gap_on                                      : std_logic;
   signal gap_half_width                              : integer := 60;
-  signal gap_pos_cent1, gap_pos_cent2, gap_pos_cent3 : integer range 0 to 500;
+  signal gap_pos_cent1, gap_pos_cent2, gap_pos_cent3 : integer range 150 to 350;
   signal random_number                               : std_logic_vector(7 downto 0);
   signal speed                                       : integer := 3;
 
@@ -94,7 +94,7 @@ begin
       if pipe3_x_pos <= to_unsigned(0, 11) then
         pipe3_x_pos    <= screen_width + pipe_width; -- Reset to the right side of the screen
         gap_pos_cent3  <= to_integer(unsigned(random_number)) mod 101 + 200;
-      else
+      elsif impossible_mode_out = '1' then
         pipe3_x_pos <= pipe3_x_pos - to_unsigned(speed, 11); -- Movement of pipe 3
       end if;
     end if;
@@ -114,13 +114,13 @@ begin
     '0';
 
   -- Same for the third pipe  
-  pipe3_bot <= '1' when (unsigned('0' & pixel_column) <= pipe3_x_pos and unsigned('0' & pixel_column) >= pipe3_x_pos - pipe_width and unsigned('0' & pixel_row) >= to_unsigned((gap_pos_cent3 + gap_half_width), 11) and '0' & pixel_row < std_logic_vector(screen_height)) else
+  pipe3_bot <= '1' when (impossible_mode_out = '1') and (unsigned('0' & pixel_column) <= pipe3_x_pos and unsigned('0' & pixel_column) >= pipe3_x_pos - pipe_width and unsigned('0' & pixel_row) >= to_unsigned((gap_pos_cent3 + gap_half_width), 11) and '0' & pixel_row < std_logic_vector(screen_height)) else
     '0';
-  pipe3_top <= '1' when (unsigned('0' & pixel_column) <= pipe3_x_pos and unsigned('0' & pixel_column) >= pipe3_x_pos - pipe_width and unsigned('0' & pixel_row) <= to_unsigned((gap_pos_cent3 - gap_half_width), 11) and '0' & pixel_row > std_logic_vector(to_unsigned(0, 11))) else
+  pipe3_top <= '1' when (impossible_mode_out = '1') and (unsigned('0' & pixel_column) <= pipe3_x_pos and unsigned('0' & pixel_column) >= pipe3_x_pos - pipe_width and unsigned('0' & pixel_row) <= to_unsigned((gap_pos_cent3 - gap_half_width), 11) and '0' & pixel_row > std_logic_vector(to_unsigned(0, 11))) else
     '0';
 
   pipe_on <= '1' when (((pipe_top = '1') or (pipe_bot = '1') or (pipe2_top = '1') or (pipe2_bot = '1') or (pipe3_top = '1') or (pipe3_bot = '1')) and (normal_mode = '1')) else
-    '1' when (((pipe_top = '1') or (pipe_bot = '1') or (pipe2_top = '1') or (pipe2_bot = '1') or (pipe3_top = '1') or (pipe3_bot = '1'))) else
+    '1' when (((pipe_top = '1') or (pipe_bot = '1') or (pipe2_top = '1') or (pipe2_bot = '1') or (pipe3_top = '1') or (pipe3_bot = '1')) and (training_mode = '1' )) else
     '0';
 
   piped_pass <= '1' when (to_unsigned(150, 11) > pipe_x_pos) else -- bird x_position 

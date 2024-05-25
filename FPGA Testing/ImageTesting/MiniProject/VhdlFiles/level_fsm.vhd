@@ -6,14 +6,13 @@ use IEEE.STD_LOGIC_UNSIGNED.all;
 entity level_fsm is
   port
   (
-    clk : in std_logic;
+    clk, reset, right_click : in std_logic;
     score                   : in integer range 0 to 500;
-	 reset : in std_logic;
     easy_mode_out           : out std_logic;
     medium_mode_out         : out std_logic;
     hard_mode_out           : out std_logic;
     impossible_mode_out     : out std_logic
-  );
+    );
 end level_fsm;
 
 -- states: 
@@ -50,21 +49,21 @@ begin
 
         -- state 1 -- // training mode playing state
       when medium => -- state 1 -> 0001
-        if (score >= 20) then -- sw = 0 = up = normal -- 60 is the score to go to hard mode
-          next_state <= hard; -- state 2 normal mode
+        if (score >= 10) then -- sw = 0 = up = normal -- 60 is the score to go to hard mode
+        next_state <= hard; -- state 2 normal mode
         else
           next_state <= medium; -- s1
         end if;
         -- state 2 --// normal mode playing state
       when hard => -- state 2 --> 0010
-        if (score >= 40) then -- 120 is the score to go to impossible mode
+        if (score >= 50) then -- 120 is the score to go to impossible mode
           next_state <= impossible; -- state 3 settings mode
         else
           next_state <= hard; -- s2
         end if;
         -- state 3 -- // settings mode state
       when impossible => -- state 3 --> 0011
-        next_state <= impossible; -- s0 --> return to menu
+          next_state <= impossible; -- s0 --> return to menu
 
     end case;
 
