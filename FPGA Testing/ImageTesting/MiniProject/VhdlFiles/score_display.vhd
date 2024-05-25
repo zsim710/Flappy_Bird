@@ -7,11 +7,9 @@ entity score_display is
   port
   (
     clk                     : in std_logic;
-    v_sync                  : in std_logic;
-    training_mode           : in std_logic;
-    normal_mode             : in std_logic;
+    training_state, normal_state           : in std_logic;
+	 score                   : in integer range 0 to 500;
     pixel_row, pixel_column : in std_logic_vector(9 downto 0);
-    score                   : in integer range 0 to 500;
     score_text_out          : out std_logic
   );
 end score_display;
@@ -46,9 +44,9 @@ begin
     rom_mux_output    => u_rom_mux_out
   );
 
-  process (training_mode, normal_mode, pixel_row, pixel_column, score)
+  process (training_state, normal_state, pixel_row, pixel_column, score)
   begin
-    if (training_mode = '1' or normal_mode = '1') then
+    if (training_state = '1' or normal_state = '1') then
       u_font_row                               <= pixel_row(3 downto 1);
       u_font_col                               <= pixel_column(3 downto 1);
       score_ones                               <= score mod 10;
