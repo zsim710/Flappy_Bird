@@ -17,7 +17,7 @@ end entity;
 
 architecture behaviour of powerups is
   signal powerup_on_int : std_logic;
-  signal screen_width, screen_height, pipe_width : std_logic_vector(10 downto 0);
+  signal screen_width, screen_height, power_width : std_logic_vector(10 downto 0);
   signal powerup_type_int : std_logic_vector(2 downto 0);
   signal random_number : std_logic_vector(7 downto 0);
   signal speed : integer range 0 to 6;
@@ -36,7 +36,7 @@ architecture behaviour of powerups is
   -- Screen width and Width of the powerup
   screen_width  <= CONV_STD_LOGIC_VECTOR(639, 11); -- 640 in binary
   screen_height <= CONV_STD_LOGIC_VECTOR(479, 11); -- 480 in binary
-  power_width    <= CONV_STD_LOGIC_VECTOR(8, 11); -- 100 in binary
+  power_width    <= CONV_STD_LOGIC_VECTOR(8, 11); -- 8 in binary
 
   LFSR1 : GaloisLFSR8
   port map
@@ -66,12 +66,12 @@ architecture behaviour of powerups is
   powerup_movement : process (vert_sync)
   begin
     if rising_edge(vert_sync) then
-      if powerup_x_pos <= CONV_STD_LOGIC_VECTOR(0, 11) then
+      if powerup_x_pos + CONV_STD_LOGIC(50, 11) <= CONV_STD_LOGIC_VECTOR(0, 11) then
         --if (pipe_on = '0' and pixel_column = screen_width) then
             powerup_x_pos    <= screen_width + power_width; -- Reset to the right side of the screen
-            powerup_type_int <= CONV_STD_LOGIC_VECTOR(to_integer(unsigned(random_number(7 downto 0))) mod 4); -- Random powerup type
+            powerup_type_int <= CONV_STD_LOGIC_VECTOR(to_integer(unsigned(random_number(7 downto 0))) mod 4, 3); -- Random powerup type
         --end if;
-        powerup_y_pos <= CONV_STD_LOGIC_VECTOR(to_integer(unsigned(random_number(7 downto 0))) mod 101 + 200);
+        powerup_y_pos <= CONV_STD_LOGIC_VECTOR(to_integer(unsigned(random_number(7 downto 0))) mod 101 + 200, 11);
       else
         powerup_x_pos <= powerup_x_pos - CONV_STD_LOGIC_VECTOR(speed, 11); -- movement of powerup
       end if;
@@ -79,7 +79,7 @@ architecture behaviour of powerups is
   end process;
 
   powerup_type <= powerup_type_int;
-  powerup_on <= '1' when (pixel_row <= powerup_y_pos and pixel_row >= powerup_y_pos - power_width and pixel_column <= powerup_x_pos and pixel_column >= powerup_x_pos - power_width) else '0';
+  powerup_on <= '1' when (pixel_row <= powerup_y_pos and pixel_row >= (powerup_y_pos - power_width) and pixel_column <= powerup_x_pos and pixel_column >= (powerup_x_pos - power_width)) else '0';
 
 end architecture behaviour;
 
