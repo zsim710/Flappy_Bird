@@ -499,6 +499,7 @@ set_location_assignment PIN_L1 -to LEDR8
 set_location_assignment PIN_L2 -to LEDR9
 set_location_assignment PIN_T13 -to SW2
 set_location_assignment PIN_W2 -to LEDR2
+set_global_assignment -name VHDL_FILE ../VhdlFiles/powerup_collision.vhd
 set_global_assignment -name VHDL_FILE ../VhdlFiles/gap_width_controller.vhd
 set_global_assignment -name VHDL_FILE ../VhdlFiles/powerups.vhd
 set_global_assignment -name MIF_FILE ../VhdlFiles/og_flappy_bird.mif

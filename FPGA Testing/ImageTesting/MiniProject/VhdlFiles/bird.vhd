@@ -8,6 +8,8 @@ entity bird is
   (
     clk, left_click, pause_training_state, pause_normal_state : in std_logic;
     pixel_row, pixel_column                                   : in std_logic_vector(9 downto 0);
+    powerup_active : in std_logic;
+    active_powerup_type : in std_logic_vector(2 downto 0);
     bird_on                                                   : out std_logic
   );
 end bird;
@@ -20,6 +22,10 @@ architecture behaviour of bird is
   signal bird_y_motion : std_logic_vector(9 downto 0)  := "0000000010";
   signal bird_x_motion : std_logic_vector(10 downto 0) := "00000000010";
 begin
+
+  size <= conv_std_logic_vector(4, 10) when powerup_active = '1' and active_powerup_type = "010" else
+          conv_std_logic_vector(16, 10) when powerup_active = '1' and active_powerup_type = "000" else
+          conv_std_logic_vector(8, 10);
 
   Move_bird : process (clk, left_click)
     variable previousYbirdMotion : std_logic_vector(9 downto 0) := CONV_STD_LOGIC_VECTOR(0, 10);

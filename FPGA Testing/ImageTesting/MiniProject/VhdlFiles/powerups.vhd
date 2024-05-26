@@ -10,6 +10,7 @@ entity powerups is
     easy_mode_out, medium_mode_out, hard_mode_out, impossible_mode_out : in std_logic;
     pixel_row, pixel_column : in std_logic_vector(9 downto 0);
     pipe_on : in std_logic;
+    powerup_active : in std_logic;
     powerup_on : out std_logic;
     powerup_type : out std_logic_vector(2 downto 0)
   );
@@ -20,7 +21,7 @@ architecture behaviour of powerups is
   signal screen_width, screen_height, power_width : std_logic_vector(10 downto 0);
   signal powerup_type_int : std_logic_vector(2 downto 0);
   signal random_number : std_logic_vector(7 downto 0);
-  signal speed : integer range 0 to 6;
+  signal speed : integer;
   signal powerup_x_pos, powerup_y_pos: std_logic_vector(10 downto 0);
 
   component GaloisLFSR8 is
@@ -28,6 +29,14 @@ architecture behaviour of powerups is
     (
       clk, reset : in std_logic;
       lfsr_out   : out std_logic_vector(7 downto 0)
+    );
+  end component;
+
+  component speed_control is
+    port
+    (
+      medium_mode_out, hard_mode_out, impossible_mode_out : in std_logic;
+      speed                                               : out integer
     );
   end component;
   
@@ -47,20 +56,11 @@ architecture behaviour of powerups is
   );
 
     -- Speed of powerup for each difficulty
-  difficulty : process (easy_mode_out, medium_mode_out, hard_mode_out, impossible_mode_out)
-  begin
-    if (easy_mode_out = '1') then
-      speed <= 2;
-    elsif (medium_mode_out = '1') then
-      speed <= 3;
-    elsif (hard_mode_out = '1') then
-      speed <= 4;
-    elsif (impossible_mode_out = '1') then
-      speed <= 6;
-    else
-      speed <= 5;
-    end if;
-  end process;
+    SPEED_CHANGER : speed_control
+  port
+  map (
+  medium_mode_out, hard_mode_out, impossible_mode_out, speed
+  );
 
   -- Powerup generation
   powerup_movement : process (vert_sync)
@@ -68,8 +68,8 @@ architecture behaviour of powerups is
     if rising_edge(vert_sync) then
       if powerup_x_pos <= CONV_STD_LOGIC_VECTOR(0, 11) then
         --if (pipe_on = '0' and pixel_column = screen_width) then
-        powerup_x_pos    <= screen_width + power_width; -- Reset to the right side of the screen
-        powerup_type_int <= CONV_STD_LOGIC_VECTOR(conv_integer(unsigned(random_number(7 downto 0))) mod 4, 3); -- Random powerup type
+        powerup_x_pos    <= screen_width; -- Reset to the right side of the screen
+        powerup_type_int <= CONV_STD_LOGIC_VECTOR(conv_integer(unsigned(random_number(7 downto 0))) mod 5, 3); -- Random powerup type
         --end if;
         powerup_y_pos <= CONV_STD_LOGIC_VECTOR(conv_integer(unsigned(random_number(7 downto 0))) mod 101 + 200, 11);
       else
@@ -78,8 +78,12 @@ architecture behaviour of powerups is
     end if;
   end process;
 
+
+
   powerup_type <= powerup_type_int;
-  powerup_on <= '1' when (pixel_row <= powerup_y_pos and pixel_row >= (powerup_y_pos - power_width) and pixel_column <= powerup_x_pos and pixel_column >= (powerup_x_pos - power_width)) else '0';
+  powerup_on <= '0' when powerup_active = '1' else
+                '1' when (pixel_row <= powerup_y_pos and pixel_row >= (powerup_y_pos - power_width) and pixel_column <= (powerup_x_pos + power_width) and pixel_column >= powerup_x_pos - power_width) else 
+                '0';
 
 end architecture behaviour;
 

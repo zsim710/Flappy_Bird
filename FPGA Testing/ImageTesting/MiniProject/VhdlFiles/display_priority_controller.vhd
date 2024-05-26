@@ -6,7 +6,8 @@ use IEEE.STD_LOGIC_UNSIGNED.all;
 entity display_priority_controller is
   port
   (
-    clk, ball_on, pipe_on, ground_on, score_text_on, image_on, static_text_on, lives_on, powerups_on : in std_logic;
+    clk, ball_on, pipe_on, ground_on, score_text_on, image_on, static_text_on, lives_on, powerups_on: in std_logic;
+    powerup_type : in std_logic_vector(2 downto 0);
     pixel_row, pixel_column                                                             : in std_logic_vector(9 downto 0);
     red, green, blue                                                                    : out std_logic_vector(3 downto 0)
   );
@@ -58,13 +59,44 @@ begin
         green <= "1111";
         blue  <= "1111";
       elsif (lives_on = '1') then -- red
-        red   <= "1111";
+        red   <= "0000";
         green <= "0001";
         blue  <= "0001";
 		elsif (powerups_on = '1') then
-        red   <= "1111";
-        green <= "1111";
-        blue  <= "0000";
+        case powerup_type is
+          when "000" => -- red
+            red   <= "1111";
+            green <= "0000";
+            blue  <= "0000";
+          when "001" => -- green
+            red   <= "0000";
+            green <= "1111";
+            blue  <= "0000";
+          when "010" => -- blue
+            red   <= "0000";
+            green <= "0000";
+            blue  <= "1111";
+          when "011" => -- yellow
+            red   <= "1111";
+            green <= "1111";
+            blue  <= "0000";
+          when "100" => -- cyan
+            red   <= "0000";
+            green <= "1111";
+            blue  <= "1111";
+          when "101" => -- magenta
+            red   <= "1111";
+            green <= "0000";
+            blue  <= "1111";
+          when "110" => -- white
+            red   <= "1111";
+            green <= "1111";
+            blue  <= "1111";
+          when others => -- black
+            red   <= "0000";
+            green <= "0000";
+            blue  <= "0000";
+        end case;
       elsif (ball_on = '1') then -- red
         red   <= "1010";
         green <= "1010";

@@ -8,7 +8,7 @@ entity score_display is
   (
     clk                     : in std_logic;
     training_state, normal_state           : in std_logic;
-	 score : in integer range 0 to 500;
+	  score : in integer range 0 to 500;
     pixel_row, pixel_column : in std_logic_vector(9 downto 0);
     score_text_out          : out std_logic
   );
@@ -24,6 +24,7 @@ architecture behaviour of score_display is
       rom_mux_output     : out std_logic
     );
     end component;
+    
 
     signal u_char_address : std_logic_vector(5 downto 0);
     signal u_font_row, u_font_col : std_logic_vector(2 downto 0);
@@ -103,5 +104,7 @@ begin
       end if;
     end if;
   end process;
+
+  score_text_out <= u_rom_mux_out;
 
 end architecture;
