@@ -18,10 +18,10 @@ architecture behavior of pipe_pipe_pipe is
   constant screen_height     : std_logic_vector := std_logic_vector(to_unsigned(479, 11)); -- 480 in binary
   constant pipe_width_int    : integer          := 50;                                     -- 100 in binary
   constant pipe_spacing      : integer          := 345;
-  constant pipe_spacing_hard : integer          := 230;
+  constant pipe_spacing_hard : integer          := 240;
   signal pipe_x_pos                                  : std_logic_vector(10 downto 0) := std_logic_vector(to_unsigned(screen_width, 11));
   signal pipe2_x_pos                                 : std_logic_vector(10 downto 0) := std_logic_vector(to_unsigned(639 + pipe_spacing, 11));
-  signal pipe3_x_pos                                 : std_logic_vector(10 downto 0) := std_logic_vector(to_unsigned(639 + pipe_spacing_hard + pipe_spacing_hard, 11));
+  signal pipe3_x_pos                                 : std_logic_vector(10 downto 0) := pipe2_x_pos + std_logic_vector(to_unsigned(pipe_spacing, 11));
   signal pipe_width                                  : std_logic_vector(10 downto 0);
   signal pipe_top, pipe_bot                          : std_logic;
   signal pipe2_top, pipe2_bot                        : std_logic;
@@ -70,7 +70,7 @@ begin
     variable prev_x1, prev_x2, prev_x3 : std_logic_vector(10 downto 0);
   begin
     if (impossible_mode_out = '1') then
-      pipe2_x_pos <= std_logic_vector(to_unsigned(920, 11));
+      pipe2_x_pos <= pipe_x_pos + std_logic_vector(to_unsigned(pipe_spacing_hard, 11));
     end if;
 
     if rising_edge(vert_sync) then
