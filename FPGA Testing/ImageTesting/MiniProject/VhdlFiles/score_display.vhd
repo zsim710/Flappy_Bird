@@ -12,6 +12,7 @@ entity score_display is
         pixel_row, pixel_column : in std_logic_vector(9 downto 0);
         score                   : in integer range 0 to 9999;  
         text_out                : out std_logic_vector(6 downto 0)
+        end_mode                : in std_logic
     );
 end score_display;
 
@@ -105,6 +106,62 @@ begin
             else
                 char_address <= "100000";
             end if;
+        elsif (end_mode = '1') then
+            u_font_row <= pixel_row(3 downto 1);
+            u_font_col <= pixel_column(3 downto 1);
+            score_ones <= score mod 10;
+            score_tens <= (score/10) mod 10;
+            score_hundreds <= (score/100) mod 10;
+            if (pixel_row >= 144 and pixel_row <= 159) then 
+                if (pixel_column >= 304 and pixel_column <= 319) then
+                    case score_hundreds is
+                        when 0 => char_address <= "110000"; -- 0
+                        when 1 => char_address <= "110001"; -- 1
+                        when 2 => char_address <= "110010"; -- 2
+                        when 3 => char_address <= "110011"; -- 3
+                        when 4 => char_address <= "110100"; -- 4
+                        when 5 => char_address <= "110101"; -- 5
+                        when 6 => char_address <= "110110"; -- 6
+                        when 7 => char_address <= "110111"; -- 7
+                        when 8 => char_address <= "111000"; -- 8
+                        when 9 => char_address <= "111001"; -- 9
+                        when others => char_address <= "110000";
+                    end case;
+                elsif (pixel_column >= 320 and pixel_column <= 335) then
+                    case score_tens is
+                        when 0 => char_address <= "110000"; -- 0
+                        when 1 => char_address <= "110001"; -- 1
+                        when 2 => char_address <= "110010"; -- 2
+                        when 3 => char_address <= "110011"; -- 3
+                        when 4 => char_address <= "110100"; -- 4
+                        when 5 => char_address <= "110101"; -- 5
+                        when 6 => char_address <= "110110"; -- 6
+                        when 7 => char_address <= "110111"; -- 7
+                        when 8 => char_address <= "111000"; -- 8
+                        when 9 => char_address <= "111001"; -- 9
+                        when others => char_address <= "110000";
+                    end case;
+                elsif (pixel_column >= 336 and pixel_column <= 351) then
+                    case score_ones is
+                        when 0 => char_address <= "110000"; -- 0
+                        when 1 => char_address <= "110001"; -- 1
+                        when 2 => char_address <= "110010"; -- 2
+                        when 3 => char_address <= "110011"; -- 3
+                        when 4 => char_address <= "110100"; -- 4
+                        when 5 => char_address <= "110101"; -- 5
+                        when 6 => char_address <= "110110"; -- 6
+                        when 7 => char_address <= "110111"; -- 7
+                        when 8 => char_address <= "111000"; -- 8
+                        when 9 => char_address <= "111001"; -- 9
+                        when others => char_address <= "110000";
+                    end case;
+                else 
+                    char_address <= "100000";
+                end if;
+            else
+            char_address <= "100000";
+        else
+            char_address <= "100000";
         end if;
     end if;
     end process;

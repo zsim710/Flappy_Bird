@@ -454,6 +454,22 @@ begin
         else
           u_char_address <= "100000";
         end if;
+      elsif (pixel_row >= 120 and pixel_row       <= 127) then
+        u_f_row                                     <= pixel_row(2 downto 0);
+        u_f_col                                     <= pixel_column(2 downto 0);
+        if (pixel_column >= 296 and pixel_column    <= 303) then
+          u_char_address                              <= "010011"; -- S
+        elsif (pixel_column >= 304 and pixel_column <= 311) then
+          u_char_address                              <= "000011"; -- C
+        elsif (pixel_column >= 312 and pixel_column <= 319) then
+          u_char_address                              <= "001111"; -- O
+        elsif (pixel_column >= 320 and pixel_column <= 327) then
+          u_char_address                              <= "010010"; -- R
+        elsif (pixel_column >= 328 and pixel_column <= 335) then
+          u_char_address                              <= "000101"; -- E
+        else
+          u_char_address <= "100000";
+        end if;
       else
         u_char_address <= "100000";
       end if;
