@@ -9,6 +9,7 @@ entity level_fsm is
     clk                 : in std_logic;
     score               : in integer range 0 to 500;
     reset               : in std_logic;
+    end_game_state      : in std_logic;
     easy_mode_out       : out std_logic;
     medium_mode_out     : out std_logic;
     hard_mode_out       : out std_logic;
@@ -64,7 +65,7 @@ begin
         end if;
         -- state 3 -- // settings mode state
       when impossible => -- state 3 --> 0011
-        if score = 1 then
+        if (end_game_state = '1') then
           next_state <= easy;
         else
           next_state <= impossible; -- s0 --> return to menu

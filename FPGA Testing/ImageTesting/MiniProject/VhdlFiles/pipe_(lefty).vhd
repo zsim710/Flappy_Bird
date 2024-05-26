@@ -96,7 +96,7 @@ begin
           prev_x2 := pipe2_x_pos;
         end if;
 
-        if pipe3_x_pos <= - pipe_width_int then
+        if pipe3_x_pos <= - pipe_width_int and impossible_mode_out = '1' then
           pipe3_x_pos <= screen_width; -- Reset to the right side of the screen
           gap_pos_cent3 <= to_integer(unsigned(random_number)) mod 101 + 200;
         elsif impossible_mode_out = '1' then

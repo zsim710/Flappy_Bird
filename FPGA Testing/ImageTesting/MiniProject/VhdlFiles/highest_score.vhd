@@ -1,5 +1,4 @@
 library ieee;
-<<<<<<< HEAD
   use ieee.std_logic_1164.all;
   use ieee.std_logic_arith.all;
   use ieee.std_logic_unsigned.all;
@@ -26,11 +25,6 @@ begin
     end if;
     highest <= highest_score;
   end process;
-<<<<<<< HEAD
+
 end architecture;
 
-
-
-=======
-end architecture;
->>>>>>> cleanUp
