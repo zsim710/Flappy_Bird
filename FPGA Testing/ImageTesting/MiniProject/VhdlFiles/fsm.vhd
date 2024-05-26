@@ -6,17 +6,12 @@ use IEEE.STD_LOGIC_UNSIGNED.all;
 entity fsm is
   port
   (
-    pb2, clk, reset, right_click, back, pb0, pb3 : in std_logic;
-    collisions_input                             : in std_logic;
-    witch0, witch1, witch2                       : in std_logic;
-    left_click                                   : in std_logic;
-    menu_state                                   : out std_logic;
-    training_mode                                : out std_logic;
-    normal_mode                                  : out std_logic;
-    settings_mode                                : out std_logic;
-    pause_training_mode                          : out std_logic;
-    pause_normal_mode                            : out std_logic;
-    end_game                                     : out std_logic);
+    clk, reset, right_click, pb0, pb1, pb2, pb3                                                                        : in std_logic;
+    witch0, witch1, witch2                                                                                             : in std_logic;
+    left_click                                                                                                         : in std_logic;
+    collision_counter                                                                                                  : in std_logic_vector(1 downto 0);
+    menu_state, training_state, normal_state, settings_state, pause_training_state, pause_normal_state, end_game_state : out std_logic
+  );
 end fsm;
 
 -- states: 
@@ -28,9 +23,8 @@ end fsm;
 -- s5: pause normal mode 
 -- s6: end game 
 architecture Behavioral of fsm is
-  signal state      : std_logic_vector(3 downto 0); -- s0
-  signal next_state : std_logic_vector(3 downto 0); -- s0
-  signal collision_counter : unsigned(7 downto 0) := "00000000";
+  signal state      : std_logic_vector(3 downto 0);
+  signal next_state : std_logic_vector(3 downto 0);
 
 begin
   sync : process (clk)
@@ -42,9 +36,8 @@ begin
     end if;
   end process;
 
-  NextState : process (state, witch0, witch1, left_click, right_click, back, collisions_input, pb0, pb3)
+  NextState : process (state, witch0, witch1, left_click, right_click, collision_counter, pb0, pb3)
   begin
-	collision_counter <= ('0' & collisions_input) + collision_counter;
 
     case (state) is
 
@@ -62,16 +55,14 @@ begin
 
         -- state 1 -- // training mode playing state
       when "0001" => -- state 1 -> 0001
-        if (collision_counter >= 500) then
-          next_state <= "0110"; -- s6
-        elsif (right_click = '0') then
+        if (right_click = '0') then
           next_state <= "0100"; -- s4
         else
           next_state <= "0001"; -- s1
         end if;
         -- state 2 --// normal mode playing state
       when "0010" => -- state 2 --> 0010
-        if (collision_counter >= 100) then
+        if (collision_counter >= 3) then
           next_state <= "0110"; -- s6
         elsif (right_click = '0') then
           next_state <= "0101"; -- s5
@@ -104,11 +95,11 @@ begin
         end if;
         -- state 6 -- // end game state
       when "0110" => -- state 6 --> 0110
-        if (right_click = '0') then -- go back to menu 
+        if (pb0 = '0') then -- go back to menu 
           next_state <= "0000"; -- return to menu to start a new game 
-        elsif (witch1 = '0' and left_click = '0' and witch0 = '1') then -- play again to whatever mode they were in 
+        elsif (pb3 = '0' and witch0 = '1') then -- play again in normal mode 
           next_state <= "0010"; -- s2 --> go back to normal mode state
-        elsif (witch0 = '0' and left_click = '0' and witch1 = '1') then
+        elsif (pb3 = '0' and witch1 = '1') then
           next_state <= "0001"; -- s1 --> go to back training mode
         end if;
       when others =>
@@ -121,30 +112,30 @@ begin
   output_state : process (state) -- output state
   begin
 
-    menu_state          <= '0'; -- menu state
-    training_mode       <= '0'; -- training mode
-    normal_mode         <= '0'; -- normal mode
-    settings_mode       <= '0'; -- settings mode
-    pause_training_mode <= '0'; -- pause training mode
-    pause_normal_mode   <= '0'; -- pause normal mode
-    end_game            <= '0'; -- end game
+    menu_state           <= '0'; -- menu state
+    training_state       <= '0'; -- training mode
+    normal_state         <= '0'; -- normal mode
+    settings_state       <= '0'; -- settings mode
+    pause_training_state <= '0'; -- pause training mode
+    pause_normal_state   <= '0'; -- pause normal mode
+    end_game_state       <= '0'; -- end game
 
     menu_state <= '0'; -- menu state
     case (state) is
       when "0000" => -- menu state
         menu_state <= '1';
       when "0001" => -- training mode playing state
-        training_mode <= '1';
+        training_state <= '1';
       when "0010" => -- normal mode playing state
-        normal_mode <= '1';
+        normal_state <= '1';
       when "0011" => -- settings mode state
-        settings_mode <= '1';
+        settings_state <= '1';
       when "0100" => -- pause training mode state
-        pause_training_mode <= '1';
+        pause_training_state <= '1';
       when "0101" => -- pause normal mode state
-        pause_normal_mode <= '1';
+        pause_normal_state <= '1';
       when "0110" => -- end game state
-        end_game <= '1';
+        end_game_state <= '1';
       when others =>
         menu_state <= '1';
     end case;

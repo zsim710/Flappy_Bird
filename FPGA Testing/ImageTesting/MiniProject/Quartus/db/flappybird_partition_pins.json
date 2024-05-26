@@ -8,10 +8,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "vert_sync_out",
-					"strict" : false
-				},
-				{
 					"name" : "LEDR1",
 					"strict" : false
 				},
@@ -40,11 +36,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "LEDR4",
+					"name" : "LEDR3",
 					"strict" : false
 				},
 				{
-					"name" : "LEDR2",
+					"name" : "vert_sync_out",
 					"strict" : false
 				},
 				{
@@ -80,62 +76,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "HEX0[6]",
-					"strict" : false
-				},
-				{
-					"name" : "HEX0[5]",
-					"strict" : false
-				},
-				{
-					"name" : "HEX0[4]",
-					"strict" : false
-				},
-				{
-					"name" : "HEX0[3]",
-					"strict" : false
-				},
-				{
-					"name" : "HEX0[2]",
-					"strict" : false
-				},
-				{
-					"name" : "HEX0[1]",
-					"strict" : false
-				},
-				{
-					"name" : "HEX0[0]",
-					"strict" : false
-				},
-				{
-					"name" : "HEX1[6]",
-					"strict" : false
-				},
-				{
-					"name" : "HEX1[5]",
-					"strict" : false
-				},
-				{
-					"name" : "HEX1[4]",
-					"strict" : false
-				},
-				{
-					"name" : "HEX1[3]",
-					"strict" : false
-				},
-				{
-					"name" : "HEX1[2]",
-					"strict" : false
-				},
-				{
-					"name" : "HEX1[1]",
-					"strict" : false
-				},
-				{
-					"name" : "HEX1[0]",
-					"strict" : false
-				},
-				{
 					"name" : "red_out[3]",
 					"strict" : false
 				},
@@ -164,14 +104,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "pb[0]",
-					"strict" : false
-				},
-				{
-					"name" : "pb[3]",
-					"strict" : false
-				},
-				{
 					"name" : "SW0",
 					"strict" : false
 				},
@@ -184,7 +116,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "pb[1]",
+					"name" : "pb[0]",
+					"strict" : false
+				},
+				{
+					"name" : "pb[3]",
+					"strict" : false
+				},
+				{
+					"name" : "pb[2]",
 					"strict" : false
 				}
 			]
