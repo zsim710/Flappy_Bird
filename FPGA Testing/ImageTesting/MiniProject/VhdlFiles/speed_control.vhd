@@ -22,9 +22,10 @@ if(normal_state = '1') then
   elsif (impossible_mode_out = '1') then
     speed          <= 6;
   end if;
-  else
+else
     speed <= 3;
-  end if;
+end if;
+
 end process;
 
 end rtl;
