@@ -88,7 +88,7 @@ begin
         if pipe2_x_pos <= - pipe_width_int then
           pipe2_x_pos    <= screen_width; -- Reset to the right side of the screen
           if(to_integer(unsigned(random_number)) < 150) then
-            gap_pos_cent2 = 150;
+            gap_pos_cent2 <= 150;
           else
           gap_pos_cent2 <= to_integer(unsigned(random_number));
           end if;
@@ -100,7 +100,7 @@ begin
         if pipe3_x_pos <= - pipe_width_int and impossible_mode_out = '0' then
           pipe3_x_pos    <= screen_width; -- Reset to the right side of the screen
           if(to_integer(unsigned(random_number)) < 150) then
-            gap_pos_cent3 = 150;
+            gap_pos_cent3 <= 150;
           else
           gap_pos_cent3 <= to_integer(unsigned(random_number));
           end if;
