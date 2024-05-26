@@ -48,12 +48,12 @@ begin
     if rising_edge(clk) then
       -- Your display controller logic here, using image_data as input for generating VGA signals
       -- Example:
-		if (image_on = '1') then
+		--if (image_on = '1') then
         -- Assuming image_data is in RGB444 format (4 bits Red, 4 bits Green, 4 bits Blue)
-        red   <= image_data(11 downto 8);
-        green <= image_data(7 downto 4);
-        blue  <= image_data(3 downto 0);
-      elsif (score_text_on = '1' or static_text_on = '1') then -- white
+        --red   <= image_data(11 downto 8);
+        --green <= image_data(7 downto 4);
+        --blue  <= image_data(3 downto 0);
+      if (score_text_on = '1' or static_text_on = '1') then -- white
         red   <= "1111";
         green <= "1111";
         blue  <= "1111";

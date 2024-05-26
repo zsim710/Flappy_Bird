@@ -9,6 +9,7 @@ entity pipe_pipe_pipe is
     pause_training_state, pause_normal_state            : in std_logic;
     medium_mode_out, hard_mode_out, impossible_mode_out : in std_logic;
     pixel_row, pixel_column                             : in std_logic_vector(9 downto 0);
+	 score                   : in integer range 0 to 500;
     pipe_on, piped_pass                                 : out std_logic
   );
 end entity;
@@ -49,6 +50,11 @@ architecture behavior of pipe_pipe_pipe is
     );
   end component;
 
+  component gap_width_control is
+    port (medium_mode_out, hard_mode_out, impossible_mode_out, normal_state : in std_logic;
+        gap_half_width : out integer);
+  end component gap_width_control;
+
 begin
   -- Screen and pipe dimensiond
   pipe_width <= std_logic_vector(to_unsigned(pipe_width_int, 11));
@@ -64,12 +70,17 @@ begin
   map (
   medium_mode_out, hard_mode_out, impossible_mode_out, speed
   );
+  GAP_WIDTH : gap_width_control
+  port map
+  (
+    medium_mode_out, hard_mode_out, impossible_mode_out, pause_normal_state, gap_half_width
+  );
   -- Initialize pipe starting position on the right side of the screen
   --pipe_x_pos    <= screen_width + pipe_width; -- Start from the far right
   -- Process to set the difficulty level
   -- Process to move the pipes
 
-  pipe_movement : process (vert_sync, impossible_mode_out)
+  pipe_movement : process (vert_sync, impossible_mode_out, score)
     variable prev_x1, prev_x2, prev_x3 : std_logic_vector(10 downto 0);
   begin
     if rising_edge(vert_sync) then
@@ -114,7 +125,7 @@ begin
           prev_x3     := pipe3_x_pos;
         end if;
 
-        if (rising_edge(impossible_mode_out)) then
+        if (score = 50) then
           pipe2_x_pos <= std_logic_vector(to_unsigned(929, 11));
         else 
 

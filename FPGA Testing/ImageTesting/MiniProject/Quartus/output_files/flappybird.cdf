@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(5CEBA4F23) Path("C:/Users/deven/Documents/305/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/output_files/") File("flappybird.sof") MfrSpec(OpMask(1));
+		Device PartName(5CEBA4F23) Path("C:/Users/joelw/Desktop/UNI/Year 3 Sem 1/305/Mini Project/305_proj/FPGA Testing/ImageTesting/MiniProject/Quartus/output_files/") File("flappybird.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

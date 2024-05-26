@@ -9,10 +9,6 @@ entity static_text is
   (
     clk, menu_state, training_state, normal_state, settings_state, pause_training_state, pause_normal_state, end_game_state : in std_logic;
     pixel_row, pixel_column                                                                                                 : in std_logic_vector(9 downto 0);
-<<<<<<< HEAD
-=======
-    score : in integer range 0 to 9999;
->>>>>>> c29d757d8fd7eca6e0c230be9a41ad0095bb4e0f
     static_text_out                                                                                                         : out std_logic
   );
 end static_text;
@@ -367,28 +363,6 @@ begin
         end if;
       end if;
     elsif (end_game_state = '1') then
-<<<<<<< HEAD
-      u_f_row                                     <= pixel_row(2 downto 0);
-      u_f_col                                     <= pixel_column(2 downto 0);
-      if (pixel_row >= 63 and pixel_row           <= 78) then
-        if (pixel_column >= 272 and pixel_column    <= 279) then
-          u_char_address                              <= "011001"; -- Y
-        elsif (pixel_column >= 280 and pixel_column <= 287) then
-          u_char_address                              <= "001111"; -- O
-        elsif (pixel_column >= 288 and pixel_column <= 295) then
-          u_char_address                              <= "010101"; -- U
-        elsif (pixel_column >= 296 and pixel_column <= 303) then
-          u_char_address                              <= "100000"; -- Space
-        elsif (pixel_column >= 304 and pixel_column <= 311) then
-          u_char_address                              <= "000100"; -- D
-        elsif (pixel_column >= 312 and pixel_column <= 319) then
-          u_char_address                              <= "001001"; -- I
-        elsif (pixel_column >= 320 and pixel_column <= 327) then
-          u_char_address                              <= "000101"; -- E
-        elsif (pixel_column >= 328 and pixel_column <= 335) then
-          u_char_address                              <= "000100"; -- D
-        elsif (pixel_column >= 336 and pixel_column <= 343) then
-=======
       if (pixel_row >= 64 and pixel_row           <= 79) then
         u_f_row                                     <= pixel_row(3 downto 1);
         u_f_col                                     <= pixel_column(3 downto 1);
@@ -409,14 +383,11 @@ begin
         elsif (pixel_column >= 352 and pixel_column <= 367) then
           u_char_address                              <= "000100"; -- D
         elsif (pixel_column >= 368 and pixel_column <= 383) then
->>>>>>> c29d757d8fd7eca6e0c230be9a41ad0095bb4e0f
           u_char_address                              <= "100001"; -- !
         else
           u_char_address <= "100000";
         end if;
-<<<<<<< HEAD
-=======
-      elsif (pixel_row >= 88 and pixel row <= 95) then
+      elsif (pixel_row >= 88 and pixel_row <= 95) then
         u_f_row                                     <= pixel_row(2 downto 0);
         u_f_col                                     <= pixel_column(2 downto 0);
         if (pixel_column >= 256 and pixel_column    <= 263) then
@@ -484,7 +455,6 @@ begin
         end if;
       else
         u_char_address <= "100000";
->>>>>>> c29d757d8fd7eca6e0c230be9a41ad0095bb4e0f
       end if;
     else
       u_char_address <= "100000";
