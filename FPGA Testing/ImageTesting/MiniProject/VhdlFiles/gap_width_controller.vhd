@@ -12,7 +12,7 @@ architecture rtl of gap_width_control is
 
 begin
 
-difficulty : process (medium_mode_out, hard_mode_out, impossible_mode_out)
+difficulty : process (medium_mode_out, hard_mode_out, impossible_mode_out, normal_state)
 begin
 if(normal_state = '1') then
  if (medium_mode_out = '1') then

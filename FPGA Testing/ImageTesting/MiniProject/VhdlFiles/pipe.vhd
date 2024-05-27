@@ -5,8 +5,8 @@ use ieee.std_logic_signed.all;
 entity pipe_pipe_pipe is
   port
   (
-    normal_mode, training_mode, clk, reset, vert_sync   : in std_logic;
-    pause_training_state, pause_normal_state            : in std_logic;
+    normal_state, training_state, clk, reset, vert_sync   : in std_logic;
+    pause_training_state, pause_normal_state, end_game_state        : in std_logic;
     medium_mode_out, hard_mode_out, impossible_mode_out : in std_logic;
     pixel_row, pixel_column                             : in std_logic_vector(9 downto 0);
 	  score                   : in integer range 0 to 500;
@@ -47,7 +47,7 @@ architecture behavior of pipe_pipe_pipe is
   component speed_control is
     port
     (
-      medium_mode_out, hard_mode_out, impossible_mode_out : in std_logic;
+      medium_mode_out, hard_mode_out, impossible_mode_out, normal_state : in std_logic;
       speed                                               : out integer
     );
   end component;
@@ -72,16 +72,24 @@ begin
   );
  
   SPEED_CHANGER : speed_control
-  port
-  map (
-  medium_mode_out, hard_mode_out, impossible_mode_out, speed
-  );
+    port map
+    (
+      medium_mode_out => medium_mode_out,
+      hard_mode_out   => hard_mode_out,
+      impossible_mode_out => impossible_mode_out,
+      normal_state    => normal_state,
+      speed           => speed
+    );
   
   GAP_WIDTH : gap_width_control
-  port map
-  (
-    medium_mode_out, hard_mode_out, impossible_mode_out, pause_normal_state, gap_half_width
-  );
+    port map
+    (
+      medium_mode_out => medium_mode_out,
+      hard_mode_out   => hard_mode_out,
+      impossible_mode_out => impossible_mode_out,
+      normal_state    => normal_state,
+      gap_half_width  => gap_half_width
+    );
   -- Initialize pipe starting position on the right side of the screen
   --pipe_x_pos    <= screen_width + pipe_width; -- Start from the far right
   -- Process to set the difficulty level
@@ -89,75 +97,75 @@ begin
 
 
   pipe_movement : process (vert_sync, score)
-    variable prev_x1, prev_x2, prev_x3 : std_logic_vector(10 downto 0);
-  begin
-    if rising_edge(vert_sync) then
-      if (pause_training_state = '1' or pause_normal_state = '1') then
-        pipe_x_pos  <= prev_x1;
-        pipe2_x_pos <= prev_x2;
-        -- pipe3_x_pos <= prev_x3;
+  variable prev_x1, prev_x2, prev_x3 : std_logic_vector(10 downto 0);
+begin
+  if rising_edge(vert_sync) then
+    if (pause_training_state = '1' or pause_normal_state = '1' or end_game_state = '1') then
+      pipe_x_pos  <= prev_x1;
+      pipe2_x_pos <= prev_x2;
+      -- pipe3_x_pos <= prev_x3;
+    else
+      if pipe_x_pos <= - pipe_width_int then
+        pipe_x_pos    <= screen_width; -- Reset to the right side of the screen
+        if (to_integer(unsigned(random_number)) < 100) then
+          gap_pos_cent1 <= 100;
+        else
+          gap_pos_cent1 <= to_integer(unsigned(random_number));
+        end if;
       else
-        if pipe_x_pos <= - pipe_width_int then
-          pipe_x_pos    <= screen_width; -- Reset to the right side of the screen
-          if (to_integer(unsigned(random_number)) < 100) then
-            gap_pos_cent1 <= 100;
-          else
-            gap_pos_cent1 <= to_integer(unsigned(random_number));
-          end if;
-        else
-          pipe_x_pos <= pipe_x_pos - std_logic_vector(to_unsigned(speed, 11)); -- movement of pipe 1 
-          prev_x1    := pipe_x_pos;
-        end if;
-
-        if pipe2_x_pos <= - pipe_width_int then
-          pipe2_x_pos    <= pipe_x_pos + std_logic_vector(to_unsigned(pipe_spacing + pipe_width_int, 11)); -- Reset to a position that's a certain distance from the first pipe
-          if  (to_integer(unsigned(random_number)) < 100) then
-            gap_pos_cent2 <= 100;
-          else
-            gap_pos_cent2 <= to_integer(unsigned(random_number));
-          end if;
-        else
-          pipe2_x_pos <= pipe2_x_pos - std_logic_vector(to_unsigned(speed, 11)); -- Movement of pipe 2
-          prev_x2     := pipe2_x_pos;
-        end if;
-
-        -- if pipe3_x_pos <= - pipe_width_int then
-        --   pipe3_x_pos    <= pipe2_x_pos + std_logic_vector(to_unsigned(pipe_spacing + pipe_width_int, 11)); -- Reset to a position that's a certain distance from the second pipe
-        --   if  (to_integer(unsigned(random_number)) < 100) then
-        --     gap_pos_cent3 <= 100;
-        --   else
-        --     gap_pos_cent3 <= to_integer(unsigned(random_number));
-        --   end if;
-        -- else
-        --   pipe3_x_pos <= pipe3_x_pos - std_logic_vector(to_unsigned(speed, 11)); -- Movement of pipe 3
-        --   prev_x3     := pipe3_x_pos;
-        --end if;
+        pipe_x_pos <= pipe_x_pos - std_logic_vector(to_unsigned(speed, 11)); -- movement of pipe 1 
+        prev_x1    := pipe_x_pos;
       end if;
+
+      if pipe2_x_pos <= - pipe_width_int then
+        pipe2_x_pos    <= pipe_x_pos + std_logic_vector(to_unsigned(pipe_spacing + pipe_width_int, 11)); -- Reset to a position that's a certain distance from the first pipe
+        if  (to_integer(unsigned(random_number)) < 100) then
+          gap_pos_cent2 <= 100;
+        else
+          gap_pos_cent2 <= to_integer(unsigned(random_number));
+        end if;
+      else
+        pipe2_x_pos <= pipe2_x_pos - std_logic_vector(to_unsigned(speed, 11)); -- Movement of pipe 2
+        prev_x2     := pipe2_x_pos;
+      end if;
+
+      -- if pipe3_x_pos <= - pipe_width_int then
+      --   pipe3_x_pos    <= pipe2_x_pos + std_logic_vector(to_unsigned(pipe_spacing + pipe_width_int, 11)); -- Reset to a position that's a certain distance from the second pipe
+      --   if  (to_integer(unsigned(random_number)) < 100) then
+      --     gap_pos_cent3 <= 100;
+      --   else
+      --     gap_pos_cent3 <= to_integer(unsigned(random_number));
+      --   end if;
+      -- else
+      --   pipe3_x_pos <= pipe3_x_pos - std_logic_vector(to_unsigned(speed, 11)); -- Movement of pipe 3
+      --   prev_x3     := pipe3_x_pos;
+      --end if;
     end if;
-  end process;
-  -- Check if current pixel is in the bounds of the bottom pipe
-  pipe_bot <= '1' when (std_logic_vector('0' & pixel_column) >= pipe_x_pos and std_logic_vector('0' & pixel_column) <= pipe_x_pos + pipe_width and std_logic_vector('0' & pixel_row) >= std_logic_vector(to_unsigned(gap_pos_cent1 + gap_half_width, 11)) and std_logic_vector('0' & pixel_row) < screen_height) else
-    '0';
-  -- Check if current pixel is within bounds of the top pipe
-  pipe_top <= '1' when (std_logic_vector('0' & pixel_column) >= pipe_x_pos and std_logic_vector('0' & pixel_column) <= pipe_x_pos + pipe_width and std_logic_vector('0' & pixel_row) <= std_logic_vector(to_unsigned((gap_pos_cent1 - gap_half_width), 11)) and std_logic_vector('0' & pixel_row) > std_logic_vector(to_unsigned(0, 11))) else
+  end if;
+end process;
+-- Check if current pixel is in the bounds of the bottom pipe
+pipe_bot <= '1' when (std_logic_vector('0' & pixel_column) >= pipe_x_pos and std_logic_vector('0' & pixel_column) <= pipe_x_pos + pipe_width and std_logic_vector('0' & pixel_row) >= std_logic_vector(to_unsigned(gap_pos_cent1 + gap_half_width, 11)) and std_logic_vector('0' & pixel_row) < screen_height) else
+  '0';
+-- Check if current pixel is within bounds of the top pipe
+pipe_top <= '1' when (std_logic_vector('0' & pixel_column) >= pipe_x_pos and std_logic_vector('0' & pixel_column) <= pipe_x_pos + pipe_width and std_logic_vector('0' & pixel_row) <= std_logic_vector(to_unsigned((gap_pos_cent1 - gap_half_width), 11)) and std_logic_vector('0' & pixel_row) > std_logic_vector(to_unsigned(0, 11))) else
 
-    '0';
-  pipe2_bot <= '1' when (std_logic_vector('0' & pixel_column) >= pipe2_x_pos and std_logic_vector('0' & pixel_column) <= pipe2_x_pos + pipe_width and std_logic_vector('0' & pixel_row) >= std_logic_vector(to_unsigned((gap_pos_cent2 + gap_half_width), 11)) and std_logic_vector('0' & pixel_row) < screen_height) else
-    '0';
-  pipe2_top <= '1' when (std_logic_vector('0' & pixel_column) >= pipe2_x_pos and std_logic_vector('0' & pixel_column) <= pipe2_x_pos + pipe_width and std_logic_vector('0' & pixel_row) <= std_logic_vector(to_unsigned((gap_pos_cent2 - gap_half_width), 11)) and std_logic_vector('0' & pixel_row) > std_logic_vector(to_unsigned(0, 11))) else
-    '0';
+  '0';
+pipe2_bot <= '1' when (std_logic_vector('0' & pixel_column) >= pipe2_x_pos and std_logic_vector('0' & pixel_column) <= pipe2_x_pos + pipe_width and std_logic_vector('0' & pixel_row) >= std_logic_vector(to_unsigned((gap_pos_cent2 + gap_half_width), 11)) and std_logic_vector('0' & pixel_row) < screen_height) else
+  '0';
+pipe2_top <= '1' when (std_logic_vector('0' & pixel_column) >= pipe2_x_pos and std_logic_vector('0' & pixel_column) <= pipe2_x_pos + pipe_width and std_logic_vector('0' & pixel_row) <= std_logic_vector(to_unsigned((gap_pos_cent2 - gap_half_width), 11)) and std_logic_vector('0' & pixel_row) > std_logic_vector(to_unsigned(0, 11))) else
+  '0';
 
-  -- pipe3_bot <= '1' when (std_logic_vector('0' & pixel_column) >= pipe3_x_pos and std_logic_vector('0' & pixel_column) <= pipe3_x_pos + pipe_width and std_logic_vector('0' & pixel_row) >= std_logic_vector(to_unsigned((gap_pos_cent3 + gap_half_width), 11)) and std_logic_vector('0' & pixel_row) < screen_height) else
-  --   '0';
+-- pipe3_bot <= '1' when (std_logic_vector('0' & pixel_column) >= pipe3_x_pos and std_logic_vector('0' & pixel_column) <= pipe3_x_pos + pipe_width and std_logic_vector('0' & pixel_row) >= std_logic_vector(to_unsigned((gap_pos_cent3 + gap_half_width), 11)) and std_logic_vector('0' & pixel_row) < screen_height) else
+--   '0';
 
-  -- pipe3_top <= '1' when (std_logic_vector('0' & pixel_column) >= pipe3_x_pos and std_logic_vector('0' & pixel_column) <= pipe3_x_pos + pipe_width and std_logic_vector('0' & pixel_row) <= std_logic_vector(to_unsigned((gap_pos_cent3 - gap_half_width), 11)) and std_logic_vector('0' & pixel_row) > std_logic_vector(to_unsigned(0, 11))) else
-  --   '0';
+-- pipe3_top <= '1' when (std_logic_vector('0' & pixel_column) >= pipe3_x_pos and std_logic_vector('0' & pixel_column) <= pipe3_x_pos + pipe_width and std_logic_vector('0' & pixel_row) <= std_logic_vector(to_unsigned((gap_pos_cent3 - gap_half_width), 11)) and std_logic_vector('0' & pixel_row) > std_logic_vector(to_unsigned(0, 11))) else
+--   '0';
 
-  pipe_on <= '1' when (((pipe_top = '1') or (pipe_bot = '1') or (pipe2_top = '1') or (pipe2_bot = '1') or (pipe3_top = '1') or (pipe3_bot = '1'))) else
-    '1' when (((pipe_top = '1') or (pipe_bot = '1') or (pipe2_top = '1') or (pipe2_bot = '1') or (pipe3_top = '1') or (pipe3_bot = '1'))) else
-    '0';
+pipe_on <= '1' when (((pipe_top = '1') or (pipe_bot = '1') or (pipe2_top = '1') or (pipe2_bot = '1') or (pipe3_top = '1') or (pipe3_bot = '1'))) else
+  '1' when (((pipe_top = '1') or (pipe_bot = '1') or (pipe2_top = '1') or (pipe2_bot = '1') or (pipe3_top = '1') or (pipe3_bot = '1'))) else
+  '0';
 
-  piped_pass <= '1' when (std_logic_vector(to_unsigned(150, 11)) < pipe_x_pos and std_logic_vector(to_unsigned(150, 11)) < pipe2_x_pos) else
+  piped_pass <= '1' when (std_logic_vector(to_unsigned(150, 11)) < pipe_x_pos and std_logic_vector(to_unsigned(490, 11)) < pipe2_x_pos) else
                   '0';
 
 end architecture;

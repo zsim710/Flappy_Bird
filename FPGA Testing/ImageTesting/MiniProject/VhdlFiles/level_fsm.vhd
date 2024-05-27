@@ -58,7 +58,7 @@ begin
         end if;
         -- state 2 --// normal mode playing state
       when hard => -- state 2 --> 0010
-        if (score >= 50) then -- 120 is the score to go to impossible mode
+        if (score >= 20) then -- 120 is the score to go to impossible mode
           next_state <= impossible; -- state 3 settings mode
         else
           next_state <= hard; -- s2

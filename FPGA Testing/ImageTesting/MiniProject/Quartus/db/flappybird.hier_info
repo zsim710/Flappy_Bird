@@ -4,7 +4,7 @@ clk => pll:inst.refclk
 PS2_DAT <> MOUSE:inst6.mouse_data
 PS2_CLK <> MOUSE:inst6.mouse_clk
 SW9 => new_fsm:inst31.reset
-SW9 => pipe_pipe_pipe:inst17.reset
+SW9 => pipe_pipe_pipe:inst13.reset
 SW9 => level_fsm:inst20.reset
 pb[0] => new_fsm:inst31.pb0
 pb[1] => new_fsm:inst31.pb1
@@ -629,7 +629,7 @@ q_a[10] <= ram_block1a10.PORTADATAOUT
 q_a[11] <= ram_block1a11.PORTADATAOUT
 
 
-|flappybird|bird:inst90
+|flappybird|bird:inst14
 clk => bird_y_pos[0].CLK
 clk => bird_y_pos[1].CLK
 clk => bird_y_pos[2].CLK
@@ -666,6 +666,7 @@ left_click => left_click_pressed.OUTPUTSELECT
 left_click => Move_bird.IN1
 pause_training_state => Move_bird.IN0
 pause_normal_state => Move_bird.IN1
+end_game_state => Move_bird.IN1
 pixel_row[0] => Add6.IN17
 pixel_row[0] => LessThan5.IN22
 pixel_row[1] => Add6.IN16
@@ -973,9 +974,10 @@ collision_counter[1] <= v_collision_counter[1].DB_MAX_OUTPUT_PORT_TYPE
 output_collision <= collision_flag.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|flappybird|pipe_pipe_pipe:inst17
-normal_mode => ~NO_FANOUT~
-training_mode => ~NO_FANOUT~
+|flappybird|pipe_pipe_pipe:inst13
+normal_state => speed_control:SPEED_CHANGER.normal_state
+normal_state => gap_width_control:GAP_WIDTH.normal_state
+training_state => ~NO_FANOUT~
 clk => GaloisLFSR8:LFSR1.clk
 reset => ~NO_FANOUT~
 vert_sync => gap_pos_cent2[0].CLK
@@ -1042,7 +1044,7 @@ vert_sync => \pipe_movement:prev_x1[9].CLK
 vert_sync => \pipe_movement:prev_x1[10].CLK
 pause_training_state => pipe_movement.IN0
 pause_normal_state => pipe_movement.IN1
-pause_normal_state => gap_width_control:GAP_WIDTH.normal_state
+end_game_state => pipe_movement.IN1
 medium_mode_out => speed_control:SPEED_CHANGER.medium_mode_out
 medium_mode_out => gap_width_control:GAP_WIDTH.medium_mode_out
 hard_mode_out => speed_control:SPEED_CHANGER.hard_mode_out
@@ -1166,7 +1168,7 @@ pipe_on <= pipe_on.DB_MAX_OUTPUT_PORT_TYPE
 piped_pass <= piped_pass.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|flappybird|pipe_pipe_pipe:inst17|GaloisLFSR8:LFSR1
+|flappybird|pipe_pipe_pipe:inst13|GaloisLFSR8:LFSR1
 clk => lfsr[0].CLK
 clk => lfsr[1].CLK
 clk => lfsr[2].CLK
@@ -1193,7 +1195,7 @@ lfsr_out[6] <= lfsr[6].DB_MAX_OUTPUT_PORT_TYPE
 lfsr_out[7] <= lfsr[7].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|flappybird|pipe_pipe_pipe:inst17|speed_control:SPEED_CHANGER
+|flappybird|pipe_pipe_pipe:inst13|speed_control:SPEED_CHANGER
 medium_mode_out => speed[0].OUTPUTSELECT
 medium_mode_out => speed[1].OUTPUTSELECT
 medium_mode_out => speed[31].IN1
@@ -1240,7 +1242,7 @@ speed[30] <= <GND>
 speed[31] <= <GND>
 
 
-|flappybird|pipe_pipe_pipe:inst17|gap_width_control:GAP_WIDTH
+|flappybird|pipe_pipe_pipe:inst13|gap_width_control:GAP_WIDTH
 medium_mode_out => gap_half_width[2].OUTPUTSELECT
 medium_mode_out => gap_half_width[31].IN1
 medium_mode_out => gap_half_width[3].DATAA
@@ -3820,5 +3822,51 @@ q_a[4] <= ram_block1a4.PORTADATAOUT
 q_a[5] <= ram_block1a5.PORTADATAOUT
 q_a[6] <= ram_block1a6.PORTADATAOUT
 q_a[7] <= ram_block1a7.PORTADATAOUT
+
+
+|flappybird|gap_width_control:inst1
+medium_mode_out => gap_half_width[2].OUTPUTSELECT
+medium_mode_out => gap_half_width[31].IN1
+medium_mode_out => gap_half_width[3].DATAA
+hard_mode_out => gap_half_width[31].IN0
+hard_mode_out => gap_half_width[2].DATAA
+impossible_mode_out => gap_half_width[31].IN1
+normal_state => comb.IN1
+normal_state => gap_half_width[31].IN1
+normal_state => gap_half_width[3].OUTPUTSELECT
+normal_state => gap_half_width[2].OUTPUTSELECT
+normal_state => comb.IN1
+gap_half_width[0] <= <GND>
+gap_half_width[1] <= gap_half_width[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+gap_half_width[2] <= gap_half_width[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+gap_half_width[3] <= gap_half_width[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+gap_half_width[4] <= <VCC>
+gap_half_width[5] <= <VCC>
+gap_half_width[6] <= <GND>
+gap_half_width[7] <= <GND>
+gap_half_width[8] <= <GND>
+gap_half_width[9] <= <GND>
+gap_half_width[10] <= <GND>
+gap_half_width[11] <= <GND>
+gap_half_width[12] <= <GND>
+gap_half_width[13] <= <GND>
+gap_half_width[14] <= <GND>
+gap_half_width[15] <= <GND>
+gap_half_width[16] <= <GND>
+gap_half_width[17] <= <GND>
+gap_half_width[18] <= <GND>
+gap_half_width[19] <= <GND>
+gap_half_width[20] <= <GND>
+gap_half_width[21] <= <GND>
+gap_half_width[22] <= <GND>
+gap_half_width[23] <= <GND>
+gap_half_width[24] <= <GND>
+gap_half_width[25] <= <GND>
+gap_half_width[26] <= <GND>
+gap_half_width[27] <= <GND>
+gap_half_width[28] <= <GND>
+gap_half_width[29] <= <GND>
+gap_half_width[30] <= <GND>
+gap_half_width[31] <= <GND>
 
 

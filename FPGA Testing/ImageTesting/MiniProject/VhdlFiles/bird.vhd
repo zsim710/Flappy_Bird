@@ -6,7 +6,7 @@ use IEEE.STD_LOGIC_SIGNED.all;
 entity bird is
   port
   (
-    clk, left_click, pause_training_state, pause_normal_state : in std_logic;
+    clk, left_click, pause_training_state, pause_normal_state, end_game_state : in std_logic;
     pixel_row, pixel_column                                   : in std_logic_vector(9 downto 0);
     powerup_active : in std_logic;
     active_powerup_type : in std_logic_vector(2 downto 0);
@@ -32,7 +32,7 @@ begin
     variable left_click_pressed  : std_logic                    := '0';
   begin
     -- Move bird once every vert_sync
-    if (pause_training_state = '1' or pause_normal_state = '1') then
+    if (pause_training_state = '1' or pause_normal_state = '1' or end_game_state = '1') then
       bird_y_motion <= "0000000000";
       else
       if (bird_y_motion = "0000000000" and previousYbirdMotion /= "0000000000") then
