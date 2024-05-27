@@ -6,41 +6,40 @@ use IEEE.STD_LOGIC_UNSIGNED.all;
 entity image_rom is
   port
   (
-    character_address  : in std_logic_vector (7 downto 0);
-    font_row, font_col : in std_logic_vector (3 downto 0);
     clock              : in std_logic;
-    rom_output         : out std_logic -- 12-bit pixel value
+    font_row, font_col : in std_logic_vector (3 downto 0);
+    rom_output         : out std_logic_vector(12 downto 0) -- 1-bit alpha and 12-bit color
   );
 end image_rom;
 
 architecture Behavioral of image_rom is
 
-  signal rom_data    : std_logic_vector(11 downto 0); -- 12-bit pixel value
-  signal rom_address : std_logic_vector(11 downto 0); -- 8-bit address for 16x16 image
+  signal rom_data    : std_logic_vector(12 downto 0); -- 1-bit alpha and 12-bit color
+  signal rom_address : std_logic_vector(12 downto 0); -- 8-bit address for 16x16 image
 
   component altsyncram
     generic
     (
-      address_aclr_a         : string  := "NONE";
-      clock_enable_input_a   : string  := "BYPASS";
-      clock_enable_output_a  : string  := "BYPASS";
-      init_file              : string  := "og_flappy_bird.mif"; -- specify the mif file
-      intended_device_family : string  := "Cyclone III";
-      lpm_hint               : string  := "ENABLE_RUNTIME_MOD=NO";
-      lpm_type               : string  := "altsyncram";
-      numwords_a             : natural := 256; -- 16 * 16 = 256
-      operation_mode         : string  := "ROM";
-      outdata_aclr_a         : string  := "NONE";
-      outdata_reg_a          : string  := "UNREGISTERED";
-      widthad_a              : natural := 8; -- address width
-      width_a                : natural := 12; -- data width (RGB444)
-      width_byteena_a        : natural := 1
+      address_aclr_a         : string;
+      clock_enable_input_a   : string;
+      clock_enable_output_a  : string;
+      init_file              : string;
+      intended_device_family : string;
+      lpm_hint               : string;
+      lpm_type               : string;
+      numwords_a             : natural;
+      operation_mode         : string;
+      outdata_aclr_a         : string;
+      outdata_reg_a          : string;
+      widthad_a              : natural;
+      width_a                : natural;
+      width_byteena_a        : natural
     );
     port
     (
       clock0    : in std_logic;
       address_a : in std_logic_vector (11 downto 0);
-      q_a       : out std_logic_vector (11 downto 0)
+      q_a       : out std_logic_vector (13 downto 0) -- 1-bit alpha and 12-bit color
     );
   end component;
 
@@ -61,8 +60,8 @@ begin
   operation_mode         => "ROM",
   outdata_aclr_a         => "NONE",
   outdata_reg_a          => "UNREGISTERED",
-  widthad_a              => 8, -- address width
-  width_a                => 12, -- data width (RGB444)
+  widthad_a              => 12, -- address width
+  width_a                => 13, -- data width (RGB444)
   width_byteena_a        => 1
   )
   port map
@@ -72,7 +71,7 @@ begin
     q_a       => rom_data
   );
 
-  rom_address <= character_address & font_row;
-  rom_output  <= rom_data (CONV_INTEGER(not font_col(2 downto 0)));
+  rom_address <= font_row & font_col;
+  rom_output  <= rom_data;
 
 end Behavioral;
