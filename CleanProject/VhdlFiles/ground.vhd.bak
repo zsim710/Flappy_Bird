@@ -1,0 +1,32 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.STD_LOGIC_ARITH.all;
+use IEEE.STD_LOGIC_SIGNED.all;
+entity ground is
+  port
+  (
+    vert_sync               : in std_logic;
+    pixel_row, pixel_column : in std_logic_vector(9 downto 0);
+    ground_on               : out std_logic;
+    rgb_ground              : out std_logic_vector(12 downto 0)
+  );
+end entity ground;
+
+architecture behavior of ground is
+  signal ground_height               : std_logic_vector(10 downto 0);
+  signal screen_width, screen_height : std_logic_vector(10 downto 0);
+  signal ground_width                : std_logic_vector(10 downto 0);
+  signal ground_x_pos                : std_logic_vector(10 downto 0) := CONV_STD_LOGIC_VECTOR(319, 11);
+  signal ground_y_pos                : std_logic_vector(9 downto 0)  := CONV_STD_LOGIC_VECTOR(460, 10);
+
+begin
+  -- Screen and pipe dimensions set here
+  ground_height <= CONV_STD_LOGIC_VECTOR(450, 11);
+  ground_width  <= CONV_STD_LOGIC_VECTOR(639, 11);
+
+  ground_on <= '1' when (('0' & pixel_column <= '0' & ground_width) and ('0' & pixel_row >= ground_height)) else
+    '0';
+
+  rgb_ground <= "0001000101111" when ground_on = '0' else
+
+  end behavior;

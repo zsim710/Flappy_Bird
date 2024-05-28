@@ -1,0 +1,47 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.STD_LOGIC_ARITH.all;
+use IEEE.STD_LOGIC_UNSIGNED.all;
+
+entity SignalHigh is
+  port
+  (
+    clk, menu_state  : in std_logic;
+    bird_on, pipe_on : in std_logic;
+    output_collision : out std_logic
+  );
+end SignalHigh;
+
+architecture Behavioral of SignalHigh is
+  signal high_signal      : std_logic := '0';
+  signal collision_signal : std_logic := '0';
+begin
+
+  init : process (menu_state, bird_on, pipe_on)
+  begin
+    if menu_state = '1' then
+      collision_signal <= '0';
+    elsif bird_on = '1' and pipe_on = '1' then
+      collision_signal <= '1';
+    else
+      collision_signal <= '0';
+    end if;
+  end process init;
+
+  smoothing_collisions : process (clk, menu_state, collision_signal)
+  begin
+    if menu_state = '1' then
+      high_signal <= '0';
+    elsif rising_edge(clk) then
+      if signal_in = '1' then
+        high_signal <= '1';
+      elsif collision_signal = '0' and high_signal = '1' then
+        high_signal <= '1';
+      else
+        high_signal <= '0';
+      end if;
+    end if;
+    output_collision <= high_signal;
+  end process smoothing_collisions;
+
+end Behavioral;
